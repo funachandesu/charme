@@ -1,0 +1,686 @@
+@font-face {
+  font-family: 'Noto Sans CJK JP DemiLight';
+  src: url('../../../../wp-includes/fonts/NotoSansCJKjp-DemiLight.otf')
+    format('opentype');
+}
+
+/* li {
+    list-style: none;
+} */
+
+
+.instagram {
+  display: block;
+  margin: 45px auto 0;
+  border: 1px solid #937f65;
+  background-color: #fff;
+  width: 54.9%;
+  min-width: 160px;
+  max-width: 350px;
+  height: 69px;
+  position: relative;
+}
+
+.instagram::before {
+  content: '';
+  background: url('../imgs/interview/instagram.png') no-repeat;
+  background-size: contain;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  left: 25px;
+  top: 15px;
+}
+
+.instagram > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-family: 'Futura Midium', sans-serif;
+  font-size: 2.4rem;
+  color: #937f65;
+  letter-spacing: 0.2em;
+  padding-left: 50px;
+}
+
+#keyvisual-wrapper {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.keytext {
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 10%;
+  position: relative;
+}
+
+.keyvisual {
+  margin-top: -5%;
+}
+
+#interview-wrapper {
+  padding: 105px 45px 75px !important;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.interview-title {
+  padding-bottom: 105px;
+}
+
+.interview-list-li:not(:last-child) {
+  padding-bottom: 55px;
+}
+
+.question {
+  font-size: 2rem;
+  font-family: 'Noto Sans CJK JP DemiLight', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  letter-spacing: 0.15em;
+}
+
+.question > span {
+  font-family: 'Futura Midium', sans-serif;
+  color: #937f65;
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+.answer-wrapper {
+  display: flex;
+  padding-top: 20px;
+  justify-content: space-between;
+}
+
+.icon {
+  width: 15%;
+}
+
+.answer {
+  font-size: 2rem;
+  background-color: #ebe7e1;
+  border-radius: 10px;
+  width: 81%;
+  padding: 10px 15px;
+  position: relative;
+  font-family: 'Noto Sans CJK JP DemiLight', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  letter-spacing: 0.15em;
+}
+
+.answer::before {
+  content: '';
+  background: url('../imgs/interview/answer.png') no-repeat;
+  background-size: 25px 25px;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  left: -20px;
+  top: 50px;
+}
+
+.a-mark {
+  font-family: 'Futura Midium', sans-serif;
+  color: #937f65;
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+.answer a {
+  text-decoration: none;
+  color: #424242;
+}
+
+.answer-subtext {
+  font-size: 1.4rem;
+  border-bottom: 1px solid #424242;
+}
+
+.interview-image-wrapper01 {
+  position: relative;
+  height: 76vw;
+  margin: 88px 0;
+  max-height: 657px;
+}
+
+.interview-image-wrapper01::before {
+  position: absolute;
+  content: '';
+  background: url('../imgs/interview/interview-bg01.png') no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 80vw;
+  top: -25px;
+}
+
+.interview-image01 {
+  position: absolute;
+  width: 56%;
+  top: 0;
+  left: 0;
+}
+
+.interview-image02 {
+  position: absolute;
+  width: 56%;
+  bottom: 0;
+  right: 0;
+}
+
+.interview-image-wrapper02 {
+  position: relative;
+  height: 74vw;
+  margin: 88px 0;
+  max-height: 657px;
+}
+
+.interview-image-wrapper02::before {
+  position: absolute;
+  content: '';
+  background: url('../imgs/interview/interview-bg02.png') no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 80vw;
+  top: -36px;
+}
+
+.interview-image03 {
+  position: absolute;
+  width: 56%;
+  top: 0;
+  right: 0;
+}
+
+.interview-image04 {
+  position: absolute;
+  width: 56%;
+  bottom: 0;
+  left: 0;
+}
+
+.interview-text {
+  padding: 50px 0 0;
+  font-size: 1.2rem;
+  font-family: 'Noto Sans CJK JP DemiLight', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+#profile {
+  padding: 135px 45px !important;
+  background: #ebe7e1;
+}
+
+.profile-name {
+  padding-bottom: 60px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.profile-icon {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 520px;
+}
+
+.profile-text {
+  padding-top: 40px;
+  text-align: center;
+}
+
+.instagram {
+  display: block;
+  margin: 45px auto 0;
+  border: 1px solid #937f65;
+  background-color: #fff;
+  width: 54.9%;
+  min-width: 160px;
+  max-width: 350px;
+  height: 69px;
+  position: relative;
+}
+
+.instagram::before {
+  content: '';
+  background: url('../imgs/interview/instagram.png') no-repeat;
+  background-size: contain;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  left: 25px;
+  top: 15px;
+}
+
+.instagram > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-family: 'Futura Midium', sans-serif;
+  font-size: 2.4rem;
+  color: #937f65;
+  letter-spacing: 0.2em;
+  padding-left: 50px;
+}
+
+@media (max-width: 700px) {
+  #interview-wrapper {
+    padding-top: calc(105px * 0.9);
+    padding-left: calc(45px * 0.9);
+    padding-right: calc(45px * 0.9);
+    padding-bottom: calc(75px * 0.9);
+  }
+  .interview-title {
+    padding-bottom: calc(105px * 0.9);
+  }
+  .interview-list-li:not(:last-child) {
+    padding-bottom: calc(55px * 0.9);
+  }
+  .interview-text {
+    font-size: calc(1.2rem * 0.9);
+  }
+  .question {
+    font-size: calc(2rem * 0.9);
+  }
+  .question > span {
+    font-size: calc(3rem * 0.9);
+  }
+  .answer-wrapper {
+    padding-top: calc(20px * 0.9);
+  }
+  .answer {
+    font-size: calc(2rem * 0.9);
+    padding-top: calc(10px * 0.9);
+    padding-left: calc(15px * 0.9);
+    padding-bottom: calc(10px * 0.9);
+    padding-right: calc(15px * 0.9);
+  }
+  .answer::before {
+    top: calc(50px * 0.9);
+    left: calc(-20px * 0.9);
+    width: calc(25px * 0.9);
+    height: calc(25px * 0.9);
+    background-size: cover;
+  }
+  .a-mark {
+    font-size: calc(3rem * 0.9);
+  }
+  .answer-subtext {
+    font-size: calc(1.4rem * 0.9);
+  }
+  .interview-image-wrapper01,
+  .interview-image-wrapper02 {
+    margin-top: calc(88px * 0.9);
+    margin-bottom: calc(88px * 0.9);
+  }
+  .interview-image-wrapper01::before {
+    top: calc(-25px * 0.9);
+  }
+  .interview-image-wrapper02::before {
+    top: calc(-36px * 0.9);
+  }
+  #profile {
+    padding-top: calc(135px * 0.9);
+    padding-left: calc(45px * 0.9);
+    padding-right: calc(45px * 0.9);
+    padding-bottom: calc(135px * 0.9);
+  }
+  .profile-name {
+    padding-bottom: calc(60px * 0.9);
+  }
+  .profile-text {
+    padding-top: calc(40px * 0.9);
+  }
+  .instagram {
+    margin: calc(45px * 0.9) auto 0;
+    height: calc(69px * 0.9);
+  }
+  .instagram::before {
+    width: calc(35px * 0.9);
+    top: calc(15px * 0.9);
+    left: calc(25px * 0.9);
+  }
+  .instagram > a {
+    font-size: calc(2.4rem * 0.9);
+    padding-left: calc(50px * 0.9);
+  }
+}
+
+@media (max-width: 630px) {
+  #interview-wrapper {
+    padding-top: calc(105px * 0.8);
+    padding-left: calc(45px * 0.8);
+    padding-right: calc(45px * 0.8);
+    padding-bottom: calc(75px * 0.8);
+  }
+  .interview-title {
+    padding-bottom: calc(105px * 0.8);
+  }
+  .interview-list-li:not(:last-child) {
+    padding-bottom: calc(55px * 0.8);
+  }
+  .interview-text {
+    font-size: calc(1.2rem * 0.8);
+  }
+  .question {
+    font-size: calc(2rem * 0.8);
+  }
+  .question > span {
+    font-size: calc(3rem * 0.8);
+  }
+  .answer-wrapper {
+    padding-top: calc(20px * 0.8);
+  }
+  .answer {
+    font-size: calc(2rem * 0.8);
+    padding-top: calc(10px * 0.8);
+    padding-left: calc(15px * 0.8);
+    padding-bottom: calc(10px * 0.8);
+    padding-right: calc(15px * 0.8);
+  }
+  .answer::before {
+    top: calc(50px * 0.8);
+    left: calc(-20px * 0.8);
+    width: calc(25px * 0.8);
+    height: calc(25px * 0.8);
+    background-size: cover;
+  }
+  .a-mark {
+    font-size: calc(3rem * 0.8);
+  }
+  .answer-subtext {
+    font-size: calc(1.4rem * 0.8);
+  }
+  .interview-image-wrapper01,
+  .interview-image-wrapper02 {
+    margin-top: calc(88px * 0.8);
+    margin-bottom: calc(88px * 0.8);
+  }
+  .interview-image-wrapper01::before {
+    top: calc(-25px * 0.8);
+  }
+  .interview-image-wrapper02::before {
+    top: calc(-36px * 0.8);
+  }
+  #profile {
+    padding-top: calc(135px * 0.8);
+    padding-left: calc(45px * 0.8);
+    padding-right: calc(45px * 0.8);
+    padding-bottom: calc(135px * 0.8);
+  }
+  .profile-name {
+    padding-bottom: calc(60px * 0.8);
+  }
+  .profile-text {
+    padding-top: calc(40px * 0.8);
+  }
+  .instagram {
+    margin: calc(45px * 0.8) auto 0;
+    height: calc(69px * 0.8);
+  }
+  .instagram::before {
+    width: calc(35px * 0.8);
+    top: calc(15px * 0.8);
+    left: calc(25px * 0.8);
+  }
+  .instagram > a {
+    font-size: calc(2.4rem * 0.8);
+    padding-left: calc(50px * 0.8);
+  }
+}
+
+@media (max-width: 565px) {
+  #interview-wrapper {
+    padding-top: calc(105px * 0.7);
+    padding-left: calc(45px * 0.7);
+    padding-right: calc(45px * 0.7);
+    padding-bottom: calc(75px * 0.7);
+  }
+  .interview-list-li:not(:last-child) {
+    padding-bottom: calc(55px * 0.7);
+  }
+  .interview-title {
+    padding-bottom: calc(105px * 0.7);
+  }
+  .interview-text {
+    font-size: calc(1.2rem * 0.7);
+  }
+  .question {
+    font-size: calc(2rem * 0.7);
+  }
+  .question > span {
+    font-size: calc(3rem * 0.7);
+  }
+  .answer-wrapper {
+    padding-top: calc(20px * 0.7);
+  }
+  .answer {
+    font-size: calc(2rem * 0.7);
+    padding-top: calc(10px * 0.7);
+    padding-left: calc(15px * 0.7);
+    padding-bottom: calc(10px * 0.7);
+    padding-right: calc(15px * 0.7);
+  }
+  .answer::before {
+    top: calc(50px * 0.7);
+    left: calc(-20px * 0.7);
+    width: calc(25px * 0.7);
+    height: calc(25px * 0.7);
+    background-size: cover;
+  }
+  .a-mark {
+    font-size: calc(3rem * 0.7);
+  }
+  .answer-subtext {
+    font-size: calc(1.4rem * 0.7);
+  }
+  .interview-image-wrapper01,
+  .interview-image-wrapper02 {
+    margin-top: calc(88px * 0.7);
+    margin-bottom: calc(88px * 0.7);
+  }
+  .interview-image-wrapper01::before {
+    top: calc(-25px * 0.7);
+  }
+  .interview-image-wrapper02::before {
+    top: calc(-36px * 0.7);
+  }
+  #profile {
+    padding-top: calc(135px * 0.7);
+    padding-left: calc(45px * 0.7);
+    padding-right: calc(45px * 0.7);
+    padding-bottom: calc(135px * 0.7);
+  }
+  .profile-name {
+    padding-bottom: calc(60px * 0.7);
+  }
+  .profile-text {
+    padding-top: calc(40px * 0.7);
+  }
+  .instagram {
+    margin: calc(45px * 0.7) auto 0;
+    height: calc(69px * 0.7);
+  }
+  .instagram::before {
+    width: calc(35px * 0.7);
+    top: calc(15px * 0.7);
+    left: calc(25px * 0.7);
+  }
+  .instagram > a {
+    font-size: calc(2.4rem * 0.7);
+    padding-left: calc(50px * 0.7);
+  }
+}
+
+@media (max-width: 500px) {
+  #interview-wrapper {
+    padding-top: calc(105px * 0.6);
+    padding-left: calc(45px * 0.6);
+    padding-right: calc(45px * 0.6);
+    padding-bottom: calc(75px * 0.6);
+  }
+  .interview-title {
+    padding-bottom: calc(105px * 0.6);
+  }
+  .interview-list-li:not(:last-child) {
+    padding-bottom: calc(55px * 0.6);
+  }
+  .interview-text {
+    font-size: calc(1.2rem * 0.6);
+  }
+  .question {
+    font-size: calc(2rem * 0.6);
+  }
+  .question > span {
+    font-size: calc(3rem * 0.6);
+  }
+  .answer-wrapper {
+    padding-top: calc(20px * 0.6);
+  }
+  .answer {
+    font-size: calc(2rem * 0.6);
+    padding-top: calc(10px * 0.6);
+    padding-left: calc(15px * 0.6);
+    padding-bottom: calc(10px * 0.6);
+    padding-right: calc(15px * 0.6);
+  }
+  .answer::before {
+    top: calc(50px * 0.6);
+    left: calc(-20px * 0.6);
+    width: calc(25px * 0.6);
+    height: calc(25px * 0.6);
+    background-size: cover;
+  }
+  .a-mark {
+    font-size: calc(3rem * 0.6);
+  }
+  .answer-subtext {
+    font-size: calc(1.4rem * 0.6);
+  }
+  .interview-image-wrapper01,
+  .interview-image-wrapper02 {
+    margin-top: calc(88px * 0.6);
+    margin-bottom: calc(88px * 0.6);
+  }
+  .interview-image-wrapper01::before {
+    top: calc(-25px * 0.6);
+  }
+  .interview-image-wrapper02::before {
+    top: calc(-36px * 0.6);
+  }
+  #profile {
+    padding-top: calc(135px * 0.6);
+    padding-left: calc(45px * 0.6);
+    padding-right: calc(45px * 0.6);
+    padding-bottom: calc(135px * 0.6);
+  }
+  .profile-name {
+    padding-bottom: calc(60px * 0.6);
+  }
+  .profile-text {
+    padding-top: calc(40px * 0.6);
+  }
+  .instagram {
+    margin: calc(45px * 0.6) auto 0;
+    height: calc(69px * 0.6);
+  }
+  .instagram::before {
+    width: calc(35px * 0.6);
+    top: calc(15px * 0.6);
+    left: calc(25px * 0.6);
+  }
+  .instagram > a {
+    font-size: calc(2.4rem * 0.6);
+    padding-left: calc(50px * 0.6);
+  }
+}
+
+@media (max-width: 425px) {
+  #interview-wrapper {
+    padding-top: calc(105px * 0.5);
+    padding-left: calc(45px * 0.5);
+    padding-right: calc(45px * 0.5);
+    padding-bottom: calc(75px * 0.5);
+  }
+  .interview-title {
+    padding-bottom: calc(105px * 0.5);
+  }
+  .interview-list-li:not(:last-child) {
+    padding-bottom: calc(55px * 0.5);
+  }
+  .interview-text {
+    font-size: calc(1.2rem * 0.5);
+  }
+  .question {
+    font-size: calc(2rem * 0.5);
+  }
+  .question > span {
+    font-size: calc(3rem * 0.5);
+  }
+  .answer-wrapper {
+    padding-top: calc(20px * 0.5);
+  }
+  .answer {
+    font-size: calc(2rem * 0.5);
+    padding-top: calc(10px * 0.5);
+    padding-left: calc(15px * 0.5);
+    padding-bottom: calc(10px * 0.5);
+    padding-right: calc(15px * 0.5);
+  }
+  .answer::before {
+    top: calc(50px * 0.5);
+    left: calc(-20px * 0.5);
+    width: calc(25px * 0.5);
+    height: calc(25px * 0.5);
+    background-size: cover;
+  }
+  .a-mark {
+    font-size: calc(3rem * 0.5);
+  }
+  .answer-subtext {
+    font-size: calc(1.4rem * 0.5);
+  }
+  .interview-image-wrapper01,
+  .interview-image-wrapper02 {
+    margin-top: calc(88px * 0.5);
+    margin-bottom: calc(88px * 0.5);
+  }
+  .interview-image-wrapper01::before {
+    top: calc(-25px * 0.5);
+  }
+  .interview-image-wrapper02::before {
+    top: calc(-36px * 0.5);
+  }
+  #profile {
+    padding-top: calc(135px * 0.5);
+    padding-left: calc(45px * 0.5);
+    padding-right: calc(45px * 0.5);
+    padding-bottom: calc(135px * 0.5);
+  }
+  .profile-name {
+    padding-bottom: calc(60px * 0.5);
+  }
+  .profile-text {
+    padding-top: calc(40px * 0.5);
+  }
+  .instagram {
+    margin: calc(45px * 0.5) auto 0;
+    height: calc(69px * 0.5);
+  }
+  .instagram::before {
+    width: calc(35px * 0.5);
+    top: calc(15px * 0.5);
+    left: calc(25px * 0.5);
+  }
+  .instagram > a {
+    font-size: calc(2.4rem * 0.5);
+    padding-left: calc(50px * 0.5);
+  }
+}

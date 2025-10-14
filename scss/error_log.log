@@ -1,0 +1,4 @@
+03/13/21 9:38:01: style.scss - parse error: failed at `opacity: ` /Applications/MAMP/htdocs/charme-beauty.jp/wp-content/themes/charme-beauty/scss/style.scss on line 347, at column 5
+03/13/21 3:27:27: style.scss - unclosed block: failed at `` /Applications/MAMP/htdocs/charme-beauty.jp/wp-content/themes/charme-beauty/scss/style.scss on line 2632, at column 0
+03/14/21 2:38:49: style.scss - parse error: failed at `$('.burger-btn').on('click',function(){` /Applications/MAMP/htdocs/charme-beauty.jp/wp-content/themes/charme-beauty/scss/style.scss on line 319, at column 1
+03/14/21 2:40:49: style.scss - parse error: failed at `$('.burger-btn').on('click',function(){` /Applications/MAMP/htdocs/charme-beauty.jp/wp-content/themes/charme-beauty/scss/style.scss on line 319, at column 1

@@ -1,0 +1,59 @@
+@use "../../global" as *;
+
+.p-evaluation {
+  margin-top: rm(30);
+
+}
+
+.p-evaluation__top {
+
+}
+
+.p-evaluation__header {
+ display: grid;
+  align-items: center;
+  text-align: center;
+}
+
+.p-evaluation__top-sentence {
+  @include font(14, 700, 26, 1.4);
+  &.--no {
+    @include font(48, 700, 72, 4.8);
+  }
+  
+  &.--big {
+    @include font(32, 700, 52, 3.2);
+  }
+}
+
+
+.p-evaluation__body {
+  margin-top: rm(8);
+  margin-bottom: rm(9);
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.p-evaluation__logo-img {
+  position: absolute;
+  top: rm(60);
+  left: 50%;
+  translate:-50% 0;
+  width: rm(394);
+  height: rm(64);
+}
+
+.p-evaluation__graph-img{
+  position: relative;
+  z-index: 1;
+  width: rm(257);
+  height: rm(324);
+}
+
+.p-evaluation__bottom-sentence {
+  width: rm(262);
+  margin-inline: auto;
+  @include font(14, 700, 26, 1.4);
+}
+

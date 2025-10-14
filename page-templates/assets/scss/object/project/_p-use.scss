@@ -1,0 +1,100 @@
+@use "../../global" as *;
+
+.p-use {
+  
+}
+
+.l-inner {
+
+}
+
+.p-use__container {
+  padding-inline: rm(17);
+  padding-top: rm(13);
+  border: 1px #000 solid ;
+  border-bottom: none;
+  border-top-left-radius: rm(8);
+  border-top-right-radius: rm(8);
+}
+
+.p-use__top {
+  position: relative;
+  p{
+    @include font(14, 700, 28, 1.4);
+  }
+  h2{
+    @include font(24, 700, 52, 2.4);
+  }
+}
+
+.p-use__top-yellow{
+  background-color: #FFE100;
+  display: inline;
+  padding: rm(3);
+}
+
+.p-use__top--small{
+  @include font(14, 700, 28, );
+  margin-left: rm(8);
+}
+
+.p-use__arrow-img {
+  
+  height: rm(37);
+  width:  rm(19.642);
+  position: absolute;
+  left: rm(17);
+  bottom: rm(-31);
+}
+
+.p-use__sentence {
+  margin-top: rm(42);
+  @include font(14, 600, 26, 1.4);
+  position: relative;
+  z-index: 1;
+}
+
+.p-use__cta-btn-wrap {
+  margin-top: rm(23);
+  position: relative;
+  padding-bottom: rm(27);
+}
+
+.p-use-cta__img {
+  position: absolute;
+  width: rm(216);
+  height: rm(213);
+  top: rm(-213);
+  right: 0;
+  
+}
+
+.c-cta-btn {
+  padding-left: rm(10);
+  padding-block: rm(7);
+  border-radius: rm(4);
+  background: #FF4469;
+  display: flex;
+  gap: rm(7);
+  align-items: center;
+}
+
+.c-cta-btn__icon {
+  height: rm(29);
+  width: rm(29);
+}
+
+.c-cta-btn__text {
+  @include font(14, 700, 20, 1.4);
+  font-family: $ff-jp2;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.p-use__dot-img{
+  width: rm(321);
+  height: rm(6);
+  position: relative;
+  z-index: 1;
+  translate: 0 rm(3);
+}

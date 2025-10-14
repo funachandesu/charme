@@ -1,0 +1,88 @@
+@use "../../global" as *;
+
+.p-voice {
+  padding-top: rm(31);
+  padding-bottom: rm(23);
+}
+
+.p-voice__top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.p-voice__top-text {
+  color: #fff;
+  &.--en {
+    @include font(14, 800, 22, 1.4);
+  }
+
+  &.--ja {
+    @include font(14, 800, 22, 1.4);
+  }
+}
+
+
+.p-voice__top-header {
+  margin-top: rm(11);
+  @include font(24, 700, 40, 2.4);
+  font-family: $ff-jp2;
+  color: #fff;
+}
+
+.p-voice__list {
+  margin-top: rm(30);
+  display: grid;
+  gap:rm(16);
+}
+
+.p-voice__list-item {
+  padding-top: rm(14);
+  padding-bottom: rm(11);
+  padding-left: rm(17);
+  padding-right: rm(17);
+  background-color: #fff;
+  border: 1px #000 solid ;
+  border-radius: 8px;
+}
+
+.p-voice__item-top {
+  display: flex;
+  gap: rm(17);
+  align-items: center;
+  padding-bottom: rm(11);
+  border-bottom: 1px solid #000;
+}
+
+.p-voice__item-icon {
+  width: rm(73);
+  height: rm(73);
+}
+
+.p-voice__item-top-content {
+  display: flex;
+  flex-direction: column;
+  gap: rm(4);
+}
+
+.p-voice__item-top-name {
+  @include font(14, 700, 28, 1.4);
+}
+
+.p-voice__item-top-star {
+  height: rm(15.251);
+  width: auto;
+}
+
+.p-voice__list-item-body {
+  margin-top: rm(12);
+}
+
+.p-voice__item-body-sentence {
+  @include font(14, 400, 28, 1.4);
+  display: inline-block;
+  span{
+    color: #FF4469;
+    font-weight: 600;
+  }
+}
+

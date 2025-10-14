@@ -1,0 +1,60 @@
+@use "../../global" as *;
+
+.p-coupon {
+
+}
+
+.p-coupon__container {
+  padding-bottom: rm(10);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.60);
+  position: relative;
+}
+
+.p-coupon__text-box {
+  width: fit-content;
+  position: relative;
+  z-index: 1;
+}
+
+.p-coupon__text {
+  display: inline-block;
+  background: $color-grade;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: $ff-jp2;
+  &.--ja1 {
+    @include font(80, 700, 72.37, 8);
+  }
+  
+  &.--en {
+    margin-top: rm(11);
+    @include font(40, 700, 56, 4);
+  }
+  
+  &.--ja2 {
+    @include font(40, 700, 56, 4);
+  
+  }
+  
+  &.--ttb {
+    writing-mode: vertical-lr;
+    position: absolute;
+    left: rm(178);
+    top: 0;
+    @include font(24, 700, 26, 2.4);
+    display: inline-block;
+    background:linear-gradient(126deg, #8D5900 31.93%, #FFB300 49.77%, #8D5900 67.62%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+
+.p-coupon__img {
+  position: absolute;
+  width: rm(255);
+  height: rm(340);
+  bottom: 0;
+  right: rm(-62);
+}
+

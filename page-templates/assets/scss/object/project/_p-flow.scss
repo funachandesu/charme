@@ -1,0 +1,148 @@
+@use "../../global" as *;
+.p-flow {
+  color: #fff;
+
+  position: relative;
+  z-index: 2;
+}
+
+.p-flow__top-wrapper{
+  padding-top: rm(29);
+  padding-bottom: rm(37);
+  overflow: visible;
+  position: relative;
+  &::after{
+    content: "";
+    position: absolute;
+    z-index: 1;
+    display: inline-block;
+    width: rm(46);
+    height: rm(20);
+    background: #FF4469;
+    clip-path: polygon(0 0, 100% 0%, 50% 100%);
+    bottom: rm(-19);
+    left: 50%;
+    translate: -50% ;
+  }
+}
+
+.p-flow__top-container{
+  position: relative;
+
+  &::before{
+    content: "";
+    position: absolute;
+    width: rm(30);
+    height: rm(28);
+    right: 0;
+    top: 0;
+    border-top:1px solid #fff;
+    border-right:1px solid #fff;
+    border-top-right-radius: rm(2);
+  }
+  &::after{
+    content: "";
+    position: absolute;
+    width: rm(30);
+    height: rm(28);
+    left: 0;
+    bottom: 0;
+    border-bottom:1px solid #fff;
+    border-left:1px solid #fff;
+    border-bottom-left-radius: rm(2);
+  }
+}
+
+
+.p-flow__top-text {
+  @include font(14, 800, 16, 1.4);
+  text-transform: uppercase;
+  position: absolute;
+  &.--tl {
+    top: rm(-8);
+    left: 0;
+  }
+  
+  &.--br {
+    @include font(14, 600, 16, 1.4);
+    bottom: rm(-4);
+    right: 0;
+  }
+}
+
+
+.p-flow__body {
+  padding-top: rm(47);
+  padding-bottom: rm(37);
+  color: #fff;
+  text-align: center;
+}
+
+.p-flow__body-text{
+  &.--small{
+    @include font(14, 600, 21, 1.4);
+  }
+  &.--big{
+    @include font(40, 700, 64, 4);
+    font-family: $ff-jp2;
+  }
+}
+
+.p-flow__list-wrapper{
+  background-color: #fff;
+  padding-top: rm(37);
+  padding-bottom: rm(21);
+}
+
+.p-flow__item-list {
+  display: grid;
+  gap: rm(23);
+}
+
+.p-flow__item {
+  border: 1px #FF4469 solid ;
+}
+
+.p-flow__item-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.p-flow__item-no {
+  @include font(24, 700, 38, 2.4);
+  padding-left: rm(11);
+  padding-right: rm(10);
+  background: #FF4469;
+}
+
+.p-flow__item-ttl {
+  @include font(16, 700, 37, 1.6);
+  color: #FF4469;
+  font-family: $ff-jp2;
+  border-bottom: 1px solid #FF4469;
+  flex:100% ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: rm(6);
+}
+
+.p-flow__item-ttl-icon{
+  width: rm(20);
+  height: rm(20);
+}
+
+.p-flow__item-ttl-text {
+
+}
+
+.p-flow__item-body {
+  padding:rm(10) rm(16);
+}
+
+.p-flow__item-body-sentence {
+  @include font(14, 400, 26, 1.4);
+  color: #000;
+}
+

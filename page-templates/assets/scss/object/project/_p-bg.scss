@@ -1,0 +1,52 @@
+@use "../../global" as *;
+.p-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.p-bg--white{
+  background-color: #fff;
+}
+.p-bg--white2{
+  background-color: #fff;
+  border-radius:rm(8);
+  padding-bottom: rm(17);
+}
+
+.p-bg--yellow{
+  background-color: #FFE100;
+  padding-top: rm(16);
+  padding-bottom: rm(40);
+  overflow: visible;
+  position: relative;
+  &::after{
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: rm(72);
+    height: rm(45);
+    background: #FFE100;
+    clip-path: polygon(0 0, 100% 0%, 50% 100%);
+    bottom: rm(-44);
+    left: 50%;
+    translate: -50% ;
+  }
+}
+
+.p-bg--black{
+  background-color: #000;
+  padding-top: rm(112);
+  padding-bottom: rm(20);
+  border-bottom-right-radius: rm(8);
+  border-bottom-left-radius: rm(8);
+}

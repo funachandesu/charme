@@ -1,0 +1,13 @@
+@use "../../global" as *;
+
+.c-top-logo{
+  position: absolute;
+  top: rm(10);
+  left: 50%;
+  translate: -50%;
+  z-index: 100;
+  img{
+    width: rm(74);
+    height: rm(20);
+  }
+}
