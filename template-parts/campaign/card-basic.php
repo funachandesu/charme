@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * Basic Campaign Card Template
+ * ベーシックキャンペーンカード（コンパクトサイズ）
+ */
+
+$post_id = get_the_ID();
+$tier = charme_get_field_safe('tier', $post_id);
+$end_date = charme_get_field_safe('end_date', $post_id);
+$campaign_months = charme_get_field_array_safe('campaign_months', $post_id);
+$title = charme_get_field_safe('title', $post_id) ?: get_the_title();
+$price_blocks = charme_get_price_blocks($post_id);
+$kv_image = get_field('kv_image', $post_id);
+$featured_image_id = $kv_image ? $kv_image['ID'] : get_post_thumbnail_id($post_id);
+?>
+
+<article class="<?php echo esc_attr(charme_campaign_card_class($tier)); ?> ch-campaign-card--small">
+    <div class="ch-campaign-card__inner">
+
+        <!-- 画像エリア -->
+        <div class="ch-campaign-card__image">
+            <?php if ($featured_image_id): ?>
+                <img src="<?php echo esc_url(charme_campaign_get_image_url($featured_image_id, 'charme-campaign-thumb')); ?>"
+                    alt="<?php echo esc_attr(get_post_meta($featured_image_id, '_wp_attachment_image_alt', true)); ?>"
+                    loading="lazy"
+                    class="ch-campaign-card__img">
+            <?php endif; ?>
+
+        </div>
+
+        <!-- コンテンツエリア -->
+        <div class="ch-campaign-card__content">
+
+            <!-- メタ情報 -->
+            <div class="ch-campaign-card__meta">
+                <?php if ($end_date): ?>
+                    <span class="ch-campaign-meta__deadline">
+                        <?php echo esc_html(date('Y年n月j日', strtotime($end_date))); ?>まで
+                    </span>
+                <?php endif; ?>
+            </div>
+
+            <!-- タイトル -->
+            <h3 class="ch-campaign-card__title">
+                <a href="<?php echo esc_url(get_permalink()); ?>"><?php echo esc_html($title); ?></a>
+            </h3>
+
+            <!-- クリニック情報 -->
+            <?php if ($clinic_id): ?>
+                <div class="ch-campaign-card__clinics">
+                    <span class="ch-clinics__label">対象:</span>
+                    <span class="ch-clinic-tag"><?php echo esc_html(get_the_title($clinic_id)); ?></span>
+                </div>
+            <?php endif; ?>
+
+            <!-- CTA -->
+            <div class="ch-campaign-card__actions">
+                <a href="<?php echo esc_url(charme_get_line_cta_url($post_id)); ?>"
+                    class="ch-btn ch-btn--primary ch-btn--small"
+                    data-event="campaign_cta"
+                    data-campaign-id="<?php echo esc_attr($post_id); ?>"
+                    data-tier="<?php echo esc_attr($tier); ?>">
+                    LINE相談
+                </a>
+            </div>
+        </div>
+    </div>
+</article>
