@@ -4,169 +4,30 @@
         "title": "CHARME: Campaign v2",
         "fields": [
             {
-                "key": "field_campaign_clinic",
-                "label": "提携クリニック",
-                "name": "clinic",
-                "type": "post_object",
-                "instructions": "紐づける提携クリニックを選択",
-                "required": 1,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "post_type": [
-                    "clinic"
-                ],
-                "return_format": "id",
-                "ui": 1,
-                "taxonomy": [],
-                "allow_null": 0,
-                "multiple": 0,
-                "save_custom": 0,
-                "save_post_type": "",
-                "save_post_status": ""
-            },
-            {
-                "key": "field_campaign_tier",
-                "label": "掲載プラン",
-                "name": "tier",
-                "type": "select",
-                "instructions": "広告料の3段階プラン",
-                "required": 1,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "choices": {
-                    "premium": "Premium",
-                    "standard": "Standard",
-                    "basic": "Basic"
-                },
-                "default_value": "standard",
-                "allow_null": 0,
-                "multiple": 0,
-                "ui": 1,
-                "return_format": "value",
-                "ajax": 0,
-                "placeholder": "",
-                "allow_custom": 0,
-                "search_placeholder": ""
-            },
-            {
-                "key": "field_campaign_status",
-                "label": "掲載状態",
-                "name": "status",
-                "type": "radio",
-                "instructions": "ステータス管理（自動切替あり）",
-                "required": 1,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "choices": {
-                    "draft": "下書き",
-                    "scheduled": "公開予約（start_date で自動）",
-                    "published": "掲載中",
-                    "ended": "終了"
-                },
-                "default_value": "published",
-                "layout": "horizontal",
-                "return_format": "value",
-                "other_choice": 0,
-                "save_other_choice": 0,
-                "allow_null": 0
-            },
-            {
-                "key": "field_campaign_priority_score",
-                "label": "手動優先度（0-100）",
-                "name": "priority_score",
-                "type": "number",
-                "instructions": "並び順の微調整に利用",
-                "required": 0,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": 0,
-                "min": 0,
-                "max": 100,
-                "step": 1,
-                "placeholder": "",
-                "prepend": "",
-                "append": ""
-            },
-            {
-                "key": "field_campaign_months",
-                "label": "実施月",
-                "name": "campaign_months",
-                "type": "select",
-                "instructions": "該当する月を複数選択（任意）",
-                "required": 0,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "choices": {
-                    "2025-10": "2025-10",
-                    "2025-11": "2025-11",
-                    "2025-12": "2025-12",
-                    "2026-01": "2026-01",
-                    "2026-02": "2026-02",
-                    "2026-03": "2026-03"
-                },
-                "allow_null": 1,
-                "multiple": 1,
-                "ui": 1,
-                "return_format": "value",
-                "default_value": [],
-                "ajax": 0,
-                "placeholder": "",
-                "allow_custom": 0,
-                "search_placeholder": ""
-            },
-            {
-                "key": "field_campaign_start_date",
-                "label": "開始日時",
-                "name": "start_date",
-                "type": "date_time_picker",
+                "key": "field_campaign_clinic_logo_override",
+                "label": "キャンペーンバナー",
+                "name": "clinic_logo_override",
+                "type": "image",
                 "instructions": "",
                 "required": 0,
-                "conditional_logic": false,
+                "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
                     "class": "",
                     "id": ""
                 },
-                "display_format": "Y-m-d H:i",
-                "return_format": "Y-m-d H:i:s",
-                "first_day": 1
-            },
-            {
-                "key": "field_campaign_end_date",
-                "label": "終了日時",
-                "name": "end_date",
-                "type": "date_time_picker",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "display_format": "Y-m-d H:i",
-                "return_format": "Y-m-d H:i:s",
-                "first_day": 1
+                "uploader": "",
+                "return_format": "array",
+                "preview_size": "medium",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "acfe_thumbnail": 0
             },
             {
                 "key": "field_campaign_title",
@@ -207,166 +68,6 @@
                 "append": ""
             },
             {
-                "key": "field_campaign_description",
-                "label": "キャンペーン内容",
-                "name": "description",
-                "type": "wysiwyg",
-                "instructions": "",
-                "required": false,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "tabs": "all",
-                "toolbar": "full",
-                "media_upload": 1,
-                "default_value": "",
-                "delay": 0
-            },
-            {
-                "key": "field_campaign_kv_image",
-                "label": "メイン画像（KV）",
-                "name": "kv_image",
-                "type": "image",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "array",
-                "preview_size": "medium",
-                "library": "all",
-                "min_width": 0,
-                "min_height": 0,
-                "min_size": 0,
-                "max_width": 0,
-                "max_height": 0,
-                "max_size": 0,
-                "mime_types": "",
-                "uploader": "",
-                "acfe_thumbnail": 0
-            },
-            {
-                "key": "field_campaign_gallery",
-                "label": "ギャラリー",
-                "name": "gallery",
-                "type": "gallery",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": [
-                    [
-                        {
-                            "field": "field_campaign_tier",
-                            "operator": "!=",
-                            "value": "basic"
-                        }
-                    ]
-                ],
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "array",
-                "preview_size": "medium",
-                "insert": "append",
-                "library": "all",
-                "min": 0,
-                "max": 0,
-                "min_width": 0,
-                "min_height": 0,
-                "min_size": 0,
-                "max_width": 0,
-                "max_height": 0,
-                "max_size": 0,
-                "mime_types": ""
-            },
-            {
-                "key": "field_campaign_benefits",
-                "label": "特典（複数可）",
-                "name": "benefits",
-                "type": "repeater",
-                "instructions": "特典の要点を箇条書き",
-                "required": 0,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "collapsed": "field_campaign_benefit_heading",
-                "min": 0,
-                "max": 0,
-                "layout": "table",
-                "button_label": "特典を追加",
-                "acfe_repeater_stylised_button": 0,
-                "sub_fields": [
-                    {
-                        "key": "field_campaign_benefit_heading",
-                        "label": "見出し",
-                        "name": "heading",
-                        "type": "text",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": false,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "maxlength": "",
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": ""
-                    },
-                    {
-                        "key": "field_campaign_benefit_body",
-                        "label": "本文",
-                        "name": "body",
-                        "type": "textarea",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": false,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "rows": 2,
-                        "default_value": "",
-                        "new_lines": "",
-                        "maxlength": "",
-                        "placeholder": "",
-                        "acfe_textarea_code": 0
-                    },
-                    {
-                        "key": "field_campaign_benefit_icon",
-                        "label": "アイコン（任意）",
-                        "name": "icon",
-                        "type": "text",
-                        "instructions": "SVG名やクラス名など",
-                        "required": false,
-                        "conditional_logic": false,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "maxlength": "",
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": ""
-                    }
-                ]
-            },
-            {
                 "key": "field_campaign_recommended_for",
                 "label": "こんな方におすすめ",
                 "name": "recommended_for",
@@ -385,6 +86,25 @@
                 "maxlength": "",
                 "placeholder": "",
                 "acfe_textarea_code": 0
+            },
+            {
+                "key": "field_campaign_description",
+                "label": "キャンペーン内容",
+                "name": "description",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "default_value": "",
+                "delay": 0
             },
             {
                 "key": "field_campaign_price_block",
@@ -464,27 +184,6 @@
                         "append": ""
                     },
                     {
-                        "key": "field_campaign_price_discount",
-                        "label": "割引率（%）",
-                        "name": "discount_rate",
-                        "type": "number",
-                        "instructions": "",
-                        "required": false,
-                        "conditional_logic": false,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "min": 0,
-                        "max": 100,
-                        "step": 1,
-                        "default_value": "",
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": ""
-                    },
-                    {
                         "key": "field_campaign_price_note",
                         "label": "注意書き",
                         "name": "note",
@@ -506,12 +205,12 @@
                 ]
             },
             {
-                "key": "field_campaign_badges",
-                "label": "バッジ表示",
-                "name": "badges",
-                "type": "checkbox",
-                "instructions": "",
-                "required": false,
+                "key": "field_campaign_months",
+                "label": "実施月",
+                "name": "campaign_months",
+                "type": "select",
+                "instructions": "該当する月を複数選択（任意）",
+                "required": 0,
                 "conditional_logic": false,
                 "wrapper": {
                     "width": "",
@@ -519,43 +218,109 @@
                     "id": ""
                 },
                 "choices": {
-                    "new": "新着",
-                    "limited": "当月限定",
-                    "lowstock": "残りわずか",
-                    "firsttime": "初回限定"
+                    "2025-10": "2025-10",
+                    "2025-11": "2025-11",
+                    "2025-12": "2025-12",
+                    "2026-01": "2026-01",
+                    "2026-02": "2026-02",
+                    "2026-03": "2026-03"
                 },
-                "layout": "horizontal",
+                "allow_null": 1,
+                "multiple": 1,
+                "ui": 1,
                 "return_format": "value",
                 "default_value": [],
+                "ajax": 0,
+                "placeholder": "",
                 "allow_custom": 0,
-                "save_custom": 0,
-                "toggle": 0
+                "search_placeholder": ""
             },
             {
-                "key": "field_campaign_clinic_logo_override",
-                "label": "ロゴ差し替え（任意）",
-                "name": "clinic_logo_override",
-                "type": "image",
+                "key": "field_campaign_start_date",
+                "label": "開始日時",
+                "name": "start_date",
+                "type": "date_time_picker",
                 "instructions": "",
-                "required": false,
+                "required": 0,
                 "conditional_logic": false,
                 "wrapper": {
                     "width": "",
                     "class": "",
                     "id": ""
                 },
-                "return_format": "array",
-                "preview_size": "medium",
-                "library": "all",
-                "min_width": 0,
-                "min_height": 0,
-                "min_size": 0,
-                "max_width": 0,
-                "max_height": 0,
-                "max_size": 0,
-                "mime_types": "",
-                "uploader": "",
-                "acfe_thumbnail": 0
+                "display_format": "Y-m-d H:i",
+                "return_format": "Y-m-d H:i:s",
+                "first_day": 1
+            },
+            {
+                "key": "field_campaign_end_date",
+                "label": "終了日時",
+                "name": "end_date",
+                "type": "date_time_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "Y-m-d H:i",
+                "return_format": "Y-m-d H:i:s",
+                "first_day": 1
+            },
+            {
+                "key": "field_campaign_tier",
+                "label": "掲載プラン",
+                "name": "tier",
+                "type": "select",
+                "instructions": "広告料の3段階プラン",
+                "required": 1,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "premium": "Premium",
+                    "standard": "Standard",
+                    "basic": "Basic"
+                },
+                "default_value": "standard",
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 1,
+                "return_format": "value",
+                "ajax": 0,
+                "placeholder": "",
+                "allow_custom": 0,
+                "search_placeholder": ""
+            },
+            {
+                "key": "field_campaign_clinic",
+                "label": "提携クリニック",
+                "name": "clinic",
+                "type": "post_object",
+                "instructions": "紐づける提携クリニックを選択",
+                "required": 1,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "clinic"
+                ],
+                "return_format": "id",
+                "ui": 1,
+                "taxonomy": [],
+                "allow_null": 0,
+                "multiple": 0,
+                "save_custom": 0,
+                "save_post_type": "",
+                "save_post_status": ""
             }
         ],
         "location": [

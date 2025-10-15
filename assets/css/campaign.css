@@ -125,14 +125,60 @@
   /* Same grid layout for all tiers */
 }
 
-/* Standard Cards (Medium) */
-.ch-campaign-card--medium .ch-campaign-card__content {
+/* All Cards - Unified to Medium Size */
+.ch-campaign-card--large .ch-campaign-card__content,
+.ch-campaign-card--medium .ch-campaign-card__content,
+.ch-campaign-card--small .ch-campaign-card__content {
   padding: var(--ch-spacing-lg);
 }
 
-/* Basic Cards (Small) */
-.ch-campaign-card--small .ch-campaign-card__content {
-  padding: var(--ch-spacing-md);
+/* Table-style formatting for campaign card content */
+.ch-campaign-card__content {
+  border: 1px solid #e1e5e9;
+  border-radius: var(--ch-radius);
+}
+
+.ch-campaign-card__content > * {
+  padding: var(--ch-spacing-xs) var(--ch-spacing-sm);
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 0;
+}
+
+.ch-campaign-card__content > *:last-child {
+  border-bottom: none;
+}
+
+.ch-campaign-card__meta {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e1e5e9;
+}
+
+.ch-campaign-card__title {
+  background-color: #fff;
+  font-weight: bold;
+}
+
+.ch-campaign-card__lead {
+  background-color: #f8f9fa;
+  font-style: italic;
+}
+
+.ch-campaign-card__price {
+  background-color: #fff;
+  border-left: 3px solid var(--ch-color-primary);
+}
+
+.ch-campaign-card__excerpt {
+  background-color: #f8f9fa;
+}
+
+.ch-campaign-card__clinics {
+  background-color: #fff;
+}
+
+.ch-campaign-card__actions {
+  background-color: #f8f9fa;
+  border-top: 2px solid var(--ch-color-primary);
 }
 
 /* ==================================
@@ -179,17 +225,6 @@
   background: var(--ch-tier-basic);
 }
 
-.ch-campaign-card__discount {
-  position: absolute;
-  top: var(--ch-spacing-sm);
-  right: var(--ch-spacing-sm);
-  background: var(--ch-color-danger);
-  color: var(--ch-color-white);
-  padding: var(--ch-spacing-xs) var(--ch-spacing-sm);
-  border-radius: var(--ch-radius);
-  font-size: 1rem;
-  font-weight: bold;
-}
 
 .ch-campaign-card__meta {
   display: flex;
@@ -232,9 +267,12 @@
 }
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.05);
   }
@@ -396,6 +434,12 @@
   height: auto;
 }
 
+.ch-campaign-detail__hero-img--logo {
+  object-fit: contain;
+  background-color: #f8f9fa;
+  max-height: 300px;
+}
+
 .ch-campaign-detail__info {
   background: var(--ch-color-white);
   padding: var(--ch-spacing-xl);
@@ -507,6 +551,22 @@
   height: auto;
   max-width: 150px;
   width: auto;
+}
+
+.ch-clinic-logo--card {
+  max-width: 80px;
+  max-height: 40px;
+  object-fit: contain;
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+}
+
+
+/* ロゴをメイン画像として表示する場合 */
+.ch-campaign-card__img--logo {
+  object-fit: contain;
+  background-color: #f8f9fa;
 }
 
 .ch-campaign-detail__cta {
@@ -764,27 +824,6 @@
 
 
 /* ==================================
-   Gallery
-   ================================== */
-.ch-campaign-detail__gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: var(--ch-spacing-sm);
-}
-
-.ch-gallery-image {
-  width: 100%;
-  height: auto;
-  border-radius: var(--ch-radius);
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.ch-gallery-image:hover {
-  transform: scale(1.05);
-}
-
-/* ==================================
    Lead Text
    ================================== */
 .ch-campaign-card__lead,
@@ -814,6 +853,7 @@
    Responsive Design
    ================================== */
 @media (max-width: 768px) {
+
   /* Filter Bar Mobile Spacing */
   .ch-filter-bar {
     padding: var(--ch-spacing-xl) var(--ch-spacing-md);
@@ -857,16 +897,10 @@
     max-width: 100%;
   }
 
-  .ch-campaign-card--large .ch-campaign-card__content {
-    padding: var(--ch-spacing-xl) var(--ch-spacing-lg);
-  }
-
-  .ch-campaign-card--medium .ch-campaign-card__content {
-    padding: var(--ch-spacing-lg) var(--ch-spacing-md);
-  }
-
+  .ch-campaign-card--large .ch-campaign-card__content,
+  .ch-campaign-card--medium .ch-campaign-card__content,
   .ch-campaign-card--small .ch-campaign-card__content {
-    padding: var(--ch-spacing-lg) var(--ch-spacing-md);
+    padding: var(--ch-spacing-lg);
   }
 
   /* Detail Page Mobile Spacing */
@@ -876,9 +910,9 @@
     padding: 0 var(--ch-spacing-md);
   }
 
-  .ch-campaign-detail__main {
+  /* .ch-campaign-detail__main {
     padding: var(--ch-spacing-lg);
-  }
+  } */
 
   .ch-campaign-detail__info {
     padding: var(--ch-spacing-lg);
@@ -970,6 +1004,7 @@
    Extra Mobile Spacing (480px and below)
    ================================== */
 @media (max-width: 480px) {
+
   /* Tighter Mobile Layout */
   .ch-filter-bar {
     padding: var(--ch-spacing-lg) var(--ch-spacing-sm);
@@ -986,14 +1021,14 @@
   .ch-campaign-card--large .ch-campaign-card__content,
   .ch-campaign-card--medium .ch-campaign-card__content,
   .ch-campaign-card--small .ch-campaign-card__content {
-    padding: var(--ch-spacing-md);
+    padding: var(--ch-spacing-lg);
   }
 
   .ch-campaign-detail .container {
     padding: 0 var(--ch-spacing-sm);
   }
 
-  .ch-campaign-detail__main,
+  /* .ch-campaign-detail__main, */
   .ch-campaign-detail__info,
   .ch-campaign-detail__sidebar {
     padding: var(--ch-spacing-md);

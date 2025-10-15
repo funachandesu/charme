@@ -8,12 +8,13 @@
 $post_id = get_the_ID();
 $tier = charme_get_field_safe('tier', $post_id);
 $end_date = charme_get_field_safe('end_date', $post_id);
+$clinic_id = charme_get_field_safe('clinic', $post_id);
 $campaign_months = charme_get_field_array_safe('campaign_months', $post_id);
+$clinic_logo_override = get_field('clinic_logo_override', $post_id);
 $lead = charme_get_field_safe('lead', $post_id);
 $title = charme_get_field_safe('title', $post_id) ?: get_the_title();
 $price_blocks = charme_get_price_blocks($post_id);
-$kv_image = get_field('kv_image', $post_id);
-$featured_image_id = $kv_image ? $kv_image['ID'] : get_post_thumbnail_id($post_id);
+$featured_image_id = get_post_thumbnail_id($post_id);
 ?>
 
 <article class="<?php echo esc_attr(charme_campaign_card_class($tier)); ?> ch-campaign-card--medium">
@@ -21,24 +22,18 @@ $featured_image_id = $kv_image ? $kv_image['ID'] : get_post_thumbnail_id($post_i
 
         <!-- 画像エリア -->
         <div class="ch-campaign-card__image">
-            <?php if ($featured_image_id): ?>
+            <?php if ($clinic_logo_override): ?>
+                <img src="<?php echo esc_url($clinic_logo_override['url']); ?>"
+                    alt="<?php echo esc_attr($clinic_logo_override['alt'] ?: get_the_title($clinic_id)); ?>"
+                    loading="lazy"
+                    class="ch-campaign-card__img ch-campaign-card__img--logo">
+            <?php elseif ($featured_image_id): ?>
                 <img src="<?php echo esc_url(charme_campaign_get_image_url($featured_image_id, 'charme-campaign-thumb')); ?>"
                     alt="<?php echo esc_attr(get_post_meta($featured_image_id, '_wp_attachment_image_alt', true)); ?>"
                     loading="lazy"
                     class="ch-campaign-card__img">
             <?php endif; ?>
 
-
-            <!-- 割引率表示 -->
-            <?php
-            $first_price = !empty($price_blocks) ? $price_blocks[0] : null;
-            $discount_rate = $first_price ? $first_price['discount_rate'] : null;
-            ?>
-            <?php if ($discount_rate): ?>
-                <div class="ch-campaign-card__discount">
-                    <span class="ch-discount__rate"><?php echo esc_html($discount_rate); ?>%OFF</span>
-                </div>
-            <?php endif; ?>
         </div>
 
         <!-- コンテンツエリア -->

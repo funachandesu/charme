@@ -19,7 +19,6 @@ if (have_posts()) :
 
         // フィールド取得（新しいACF構造に対応）
         $tier = charme_get_field_safe('tier', $post_id);
-        $status = charme_get_field_safe('status', $post_id);
         $start_date = charme_get_field_safe('start_date', $post_id);
         $end_date = charme_get_field_safe('end_date', $post_id);
         $campaign_months = charme_get_field_array_safe('campaign_months', $post_id);
@@ -29,10 +28,8 @@ if (have_posts()) :
         $description = get_field('description', $post_id);
         $price_blocks = charme_get_price_blocks($post_id);
         $recommended_for = charme_get_field_safe('recommended_for', $post_id);
-        $kv_image = get_field('kv_image', $post_id);
-        $gallery = get_field('gallery', $post_id);
         $clinic_logo_override = get_field('clinic_logo_override', $post_id);
-        $featured_image_id = $kv_image ? $kv_image['ID'] : get_post_thumbnail_id($post_id);
+        $featured_image_id = get_post_thumbnail_id($post_id);
 ?>
 
         <section id="case-content" class="top-section">
@@ -77,27 +74,11 @@ if (have_posts()) :
                 <div class="ch-campaign-detail__main">
 
                     <!-- ヘロー画像 -->
-                    <?php if ($featured_image_id): ?>
+                    <?php if ($clinic_logo_override): ?>
                         <div class="ch-campaign-detail__hero">
-                            <img src="<?php echo esc_url(charme_campaign_get_image_url($featured_image_id, 'charme-campaign-hero')); ?>"
-                                alt="<?php echo esc_attr(get_post_meta($featured_image_id, '_wp_attachment_image_alt', true)); ?>"
-                                class="ch-campaign-detail__hero-img">
-
-                            <!-- ティアバッジ -->
-                            <div class="ch-campaign-detail__tier-badge ch-tier-badge--<?php echo esc_attr($tier); ?>">
-                                <span class="ch-tier-badge__text"><?php echo esc_html(strtoupper($tier)); ?></span>
-                            </div>
-
-                            <!-- 最初の価格ブロックから割引率を取得 -->
-                            <?php
-                            $first_price = !empty($price_blocks) ? $price_blocks[0] : null;
-                            $discount_rate = $first_price ? $first_price['discount_rate'] : null;
-                            ?>
-                            <?php if ($discount_rate): ?>
-                                <div class="ch-campaign-detail__discount">
-                                    <span class="ch-discount__rate"><?php echo esc_html($discount_rate); ?>%OFF</span>
-                                </div>
-                            <?php endif; ?>
+                            <img src="<?php echo esc_url($clinic_logo_override['url']); ?>"
+                                alt="<?php echo esc_attr($clinic_logo_override['alt'] ?: get_the_title($clinic_id)); ?>"
+                                class="ch-campaign-detail__hero-img ch-campaign-detail__hero-img--logo">
                         </div>
                     <?php endif; ?>
 
@@ -166,18 +147,6 @@ if (have_posts()) :
                             </div>
                         <?php endif; ?>
 
-                        <!-- ギャラリー -->
-                        <?php if ($gallery && is_array($gallery)): ?>
-                            <div class="ch-campaign-detail__section">
-                                <div class="ch-campaign-detail__gallery">
-                                    <?php foreach ($gallery as $image): ?>
-                                        <img src="<?php echo esc_url($image['sizes']['medium'] ?? $image['url']); ?>"
-                                            alt="<?php echo esc_attr($image['alt']); ?>"
-                                            class="ch-gallery-image">
-                                    <?php endforeach; ?>
-                                </div>
-                            </div>
-                        <?php endif; ?>
 
 
                         <!-- こんな方におすすめ -->
@@ -200,28 +169,6 @@ if (have_posts()) :
                             </div>
                         <?php endif; ?>
 
-                        <!-- クリニックロゴ -->
-                        <?php if ($clinic_logo_override || $clinic_id): ?>
-                            <div class="ch-campaign-detail__section">
-                                <h3 class="ch-section__title">提携クリニック</h3>
-                                <div class="ch-campaign-detail__logos">
-                                    <?php if ($clinic_logo_override): ?>
-                                        <img src="<?php echo esc_url($clinic_logo_override['url']); ?>"
-                                            alt="<?php echo esc_attr($clinic_logo_override['alt']); ?>"
-                                            class="ch-clinic-logo">
-                                    <?php elseif ($clinic_id): ?>
-                                        <?php
-                                        $clinic_logo = get_post_thumbnail_id($clinic_id);
-                                        if ($clinic_logo):
-                                        ?>
-                                            <img src="<?php echo esc_url(wp_get_attachment_image_url($clinic_logo, 'medium')); ?>"
-                                                alt="<?php echo esc_attr(get_the_title($clinic_id)); ?>"
-                                                class="ch-clinic-logo">
-                                        <?php endif; ?>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
-                        <?php endif; ?>
 
                         <!-- CTA -->
                         <div class="ch-campaign-detail__cta">
@@ -246,14 +193,10 @@ if (have_posts()) :
                         // 関連キャンペーン取得
                         $related_args = [
                             'post_type' => 'campaign',
+                            'post_status' => 'publish',
                             'posts_per_page' => 3,
                             'post__not_in' => [$post_id],
-                            'meta_query' => [
-                                ['key' => 'display', 'value' => 1, 'compare' => '='],
-                                ['key' => 'status', 'value' => 'published', 'compare' => '=']
-                            ],
-                            'orderby' => 'meta_value_num',
-                            'meta_key' => 'priority_score',
+                            'orderby' => 'date',
                             'order' => 'DESC'
                         ];
 

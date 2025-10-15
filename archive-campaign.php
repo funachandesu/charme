@@ -20,19 +20,15 @@ $filter_max_price = isset($_GET['max_price']) ? (int) $_GET['max_price'] : 0;
 // クエリ引数構築
 $args = [
     'post_type' => 'campaign',
+    'post_status' => 'publish',
     'posts_per_page' => 24,
-    'meta_query' => [
-        'relation' => 'AND',
-        [
-            'key' => 'status',
-            'value' => ['published', 'scheduled'],
-            'compare' => 'IN'
-        ]
-    ],
     'no_found_rows' => true,
     'update_post_meta_cache' => true,
     'update_post_term_cache' => false,
 ];
+
+// meta_query初期化
+$args['meta_query'] = [];
 
 // ティアフィルター
 if ($filter_tier && in_array($filter_tier, ['premium', 'standard', 'basic'])) {
@@ -89,14 +85,14 @@ while ($query->have_posts()) {
 
     $campaigns[] = [
         'id' => $post_id,
-        'score' => charme_campaign_score($post_id),
-        'tier' => charme_get_field_safe('tier', $post_id)
+        'tier' => charme_get_field_safe('tier', $post_id),
+        'date' => get_post_time('U', false, $post_id)  // 明示的にpost_idを指定
     ];
 }
 
 wp_reset_postdata();
 
-// 並び順: ティア → スコア DESC
+// 並び順: ティア → 投稿日 DESC
 usort($campaigns, function ($a, $b) {
     $tier_order = ['premium' => 3, 'standard' => 2, 'basic' => 1];
     $tier_comparison = ($tier_order[$b['tier']] ?? 0) <=> ($tier_order[$a['tier']] ?? 0);
@@ -105,7 +101,7 @@ usort($campaigns, function ($a, $b) {
         return $tier_comparison;
     }
 
-    return $b['score'] <=> $a['score'];
+    return $b['date'] <=> $a['date'];
 });
 ?>
 
@@ -154,7 +150,9 @@ usort($campaigns, function ($a, $b) {
             <div class="ch-campaign-grid">
                 <?php foreach ($campaigns as $campaign_data): ?>
                     <?php
-                    setup_postdata(get_post($campaign_data['id']));
+                    global $post;
+                    $post = get_post($campaign_data['id']);
+                    setup_postdata($post);
                     $tier = $campaign_data['tier'];
                     ?>
                     <?php get_template_part("template-parts/campaign/card", $tier); ?>

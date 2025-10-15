@@ -57,15 +57,9 @@ function charme_rest_campaigns($request) {
 
     $args = [
         'post_type' => 'campaign',
+        'post_status' => 'publish',
         'posts_per_page' => $limit,
-        'meta_query' => [
-            'relation' => 'AND',
-            [
-                'key' => 'status',
-                'value' => ['published', 'scheduled'],
-                'compare' => 'IN'
-            ]
-        ],
+        'meta_query' => [],
         'no_found_rows' => true,
         'update_post_meta_cache' => true,
         'update_post_term_cache' => false,
@@ -150,7 +144,6 @@ function charme_rest_campaigns($request) {
             // 下位互換性のための価格情報
             'price_original' => $first_price ? $first_price['regular_price'] : '',
             'price_campaign' => $first_price ? $first_price['campaign_price'] : '',
-            'discount_rate' => $first_price ? $first_price['discount_rate'] : null,
         ];
     }
 
