@@ -653,7 +653,7 @@
         </section> -->
     <?php endif; ?>
 
-    <section id="interview" data-aos="fade-up"
+    <!-- <section id="interview" data-aos="fade-up"
         data-aos-anchor-placement="top-bottom">
         <h2 class="spc"><span class="interLet">SPECIAL<br>INTERVEIW</span>
             <div class="interline">
@@ -669,18 +669,20 @@
             <div>
                 <h3 class="sp">INTERVIEW</h3>
                 <div>
-                    <a href="<?php echo esc_url(get_permalink(1808)); ?>">
+                    <a href="<?php // echo esc_url(get_permalink(1808));
+                                ?>">
                         Instagramフォロワー23.6万人<br>
                         YouTubeチャンネル登録者数 13.2万人！！<br>
                         総再生回数なんと2300万以上✨<br>
                         可愛すぎると男女ともに大人気のサキ吉さんに美容クリニックでの美容医療ケアについてお伺いしました♡<br></a>
-                    <a href="<?php echo esc_url(get_permalink(1808)); ?>">
+                    <a href="<?php // echo esc_url(get_permalink(1808));
+                                ?>">
                         <h3 class="sp">More...</h3>
                     </a>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section id="clinic" data-aos="fade-up"
         data-aos-anchor-placement="top-bottom">
@@ -707,17 +709,23 @@
             掲載クリニック様以外にも数多くのクリニック様とご提携しております。
         </div>
         <!-- <div class="clinic-list">
-            <img class="kusano" src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/kusano_clinic.png"
+            <img class="kusano" src="<?php // echo esc_url(get_template_directory_uri()); 
+                                        ?>/imgs/top/kusano_clinic.png"
                  alt="くさのたろう clinic">
-            <img class="sherie" src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/sherie_clinic.png"
+            <img class="sherie" src="<?php // echo esc_url(get_template_directory_uri()); 
+                                        ?>/imgs/top/sherie_clinic.png"
                  alt="SHERIE CLINIC">
-            <img class="shibuya" src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/clinic/logo_shibuyanomori_2.png"
+            <img class="shibuya" src="<?php // echo esc_url(get_template_directory_uri()); 
+                                        ?>/imgs/clinic/logo_shibuyanomori_2.png"
                  alt="渋谷の森クリニック">
-            <img class="tkc" src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/clinic/logo_tkc-biyou.png"
+            <img class="tkc" src="<?php // echo esc_url(get_template_directory_uri()); 
+                                    ?>/imgs/clinic/logo_tkc-biyou.png"
                  alt="東京美容外科">
-                 <img class="omotesando" src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/clinic/logo_omotesando-skin.jpg"
+                 <img class="omotesando" src="<?php // echo esc_url(get_template_directory_uri()); 
+                                                ?>/imgs/clinic/logo_omotesando-skin.jpg"
                  alt="表参道スキンクリニック">
-            <img class="primo" src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/clinic/logo_primo.jpg"
+            <img class="primo" src="<?php // echo esc_url(get_template_directory_uri()); 
+                                    ?>/imgs/clinic/logo_primo.jpg"
                  alt="プリモ麻布十番クリニック">
         </div> -->
 
