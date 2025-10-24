@@ -8,15 +8,8 @@ This is a WordPress theme for "charme-beauty", a cosmetic surgery clinic website
 
 ## Build Process
 
-### CSS/SCSS Development
-- Main SCSS files are located in `/scss/` directory
-- Primary SCSS file: `scss/style.scss` with font definitions and color variables
-- Compiled CSS output: `style.css` and `styles.css`
-- Use `sass` to compile SCSS files:
-  ```bash
-  sass scss/style.scss style.css
-  sass scss/style.scss styles.css --watch  # For development with auto-compile
-  ```
+### CSSDevelopment
+- SCSSファイルは存在していますが、以前の業者が作成したもので破損しています。今後CSSはディレクトリ直下の `style.css` に追記してください。
 
 ### No Package Manager
 - This project does not use npm, yarn, or other package managers
@@ -25,7 +18,7 @@ This is a WordPress theme for "charme-beauty", a cosmetic surgery clinic website
 
 ## Architecture
 
-### Custom Post Types
+### Custom Post Typesç
 The theme registers several custom post types in `functions.php`:
 - `service` - Medical services offered
 - `news` - News and updates
@@ -49,7 +42,6 @@ The theme registers several custom post types in `functions.php`:
 
 ### Directory Structure
 - `/css/` - Compiled CSS files and third-party CSS libraries (reset.css, style.min.css, jquery.fancybox.css, etc.)
-- `/scss/` - SCSS source files with color variables and font definitions
 - `/js/` - JavaScript files including animations, sliders, and pagination (accordion.js, paginathing.js, slick.js, /lib/, /case/, /top/)
 - `/imgs/` - Theme images and assets
 - `/page-templates/` - Custom page templates for special pages (about.php, contact.php, service pages, campaign pages, etc.)
