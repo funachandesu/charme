@@ -47,7 +47,6 @@ if ($term && !is_wp_error($term)) :
 $terms = get_terms([
     'taxonomy' => 'clinic_caategory',
     'hide_empty' => false,
-    'number' => 6,
 ]);
 $current_term = get_queried_object();
 ?>
@@ -55,10 +54,7 @@ $current_term = get_queried_object();
     <div class="sec-in">
         <div class="clinic-category-btns" style="text-align:center; margin:30px 0;">
             <?php foreach ($terms as $term): ?>
-                <a class="clinic-category-btn<?php if ($term->term_id === $current_term->term_id) echo ' active'; ?>"
-                    href="<?php echo esc_url(get_term_link($term)); ?>">
-                    <?php echo esc_html($term->name); ?>
-                </a>
+                <a class="clinic-category-btn" href="<?php echo esc_url(get_term_link($term)); ?>"><?php echo esc_html($term->name); ?></a>
             <?php endforeach; ?>
             <a class="clinic-category-btn" href="<?php echo esc_url(get_post_type_archive_link('clinic')); ?>">すべて</a>
         </div>

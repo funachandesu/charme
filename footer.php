@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    <footer class='sp-footer'><small>&copy; 2021 CHARME All Rights Reserved.</small></footer>
+    <footer class='sp-footer'><small>&copy; <?php echo date('Y'); ?> CHARME All Rights Reserved.</small></footer>
 
 <?php else: (!is_home() || !is_front_page()) ?>
     <footer id="footer">
@@ -102,7 +102,7 @@
             </div>
 
         </div>
-        <p class="txt-copyright">© 2021 CHARME All Rights Reserved.</p>
+        <p class="txt-copyright">© <?php echo date('Y'); ?> CHARME All Rights Reserved.</p>
         <?php if (!is_mobile()) : ?>
             <a href="#topsection" class="gotop active">
                 <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/to-top.png" alt="CHARME">

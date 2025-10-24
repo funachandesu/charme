@@ -75,62 +75,62 @@
     <!--条件分岐 ターム-->
     <?php if (is_tax('case_category', 'nose')): ?>
         <!-- <div class="case-banner"><img src="https://charme-beauty.jp/wp-content/uploads/banner-nose.png" alt="" class="sec-case-detail-img"></div> -->
-        <div class="case-des">
+        <!-- <div class="case-des">
             <div class="container">顔の中心にある鼻は、顔全体の印象を大きく左右する大事なパーツのひとつになります。<br>
                 鼻を高くしたい、鼻の穴を小さくしたい、鷲鼻を治したいetc...。お客様のニーズに沿った施術をご案内させて頂きます。</div>
-        </div>
+        </div> -->
     <?php elseif (is_tax('case_category', 'contour')): ?>
         <!-- <div class="case-banner"><img src="https://charme-beauty.jp/wp-content/uploads/banner-contour.png" alt="" class="sec-case-detail-img"></div> -->
-        <div class="case-des">
+        <!-- <div class="case-des">
             <div class="container"> フェイスラインの中でも顎やエラなどは、ダイエットやメイクではすっきり整えることが難しい部分になります。<br>
                 エラをなくして小顔にしたい、輪郭をすっきりさせたいetc...。お客様のニーズに沿った施術をご案内させて頂きます。</div>
-        </div>
+        </div> -->
     <?php elseif (is_tax('case_category', 'liposuction')): ?>
         <!-- <div class="case-banner"><img src="https://charme-beauty.jp/wp-content/uploads/banner-liposuction.png" alt="" class="sec-case-detail-img"></div> -->
-        <div class="case-des">
+        <!-- <div class="case-des">
             <div class="container"> ダイエットしてもなかなか痩せない部分があります。理想的なボディバランスを手に入れるための効果的な施術になります。<br>
                 体の一部だけ痩せたい、短期間で痩せたい、自力で痩せられないetc...。お客様のニーズに沿った施術をご案内させて頂きます。</div>
-        </div>
+        </div> -->
     <?php elseif (is_tax('case_category', 'skin')): ?>
         <!-- <div class="case-banner"><img src="https://charme-beauty.jp/wp-content/uploads/banner-skin.png" alt="" class="sec-case-detail-img"></div> -->
-        <div class="case-des">
+        <!-- <div class="case-des">
             <div class="container"> 紫外線や乾燥などの外的要因や栄養の過不足やストレスなどでしわ・たるみ・毛穴が一度悪化してしまうとご自宅のケアだけでは改善が難しいため、的確な治療が必要になります。<br>
                 年々増えていくしわをなんとかしたい、白い肌を取り戻したいetc...。お客様のニーズに沿った施術をご案内させて頂きます。</div>
-        </div>
+        </div> -->
     <?php elseif (is_tax('case_category', 'injection')): ?>
         <!-- <div class="case-banner"><img src="https://charme-beauty.jp/wp-content/uploads/banner-injection.png" alt="" class="sec-case-detail-img"></div> -->
-        <div class="case-des">
+        <!-- <div class="case-des">
             <div class="container"> 肌弾力を高め、皮膚のたるみ、しわの補正を行う治療になります。<br>
                 手軽に若返りたい、プルンとした肌のハリを保ち続けたいetc...。お客様のニーズに沿った施術をご案内させて頂きます。</div>
-        </div>
+        </div> -->
     <?php elseif (is_tax('case_category', 'aesthetic-dentistry')): ?>
         <!-- <div class="case-banner"><img src="https://charme-beauty.jp/wp-content/uploads/banner-aesthetic-dentistry.png" alt="" class="sec-case-detail-img"></div> -->
-        <div class="case-des">
+        <!-- <div class="case-des">
             <div class="container">口元は対面する人に与える印象が大きい大切なパーツです。<br>
                 自分の雰囲気や理想に合わせて口元を整えたい、美しい歯を手に入れたいetc...。お客様のニーズに沿った施術をご案内させて頂きます。</div>
-        </div>
+        </div> -->
     <?php elseif (is_tax('case_category', 'eye') || $tax_id == 'eye'): ?>
         <!-- <div class="case-banner"><img src="https://charme-beauty.jp/wp-content/uploads/banner-eye.png" alt="" class="sec-case-detail-img"></div> -->
-        <div class="case-des">
+        <!-- <div class="case-des">
             <div class="container">目元の印象はお顔の中でも大きな割合を占めており、最も人気の施術となっております。 二重にしたい、目を大きくしたい、クマを取りたいetc…。お客様のニーズに沿った施術をご案内させて頂きます。</div>
-        </div>
+        </div> -->
     <?php elseif (is_tax('case_category', 'bust')): ?>
         <!-- <div class="case-banner"><img src="https://charme-beauty.jp/wp-content/uploads/banner-bust.png" alt="" class="sec-case-detail-img"></div> -->
-        <div class="case-des">
+        <!-- <div class="case-des">
             <div class="container"> 女性にとって重要な要素であるバスト。ふっくらとして美しい理想のバストを手に入れたいとバストのお悩みを抱えている女性は多くいらっしゃいます。<br>
                 胸を大きくしたい、胸にハリをもたせたい、胸の形を整えたいetc...。お客様のニーズに沿った施術をご案内させて頂きます。</div>
-        </div>
+        </div> -->
     <?php elseif (is_tax('case_category', 'makeup')): ?>
         <!-- <div class="case-banner"><img src="https://charme-beauty.jp/wp-content/uploads/banner-makeup.png" alt="" class="sec-case-detail-img"></div> -->
-        <div class="case-des">
+        <!-- <div class="case-des">
             <div class="container"> ファッションのひとつとして人気のアートメイク。メイクが苦手でも理想の眉、アイライン、リップが手に入ります。<br>
                 メイクを簡単にしたい、すっぴんでもきれいな眉毛を維持したいetc...。お客様のニーズに沿った施術をご案内させて頂きます。</div>
-        </div>
+        </div> -->
     <?php elseif (is_tax('case_category', 'other')): ?>
         <!-- <div class="case-banner"><img src="https://charme-beauty.jp/wp-content/uploads/banner-other.png" alt="" class="sec-case-detail-img"></div> -->
-        <div class="case-des">
+        <!-- <div class="case-des">
             <div class="container"> 女性特有のお悩みや他人には相談しにくい男性のお悩みなど、細かいご要望にもお答えいたします。</div>
-        </div>
+        </div> -->
     <?php elseif (is_tax('case_clinic', 'kusanotaro')): ?>
         <img src="<?php echo get_template_directory_uri(); ?>/imgs/logo/2.png" alt="" class="sec-case-detail-img">
     <?php elseif (is_tax('case_clinic', 'sherieclinic')): ?>
