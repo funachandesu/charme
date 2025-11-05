@@ -691,3 +691,19 @@ function charme_enqueue_campaign_assets() {
     }
 }
 add_action('wp_enqueue_scripts', 'charme_enqueue_campaign_assets');
+
+/**
+ * 2025年リニューアル用CSSの読み込み
+ * header.phpのスタイルも含むため全ページで読み込む
+ */
+function charme_enqueue_renewal_2025_styles() {
+    // 全ページで読み込み
+    wp_enqueue_style(
+        'charme-style-2025',
+        get_template_directory_uri() . '/css/style_2025.css',
+        array(), // 依存関係なし（既存CSSより後に読み込まれるため上書きできる）
+        '1.0.0',
+        'all'
+    );
+}
+add_action('wp_enqueue_scripts', 'charme_enqueue_renewal_2025_styles');
