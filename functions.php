@@ -641,3 +641,53 @@ add_filter('acf/rest_api/enabled', '__return_true'); // ACF REST APIを有効化
 add_action('rest_api_init', function () {
     do_action('acf/rest_api/init'); // REST API初期化を強制実行
 });
+
+/**
+ * Campaign Functions - 全面刷新版
+ * キャンペーン機能のインクルードとエンキュー
+ */
+
+// Campaign helper functions
+require_once get_template_directory() . '/inc/campaign/helpers.php';
+
+// Campaign REST API
+require_once get_template_directory() . '/inc/campaign/rest.php';
+
+/**
+ * Campaign Assets Enqueue
+ * キャンペーン用CSS/JSの読み込み
+ */
+function charme_enqueue_campaign_assets() {
+    // キャンペーンページでのみ読み込み
+    if (is_post_type_archive('campaign') || is_singular('campaign')) {
+        // CSS
+        wp_enqueue_style(
+            'charme-campaign-style',
+            get_template_directory_uri() . '/assets/css/campaign.css',
+            array(),
+            '1.0.0'
+        );
+
+        // JavaScript
+        wp_enqueue_script(
+            'charme-campaign-script',
+            get_template_directory_uri() . '/assets/js/campaign.js',
+            array(),
+            '1.0.0',
+            true
+        );
+
+        // JavaScript変数をローカライズ
+        wp_localize_script('charme-campaign-script', 'charme_campaign', array(
+            'ajax_url' => admin_url('admin-ajax.php'),
+            'rest_url' => rest_url('charme/v1/campaigns'),
+            'nonce' => wp_create_nonce('charme_campaign_nonce'),
+            'strings' => array(
+                'loading' => '読み込み中...',
+                'error' => 'エラーが発生しました',
+                'no_results' => '条件に合うキャンペーンが見つかりませんでした'
+            )
+        ));
+    }
+}
+add_action('wp_enqueue_scripts', 'charme_enqueue_campaign_assets');
