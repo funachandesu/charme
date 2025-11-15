@@ -1,0 +1,137 @@
+@use "../global" as *;
+
+.l-footer {
+  background-color: #444;
+  color: #fff;
+  padding-block: rm(56);
+  @include mq(sp) {
+    padding-block: rm(40);
+  }
+}
+
+.l-footer__inner {
+  display: flex;
+  @include mq(sp) {
+    flex-direction: column;
+    padding-inline: rm(40);
+  }
+}
+
+.l-footer__top {
+}
+
+.l-footer__logo-wrap {
+  a {
+    transition: opacity 0.3s ease;
+    @media (any-hover: hover) {
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+  @include mq(sp) {
+    width: fit-content;
+  }
+}
+
+.l-footer__logo {
+}
+
+.l-footer__logo-img {
+  width: rm8(264);
+  height: auto;
+  display: block;
+  margin-inline: auto;
+  @include mq(sp) {
+    width: rm(240);
+  }
+}
+
+.l-footer__body {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: rm(80);
+  width: 100%;
+
+  @include mq(sp) {
+    flex-direction: column;
+    align-items: initial;
+    justify-content: initial;
+    gap: rm(24);
+    margin-top: rm(40);
+  }
+}
+
+.l-footer__nav {
+}
+
+.l-footer__nav-list {
+  display: flex;
+  gap: rm(32);
+  @media (768px <= width < 1000px) {
+    gap: rm(24);
+  }
+  @include mq(sp) {
+    flex-direction: column;
+    gap: rm(16);
+  }
+}
+
+.l-footer__nav-item {
+}
+
+.l-footer__nav-submenu {
+  margin-top: rm(8);
+  max-width: rm8(72);
+  @include mq(sp) {
+  }
+}
+
+.l-footer__nav-submenu-item {
+  &:not(:first-child) {
+    margin-top: rm(4);
+  }
+}
+
+.l-footer__nav-link {
+  @include font(14, 700, 25.2, 0);
+
+  transition: opacity 0.3s ease;
+  display: block;
+}
+
+a.l-footer__nav-link {
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+.l-footer__nav-submenu-link {
+  @include font(12, 400, 21.6, 0);
+  transition: opacity 0.3s ease;
+
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+.l-footer__btn-wrap {
+  margin-top: rm(16);
+  @include mq(sp) {
+    width: fit-content;
+  }
+}
+
+.l-footer__btn {
+}
+
+.l-footer__copyright {
+  @include font(12, 400, 21.6, 0);
+  color: #fff;
+  text-align: center;
+}

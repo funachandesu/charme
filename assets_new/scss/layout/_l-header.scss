@@ -1,0 +1,225 @@
+@use "../global" as *;
+//ヘッダー ========================
+.l-header {
+  position: sticky;
+  z-index: $z-header;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: rm8(88);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  @include mq(sp) {
+    height: rm(88);
+  }
+}
+.l-header__inner {
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: rm(24);
+  padding-inline: rm(20);
+
+  @include mq(sp) {
+    padding-inline: rm(20);
+  }
+
+   @include mq(sp) {
+    gap: rm(4);
+  }
+}
+.l-header__logo {
+  transition: opacity 0.3s ease;
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+.l-header__logo-img {
+  width: rm(246);
+  height: rm(64);
+  @include mq(sp) {
+    width: rm(160);
+    height: rm(41.6);
+  }
+}
+
+.l-header__content {
+  display: flex;
+  align-items: center;
+  gap: rm8(16);
+  max-width: rm(880);
+  justify-content: space-between;
+  width: 100%;
+  @media (width < 1100px) {
+    justify-content: end;
+  }
+}
+
+.l-header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: rm(60);
+  //spの場合非表示
+  @include mq(sp) {
+    display: none;
+  }
+}
+.l-header__list {
+  display: flex;
+  align-items: center;
+  column-gap: rm(24);
+  @include font(14, 700, 88, 0);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  & > li {
+    a {
+      transition: color 0.3s ease;
+      @media (any-hover: hover) {
+        &:hover {
+          color: var(--color-red);
+        }
+      }
+    }
+
+    &:after {
+      opacity: 0;
+      position: absolute;
+      bottom: 0;
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--color-red);
+      transition: opacity 0.3s ease;
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.l-header__item {
+  position: relative;
+
+  &.js-has-sub {
+    &:hover {
+      .l-header__sub-menu-wrap {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+.l-header__btn-wrap {
+  display: grid;
+  justify-items: center;
+  gap: rm(4);
+  .l-header__btn {
+    flex-shrink: 0;
+    @include font(20, 700, 36, 0);
+    height: rm8(48);
+    width: rm8(200);
+    padding-inline: rm(16);
+    .l-header__btn-text {
+      margin-inline: auto;
+    }
+
+     @include mq(sp) {
+      @include font(12, 700, 21.6, 0);
+      height: rm(40);
+      width: rm(120);
+    }
+  }
+}
+
+.l-header__btn-balloon {
+  @include font(12, 700, 12, 0);
+  text-shadow: 0 0 24px rgba(34, 34, 34, 0.25);
+  position: relative;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: rm8(16);
+    display: block;
+    background-color: #222;
+    bottom: rm-8(-3);
+     @include mq(sp) {
+      height: rm(10);
+      bottom: rm(-1);
+    }
+  }
+  &::before {
+    left: rm-8(-12);
+    rotate: -31deg;
+     @include mq(sp) {
+      left: rm(-8);
+    }
+  }
+
+  &::after {
+    right: rm-8(-12);
+    rotate: 31deg;
+     @include mq(sp) {
+      right: rm(-8);
+    }
+  }
+
+   @include mq(sp) {
+    @include font(10, 700, 10, 0);
+  }
+}
+
+.l-header__sub-menu-wrap {
+  position: fixed;
+  top: rm8(88);
+  left: 0;
+  right: 0;
+  z-index: $z-header;
+  width: 100%;
+  background-color: #fff;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: rm(24);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.l-header__sub-menu-title {
+  @include font(20, 700, 36, 0);
+}
+
+.l-header__sub-menu-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rm(56) rm(24);
+  @include font(16, 400, 27.2, 0);
+}
+
+.l-header__sub-link {
+  transition: color 0.3s ease;
+  @media (any-hover: hover) {
+    &:hover {
+      color: var(--color-red);
+    }
+  }
+}

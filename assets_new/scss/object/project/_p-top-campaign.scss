@@ -1,0 +1,244 @@
+@use "../../global" as *;
+
+.p-top-campaign {
+  overflow: hidden;
+  padding-bottom: rm(256);
+  position: relative;
+  @include mq(sp) {
+    padding-bottom: rm(115);
+  }
+}
+
+.p-top-campaign__side-star-deco {
+  position: absolute;
+  width: rm(44);
+  height: auto;
+  top: 0;
+  height: 100%;
+  z-index: -1;
+  &.--left {
+    left: 0;
+    right: initial;
+    transform: scaleX(-1);
+  }
+  &.--right {
+    right: 0;
+    left: initial;
+  }
+  @include mq(sp) {
+    width: rm(15.45);
+  }
+}
+
+.p-top-campaign__head {
+}
+
+.p-top-campaign__header {
+}
+
+.p-top-campaign__content {
+}
+
+.p-top-campaign__items {
+  @include mq(sp) {
+    margin-inline: calc(50% - 50vw);
+    width: 100vw;
+  }
+}
+
+.p-top-campaign__splide {
+}
+
+.p-top-campaign__track {
+}
+
+.p-top-campaign__list {
+  display: flex !important;
+  justify-content: space-between !important;
+  @include mq(pc) {
+    gap: rm(24) !important;
+  }
+  // @include mq(sp) {
+  //   gap: rm(56);
+  // }
+}
+
+.p-top-campaign__slide {
+  max-width: 362px;
+  width: 100%;
+  @include mq(pc) {
+    flex-shrink: 1;
+  }
+  @include mq(sp) {
+    max-width: rm(320);
+  }
+}
+
+.p-top-campaign__link {
+  transition: opacity 0.3s var(--ease-out-quint);
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.p-top-campaign__slide-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 181/68;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.15);
+  @include mq(sp) {
+    aspect-ratio: 8/3;
+  }
+}
+
+.p-top-campaign__slide-content {
+  margin-top: rm(24);
+  display: flex;
+  flex-direction: column;
+  gap: rm(8);
+  @include mq(sp) {
+    margin-top: rm(16);
+    gap: rm(4);
+  }
+}
+
+.p-top-campaign__slide-label {
+  padding-inline: rm8(16);
+  padding-block: rm8(6);
+  background-color: var(--color-light-gray);
+  border-radius: calc(infinity * 1px);
+  width: fit-content;
+  @include mq(sp) {
+    padding-inline: rm(12);
+    padding-block: 0;
+  }
+}
+
+.p-top-campaign__slide-label-text {
+  color: var(--color-white);
+  @include font(14, 700, 24, 0);
+  @include mq(sp) {
+    @include font(12, 700, 24, 0);
+  }
+}
+
+.p-top-campaign__slide-ttl {
+  @include font(20, 700, 29, 0.8);
+  @include mq(sp) {
+    @include font(18, 700, 26, 0.72);
+  }
+}
+
+.p-top-campaign__slide-info {
+  @include font(16, 500, 24, 0);
+  @include mq(sp) {
+    @include font(14, 500, 24, 0);
+  }
+}
+
+.p-top-campaign__slide-price-wrap {
+  display: flex;
+  gap: rm8(8);
+  align-items: center;
+  @include mq(sp) {
+    gap: rm(8);
+  }
+}
+
+.p-top-campaign__slide-price-before {
+  @include font(14, 500, 24, 0);
+  position: relative;
+  text-decoration: line-through;
+}
+
+.p-top-campaign__slide-price-after {
+  @include font(16, 700, 24, 0);
+  color: var(--color-pink);
+}
+
+.p-top-campaign__slide-link-more {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: rm8(16);
+  @include mq(sp) {
+    gap: rm(10.67);
+  }
+}
+
+.p-top-campaign__slide-link-more-text {
+  @include font(16, 700, 24, 0);
+  @include mq(sp) {
+    @include font(14, 700, 14, 0);
+  }
+}
+
+.p-top-campaign__slide-link-more-arrow {
+  width: rm8(7.4);
+  height: rm8(12);
+  flex-shrink: 0;
+  translate: 0 1px;
+  @include mq(sp) {
+    width: rm(6.167);
+    height: rm(10);
+  }
+}
+
+.p-top-campaign__arrows {
+}
+
+.p-top-campaign__arrow {
+}
+
+.p-top-campaign__arrow--prev {
+}
+
+.p-top-campaign__arrow--next {
+}
+
+.p-top-campaign__pagination {
+}
+
+.p-top-campaign__arrows {
+  position: relative;
+  pointer-events: none;
+}
+
+.p-top-campaign__pagination {
+  position: initial;
+  margin-top: rm(40);
+  display: flex;
+  gap: rm(12) !important;
+  .splide__pagination__page {
+    width: rm(12) !important;
+    height: rm(12) !important;
+    background-color: var(--color-light-gray);
+    margin: 0 !important;
+    &.is-active {
+      background-color: var(--color-pink);
+      transform: scale(1) !important;
+    }
+  }
+}
+
+.p-top-campaign__btn {
+  margin-top: rm(96);
+  min-width: rm8(363);
+  @include mq(sp) {
+    margin-top: rm(72);
+    min-width: rm(343);
+  }
+}
+
+.p-top-campaign__deco-circle {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: auto;
+  z-index: -1;
+}

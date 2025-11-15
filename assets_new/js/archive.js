@@ -1,0 +1,3 @@
+/*
+  contents archive ページ js
+*/

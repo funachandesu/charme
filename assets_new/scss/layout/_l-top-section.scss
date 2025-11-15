@@ -1,0 +1,26 @@
+@use "../global" as *;
+
+.l-top-section {
+  padding-top: rm(64);
+  padding-bottom: rm(120);
+  position: relative;
+  @include mq(sp) {
+    padding-top: rm(80);
+    padding-bottom: rm(80);
+  }
+}
+
+.l-top-section__content {
+  margin-top: rm(96);
+  @include mq(sp) {
+    margin-top: rm(72);
+  }
+}
+
+.l-top-section__deco-circle {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: auto;
+}
