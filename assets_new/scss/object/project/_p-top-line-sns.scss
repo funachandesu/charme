@@ -1,0 +1,117 @@
+@use "../../global" as *;
+
+.p-top-line-sns {
+  position: relative;
+  padding-top: rm(64);
+  padding-bottom: rm(76);
+  @include mq(sp) {
+    padding-top: rm(10);
+    padding-bottom: rm(16);
+  }
+}
+
+.p-top-line-sns__block {
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+  border-radius: 8px;
+  border: 4px solid var(--navy, #143181);
+  background: var(--accent-yellow, #ffe100);
+  display: flex;
+  padding-block: rm(56);
+  padding-inline: rm(40);
+  position: relative;
+  @include mq(sp) {
+    padding-block: rm(24);
+    padding-inline: rm(12);
+    justify-content: center;
+  }
+}
+
+.p-top-line-sns__body {
+  display: flex;
+  flex-direction: column;
+  gap: rm(14);
+}
+
+.p-top-line-sns__balloon-img {
+  width: rm8(432);
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  margin-inline: auto;
+  @include mq(sp) {
+    width: rm(319);
+  }
+}
+
+.p-top-line-sns__btn {
+  padding: rm8(8);
+  min-width: rm8(570);
+
+  .c-cta-btn__line-icon {
+    width: rm8(48);
+    height: rm8(48);
+    margin-right: rm8(10) !important;
+    position: relative;
+    @include mq(sp) {
+      margin-right: rm(20);
+    }
+  }
+  .c-cta-btn__text {
+    @include font(32, 500, 47, 0);
+    margin-right: rm8(10) !important;
+    position: relative;
+
+    @include mq(sp) {
+      @include font(18, 700, 26, 0.72);
+      margin-right: 0;
+    }
+  }
+
+  .c-cta-btn__arrow {
+    width: rm8(67);
+  }
+
+  @include mq(sp) {
+    min-width: rm(319);
+    padding-inline: rm(20);
+    padding-block: rm(16);
+    justify-content: center;
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      .p-top-line-sns__btn-container {
+        border-color: var(--color-pink);
+      }
+
+      .c-cta-btn__text {
+        color: var(--color-pink);
+      }
+    }
+  }
+}
+.p-top-line-sns__btn-container {
+  width: 100%;
+  padding: rm8(24);
+  border-radius: 60px;
+  border: 2px solid var(--white, #fff);
+  transition: border-color 0.3s var(--ease-out-quint);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include mq(sp) {
+    display: contents;
+  }
+}
+.p-top-line-sns__qr-block {
+}
+
+.p-top-line-sns__qr-img {
+  position: absolute;
+  width: rm(318);
+  right: 0;
+  bottom: 0;
+}

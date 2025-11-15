@@ -427,32 +427,47 @@
                 </hgroup>
             </div>
             <div class="p-top-column__content l-top-section__content">
-                <div class="p-top-column__articles">
-                    <div class="p-top-column__article">
-                        <a href="" class="p-top-column__article-link">
-                            <h3 class="p-top-column__article-img-wrap">
-                                <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_article-dummy.webp" alt="タイトルが入ります" class="p-top-column__article-img" width="362" height="362" loading='lazy' />
-                            </h3>
-                            <time datetime="2025-06-14" class="p-top-column__article-time">2025.06.14</time>
-                        </a>
+                <div class="p-top-column__splide js-top-column-carousel splide">
+                    <div class="p-top-column__track splide__track">
+                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_article-deco.webp" alt="" class="p-top-column__deco u-pc" width="142" height="157" loading='lazy' />
+                        <ul class="p-top-column__list splide__list">
+                            <li class="p-top-column__slide splide__slide">
+                                <div class="p-top-column__article">
+                                    <a href="" class="p-top-column__article-link">
+                                        <h3 class="p-top-column__article-img-wrap">
+                                            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_article-dummy.webp" alt="タイトルが入ります" class="p-top-column__article-img" width="362" height="362" loading='lazy' />
+                                        </h3>
+                                        <time datetime="2025-06-14" class="p-top-column__article-time">2025.06.14</time>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="p-top-column__slide splide__slide">
+                                <div class="p-top-column__article">
+                                    <a href="" class="p-top-column__article-link">
+                                        <h3 class="p-top-column__article-img-wrap">
+                                            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_article-dummy.webp" alt="タイトルが入ります" class="p-top-column__article-img" width="362" height="362" loading='lazy' />
+                                        </h3>
+                                        <time datetime="2025-06-14" class="p-top-column__article-time">2025.06.14</time>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="p-top-column__slide splide__slide">
+                                <div class="p-top-column__article">
+                                    <a href="" class="p-top-column__article-link">
+                                        <h3 class="p-top-column__article-img-wrap">
+                                            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_article-dummy.webp" alt="タイトルが入ります" class="p-top-column__article-img" width="362" height="362" loading='lazy' />
+                                        </h3>
+                                        <time datetime="2025-06-14" class="p-top-column__article-time">2025.06.14</time>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="p-top-column__article">
-                        <a href="" class="p-top-column__article-link">
-                            <h3 class="p-top-column__article-img-wrap">
-                                <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_article-dummy.webp" alt="タイトルが入ります" class="p-top-column__article-img" width="362" height="362" loading='lazy' />
-                            </h3>
-                            <time datetime="2025-06-14" class="p-top-column__article-time">2025.06.14</time>
-                        </a>
+                    <div class="p-top-column__pagination-wrap">
+                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_article-deco.webp" alt="" class="p-top-column__deco u-sp" width="142" height="157" loading='lazy' />
+                        <ul class="p-top-column__pagination splide__pagination">
+                        </ul>
                     </div>
-                    <div class="p-top-column__article">
-                        <a href="" class="p-top-column__article-link">
-                            <h3 class="p-top-column__article-img-wrap">
-                                <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_article-dummy.webp" alt="タイトルが入ります" class="p-top-column__article-img" width="362" height="362" loading='lazy' />
-                            </h3>
-                            <time datetime="2025-06-14" class="p-top-column__article-time">2025.06.14</time>
-                        </a>
-                    </div>
-                    <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_article-deco.webp" alt="" class="p-top-column__deco" width="142" height="157" loading='lazy' />
                 </div>
                 <a href="" class="c-cta-btn --border-pink --center p-top-column__btn">
                     <span class="c-cta-btn__text">すべての記事を見る</span>
@@ -484,29 +499,31 @@
                 </div>
             </div>
         </div>
-        <svg class="l-top-section__deco-circle u-pc" xmlns="http://www.w3.org/2000/svg" width="1440" height="136" viewBox="0 0 1440 136" fill="none">
-            <path d="M722 136C1135.5 136 1444 0 1444 0H722H0C0 0 308.5 136 722 136Z" fill="#FFE0E6" />
-        </svg>
-        <svg class="l-top-section__deco-circle u-sp" xmlns="http://www.w3.org/2000/svg" width="375" height="36" viewBox="0 0 375 36" fill="none">
-            <path d="M187.5 35.3184C294.884 35.3184 375 -0.000198364 375 -0.000198364H187.5H0C0 -0.000198364 80.116 35.3184 187.5 35.3184Z" fill="#FFE0E6" />
-        </svg>
     </section>
     <div class="p-top-line-sns">
+        <svg class="l-top-section__deco-circle --top u-pc" xmlns="http://www.w3.org/2000/svg" width="1440" height="136" viewBox="0 0 1440 136" fill="none">
+            <path d="M722 136C1135.5 136 1444 0 1444 0H722H0C0 0 308.5 136 722 136Z" fill="#FFE0E6" />
+        </svg>
+        <svg class="l-top-section__deco-circle --top u-sp" xmlns="http://www.w3.org/2000/svg" width="375" height="36" viewBox="0 0 375 36" fill="none">
+            <path d="M187.5 35.3184C294.884 35.3184 375 -0.000198364 375 -0.000198364H187.5H0C0 -0.000198364 80.116 35.3184 187.5 35.3184Z" fill="#FFE0E6" />
+        </svg>
         <div class="l-inner">
             <div class="p-top-line-sns__block">
                 <div class="p-top-line-sns__body">
                     <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_line-sns-balloon.webp" alt="" class="p-top-line-sns__balloon-img" width="432" height="84" loading='lazy' />
                     <a href="" class="c-cta-btn --grad --center --line p-top-line-sns__btn">
-                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/icon_line-cta.svg" alt="LINE" class="c-cta-btn__line-icon" width="40" height="40" loading='lazy' />
-                        <span class="c-cta-btn__text">LINEで割引情報をGET！</span>
-                        <svg class="c-cta-btn__arrow" width="68" height="32" viewBox="0 0 68 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1.99976 4L13.9998 16L1.99976 28L1.99976 4Z" fill="white" />
-                            <path d="M27.96 4L39.96 16L27.96 28L27.96 4Z" fill="white" />
-                            <path d="M53.0476 4L65.0476 16L53.0476 28L53.0476 4Z" fill="white" />
-                        </svg>
+                        <div class="p-top-line-sns__btn-container">
+                            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/icon_line-cta.svg" alt="LINE" class="c-cta-btn__line-icon" width="40" height="40" loading='lazy' />
+                            <span class="c-cta-btn__text">LINEで割引情報をGET！</span>
+                            <svg class="c-cta-btn__arrow u-pc" width="68" height="32" viewBox="0 0 68 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.99976 4L13.9998 16L1.99976 28L1.99976 4Z" fill="white" />
+                                <path d="M27.96 4L39.96 16L27.96 28L27.96 4Z" fill="white" />
+                                <path d="M53.0476 4L65.0476 16L53.0476 28L53.0476 4Z" fill="white" />
+                            </svg>
+                        </div>
                     </a>
                 </div>
-                <div class="p-top-line-sns__qr-block">
+                <div class="p-top-line-sns__qr-block u-pc">
                     <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_line-qr.webp" alt="" class="p-top-line-sns__qr-img" width="318" height="347" loading='lazy' />
                 </div>
             </div>

@@ -1,0 +1,133 @@
+@use "../../global" as *;
+
+.p-top-column {
+  padding-top: rm(64);
+  padding-bottom: rm(120);
+  overflow: hidden;
+
+  /* 方眼紙模様に必須のスタイル */
+  background-image: linear-gradient(0deg, transparent calc(100% - 1px), var(--color-light-pink) calc(100% - 1px)), linear-gradient(90deg, transparent calc(100% - 1px), var(--color-light-pink) calc(100% - 1px));
+  background-size: rm(72) rm(72);
+  background-repeat: repeat;
+  background-position: center center;
+
+  @include mq(sp) {
+    padding-top: rm(80);
+    padding-bottom: rm(80);
+  }
+}
+
+.p-top-column__head {
+}
+
+.p-top-column__header {
+}
+
+.p-top-column__content {
+  margin-top: rm(88);
+  @include mq(sp) {
+    margin-top: rm(64);
+  }
+}
+
+.p-top-column__splide {
+  @include mq(sp) {
+    margin-inline: calc(50% - 50vw);
+    width: 100vw;
+  }
+}
+
+.p-top-column__track {
+  padding-block: rm(8);
+  @include mq(pc) {
+    overflow: visible !important;
+  }
+}
+
+.p-top-column__list {
+  @include mq(pc) {
+    display: flex !important;
+    justify-content: space-between !important;
+    --card-items: 3;
+    --card-gap: 57;
+    gap: rm(40) rm(var(--card-gap)); //親要素にて設定
+  }
+}
+
+.p-top-column__slide {
+  flex-basis: calc((100% - rm(var(--card-gap)) * (var(--card-items) - 1)) / var(--card-items));
+  @include mq(sp) {
+    flex-basis: rm(343);
+  }
+}
+
+.p-top-column__article {
+  border-radius: 12px;
+  box-shadow: 1px 4px 4px 0 rgba(0, 0, 0, 0.1);
+  background-color: var(--color-white);
+  overflow: hidden;
+}
+
+.p-top-column__article-link {
+}
+
+.p-top-column__article-img-wrap {
+}
+
+.p-top-column__article-img {
+  aspect-ratio: 1 / 1;
+  height: 100%;
+}
+
+.p-top-column__article-time {
+  display: block;
+  width: 100%;
+  padding: rm8(16) rm8(12);
+  text-align: right;
+  @include font(18, 700, 26, 0.72);
+  @include mq(sp) {
+    padding: rm(16) rm(12);
+  }
+}
+
+.p-top-column__deco {
+  position: absolute;
+  width: rm(142);
+  height: auto;
+  bottom: rm(-57);
+  left: rm(-56);
+  z-index: 1;
+  @include mq(sp) {
+    width: rm(100);
+    left: calc(50% - rm(190));
+    bottom: 0;
+  }
+}
+
+.p-top-column__btn {
+  margin-top: rm(96);
+  @include mq(sp) {
+    margin-top: rm(72);
+  }
+}
+
+.p-top-column__pagination-wrap {
+  position: relative;
+}
+
+.p-top-column__pagination {
+  position: initial;
+  margin-top: rm(32);
+  display: flex;
+  gap: rm(12) !important;
+  .splide__pagination__page {
+    width: rm(12) !important;
+    height: rm(12) !important;
+    background-color: var(--color-light-gray);
+    margin: 0 !important;
+    &.is-active {
+      background-color: var(--color-pink);
+      transform: scale(1) !important;
+    }
+  }
+}

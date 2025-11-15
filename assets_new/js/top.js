@@ -152,3 +152,51 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 100);
   });
 });
+
+//  * ==========================================
+//  * 4. js-top-column-carousel スライダー
+//  * ==========================================
+document.addEventListener("DOMContentLoaded", function () {
+  // Splide本体のオプション（SP/PC差分はbreakpointsへ）
+  const options = {
+    type: "loop",
+    perPage: "auto",
+    speed: 1000,
+    perMove: 1,
+    arrows: false,
+    pagination: true, //ページネーションのカスタマイズは、https://ja.splidejs.com/guides/pagination/
+    focus: false,
+    gap: "3.5rem",
+    trimSpace: true,
+    autoWidth: true,
+    cloneStatus: false,
+    updateOnMove: true,
+    destroy: true,
+    reducedMotion: {
+      speed: 1000,
+      rewindSpeed: 1000,
+    },
+    breakpoints: {
+      767.9: {
+        focus: "center",
+        gap: "3.5rem",
+        destroy: false,
+      },
+    },
+  };
+
+  const element = document.querySelector(".js-top-column-carousel");
+  if (!element || !window.Splide) return;
+
+  const splide = new Splide(element, options);
+  splide.mount();
+
+  // リサイズ時はデバウンスしてrefreshのみ実施
+  let resizeTimeout;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      splide.refresh(); // breakpointsの切り替えも反映
+    }, 100);
+  });
+});

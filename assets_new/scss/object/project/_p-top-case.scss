@@ -4,6 +4,7 @@
   background-color: var(--snow-pink, #fffafb);
   padding-top: rm(127);
   padding-bottom: rm(120);
+  overflow: hidden;
   @include mq(sp) {
     padding-top: rm(62);
     padding-bottom: rm(120);
@@ -18,6 +19,9 @@
 
 .p-top-case__content {
   margin-top: rm(88);
+  @include mq(sp) {
+    margin-top: rm(64);
+  }
 }
 
 .p-top-case__splide {
