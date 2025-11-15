@@ -49,6 +49,14 @@
 
   &.--border-white {
     border: rm8(3) solid var(--text-color);
+    padding-inline: rm8(29) rm8(17);
+    padding-block: rm(17);
+    .c-cta-btn__text {
+      margin-right: rm8(20);
+      flex-shrink: 1;
+      text-align: center;
+      flex-grow: 1;
+    }
   }
 
   &.--border-pink {

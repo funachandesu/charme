@@ -50,46 +50,59 @@ document.addEventListener("DOMContentLoaded", function () {
 //  * 2. js-top-clinic-carousel スライダー
 //  * ==========================================
 document.addEventListener("DOMContentLoaded", function () {
-  // スライダーの設定オプション
-  const options = {
-    type: "loop",
-    drag: false,
-    arrows: true,
-    pagination: false,
-    autoWidth: true,
-    gap: 16,
-    autoScroll: {
-      speed: 0.9,
-      pauseOnHover: false,
-      pauseOnFocus: false,
-    },
-    breakpoints: {
-      767.9: {
-        gap: 10,
-        autoScroll: {
-          speed: 0.64, // 64秒で1周
-          pauseOnHover: false,
-          pauseOnFocus: false,
+  const element = document.querySelector(".js-top-clinic-carousel");
+  if (!element) return;
+
+  let splide = null;
+
+  // ----------- 初期化関数 -----------
+  const initSplide = () => {
+    const isSP = window.innerWidth < 768;
+
+    const baseOptions = {
+      type: "loop",
+      drag: false,
+      arrows: true,
+      pagination: false,
+      autoWidth: true,
+      gap: "6.25rem",
+      breakpoints: {
+        1330: {
+          gap: "6rem",
+        },
+        767.9: {
+          arrows: false,
+          gap: "3.5rem",
         },
       },
-    },
+    };
+
+    // SP のみ autoScroll を追加
+    if (isSP) {
+      baseOptions.autoScroll = {
+        speed: 0.64,
+        pauseOnHover: false,
+        pauseOnFocus: false,
+      };
+    }
+
+    // 既存があれば破棄
+    if (splide) splide.destroy(true);
+
+    // mount（SP は autoScroll 付き）
+    splide = new Splide(element, baseOptions);
+    splide.mount(isSP ? window.splide.Extensions : {});
   };
 
-  // スライダーを初期化
-  const element = document.querySelector(".js-top-clinic-carousel");
-  if (element) {
-    const splide = new Splide(element, options);
-    splide.mount(window.splide.Extensions);
+  // 初回
+  initSplide();
 
-    // リサイズ時の処理
-    let resizeTimeout;
-    window.addEventListener("resize", function () {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        splide.refresh();
-      }, 100);
-    });
-  }
+  // リサイズ時
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(initSplide, 150);
+  });
 });
 
 //  * ==========================================

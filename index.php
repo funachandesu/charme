@@ -296,22 +296,26 @@
                             <?php endforeach; ?>
                         </ul>
                     </div>
-                    <div class="p-top-clinic__arrows splide__arrows splide__arrows--ltr u-pc">
-                        <button class="p-top-clinic__arrow p-top-clinic__arrow--prev splide__arrow splide__arrow--prev" type="button">
-                            <svg width="40" height="44" viewBox="0 0 40 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="40" height="44" fill="#C9C9C9" />
-                                <path d="M24.1123 32L14.1123 22L24.1123 12L25.8873 13.775L17.6623 22L25.8873 30.225L24.1123 32Z" fill="white" />
-                            </svg>
-                        </button>
-                        <button class="p-top-clinic__arrow p-top-clinic__arrow--next splide__arrow splide__arrow--next" type="button">
-                            <svg width="40" height="44" viewBox="0 0 40 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="40" height="44" transform="matrix(-1 0 0 1 40 0)" fill="#C9C9C9" />
-                                <path d="M15.8875 32L25.8875 22L15.8875 12L14.1125 13.775L22.3375 22L14.1125 30.225L15.8875 32Z" fill="white" />
-                            </svg>
-                        </button>
+                    <div class="p-top-clinic__arrows-container">
+                        <div class="p-top-clinic__arrows splide__arrows splide__arrows--ltr u-pc">
+                            <button class="p-top-clinic__arrow p-top-clinic__arrow--prev splide__arrow splide__arrow--prev" type="button">
+                                <svg width="40" height="44" viewBox="0 0 40 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="44" transform="matrix(-1 0 0 1 40 0)" fill="#C9C9C9" />
+                                    <path d="M15.8875 32L25.8875 22L15.8875 12L14.1125 13.775L22.3375 22L14.1125 30.225L15.8875 32Z" fill="white" />
+                                </svg>
+
+                            </button>
+                            <button class="p-top-clinic__arrow p-top-clinic__arrow--next splide__arrow splide__arrow--next" type="button">
+                                <svg width="40" height="44" viewBox="0 0 40 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="44" transform="matrix(-1 0 0 1 40 0)" fill="#C9C9C9" />
+                                    <path d="M15.8875 32L25.8875 22L15.8875 12L14.1125 13.775L22.3375 22L14.1125 30.225L15.8875 32Z" fill="white" />
+                                </svg>
+
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <a href="" class="c-cta-btn --center --border-pink p-top-campaign__btn">
+                <a href="" class="c-cta-btn --center --border-pink p-top-clinic__btn">
                     <span class="c-cta-btn__text">すべてのクリニックを見る</span>
                     <svg class="c-cta-btn__arrow" width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1.49964 3.00086L10.4996 12.0009L1.49964 21.0009L1.49964 3.00086Z" fill="white" />
@@ -321,6 +325,37 @@
         </div>
     </section>
     <section class="p-top-case l-top-section" id="top-case">
+        <svg class="l-top-section__deco-circle --top u-pc" width="1440" height="127" viewBox="0 0 1440 127" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_184_1247)">
+                <rect width="1440" height="127" fill="white" />
+                <mask id="path-1-inside-1_184_1247" fill="white">
+                    <path d="M720 0C803.445 0 874.646 49.4571 902.481 119H1440V156H912.756C914.233 165.13 915 174.48 915 184C915 285.62 827.696 368 720 368C612.304 368 525 285.62 525 184C525 174.48 525.767 165.13 527.244 156H0V119H537.519C565.354 49.4571 636.555 0 720 0Z" />
+                </mask>
+                <path d="M720 0C803.445 0 874.646 49.4571 902.481 119H1440V156H912.756C914.233 165.13 915 174.48 915 184C915 285.62 827.696 368 720 368C612.304 368 525 285.62 525 184C525 174.48 525.767 165.13 527.244 156H0V119H537.519C565.354 49.4571 636.555 0 720 0Z" fill="#FFFAFB" />
+                <path d="M902.481 119L901.553 119.372L901.805 120H902.481V119ZM1440 119H1441V118H1440V119ZM1440 156V157H1441V156H1440ZM912.756 156V155H911.581L911.769 156.16L912.756 156ZM527.244 156L528.231 156.16L528.419 155H527.244V156ZM0 156H-1V157H0V156ZM0 119V118H-1V119H0ZM537.519 119V120H538.195L538.447 119.372L537.519 119ZM720 0V1C803.05 1 873.874 50.2214 901.553 119.372L902.481 119L903.41 118.628C875.417 48.6928 803.839 -1 720 -1V0ZM902.481 119V120H1440V119V118H902.481V119ZM1440 119H1439V156H1440H1441V119H1440ZM1440 156V155H912.756V156V157H1440V156ZM912.756 156L911.769 156.16C913.237 165.237 914 174.534 914 184H915H916C916 174.427 915.229 165.023 913.743 155.84L912.756 156ZM915 184H914C914 285.014 827.199 367 720 367V368V369C828.192 369 916 286.227 916 184H915ZM720 368V367C612.801 367 526 285.014 526 184H525H524C524 286.227 611.808 369 720 369V368ZM525 184H526C526 174.534 526.763 165.237 528.231 156.16L527.244 156L526.257 155.84C524.771 165.023 524 174.427 524 184H525ZM527.244 156V155H0V156V157H527.244V156ZM0 156H1V119H0H-1V156H0ZM0 119V120H537.519V119V118H0V119ZM537.519 119L538.447 119.372C566.126 50.2214 636.95 1 720 1V0V-1C636.161 -1 564.583 48.6928 536.59 118.628L537.519 119Z" fill="#FFE0E6" mask="url(#path-1-inside-1_184_1247)" />
+            </g>
+            <defs>
+                <clipPath id="clip0_184_1247">
+                    <rect width="1440" height="127" fill="white" />
+                </clipPath>
+            </defs>
+        </svg>
+        <svg class="l-top-section__deco-circle --top u-sp" width="375" height="62" viewBox="0 0 375 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_184_1593)">
+                <rect width="375" height="62" fill="white" />
+                <mask id="path-1-inside-1_184_1593" fill="white">
+                    <path d="M187.5 0C229.164 0 264.715 24.6942 278.613 59.417H547V77.8916H283.745C284.483 82.4501 284.864 87.119 284.864 91.8721C284.864 142.612 241.273 183.744 187.5 183.744C133.727 183.744 90.1357 142.612 90.1357 91.8721C90.1358 87.119 90.5182 82.4502 91.2559 77.8916H-172V59.417H96.3867C110.285 24.6942 145.836 1.80896e-05 187.5 0Z" />
+                </mask>
+                <path d="M187.5 0C229.164 0 264.715 24.6942 278.613 59.417H547V77.8916H283.745C284.483 82.4501 284.864 87.119 284.864 91.8721C284.864 142.612 241.273 183.744 187.5 183.744C133.727 183.744 90.1357 142.612 90.1357 91.8721C90.1358 87.119 90.5182 82.4502 91.2559 77.8916H-172V59.417H96.3867C110.285 24.6942 145.836 1.80896e-05 187.5 0Z" fill="#FFFAFB" />
+                <path d="M187.5 0V-0.499306V0ZM278.613 59.417L278.15 59.6025L278.275 59.9163H278.613V59.417ZM547 59.417H547.499V58.9177H547V59.417ZM547 77.8916V78.3909H547.499V77.8916H547ZM283.745 77.8916V77.3923H283.159L283.252 77.9714L283.745 77.8916ZM284.864 91.8721H285.364H284.864ZM187.5 183.744V184.243V183.744ZM90.1357 91.8721H89.6364H90.1357ZM91.2559 77.8916L91.7487 77.9714L91.8424 77.3923H91.2559V77.8916ZM-172 77.8916H-172.499V78.3909H-172V77.8916ZM-172 59.417V58.9177H-172.499V59.417H-172ZM96.3867 59.417V59.9163H96.7247L96.8503 59.6025L96.3867 59.417ZM187.5 0V0.499306C228.967 0.499306 264.329 25.0758 278.15 59.6025L278.613 59.417L279.077 59.2314C265.1 24.3126 229.361 -0.499306 187.5 -0.499306V0ZM278.613 59.417V59.9163H547V59.417V58.9177H278.613V59.417ZM547 59.417H546.501V77.8916H547H547.499V59.417H547ZM547 77.8916V77.3923H283.745V77.8916V78.3909H547V77.8916ZM283.745 77.8916L283.252 77.9714C283.986 82.5036 284.365 87.1458 284.365 91.8721H284.864H285.364C285.364 87.0922 284.98 82.3967 284.238 77.8119L283.745 77.8916ZM284.864 91.8721H284.365C284.365 142.309 241.025 183.245 187.5 183.245V183.744V184.243C241.521 184.243 285.364 142.914 285.364 91.8721H284.864ZM187.5 183.744V183.245C133.975 183.245 90.635 142.309 90.635 91.8721H90.1357H89.6364C89.6364 142.914 133.479 184.243 187.5 184.243V183.744ZM90.1357 91.8721H90.635C90.6351 87.1458 91.0154 82.5037 91.7487 77.9714L91.2559 77.8916L90.763 77.8119C90.0211 82.3967 89.6364 87.0921 89.6364 91.8721H90.1357ZM91.2559 77.8916V77.3923H-172V77.8916V78.3909H91.2559V77.8916ZM-172 77.8916H-171.501V59.417H-172H-172.499V77.8916H-172ZM-172 59.417V59.9163H96.3867V59.417V58.9177H-172V59.417ZM96.3867 59.417L96.8503 59.6025C110.671 25.0758 146.033 0.499324 187.5 0.499306V0V-0.499306C145.639 -0.499287 109.9 24.3126 95.9232 59.2314L96.3867 59.417Z" fill="#FFE0E6" mask="url(#path-1-inside-1_184_1593)" />
+            </g>
+            <defs>
+                <clipPath id="clip0_184_1593">
+                    <rect width="375" height="62" fill="white" />
+                </clipPath>
+            </defs>
+        </svg>
+
         <div class="l-inner">
             <div class="p-top-case__head l-top-section__head">
                 <hgroup class="p-top-case__header c-section-ttl">
