@@ -183,11 +183,11 @@
 
     </section>
     <section class="p-top-flow l-top-section" id="top-flow">
-        <svg class="l-top-section__deco-circle p-top-flow__deco-circle-top u-pc" width="1440" height="136" viewBox="0 0 1440 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="l-top-section__deco-circle  --top u-pc" width="1440" height="136" viewBox="0 0 1440 136" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="1440" height="136" fill="#FF4469" />
             <path d="M710.5 68.5C278 40.6784 123.5 97 0 136H1440V5C1311 57 1223.5 101.5 710.5 68.5Z" fill="#FFE0E6" />
         </svg>
-        <svg class="l-top-section__deco-circle p-top-flow__deco-circle-top u-sp" width="375" height="36" viewBox="0 0 375 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="l-top-section__deco-circle  --top u-sp" width="375" height="36" viewBox="0 0 375 36" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_2020_1198)">
                 <rect width="375" height="36" fill="#FF4469" />
                 <path d="M185.026 18.8382C72.3958 11.593 32.1615 26.2601 0 36.4163H375V2.30176C341.406 15.8434 318.62 27.432 185.026 18.8382Z" fill="#FFE0E6" />
@@ -202,29 +202,41 @@
             <div class="p-top-flow__head l-top-section__head">
                 <hgroup class="p-top-flow__header c-section-ttl">
                     <p class="c-section-ttl__sub" lang="en">How To Use</p>
-                    <h2 class="c-section-ttl__ja"></h2>
+                    <h2 class="c-section-ttl__ja">ご利用の流れ</h2>
                 </hgroup>
             </div>
             <div class="p-top-flow__content l-top-section__content">
                 <div class="p-top-flow__items">
                     <div class="p-top-flow__item">
                         <div class="p-top-flow__item-num" lang='en'>01</div>
-                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item1.webp" alt="" class="p-top-flow__item-img" width="236" height="256" loading='lazy' />
+                        <picture class="p-top-flow__picture">
+                            <source media="(max-width: 767.9px)" srcset="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item1-sp.webp">
+                            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item1.webp" alt="" class="p-top-flow__item-img" width="236" height="256" loading='lazy' />
+                        </picture>
                         <h3 class="p-top-flow__item-ttl">LINEを追加</h3>
                     </div>
                     <div class="p-top-flow__item">
                         <div class="p-top-flow__item-num" lang='en'>02</div>
-                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item2.webp" alt="" class="p-top-flow__item-img" width="236" height="256" loading='lazy' />
+                        <picture class="p-top-flow__picture">
+                            <source media="(max-width: 767.9px)" srcset="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item2-sp.webp">
+                            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item2.webp" alt="" class="p-top-flow__item-img" width="236" height="256" loading='lazy' />
+                        </picture>
                         <h3 class="p-top-flow__item-ttl">オンライン面談を<br class="u-pc">予約</h3>
                     </div>
                     <div class="p-top-flow__item">
                         <div class="p-top-flow__item-num" lang='en'>03</div>
-                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item3.webp" alt="" class="p-top-flow__item-img" width="236" height="256" loading='lazy' />
+                        <picture class="p-top-flow__picture">
+                            <source media="(max-width: 767.9px)" srcset="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item3-sp.webp">
+                            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item3.webp" alt="" class="p-top-flow__item-img" width="236" height="256" loading='lazy' />
+                        </picture>
                         <h3 class="p-top-flow__item-ttl">適切なクリニック<br class="u-pc">&施術を提案</h3>
                     </div>
                     <div class="p-top-flow__item">
                         <div class="p-top-flow__item-num" lang='en'>04</div>
-                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item4.webp" alt="" class="p-top-flow__item-img" width="236" height="256" loading='lazy' />
+                        <picture class="p-top-flow__picture">
+                            <source media="(max-width: 767.9px)" srcset="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item4-sp.webp">
+                            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item4.webp" alt="" class="p-top-flow__item-img" width="236" height="256" loading='lazy' />
+                        </picture>
                         <h3 class="p-top-flow__item-ttl">割引付きで<br class="u-pc">予約代行</h3>
                     </div>
                 </div>
@@ -237,11 +249,14 @@
                 </a>
             </div>
         </div>
-        <svg class="l-top-section__deco-circle u-pc" width="1440" height="136" viewBox="0 0 1440 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+    </section>
+    <section class="p-top-clinic l-top-section" id="top-clinic">
+        <svg class="l-top-section__deco-circle --top u-pc" width="1440" height="136" viewBox="0 0 1440 136" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="1440" height="136" fill="#FFE0E6" />
             <path d="M710.5 68.5C278 40.6784 123.5 97 0 136H1440V5C1311 57 1223.5 101.5 710.5 68.5Z" fill="white" />
         </svg>
-        <svg class="l-top-section__deco-circle u-sp" width="375" height="36" viewBox="0 0 375 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="l-top-section__deco-circle --top u-sp" width="375" height="36" viewBox="0 0 375 36" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_184_1564)">
                 <rect width="375" height="36" fill="#FFE0E6" />
                 <path d="M185.026 18.8392C72.3958 11.594 32.1615 26.2611 0 36.4173H375V2.30273C341.406 15.8444 318.62 27.4329 185.026 18.8392Z" fill="white" />
@@ -252,8 +267,6 @@
                 </clipPath>
             </defs>
         </svg>
-    </section>
-    <section class="p-top-clinic l-top-section" id="top-clinic">
         <div class="l-inner">
             <div class="p-top-clinic__head l-top-section__head">
                 <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_top-clinic-head-left.webp" alt="" class="p-top-clinic__head-img --left" width="76" height="92" loading='lazy' />

@@ -20,7 +20,12 @@
 .l-top-section__deco-circle {
   position: absolute;
   left: 0;
-  bottom: -1px;
+  bottom: -2px;
   width: 100%;
   height: auto;
+
+  &.--top {
+    bottom: initial;
+    top: -2px;
+  }
 }

@@ -1,13 +1,12 @@
 @use "../../global" as *;
 
 .p-top-flow {
-  background: var(--light-pink, #ffe0e6);
+  background: var(--color-light-pink);
   padding-top: rm(195);
-}
-
-.p-top-flow__deco-circle-top {
-  bottom: initial;
-  top: -2px;
+  padding-bottom: rm(64);
+  @include mq(sp) {
+    padding-top: rm(116);
+  }
 }
 
 .p-top-flow__head {
@@ -20,19 +19,100 @@
 }
 
 .p-top-flow__items {
+  --card-items: 4;
+  --card-gap: 24;
+  display: flex;
+  justify-content: center;
+  gap: rm(var(--card-gap)); //親要素にて設定
+  @media (768px <= width < 900px) {
+    flex-wrap: wrap;
+  }
+  @include mq(sp) {
+    flex-direction: column;
+    gap: rm(64);
+    align-items: center;
+    max-width: 400px;
+    margin-inline: auto;
+  }
 }
 
 .p-top-flow__item {
+  flex-basis: calc((100% - rm(var(--card-gap)) * (var(--card-items) - 1)) / var(--card-items));
+  @media (768px <= width < 900px) {
+    flex-basis: calc((100% - rm(var(--card-gap)) * (2 - 1)) / 2);
+    max-width: 284px;
+  }
+  position: relative;
+  border-radius: 8px;
+  border: 2px solid var(--color-pink);
+  padding-block: rm(42) rm(22);
+  padding-inline: rm(22);
+  display: flex;
+  flex-direction: column;
+  gap: rm(24);
+  @include mq(sp) {
+    flex-basis: 100%;
+    width: 100%;
+  }
 }
 
 .p-top-flow__item-num {
+  @include font(40, 700, 40, 0);
+  position: absolute;
+  top: rm8(-30);
+  left: 50%;
+  translate: -50%;
+  color: var(--color-pink);
+  padding: rm8(10);
+  background-color: var(--color-light-pink);
+  @include mq(sp) {
+    top: rm(-30);
+    padding: rm(10);
+  }
+}
+
+.p-top-flow__picture {
+  display: contents;
 }
 
 .p-top-flow__item-img {
+  width: rm(236);
+  height: rm(256);
+  object-fit: cover;
+  object-position: center;
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-inline: auto;
+  @include mq(sp) {
+    width: rm(296);
+    height: rm(256);
+  }
 }
 
 .p-top-flow__item-ttl {
+  min-height: rm8(94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  @include font(28, 700, 41, 0);
+  @include mq(sp) {
+    @include font(20, 700, 29, 0);
+    min-height: initial;
+  }
 }
 
 .p-top-flow__btn {
+  margin-top: rm(96);
+  padding-inline: rm8(44);
+  .c-cta-btn__line-icon,
+  .c-cta-btn__text {
+    margin-right: rm8(24) !important;
+  }
+  @include mq(sp) {
+    margin-top: rm(72);
+    padding-inline: rm(20);
+  }
 }
