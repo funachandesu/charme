@@ -1,5 +1,5 @@
 <div class="p-float-cta" id="js-float-cta">
-  <button class="p-float-cta__btn-close"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/icon_float-cta-close.svg" alt="閉じる" class="p-float-cta__btn-close-icon" id="js-float-cta-close" width="18" height="18" loading='lazy' /></button>
+  <button class="p-float-cta__btn-close" id="js-float-cta-close"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/icon_float-cta-close.svg" alt="閉じる" class="p-float-cta__btn-close-icon" width="18" height="18" loading='lazy' /></button>
   <a href="" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="p-float-cta__btn">
     <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_float-cta-pc.webp" alt="LINEで割引情報をGET！" class="p-float-cta__btn-icon u-pc" width="24" height="18" loading='lazy' />
     <div class="p-float-cta__btn-close-box u-sp">

@@ -16,6 +16,9 @@
   }
   &.is-hidden {
     translate: 150% 0;
+    @include mq(sp) {
+      translate: 0 150%;
+    }
   }
   @include mq(sp) {
     top: initial;
@@ -24,16 +27,25 @@
     flex-direction: row;
     width: 100%;
     padding: rm(4);
+    translate: 0 150%;
   }
 }
 
 .p-float-cta__btn-close {
   display: flex;
   margin-left: auto;
+  align-items: end;
+  justify-content: end;
+  width: rm(36);
+  height: rm(36);
+  position: relative;
+  z-index: 1;
   @include mq(sp) {
     position: absolute;
     top: 0;
     left: 0;
+    align-items: start;
+    justify-content: start;
   }
 }
 
@@ -72,6 +84,7 @@
   gap: rm(20);
   justify-content: center;
   translate: rm(-24);
+  z-index: 1;
 }
 
 .p-float-cta__btn-sns-icon {

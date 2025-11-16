@@ -3,6 +3,7 @@
 .l-footer {
   background-color: var(--color-white);
   padding-block: rm(120) rm(24);
+  height: auto !important;
   @include mq(sp) {
     padding-block: rm(80) rm(16);
   }
@@ -136,6 +137,7 @@
   flex-wrap: wrap;
   max-width: rm8(960);
   gap: rm(24) rm(40);
+  color: var(--color-black);
   @include font(12, 400, 20, 0);
   @include mq(sp) {
     flex-direction: column;
@@ -156,5 +158,7 @@
   margin-top: rm(56);
   text-align: center;
   width: 100%;
+  color: var(--color-black);
+
   display: block;
 }

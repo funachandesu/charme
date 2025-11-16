@@ -66,7 +66,7 @@
 
     @include mq(sp) {
       @include font(18, 700, 26, 0.72);
-      margin-right: 0;
+      margin-right: 0  !important;
     }
   }
 
@@ -79,6 +79,7 @@
     padding-inline: rm(20);
     padding-block: rm(16);
     justify-content: center;
+    gap: 0 !important;
   }
 
   @media (any-hover: hover) {
