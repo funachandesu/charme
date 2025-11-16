@@ -55,6 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let splide = null;
 
+  // 現在の幅を記録
+  let prevWidth = window.innerWidth;
+
   // ----------- 初期化関数 -----------
   const initSplide = () => {
     const isSP = window.innerWidth < 768;
@@ -86,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
       };
     }
 
-    // 既存があれば破棄
+    // 既存インスタンスがあれば破棄
     if (splide) splide.destroy(true);
 
     // mount（SP は autoScroll 付き）
@@ -97,13 +100,23 @@ document.addEventListener("DOMContentLoaded", function () {
   // 初回
   initSplide();
 
-  // リサイズ時
+  // ----------- 横幅のみリサイズを検知 -----------
   let resizeTimer;
   window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(initSplide, 150);
+    const currentWidth = window.innerWidth;
+
+    // 横幅が変わった時のみ
+    if (currentWidth !== prevWidth) {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        initSplide();
+        prevWidth = currentWidth; // 更新
+      }, 150);
+    }
   });
 });
+
+
 
 //  * ==========================================
 //  * 3. js-top-case-carousel スライダー
