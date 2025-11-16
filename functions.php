@@ -720,3 +720,15 @@ function charme_enqueue_renewal_2025_styles()
     );
 }
 add_action('wp_enqueue_scripts', 'charme_enqueue_renewal_2025_styles');
+
+// ================================
+// SNS URL（全ページ共通で利用可能）
+// ================================
+function charme_get_sns_links()
+{
+    return array(
+        'line'   => 'https://form.lmes.jp/landing-qr/2006662795-da8zjpjr?uLand=mLCQY0',
+        'inst'  => 'https://www.instagram.com/concierge_charme/',
+        'tiktok' => 'https://www.tiktok.com/@charme.concierge?_t=8mHq6qDaRKJ&_r=1',
+    );
+}

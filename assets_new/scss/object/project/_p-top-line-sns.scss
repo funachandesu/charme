@@ -21,6 +21,7 @@
   padding-block: rm(56);
   padding-inline: rm(40);
   position: relative;
+  z-index: 1;
   @include mq(sp) {
     padding-block: rm(24);
     padding-inline: rm(12);
@@ -32,6 +33,8 @@
   display: flex;
   flex-direction: column;
   gap: rm(14);
+  position: relative;
+  z-index: 1;
 }
 
 .p-top-line-sns__balloon-img {
@@ -66,7 +69,7 @@
 
     @include mq(sp) {
       @include font(18, 700, 26, 0.72);
-      margin-right: 0  !important;
+      margin-right: 0 !important;
     }
   }
 
@@ -103,6 +106,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   @include mq(sp) {
     display: contents;
   }
@@ -112,7 +116,8 @@
 
 .p-top-line-sns__qr-img {
   position: absolute;
-  width: rm(318);
+  width: rm8(318);
+  height: auto;
   right: 0;
   bottom: 0;
 }

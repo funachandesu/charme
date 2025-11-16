@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<?php $sns = charme_get_sns_links(); ?>
 <main>
     <div class="p-top-fv">
         <picture class="p-top-fv__bg-picture">
@@ -21,7 +22,7 @@
                     <span class="p-top-fv__vertical-text --2">コンシェルジュが無料でサポート。</span>
                 </p>
 
-                <a href="" class="c-cta-btn --line --grad p-top-fv__btn">
+                <a href="<?php echo esc_url($sns['line']); ?>" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="c-cta-btn --line --grad p-top-fv__btn">
                     <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/icon_line-cta.svg" alt="LINE" class="c-cta-btn__line-icon" width="40" height="40" loading='lazy' />
                     <span class="c-cta-btn__text">LINEで割引情報をGET！</span>
                     <svg class="c-cta-btn__arrow" width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -112,7 +113,7 @@
                         <ul class="p-top-campaign__pagination splide__pagination"></ul>
                     </div>
                 </div>
-                <a href="" class="c-cta-btn --center --border-pink p-top-campaign__btn">
+                <a href="<?php echo esc_url(home_url('/campaign')); ?>" class="c-cta-btn --center --border-pink p-top-campaign__btn">
                     <span class="c-cta-btn__text">すべてのキャンペーンを見る</span>
                     <svg class="c-cta-btn__arrow" width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1.49964 3.00086L10.4996 12.0009L1.49964 21.0009L1.49964 3.00086Z" fill="white" />
@@ -240,7 +241,7 @@
                         <h3 class="p-top-flow__item-ttl">割引付きで<br class="u-pc">予約代行</h3>
                     </div>
                 </div>
-                <a href="" class="c-cta-btn --grad --center --line p-top-flow__btn">
+                <a href='<?php echo esc_url($sns['line']); ?>' class="c-cta-btn --grad --center --line p-top-flow__btn">
                     <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/icon_line-cta.svg" alt="LINE" class="c-cta-btn__line-icon" width="40" height="40" loading='lazy' />
                     <span class="c-cta-btn__text">LINEで相談する</span>
                     <svg class="c-cta-btn__arrow" width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -315,7 +316,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="" class="c-cta-btn --center --border-pink p-top-clinic__btn">
+                <a href='<?php echo esc_url(home_url('/clinic')); ?>' class="c-cta-btn --center --border-pink p-top-clinic__btn">
                     <span class="c-cta-btn__text">すべてのクリニックを見る</span>
                     <svg class="c-cta-btn__arrow" width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1.49964 3.00086L10.4996 12.0009L1.49964 21.0009L1.49964 3.00086Z" fill="white" />
@@ -408,7 +409,7 @@
                 </div>
                 <div class="p-top-case__btn-wrap">
                     <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_top-case-btn-deco.webp" alt="" class="p-top-case__btn-img" width="194" height="124" loading='lazy' />
-                    <a href="" class="c-cta-btn --border-white --center p-top-case__btn">
+                    <a href='<?php echo esc_url(home_url('/case')); ?>' class="c-cta-btn --border-white --center p-top-case__btn">
                         <span class="c-cta-btn__text">もっと見る</span>
                         <svg class="c-cta-btn__arrow" width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1.49964 3.00086L10.4996 12.0009L1.49964 21.0009L1.49964 3.00086Z" fill="white" />
@@ -469,7 +470,7 @@
                         </ul>
                     </div>
                 </div>
-                <a href="" class="c-cta-btn --border-pink --center p-top-column__btn">
+                <a href='https://charme-beauty.jp/column/' class="c-cta-btn --border-pink --center p-top-column__btn">
                     <span class="c-cta-btn__text">すべての記事を見る</span>
                     <svg class="c-cta-btn__arrow" width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1.49964 3.00086L10.4996 12.0009L1.49964 21.0009L1.49964 3.00086Z" fill="white" />
@@ -488,11 +489,11 @@
             </div>
             <div class="p-top-sns__content l-top-section__content">
                 <div class="p-top-sns__items">
-                    <a href="" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="p-top-sns__item">
+                    <a href='<?php echo esc_url($sns['inst']); ?>' target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="p-top-sns__item">
                         <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_inst.webp" alt="Instagram" class="p-top-sns__item-img" width="64" height="64" loading='lazy' />
                         <p class="p-top-sns__text">@concierge_charme</p>
                     </a>
-                    <a href="" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="p-top-sns__item">
+                    <a href='<?php echo esc_url($sns['tiktok']); ?>' target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="p-top-sns__item">
                         <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_tiktok.webp" alt="TikTok" class="p-top-sns__item-img" width="64" height="64" loading='lazy' />
                         <p class="p-top-sns__text">@charme.concierge</p>
                     </a>
@@ -511,7 +512,7 @@
             <div class="p-top-line-sns__block">
                 <div class="p-top-line-sns__body">
                     <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_line-sns-balloon.webp" alt="" class="p-top-line-sns__balloon-img" width="432" height="84" loading='lazy' />
-                    <a href="" class="c-cta-btn --grad --center --line p-top-line-sns__btn">
+                    <a href='<?php echo esc_url($sns['line']); ?>' class="c-cta-btn --grad --center --line p-top-line-sns__btn">
                         <div class="p-top-line-sns__btn-container">
                             <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/icon_line-cta.svg" alt="LINE" class="c-cta-btn__line-icon" width="40" height="40" loading='lazy' />
                             <span class="c-cta-btn__text">LINEで割引情報をGET！</span>
