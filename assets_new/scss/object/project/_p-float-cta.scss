@@ -1,0 +1,128 @@
+@use "../../global" as *;
+
+.p-float-cta {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  position: fixed;
+  top: rm8(91);
+  right: rm8(0);
+  gap: rm8(6);
+  z-index: $z-float-cta;
+  transition: translate 0.5s var(--ease-out-quint);
+  translate: 150% 0;
+  &.is-active {
+    translate: 0 0;
+  }
+  &.is-hidden {
+    translate: 150% 0;
+  }
+  @include mq(sp) {
+    top: initial;
+    bottom: 0;
+    background-color: var(--color-yellow);
+    flex-direction: row;
+    width: 100%;
+    padding: rm(4);
+  }
+}
+
+.p-float-cta__btn-close {
+  display: flex;
+  margin-left: auto;
+  @include mq(sp) {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.p-float-cta__btn-close-icon {
+  @include mq(sp) {
+    width: rm(18);
+    height: rm(18);
+  }
+}
+
+.p-float-cta__btn {
+  transition: opacity 0.3s var(--ease-out-quint);
+  @include mq(sp) {
+    padding-inline: rm(20);
+    min-height: rm(78);
+    border: 1px solid var(--color-white);
+    width: 100%;
+    border-radius: 5px;
+  }
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.p-float-cta__btn-icon {
+  width: rm(96);
+  height: auto;
+}
+
+.p-float-cta__btn-close-box {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  gap: rm(20);
+  justify-content: center;
+  translate: rm(-24);
+}
+
+.p-float-cta__btn-sns-icon {
+  width: rm(40);
+  height: auto;
+}
+
+.p-float-cta__box-text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: rm(4);
+  width: fit-content;
+}
+
+.p-float-cta__text {
+  @include font(19, 700, 28, 0);
+}
+
+.p-float-cta__check-block {
+  width: 100%;
+  min-height: rm(24);
+  border-radius: calc(infinity * 1px);
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.p-float-cta__check-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: rm(10);
+  translate: 10px 0px;
+}
+
+.p-float-cta__check-text {
+  @include font(12, 500, 16, 1.2);
+}
+
+.p-float-cta__check-icon {
+  width: rm(28);
+  height: auto;
+}
+
+.p-float-cta__face-img {
+  width: rm(64);
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+}

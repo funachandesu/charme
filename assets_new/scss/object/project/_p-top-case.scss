@@ -4,7 +4,7 @@
   background-color: var(--snow-pink, #fffafb);
   padding-top: rm(127);
   padding-bottom: rm(120);
-  overflow: hidden;
+  overflow-x: clip;
   @include mq(sp) {
     padding-top: rm(62);
     padding-bottom: rm(120);

@@ -200,3 +200,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 100);
   });
 });
+
+//  * ==========================================
+//  * 4. js-float-cta スライダー
+//  * ==========================================
+
+document.addEventListener("DOMContentLoaded", () => {
+  const floatCta = document.getElementById("js-float-cta");
+  const closeBtn = document.getElementById("js-float-cta-close");
+
+  if (!floatCta) return;
+
+  // 0.5s 後に is-active を付与
+  setTimeout(() => {
+    floatCta.classList.add("is-active");
+  }, 500);
+
+  // 閉じるボタンクリック → is-hidden を付与
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      floatCta.classList.add("is-hidden");
+      floatCta.classList.remove("is-active");
+    });
+  }
+});
