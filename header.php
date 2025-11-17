@@ -64,40 +64,40 @@
     </style>
 <?php endif; ?>
 
+<?php $sns = charme_get_sns_links(); ?>
+
 <body<?php set_body_pageid(); ?> <?php body_class('my-class'); ?>>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCJL6ZP" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <header>
+    <header <?php if (is_front_page()): ?> class="l-header" <?php endif; ?>>
         <?php $old_header = false; ?>
-        <?php if ($old_header == false): ?>
-            <!-- <header class="l-header">
-                <div class="l-header__inner">
-                    <?php if (is_front_page()): ?>
-                        <h1 class="l-header__logo-wrap">
-                            <a href="#top" class="l-header__logo-link">
-                                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets_new/img/logo.webp'); ?>" alt="Charme Concierge" class="l-header__logo-gaiheki" width="160" height="43" />
-                            </a>
-                        </h1>
-                    <?php else: ?>
-                        <div class="l-header__logo-wrap">
-                            <a href="<?php echo esc_url(home_url('/')); ?>" class="l-header__logo-link">
-                                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets_new/img/logo.webp'); ?>" alt="Charme Concierge" class="l-header__logo-gaiheki" width="160" height="43" />
-                            </a>
-                        </div>
-                    <?php endif; ?>
-                    <button class="p-drawer__icon  u-header-sp" type="button" aria-label="メニューを開く">
-                        <div class="p-drawer__icon-wrap">
-                            <span class="p-drawer__icon-bar"></span>
-                            <span class="p-drawer__icon-bar"></span>
-                            <span class="p-drawer__icon-bar"></span>
-                        </div>
-                    </button>
-                </div>
+        <?php if (is_front_page()): ?>
+            <div class="l-header__inner">
+                <?php if (is_front_page()): ?>
+                    <h1 class="l-header__logo-wrap">
+                        <a href="#top" class="l-header__logo-link">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets_new/img/logo.webp'); ?>" alt="Charme Concierge" class="l-header__logo-img" width="160" height="43" />
+                        </a>
+                    </h1>
+                <?php else: ?>
+                    <div class="l-header__logo-wrap">
+                        <a href="<?php echo esc_url(home_url('/')); ?>" class="l-header__logo-link">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets_new/img/logo.webp'); ?>" alt="Charme Concierge" class="l-header__logo-img" width="160" height="43" />
+                        </a>
+                    </div>
+                <?php endif; ?>
+                <button class="p-drawer__icon" type="button" aria-label="メニューを開く">
+                    <div class="p-drawer__icon-wrap">
+                        <span class="p-drawer__icon-bar"></span>
+                        <span class="p-drawer__icon-bar"></span>
+                        <span class="p-drawer__icon-bar"></span>
+                    </div>
+                </button>
+            </div>
 
-            </header> -->
             <div class="p-drawer">
                 <div class="p-drawer__inner">
                     <nav class="p-drawer__nav">
@@ -195,13 +195,13 @@
                     <div class="p-drawer__btn-wrap">
                         <div class="p-drawer__sns">
                             <div class="p-drawer__sns-items">
-                                <a class="p-drawer__sns-item" href="" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">
+                                <a class="p-drawer__sns-item" href='<?php echo esc_url($sns['line']); ?>' target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">
                                     <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_line.webp" alt="LINE" class="p-drawer__sns-icon" width="40" height="40" loading='lazy' />
                                 </a>
-                                <a class="p-drawer__sns-item" href="" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">
+                                <a class="p-drawer__sns-item" href='<?php echo esc_url($sns['inst']); ?>' target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">
                                     <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_inst.webp" alt="Instagram" class="p-drawer__sns-icon" width="40" height="40" loading='lazy' />
                                 </a>
-                                <a class="p-drawer__sns-item" href="" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">
+                                <a class="p-drawer__sns-item" href='<?php echo esc_url($sns['tiktok']); ?>' target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">
                                     <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_tiktok.webp" alt="TikTok" class="p-drawer__sns-icon" width="40" height="40" loading='lazy' />
                                 </a>
                             </div>
@@ -212,7 +212,7 @@
                                 <span class="p-drawer__sns-mail-btn-text">メールでのお問い合わせ</span>
                             </a>
                         </div>
-                        <a href="" class="c-cta-btn --grad --center --line p-drawer__cta-btn">
+                        <a href='<?php echo esc_url($sns['line']); ?>' class="c-cta-btn --grad u-pc --line p-drawer__cta-btn">
                             <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/icon_line-cta.svg" alt="LINE" class="c-cta-btn__line-icon" width="40" height="40" loading='lazy' />
                             <span class="c-cta-btn__text">LINEで割引情報をGET！</span>
                             <svg class="c-cta-btn__arrow" width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">

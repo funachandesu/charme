@@ -1,37 +1,45 @@
 @use "../global" as *;
 //ヘッダー ========================
 .l-header {
-  position: sticky;
+  position: fixed;
   z-index: $z-header;
   top: 0;
   left: 0;
   width: 100%;
-  height: rm8(88);
-  background-color: #fff;
+  height: px(91);
+  background-color: transparent;
   display: flex;
   align-items: center;
   @include mq(sp) {
-    height: rm(88);
+    height: rm(75);
   }
 }
 .l-header__inner {
   max-width: 1360px;
   width: 100%;
   margin: 0 auto;
-  display: flex;
   align-items: center;
   justify-content: space-between;
   gap: rm(24);
   padding-inline: rm(20);
+  position: relative;
+  z-index: 200;
 
   @include mq(sp) {
     padding-inline: rm(20);
   }
 
-   @include mq(sp) {
+  @include mq(sp) {
     gap: rm(4);
   }
 }
+
+.l-header__logo-wrap {
+  display: block;
+  margin-inline: auto;
+  width: fit-content;
+}
+
 .l-header__logo {
   transition: opacity 0.3s ease;
   @media (any-hover: hover) {
@@ -41,19 +49,28 @@
   }
 }
 
+.l-header__logo-link {
+  display: block;
+  transition: opacity 0.3s var(--ease-out-quint);
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
 .l-header__logo-img {
-  width: rm(246);
-  height: rm(64);
+  width: px(160);
+  height: auto;
   @include mq(sp) {
-    width: rm(160);
-    height: rm(41.6);
+    width: rm(114);
   }
 }
 
 .l-header__content {
   display: flex;
   align-items: center;
-  gap: rm8(16);
+  gap: px(16);
   max-width: rm(880);
   justify-content: space-between;
   width: 100%;
@@ -130,14 +147,14 @@
   .l-header__btn {
     flex-shrink: 0;
     @include font(20, 700, 36, 0);
-    height: rm8(48);
-    width: rm8(200);
+    height: px(48);
+    width: px(200);
     padding-inline: rm(16);
     .l-header__btn-text {
       margin-inline: auto;
     }
 
-     @include mq(sp) {
+    @include mq(sp) {
       @include font(12, 700, 21.6, 0);
       height: rm(40);
       width: rm(120);
@@ -154,11 +171,11 @@
     content: "";
     position: absolute;
     width: 1px;
-    height: rm8(16);
+    height: px(16);
     display: block;
     background-color: #222;
     bottom: rm-8(-3);
-     @include mq(sp) {
+    @include mq(sp) {
       height: rm(10);
       bottom: rm(-1);
     }
@@ -166,7 +183,7 @@
   &::before {
     left: rm-8(-12);
     rotate: -31deg;
-     @include mq(sp) {
+    @include mq(sp) {
       left: rm(-8);
     }
   }
@@ -174,19 +191,19 @@
   &::after {
     right: rm-8(-12);
     rotate: 31deg;
-     @include mq(sp) {
+    @include mq(sp) {
       right: rm(-8);
     }
   }
 
-   @include mq(sp) {
+  @include mq(sp) {
     @include font(10, 700, 10, 0);
   }
 }
 
 .l-header__sub-menu-wrap {
   position: fixed;
-  top: rm8(88);
+  top: px(88);
   left: 0;
   right: 0;
   z-index: $z-header;

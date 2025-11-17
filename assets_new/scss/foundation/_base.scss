@@ -14,6 +14,10 @@ body {
   font-family: $ff !important;
 }
 
+body:has(.p-drawer.js-show) {
+  overflow: hidden;
+}
+
 [lang="en"] {
   font-family: $ff-en !important;
 }
