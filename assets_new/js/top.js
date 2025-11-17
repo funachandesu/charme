@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //  * ==========================================
-//  * 4. js-float-cta スライダー
+//  * 5. js-float-cta スライダー
 //  * ==========================================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -237,7 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //  * ==========================================
-//  * 5. ドロワーメニュー＆高度なスムーススクロール機能
+//  * 6. ドロワーメニュー＆高度なスムーススクロール機能
 //  * ==========================================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -448,66 +448,3 @@ document.addEventListener("DOMContentLoaded", () => {
   // ドロワー内のリンクのイベント設定
   setupDrawerCloseLinks();
 });
-
-// 従来のスムーススクロール処理（念のため残しておく、削除可能）
-document.addEventListener("DOMContentLoaded", function () {
-  const links = document.querySelectorAll('a[href^="#"]');
-  links.forEach((item) => {
-    item.addEventListener("click", (event) => {
-      event.preventDefault();
-      const targetId = item.getAttribute("href");
-      const target = document.querySelector(targetId);
-      if (target) {
-        const headerElement = document.querySelector(".l-header") || document.querySelector(".l-header__wrap");
-        const headerOffset = headerElement ? headerElement.offsetHeight : 0;
-        const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-        // console.log("Legacy smooth scroll:", {
-        //   targetId,
-        //   headerOffset,
-        //   elementPosition,
-        //   offsetPosition,
-        // }); // デバッグ用
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
-      }
-    });
-  });
-});
-
-const setUpAccordion = () => {
-  const details = document.querySelectorAll(".js-details");
-  const IS_OPENED_CLASS = "is-opened";
-
-  details.forEach((element) => {
-    const summary = element.querySelector(".js-summary");
-    const content = element.querySelector(".js-content");
-
-    summary.addEventListener("click", (event) => {
-      // デフォルトの挙動を無効化
-      event.preventDefault();
-
-      // is-openedクラスの有無で判定（detailsのopen属性の判定だと、アニメーション完了を待つ必要がありタイミング的に不安定になるため）
-      if (element.classList.contains(IS_OPENED_CLASS)) {
-        // アコーディオンを閉じるときの処理
-        // アイコン操作用クラスを切り替える(クラスを取り除く)
-        element.classList.toggle(IS_OPENED_CLASS);
-
-        // アニメーション実行
-        closingAnim(content, element).restart();
-      } else {
-        // アコーディオンを開くときの処理
-        // アイコン操作用クラスを切り替える(クラスを付与)
-        element.classList.toggle(IS_OPENED_CLASS);
-        // open属性を付与
-        element.setAttribute("open", "true");
-        // アニメーション実行
-        openingAnim(content).restart();
-      }
-    });
-  });
-};
