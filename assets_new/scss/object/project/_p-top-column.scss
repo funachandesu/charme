@@ -105,14 +105,18 @@
 }
 
 .p-top-column__btn {
-  margin-top: rm(96);
+  margin-top: rm(56);
+  min-width: rm8(340);
   @include mq(sp) {
     margin-top: rm(72);
+    min-width: initial;
   }
 }
 
 .p-top-column__pagination-wrap {
   position: relative;
+  @include mq(sp) {
+  }
 }
 
 .p-top-column__pagination {

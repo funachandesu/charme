@@ -6,6 +6,7 @@
   padding-bottom: rm(64);
   @include mq(sp) {
     padding-top: rm(116);
+    padding-bottom: rm(84);
   }
 }
 
@@ -16,6 +17,9 @@
 }
 
 .p-top-flow__content {
+  @include mq(sp) {
+    margin-top: rm(109);
+  }
 }
 
 .p-top-flow__items {
@@ -29,7 +33,7 @@
   }
   @include mq(sp) {
     flex-direction: column;
-    gap: rm(64);
+    gap: rm(62);
     align-items: center;
     max-width: 400px;
     margin-inline: auto;
@@ -53,6 +57,7 @@
   @include mq(sp) {
     flex-basis: 100%;
     width: 100%;
+    padding-block: rm(19) rm(22);
   }
 }
 

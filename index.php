@@ -56,11 +56,11 @@
                             <ul class="p-top-campaign__list splide__list">
                                 <li class="p-top-campaign__slide splide__slide">
                                     <a href="" class="p-top-campaign__link">
-                                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_dummy-campaign.webp" alt="タイトルが入ります" class="p-top-campaign__slide-img" width="362" height="136" loading='lazy' />
+                                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_dummy-campaign.webp" alt="クリニック名が入りますクリニック名が入ります" class="p-top-campaign__slide-img" width="362" height="136" loading='lazy' />
                                         <div class="p-top-campaign__slide-content">
                                             <p class="p-top-campaign__slide-label"><span class="p-top-campaign__slide-label-text">割引期間が入ります</span></p>
-                                            <p class="p-top-campaign__slide-ttl">タイトルが入ります</p>
-                                            <p class="p-top-campaign__slide-info">キャンペーンの説明が入ります。キャンペーンの説明が入ります。キャンペーンの説明が入ります。</p>
+                                            <p class="p-top-campaign__slide-ttl">クリニック名が入りますクリニック名が入ります</p>
+                                            <p class="p-top-campaign__slide-info">顔脂肪吸引（頬・顎下・ジョール）＋糸リフト4本</p>
                                             <div class="p-top-campaign__slide-price-wrap">
                                                 <p class="p-top-campaign__slide-price-before">712,800円</p>
                                                 <p class="p-top-campaign__slide-price-after">712,800円</p>
@@ -74,11 +74,11 @@
                                 </li>
                                 <li class="p-top-campaign__slide splide__slide">
                                     <a href="" class="p-top-campaign__link">
-                                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_dummy-campaign.webp" alt="タイトルが入ります" class="p-top-campaign__slide-img" width="362" height="136" loading='lazy' />
+                                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_dummy-campaign.webp" alt="クリニック名が入りますクリニック名が入ります" class="p-top-campaign__slide-img" width="362" height="136" loading='lazy' />
                                         <div class="p-top-campaign__slide-content">
                                             <p class="p-top-campaign__slide-label"><span class="p-top-campaign__slide-label-text">割引期間が入ります</span></p>
-                                            <p class="p-top-campaign__slide-ttl">タイトルが入ります</p>
-                                            <p class="p-top-campaign__slide-info">キャンペーンの説明が入ります。キャンペーンの説明が入ります。キャンペーンの説明が入ります。</p>
+                                            <p class="p-top-campaign__slide-ttl">クリニック名が入りますクリニック名が入ります</p>
+                                            <p class="p-top-campaign__slide-info">顔脂肪吸引（頬・顎下・ジョール）＋糸リフト4本</p>
                                             <div class="p-top-campaign__slide-price-wrap">
                                                 <p class="p-top-campaign__slide-price-before">712,800円</p>
                                                 <p class="p-top-campaign__slide-price-after">712,800円</p>
@@ -92,11 +92,11 @@
                                 </li>
                                 <li class="p-top-campaign__slide splide__slide">
                                     <a href="" class="p-top-campaign__link">
-                                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_dummy-campaign.webp" alt="タイトルが入ります" class="p-top-campaign__slide-img" width="362" height="136" loading='lazy' />
+                                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_dummy-campaign.webp" alt="クリニック名が入りますクリニック名が入ります" class="p-top-campaign__slide-img" width="362" height="136" loading='lazy' />
                                         <div class="p-top-campaign__slide-content">
                                             <p class="p-top-campaign__slide-label"><span class="p-top-campaign__slide-label-text">割引期間が入ります</span></p>
-                                            <p class="p-top-campaign__slide-ttl">タイトルが入ります</p>
-                                            <p class="p-top-campaign__slide-info">キャンペーンの説明が入ります。キャンペーンの説明が入ります。キャンペーンの説明が入ります。</p>
+                                            <p class="p-top-campaign__slide-ttl">クリニック名が入りますクリニック名が入ります</p>
+                                            <p class="p-top-campaign__slide-info">顔脂肪吸引（頬・顎下・ジョール）＋糸リフト4本</p>
                                             <div class="p-top-campaign__slide-price-wrap">
                                                 <p class="p-top-campaign__slide-price-before">712,800円</p>
                                                 <p class="p-top-campaign__slide-price-after">712,800円</p>
@@ -491,27 +491,32 @@
                 <div class="p-top-sns__items">
                     <a href='<?php echo esc_url($sns['inst']); ?>' target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="p-top-sns__item">
                         <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_inst.webp" alt="Instagram" class="p-top-sns__item-img" width="64" height="64" loading='lazy' />
-                        <p class="p-top-sns__text">@concierge_charme</p>
+                        <p class="p-top-sns__text" lang="en">@concierge_charme</p>
                     </a>
                     <a href='<?php echo esc_url($sns['tiktok']); ?>' target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="p-top-sns__item">
                         <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_tiktok.webp" alt="TikTok" class="p-top-sns__item-img" width="64" height="64" loading='lazy' />
-                        <p class="p-top-sns__text">@charme.concierge</p>
+                        <p class="p-top-sns__text" lang="en">@charme.concierge</p>
                     </a>
                 </div>
             </div>
         </div>
     </section>
     <div class="p-top-line-sns">
-        <svg class="l-top-section__deco-circle --top u-pc" xmlns="http://www.w3.org/2000/svg" width="1440" height="136" viewBox="0 0 1440 136" fill="none">
-            <path d="M722 136C1135.5 136 1444 0 1444 0H722H0C0 0 308.5 136 722 136Z" fill="#FFE0E6" />
+        <svg class="l-top-section__deco-circle --top u-pc" width="1440" height="210" viewBox="0 0 1440 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M722 210C1135.5 210 1444 74 1444 74H722H0C0 74 308.5 210 722 210Z" fill="#FFE0E6" />
+            <rect width="1440" height="74" fill="#FFE0E6" />
         </svg>
+
         <svg class="l-top-section__deco-circle --top u-sp" xmlns="http://www.w3.org/2000/svg" width="375" height="36" viewBox="0 0 375 36" fill="none">
             <path d="M187.5 35.3184C294.884 35.3184 375 -0.000198364 375 -0.000198364H187.5H0C0 -0.000198364 80.116 35.3184 187.5 35.3184Z" fill="#FFE0E6" />
         </svg>
         <div class="l-inner">
             <div class="p-top-line-sns__block">
                 <div class="p-top-line-sns__body">
-                    <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_line-sns-balloon.webp" alt="" class="p-top-line-sns__balloon-img" width="432" height="84" loading='lazy' />
+                    <picture class="p-top-line-sns__balloon-img-picture">
+                        <source media="(max-width: 767.9px)" srcset="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_line-sns-balloon-sp.webp">
+                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_line-sns-balloon.webp" alt="" class="p-top-line-sns__balloon-img" width="432" height="84" loading='lazy' />
+                    </picture>
                     <a href='<?php echo esc_url($sns['line']); ?>' class="c-cta-btn --grad --center --line p-top-line-sns__btn">
                         <div class="p-top-line-sns__btn-container">
                             <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/icon_line-cta.svg" alt="LINE" class="c-cta-btn__line-icon" width="40" height="40" loading='lazy' />

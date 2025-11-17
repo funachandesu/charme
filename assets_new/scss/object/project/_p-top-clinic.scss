@@ -80,8 +80,11 @@
 
 .p-top-clinic__btn {
   margin-top: rm(96);
+
+  min-width: rm8(363);
   @include mq(sp) {
     margin-top: rm(72);
+    min-width: initial;
   }
 }
 

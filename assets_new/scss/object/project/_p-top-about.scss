@@ -6,6 +6,7 @@
   background: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   @include mq(sp) {
     padding-bottom: rm(80);
+    padding-top: rm(24);
   }
 }
 
@@ -23,6 +24,8 @@
   padding-inline: rm(8);
   padding-block: rm(8);
   position: relative;
+  max-width: 960px;
+  margin-inline: auto;
   @include mq(sp) {
     padding-block: rm(4);
     padding-inline: rm(4);
@@ -45,7 +48,7 @@
 
 .p-top-about__text-box-body {
   padding-inline: rm(24);
-  padding-block: rm(40);
+  padding-block: rm(33);
   border-radius: 8px;
   border: 1px solid var(--color-pink);
   display: flex;
@@ -114,6 +117,7 @@
 
 .p-top-about__item {
   max-width: 270px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: rm8(40);
@@ -134,7 +138,7 @@
 }
 
 .p-top-about__item-img {
-  width: rm8(160);
+  width: rm8(113);
   height: auto;
   object-fit: cover;
   object-position: center;
@@ -147,15 +151,15 @@
 
 .p-top-about__item-no {
   width: auto;
-  height: rm8(29);
+  height: rm8(25);
   object-fit: cover;
   object-position: center;
   position: absolute;
-  bottom: rm8(-10);
-  right: rm8(-31);
+  bottom: rm-8(-10);
+  right: rm8(21);
   @include mq(sp) {
     bottom: rm(-12);
-    right: rm(-75);
+    right: rm(-57);
   }
 }
 
@@ -164,6 +168,5 @@
   text-shadow: 0 2px 4px var(--color-pink);
   color: var(--color-white);
   @include mq(sp) {
-    @include font(16, 700, 24, 0);
   }
 }

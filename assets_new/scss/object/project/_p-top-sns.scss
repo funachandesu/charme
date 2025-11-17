@@ -2,6 +2,9 @@
 .p-top-sns {
   padding-block: rm(64);
   background-color: var(--color-light-pink);
+  @include mq(sp) {
+    padding-block: rm(80);
+  }
 }
 
 .p-top-sns__head {
@@ -11,6 +14,9 @@
 }
 
 .p-top-sns__content {
+  @include mq(sp) {
+    margin-top: rm(76);
+  }
 }
 
 .p-top-sns__items {
@@ -35,7 +41,7 @@
   background: rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
-  gap: rm(24);
+  gap: rm(33);
   padding: rm8(32);
   transition: opacity 0.3s var(--ease-out-quint);
   @media (any-hover: hover) {
@@ -45,7 +51,8 @@
   }
   @include mq(sp) {
     max-width: rm(343);
-    padding: rm(24) rm(32);
+    padding: rm(24) rm(42);
+    gap: rm(23);
   }
 }
 
@@ -61,8 +68,8 @@
 }
 
 .p-top-sns__text {
-  @include font(24, 500, 32, 0.96);
+  @include font(28, 500, 32, 0.96);
   @include mq(sp) {
-    @include font(20, 500, 27, 0.8);
+    @include font(23, 500, 27, 0.8);
   }
 }

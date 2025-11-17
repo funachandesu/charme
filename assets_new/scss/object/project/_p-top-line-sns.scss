@@ -11,15 +11,15 @@
 }
 
 .p-top-line-sns__block {
-  max-width: 960px;
+  max-width: rm8(960);
   margin: 0 auto;
   width: 100%;
   border-radius: 8px;
   border: 4px solid var(--navy, #143181);
   background: var(--accent-yellow, #ffe100);
   display: flex;
-  padding-block: rm(56);
-  padding-inline: rm(40);
+  padding-block: rm8(50);
+  padding-inline: rm8(40);
   position: relative;
   z-index: 1;
   @include mq(sp) {
@@ -60,6 +60,8 @@
     position: relative;
     @include mq(sp) {
       margin-right: rm(20);
+      width: rm(40);
+      height: rm(40);
     }
   }
   .c-cta-btn__text {
@@ -80,7 +82,7 @@
   @include mq(sp) {
     min-width: rm(319);
     padding-inline: rm(20);
-    padding-block: rm(16);
+    padding-block: rm(0);
     justify-content: center;
     gap: 0 !important;
   }

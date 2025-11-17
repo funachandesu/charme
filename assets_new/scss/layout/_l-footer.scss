@@ -10,11 +10,10 @@
 }
 
 .l-footer__inner {
-  display: flex;
-  @include mq(sp) {
-    flex-direction: column;
-    padding-inline: rm(40);
-  }
+  max-width: rm8(1040);
+  width: 100%;
+  margin: 0 auto;
+  padding-inline: rm8(40) !important;
 }
 
 .l-footer__top {
@@ -60,16 +59,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: rm(32);
+  gap: rm(30);
 }
 
 .l-footer__sns-items {
   display: flex;
   justify-content: center;
   gap: rm(40);
-  @include mq(sp) {
-    gap: rm(24);
-  }
 }
 
 .l-footer__sns-item {
