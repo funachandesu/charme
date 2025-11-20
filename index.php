@@ -53,62 +53,110 @@
                 <div class="p-top-campaign__items">
                     <div class="p-top-campaign__splide js-top-campaign-carousel splide">
                         <div class="p-top-campaign__track splide__track">
-                            <ul class="p-top-campaign__list splide__list">
-                                <li class="p-top-campaign__slide splide__slide">
-                                    <a href="" class="p-top-campaign__link">
-                                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_dummy-campaign.webp" alt="クリニック名が入りますクリニック名が入ります" class="p-top-campaign__slide-img" width="362" height="136" loading='lazy' />
-                                        <div class="p-top-campaign__slide-content">
-                                            <p class="p-top-campaign__slide-label"><span class="p-top-campaign__slide-label-text">割引期間が入ります</span></p>
-                                            <p class="p-top-campaign__slide-ttl">クリニック名が入りますクリニック名が入ります</p>
-                                            <p class="p-top-campaign__slide-info">顔脂肪吸引（頬・顎下・ジョール）＋糸リフト4本</p>
-                                            <div class="p-top-campaign__slide-price-wrap">
-                                                <p class="p-top-campaign__slide-price-before">712,800円</p>
-                                                <p class="p-top-campaign__slide-price-after">712,800円</p>
-                                            </div>
-                                            <p class="p-top-campaign__slide-link-more"><span class="p-top-campaign__slide-link-more-text">詳しく見る</span><svg class="p-top-campaign__slide-link-more-arrow" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M4.6 6L0 1.4L1.4 0L7.4 6L1.4 12L0 10.6L4.6 6Z" fill="#424242" />
-                                                </svg>
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="p-top-campaign__slide splide__slide">
-                                    <a href="" class="p-top-campaign__link">
-                                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_dummy-campaign.webp" alt="クリニック名が入りますクリニック名が入ります" class="p-top-campaign__slide-img" width="362" height="136" loading='lazy' />
-                                        <div class="p-top-campaign__slide-content">
-                                            <p class="p-top-campaign__slide-label"><span class="p-top-campaign__slide-label-text">割引期間が入ります</span></p>
-                                            <p class="p-top-campaign__slide-ttl">クリニック名が入りますクリニック名が入ります</p>
-                                            <p class="p-top-campaign__slide-info">顔脂肪吸引（頬・顎下・ジョール）＋糸リフト4本</p>
-                                            <div class="p-top-campaign__slide-price-wrap">
-                                                <p class="p-top-campaign__slide-price-before">712,800円</p>
-                                                <p class="p-top-campaign__slide-price-after">712,800円</p>
-                                            </div>
-                                            <p class="p-top-campaign__slide-link-more"><span class="p-top-campaign__slide-link-more-text">詳しく見る</span><svg class="p-top-campaign__slide-link-more-arrow" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M4.6 6L0 1.4L1.4 0L7.4 6L1.4 12L0 10.6L4.6 6Z" fill="#424242" />
-                                                </svg>
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="p-top-campaign__slide splide__slide">
-                                    <a href="" class="p-top-campaign__link">
-                                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_dummy-campaign.webp" alt="クリニック名が入りますクリニック名が入ります" class="p-top-campaign__slide-img" width="362" height="136" loading='lazy' />
-                                        <div class="p-top-campaign__slide-content">
-                                            <p class="p-top-campaign__slide-label"><span class="p-top-campaign__slide-label-text">割引期間が入ります</span></p>
-                                            <p class="p-top-campaign__slide-ttl">クリニック名が入りますクリニック名が入ります</p>
-                                            <p class="p-top-campaign__slide-info">顔脂肪吸引（頬・顎下・ジョール）＋糸リフト4本</p>
-                                            <div class="p-top-campaign__slide-price-wrap">
-                                                <p class="p-top-campaign__slide-price-before">712,800円</p>
-                                                <p class="p-top-campaign__slide-price-after">712,800円</p>
-                                            </div>
-                                            <p class="p-top-campaign__slide-link-more"><span class="p-top-campaign__slide-link-more-text">詳しく見る</span><svg class="p-top-campaign__slide-link-more-arrow" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M4.6 6L0 1.4L1.4 0L7.4 6L1.4 12L0 10.6L4.6 6Z" fill="#424242" />
-                                                </svg>
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
+                            <?php
+                            $today = date('Ymd'); // 今日の日付
+
+                            $args = array(
+                                'post_type'      => 'campaign',
+                                'posts_per_page' => 3,
+                                'orderby'        => 'date',
+                                'order'          => 'DESC',
+                                'meta_query'     => array(
+                                    array(
+                                        'key'     => 'end_date',   // ACFの日付フィールド
+                                        'value'   => $today,
+                                        'compare' => '<=',
+                                        'type'    => 'NUMERIC'
+                                    )
+                                )
+                            );
+                            $query = new WP_Query($args);
+                            ?>
+
+                            <?php if ($query->have_posts()) : ?>
+                                <ul class="p-top-campaign__list splide__list">
+
+                                    <?php while ($query->have_posts()) : $query->the_post(); ?>
+
+                                        <?php
+                                        $title    = get_field('title');
+                                        $label      = get_field('lead');
+                                        if (have_rows('price_block')):
+                                            while (have_rows('price_block')) : the_row();
+                                                $treatment = get_sub_field('treatment');
+                                                $price_before = get_sub_field('regular_price');
+                                                $price_after  = get_sub_field('campaign_price');
+                                            endwhile;
+                                        endif;
+                                        ?>
+
+                                        <li class="p-top-campaign__slide splide__slide">
+                                            <a href="<?php echo esc_url(get_permalink()); ?>" class="p-top-campaign__link">
+
+                                                <?php if (get_field('clinic_logo_override')): ?>
+                                                    <img src="<?php echo get_field('clinic_logo_override')['url']; ?>"
+                                                        alt="<?php the_title(); ?>"
+                                                        class="p-top-campaign__slide-img"
+                                                        width="362"
+                                                        height="136"
+                                                        loading="lazy" />
+                                                <?php else: ?>
+                                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets_new/img/img_dummy-campaign.webp"
+                                                        alt="<?php the_title(); ?>"
+                                                        class="p-top-campaign__slide-img"
+                                                        width="362"
+                                                        height="136"
+                                                        loading="lazy" />
+                                                <?php endif; ?>
+
+                                                <div class="p-top-campaign__slide-content">
+
+                                                    <?php if ($label): ?>
+                                                        <p class="p-top-campaign__slide-label">
+                                                            <span class="p-top-campaign__slide-label-text">
+                                                                <?php echo esc_html($label); ?>
+                                                            </span>
+                                                        </p>
+                                                    <?php endif; ?>
+
+                                                    <p class="p-top-campaign__slide-ttl"><?php the_title(); ?></p>
+
+                                                    <?php if ($treatment): ?>
+                                                        <p class="p-top-campaign__slide-info"><?php echo esc_html($treatment); ?></p>
+                                                    <?php endif; ?>
+
+                                                    <div class="p-top-campaign__slide-price-wrap">
+                                                        <?php if ($price_before): ?>
+                                                            <p class="p-top-campaign__slide-price-before">
+                                                                <?php echo esc_html($price_before); ?>円
+                                                            </p>
+                                                        <?php endif; ?>
+
+                                                        <?php if ($price_after): ?>
+                                                            <p class="p-top-campaign__slide-price-after">
+                                                                <?php echo esc_html($price_after); ?>円
+                                                            </p>
+                                                        <?php endif; ?>
+                                                    </div>
+
+                                                    <p class="p-top-campaign__slide-link-more">
+                                                        <span class="p-top-campaign__slide-link-more-text">詳しく見る</span>
+                                                        <svg class="p-top-campaign__slide-link-more-arrow" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M4.6 6L0 1.4L1.4 0L7.4 6L1.4 12L0 10.6L4.6 6Z" fill="#424242" />
+                                                        </svg>
+                                                    </p>
+
+                                                </div>
+
+                                            </a>
+                                        </li>
+
+                                    <?php endwhile; ?>
+
+                                </ul>
+                                <?php wp_reset_postdata(); ?>
+
+                            <?php endif; ?>
                         </div>
                         <ul class="p-top-campaign__pagination splide__pagination"></ul>
                     </div>

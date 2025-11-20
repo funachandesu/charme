@@ -2,14 +2,17 @@
 //  * 1. js-top-campaign-carousel スライダー
 //  * ==========================================
 document.addEventListener("DOMContentLoaded", function () {
-  // Splide本体のオプション（SP/PC差分はbreakpointsへ）
+  const element = document.querySelector(".js-top-campaign-carousel");
+  if (!element || !window.Splide) return;
+
+  // Splide本体のオプション
   const options = {
     type: "loop",
     perPage: "auto",
     speed: 1000,
     perMove: 1,
     arrows: false,
-    pagination: true, //ページネーションのカスタマイズは、https://ja.splidejs.com/guides/pagination/
+    pagination: true,
     focus: false,
     gap: "3.5rem",
     trimSpace: true,
@@ -30,21 +33,51 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   };
 
-  const element = document.querySelector(".js-top-campaign-carousel");
-  if (!element || !window.Splide) return;
-
   const splide = new Splide(element, options);
+
+  /* ----------------------------------------------------
+   * ★ overflow イベントでスライド不足を検知
+   * mount() の前に登録！
+   * ---------------------------------------------------- */
+  splide.on("overflow", function (isOverflow) {
+    if (!isOverflow) {
+      // ★ スライド不足（isOverflow = false）
+      element.classList.remove("is-overflow");
+
+      // ページネーション非表示
+      splide.options = { pagination: false };
+
+      // ループ時は clone が邪魔 → クローンを無効化
+      splide.options = { clones: 0 };
+
+      // 位置調整
+      splide.go(0);
+    } else {
+      // ★ スライドが十分（isOverflow = true）
+      element.classList.add("is-overflow");
+
+      splide.options = {
+        pagination: true,
+        clones: undefined, // Splide にデフォルト clone 数を任せる
+      };
+    }
+  });
+
+  // 初期化
   splide.mount();
 
-  // リサイズ時はデバウンスしてrefreshのみ実施
+  /* ----------------------------------------------------
+   * リサイズ時：refresh() は overflow 判定も再評価される
+   * ---------------------------------------------------- */
   let resizeTimeout;
   window.addEventListener("resize", function () {
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(() => {
-      splide.refresh(); // breakpointsの切り替えも反映
-    }, 100);
+      splide.refresh();
+    }, 120);
   });
 });
+
 
 //  * ==========================================
 //  * 2. js-top-clinic-carousel スライダー

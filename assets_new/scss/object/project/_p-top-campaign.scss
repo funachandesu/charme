@@ -54,13 +54,22 @@
 
 .p-top-campaign__list {
   display: flex !important;
-  justify-content: space-between !important;
+  justify-content: safe center !important;
   @include mq(pc) {
     gap: rm(24) !important;
   }
   // @include mq(sp) {
   //   gap: rm(56);
   // }
+}
+
+/* スライドが不足しているとき（is-overflow なし） */
+.js-top-campaign-carousel:not(.is-overflow) .splide__list {
+  justify-content: center;
+}
+
+.js-top-campaign-carousel:not(.is-overflow) .splide__pagination {
+  display: none;
 }
 
 .p-top-campaign__slide {
