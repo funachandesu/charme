@@ -431,37 +431,128 @@
                 <div class="p-top-column__splide js-top-column-carousel splide">
                     <div class="p-top-column__track splide__track">
                         <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_article-deco.webp" alt="" class="p-top-column__deco u-pc" width="142" height="157" loading='lazy' />
+                        <?php
+                        // =========================
+                        //  RSSフィードから記事を取得(外部サイト)
+                        // =========================
+                        include_once(ABSPATH . WPINC . '/feed.php');
+
+                        $feed_url = 'https://charme-beauty.jp/column/feed/';
+                        $feed = fetch_feed($feed_url);
+
+                        $items = array();
+
+                        if (!is_wp_error($feed)) {
+                            // 最大3件取得
+                            $maxitems = $feed->get_item_quantity(3);
+                            $feed_items = $feed->get_items(0, $maxitems);
+
+                            foreach ($feed_items as $item) {
+                                $title = $item->get_title();
+                                $link  = $item->get_link();
+                                $date  = $item->get_date('Y.m.d');
+
+                                // サムネイル取得: URLからOGP画像を取得
+                                $thumbnail = '';
+
+                                if ($link) {
+                                    $thumbnail = get_ogp_image($link);
+                                }
+
+                                // fallback(ダミー画像)
+                                if (!$thumbnail) {
+                                    $thumbnail = esc_url(get_template_directory_uri()) . '/assets_new/img/img_article-dummy.webp';
+                                }
+
+                                $items[] = array(
+                                    'title' => $title,
+                                    'link'  => $link,
+                                    'date'  => $date,
+                                    'thumb' => $thumbnail,
+                                );
+                            }
+                        }
+
+                        /**
+                         * URLからOGP画像を取得する関数
+                         */
+                        function get_ogp_image($url)
+                        {
+                            // キャッシュキーを生成
+                            $cache_key = 'ogp_image_' . md5($url);
+                            $cached_image = get_transient($cache_key);
+
+                            // キャッシュがあれば返す(24時間有効)
+                            if ($cached_image !== false) {
+                                return $cached_image;
+                            }
+
+                            // URLからHTMLを取得
+                            $response = wp_remote_get($url, array(
+                                'timeout' => 10,
+                                'sslverify' => false
+                            ));
+
+                            if (is_wp_error($response)) {
+                                return '';
+                            }
+
+                            $html = wp_remote_retrieve_body($response);
+
+                            if (empty($html)) {
+                                return '';
+                            }
+
+                            $ogp_image = '';
+
+                            // og:imageを検索
+                            if (preg_match('/<meta\s+property=["\']og:image["\']\s+content=["\']([^"\']+)["\']/i', $html, $matches)) {
+                                $ogp_image = $matches[1];
+                            } elseif (preg_match('/<meta\s+content=["\']([^"\']+)["\']\s+property=["\']og:image["\']/i', $html, $matches)) {
+                                $ogp_image = $matches[1];
+                            }
+
+                            // 相対URLの場合は絶対URLに変換
+                            if ($ogp_image && !preg_match('/^https?:\/\//i', $ogp_image)) {
+                                $parsed_url = parse_url($url);
+                                $base_url = $parsed_url['scheme'] . '://' . $parsed_url['host'];
+
+                                if (strpos($ogp_image, '/') === 0) {
+                                    $ogp_image = $base_url . $ogp_image;
+                                } else {
+                                    $ogp_image = $base_url . '/' . $ogp_image;
+                                }
+                            }
+
+                            // キャッシュに保存(24時間)
+                            if ($ogp_image) {
+                                set_transient($cache_key, $ogp_image, DAY_IN_SECONDS);
+                            }
+
+                            return $ogp_image;
+                        }
+                        ?>
+
                         <ul class="p-top-column__list splide__list">
-                            <li class="p-top-column__slide splide__slide">
-                                <div class="p-top-column__article">
-                                    <a href="" class="p-top-column__article-link">
-                                        <h3 class="p-top-column__article-img-wrap">
-                                            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_article-dummy.webp" alt="タイトルが入ります" class="p-top-column__article-img" width="362" height="362" loading='lazy' />
-                                        </h3>
-                                        <time datetime="2025-06-14" class="p-top-column__article-time">2025.06.14</time>
-                                    </a>
-                                </div>
-                            </li>
-                            <li class="p-top-column__slide splide__slide">
-                                <div class="p-top-column__article">
-                                    <a href="" class="p-top-column__article-link">
-                                        <h3 class="p-top-column__article-img-wrap">
-                                            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_article-dummy.webp" alt="タイトルが入ります" class="p-top-column__article-img" width="362" height="362" loading='lazy' />
-                                        </h3>
-                                        <time datetime="2025-06-14" class="p-top-column__article-time">2025.06.14</time>
-                                    </a>
-                                </div>
-                            </li>
-                            <li class="p-top-column__slide splide__slide">
-                                <div class="p-top-column__article">
-                                    <a href="" class="p-top-column__article-link">
-                                        <h3 class="p-top-column__article-img-wrap">
-                                            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_article-dummy.webp" alt="タイトルが入ります" class="p-top-column__article-img" width="362" height="362" loading='lazy' />
-                                        </h3>
-                                        <time datetime="2025-06-14" class="p-top-column__article-time">2025.06.14</time>
-                                    </a>
-                                </div>
-                            </li>
+                            <?php foreach ($items as $item): ?>
+                                <li class="p-top-column__slide splide__slide">
+                                    <div class="p-top-column__article">
+                                        <a href="<?php echo esc_url($item['link']); ?>" class="p-top-column__article-link" target="_blank" rel="noopener noreferrer">
+                                            <h3 class="p-top-column__article-img-wrap">
+                                                <img src="<?php echo esc_url($item['thumb']); ?>"
+                                                    alt="<?php echo esc_attr($item['title']); ?>"
+                                                    class="p-top-column__article-img"
+                                                    width="362" height="362"
+                                                    loading="lazy" />
+                                            </h3>
+                                            <time datetime="<?php echo esc_attr(str_replace('.', '-', $item['date'])); ?>"
+                                                class="p-top-column__article-time">
+                                                <?php echo esc_html($item['date']); ?>
+                                            </time>
+                                        </a>
+                                    </div>
+                                </li>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                     <div class="p-top-column__pagination-wrap">
@@ -535,5 +626,6 @@
             </div>
         </div>
     </div>
+
 </main>
 <?php get_footer(); ?>
