@@ -128,13 +128,13 @@
                                                     <div class="p-top-campaign__slide-price-wrap">
                                                         <?php if ($price_before): ?>
                                                             <p class="p-top-campaign__slide-price-before">
-                                                                <?php echo esc_html($price_before); ?>円
+                                                                <?php echo esc_html($price_before); ?>
                                                             </p>
                                                         <?php endif; ?>
 
                                                         <?php if ($price_after): ?>
                                                             <p class="p-top-campaign__slide-price-after">
-                                                                <?php echo esc_html($price_after); ?>円
+                                                                <?php echo esc_html($price_after); ?>
                                                             </p>
                                                         <?php endif; ?>
                                                     </div>
