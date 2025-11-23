@@ -330,21 +330,58 @@
                     <div class="p-top-clinic__track splide__track">
                         <ul class="p-top-clinic__list splide__list">
                             <?php
-                            $slide_imgs = [
-                                'img_top-clinic-slide01.webp',
-                                'img_top-clinic-slide02.webp',
-                                'img_top-clinic-slide03.webp',
-                                'img_top-clinic-slide04.webp',
-                                'img_top-clinic-slide05.webp',
-                            ];
-                            foreach ($slide_imgs as $img) :
+                            // ---------------------------------------
+                            //  clinic投稿を取得（ACF pick_up が true のもののみ）
+                            // ---------------------------------------
+                            $args = array(
+                                'post_type'      => 'clinic',
+                                'posts_per_page' => -1,
+                                'orderby'        => 'date',
+                                'order'          => 'DESC',
+                                'meta_query'     => array(
+                                    array(
+                                        'key'     => 'pick_up', // ACF true/false
+                                        'value'   => '1',
+                                        'compare' => '=',
+                                    ),
+                                ),
+                            );
+
+                            $clinic_query = new WP_Query($args);
                             ?>
-                                <li class="p-top-clinic__slide splide__slide">
-                                    <img class="p-top-clinic__splide-slide-img" src="<?php echo esc_url(get_theme_file_uri('/assets_new/img/' . $img)); ?>" alt="" width="160" height="160" loading="lazy" />
-                                </li>
-                            <?php endforeach; ?>
+
+                            <?php if ($clinic_query->have_posts()) : ?>
+                                <?php while ($clinic_query->have_posts()) : $clinic_query->the_post(); ?>
+
+                                    <?php
+                                    // ---------------------------------------
+                                    //  ACF：logo（返り値：画像URL）
+                                    // ---------------------------------------
+                                    $logo_url = get_field('logo'); // 直接URLが入ってくる
+                                    $img_alt = get_the_title();
+
+                                    // フォールバック画像
+                                    if (!$logo_url) {
+                                        $logo_url = esc_url(get_template_directory_uri() . '/assets_new/img/img_dummy-clinic.webp');
+                                    }
+                                    ?>
+
+                                    <li class="p-top-clinic__slide splide__slide">
+                                        <img class="p-top-clinic__splide-slide-img"
+                                            src="<?php echo esc_url($logo_url); ?>"
+                                            alt="<?php echo esc_attr($img_alt); ?>"
+                                            width="160" height="160"
+                                            loading="lazy" />
+                                    </li>
+
+                                <?php endwhile; ?>
+                            <?php endif; ?>
+
+                            <?php wp_reset_postdata(); ?>
                         </ul>
                     </div>
+
+
                     <div class="p-top-clinic__arrows-container">
                         <div class="p-top-clinic__arrows splide__arrows splide__arrows--ltr u-pc">
                             <button class="p-top-clinic__arrow p-top-clinic__arrow--prev splide__arrow splide__arrow--prev" type="button">
