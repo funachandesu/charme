@@ -415,30 +415,94 @@
             <div class="p-top-case__content l-top-section__content">
                 <div class="p-top-case__splide js-top-case-carousel splide">
                     <div class="p-top-case__track splide__track">
-                        <ul class="p-top-case__list splide__list">
-                            <li class="p-top-case__slide splide__slide">
-                                <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_top-case-item1.webp" alt="" class="p-top-case__slide-img" width="362" height="241" loading='lazy' />
-                                <div class="p-top-case__slide-body">
-                                    <h3 class="p-top-case__slide-title">鼻尖形成<br>耳介軟骨移植</h3>
-                                    <p class="p-top-case__slide-sentence">くさのたろうクリニック</p>
-                                </div>
-                            </li>
-                            <li class="p-top-case__slide splide__slide">
-                                <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_top-case-item1.webp" alt="" class="p-top-case__slide-img" width="362" height="241" loading='lazy' />
-                                <div class="p-top-case__slide-body">
-                                    <h3 class="p-top-case__slide-title">鼻尖形成<br>耳介軟骨移植</h3>
-                                    <p class="p-top-case__slide-sentence">くさのたろうクリニック</p>
-                                </div>
-                            </li>
-                            <li class="p-top-case__slide splide__slide">
-                                <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_top-case-item1.webp" alt="" class="p-top-case__slide-img" width="362" height="241" loading='lazy' />
-                                <div class="p-top-case__slide-body">
-                                    <h3 class="p-top-case__slide-title">鼻尖形成<br>耳介軟骨移植</h3>
-                                    <p class="p-top-case__slide-sentence">くさのたろうクリニック</p>
-                                </div>
-                            </li>
-                        </ul>
+                        <?php
+                        $args = array(
+                            'post_type'      => 'case',
+                            'posts_per_page' => 3,
+                            'orderby'        => 'date',
+                            'order'          => 'DESC',
+                            'meta_query'     => array(
+                                array(
+                                    'key'     => 'top_pick-up', // CFSチェックボックス
+                                    'value'   => '1',
+                                    'compare' => '=',
+                                ),
+                            ),
+                        );
+                        $case_query = new WP_Query($args);
+                        ?>
+
+                        <?php if ($case_query->have_posts()) : ?>
+                            <ul class="p-top-case__list splide__list">
+
+                                <?php while ($case_query->have_posts()) : $case_query->the_post(); ?>
+
+                                    <?php
+                                    // ----------------------------------------------------
+                                    // 画像（CFS の case_image = 添付ファイルID）
+                                    // ----------------------------------------------------
+                                    $case_image_id = CFS()->get('case_image');
+
+                                    if (!empty($case_image_id)) {
+                                        $thumb_url = wp_get_attachment_image_url($case_image_id, 'medium_large');
+                                    } else {
+                                        // デフォルト画像
+                                        $thumb_url = get_template_directory_uri() . '/assets_new/img/img_top-case-item1.webp';
+                                    }
+
+                                    // ----------------------------------------------------
+                                    // タイトル（CFS の case_name）
+                                    // <br> をそのまま許可 & 改行として有効
+                                    // ----------------------------------------------------
+                                    $case_name_raw = CFS()->get('case_name');
+
+                                    // <br> を許可して安全に出力
+                                    $case_name = wp_kses(
+                                        $case_name_raw,
+                                        array(
+                                            'br' => array(), // <br> <br /> を許可
+                                        )
+                                    );
+
+                                    // ----------------------------------------------------
+                                    // クリニック名（CFS の case_clinic）
+                                    // ----------------------------------------------------
+                                    $case_clinic = CFS()->get('case_clinic');
+                                    ?>
+
+                                    <li class="p-top-case__slide splide__slide">
+
+                                        <img src="<?php echo esc_url($thumb_url); ?>"
+                                            alt="<?php echo esc_attr(strip_tags($case_name_raw)); ?>"
+                                            class="p-top-case__slide-img"
+                                            width="362"
+                                            height="241"
+                                            loading="lazy" />
+
+                                        <div class="p-top-case__slide-body">
+
+                                            <h3 class="p-top-case__slide-title">
+                                                <?php echo $case_name; ?>
+                                            </h3>
+
+                                            <p class="p-top-case__slide-sentence">
+                                                <?php echo esc_html($case_clinic); ?>
+                                            </p>
+
+                                        </div>
+                                    </li>
+
+                                <?php endwhile; ?>
+
+                            </ul>
+
+                            <?php wp_reset_postdata(); ?>
+
+                        <?php endif; ?>
                     </div>
+
+
+
                     <div class="p-top-case__arrows splide__arrows splide__arrows--ltr">
                         <button class="p-top-case__arrow p-top-case__arrow--prev splide__arrow splide__arrow--prev" type="button">
                             <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">

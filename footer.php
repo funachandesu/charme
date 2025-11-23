@@ -95,11 +95,6 @@
           </a>
         </li>
         <li class="l-footer__nav-item">
-          <a href="<?php echo esc_url(home_url('/reason')); ?>" class="l-footer__nav-link">
-            <span class="l-footer__nav-link-text">選ばれる理由</span>
-          </a>
-        </li>
-        <li class="l-footer__nav-item">
           <a href="<?php echo esc_url(home_url('/flow')); ?>" class="l-footer__nav-link">
             <span class="l-footer__nav-link-text">ご利用の流れ</span>
           </a>

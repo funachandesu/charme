@@ -41,7 +41,7 @@
 .p-top-case__list {
   @include mq(pc) {
     display: flex !important;
-    justify-content: space-between !important;
+    justify-content: safe center !important;
     flex-wrap: wrap;
     --card-items: 3;
     --card-gap: 21;
@@ -94,6 +94,12 @@
 .p-top-case__slide-title {
   @include font(18, 700, 26, 0.72);
   text-align: center;
+  min-height: rm8(41.7);
+  display: grid;
+  place-content: center;
+  @include mq(sp) {
+    min-height: rm(41.7);
+  }
 }
 
 .p-top-case__slide-sentence {
