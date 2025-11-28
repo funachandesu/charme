@@ -103,31 +103,39 @@
                     <nav class="p-drawer__nav">
                         <ul class="p-drawer__list">
                             <li class="p-drawer__list-item">
-                                <a href="<?php echo esc_url(home_url('/news')); ?>" class="p-drawer__link">
-                                    <span class="p-drawer__link-text">お知らせ</span>
+                                <a href="<?php echo esc_url(get_permalink(1912)); ?>" class="p-drawer__link">
+                                    <span class="p-drawer__link-text">CHARMEとは</span>
                                     <svg class="p-drawer__link-icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M4.6 6L0 1.4L1.4 0L7.4 6L1.4 12L0 10.6L4.6 6Z" fill="#424242" />
                                     </svg>
                                 </a>
                             </li>
                             <li class="p-drawer__list-item">
-                                <a href="<?php echo esc_url(home_url('/about')); ?>" class="p-drawer__link">
-                                    <span class="p-drawer__link-text">美容コンシェルジュとは</span>
+                                <a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>" class="p-drawer__link">
+                                    <span class="p-drawer__link-text">サービス</span>
                                     <svg class="p-drawer__link-icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M4.6 6L0 1.4L1.4 0L7.4 6L1.4 12L0 10.6L4.6 6Z" fill="#424242" />
                                     </svg>
                                 </a>
                             </li>
                             <li class="p-drawer__list-item">
-                                <a href="<?php echo esc_url(home_url('/service')); ?>" class="p-drawer__link">
-                                    <span class="p-drawer__link-text">取り扱いサービス</span>
+                                <a href="<?php echo esc_url(get_post_type_archive_link('case')); ?>" class="p-drawer__link">
+                                    <span class="p-drawer__link-text">症例</span>
                                     <svg class="p-drawer__link-icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M4.6 6L0 1.4L1.4 0L7.4 6L1.4 12L0 10.6L4.6 6Z" fill="#424242" />
                                     </svg>
                                 </a>
                             </li>
                             <li class="p-drawer__list-item">
-                                <a href="<?php echo esc_url(home_url('/campaign')); ?>" class="p-drawer__link">
+                                <a href="<?php echo esc_url(home_url('/concierge')); ?>" class="p-drawer__link">
+                                    <span class="p-drawer__link-text">コンシェルジュ</span>
+                                    <svg class="p-drawer__link-icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.6 6L0 1.4L1.4 0L7.4 6L1.4 12L0 10.6L4.6 6Z" fill="#424242" />
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="p-drawer__list-item">
+                                <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>" class="p-drawer__link">
                                     <span class="p-drawer__link-text">キャンペーン</span>
                                     <svg class="p-drawer__link-icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M4.6 6L0 1.4L1.4 0L7.4 6L1.4 12L0 10.6L4.6 6Z" fill="#424242" />
@@ -135,40 +143,24 @@
                                 </a>
                             </li>
                             <li class="p-drawer__list-item">
-                                <a href="<?php echo esc_url(home_url('/reason')); ?>" class="p-drawer__link">
-                                    <span class="p-drawer__link-text">ご利用の流れ</span>
+                                <a href="<?php echo esc_url(get_permalink(1503)); ?>" class="p-drawer__link">
+                                    <span class="p-drawer__link-text">ご利用までの流れ</span>
                                     <svg class="p-drawer__link-icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M4.6 6L0 1.4L1.4 0L7.4 6L1.4 12L0 10.6L4.6 6Z" fill="#424242" />
                                     </svg>
                                 </a>
                             </li>
                             <li class="p-drawer__list-item">
-                                <a href="<?php echo esc_url(home_url('/clinic')); ?>" class="p-drawer__link">
-                                    <span class="p-drawer__link-text">提携クリニック一覧</span>
+                                <a href="<?php echo esc_url(get_post_type_archive_link('clinic')); ?>" class="p-drawer__link">
+                                    <span class="p-drawer__link-text">クリニック</span>
                                     <svg class="p-drawer__link-icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M4.6 6L0 1.4L1.4 0L7.4 6L1.4 12L0 10.6L4.6 6Z" fill="#424242" />
                                     </svg>
                                 </a>
                             </li>
                             <li class="p-drawer__list-item">
-                                <a href="<?php echo esc_url(home_url('/faq')); ?>" class="p-drawer__link">
-                                    <span class="p-drawer__link-text">よくあるご質問</span>
-                                    <svg class="p-drawer__link-icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4.6 6L0 1.4L1.4 0L7.4 6L1.4 12L0 10.6L4.6 6Z" fill="#424242" />
-                                    </svg>
-                                </a>
-                            </li>
-                            <li class="p-drawer__list-item">
-                                <a href="<?php echo esc_url(home_url('/company')); ?>" class="p-drawer__link">
-                                    <span class="p-drawer__link-text">運営会社</span>
-                                    <svg class="p-drawer__link-icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4.6 6L0 1.4L1.4 0L7.4 6L1.4 12L0 10.6L4.6 6Z" fill="#424242" />
-                                    </svg>
-                                </a>
-                            </li>
-                            <li class="p-drawer__list-item">
-                                <a href="<?php echo esc_url(home_url('/privacy')); ?>" class="p-drawer__link">
-                                    <span class="p-drawer__link-text">プライバシーポリシー</span>
+                                <a href="<?php echo esc_url(get_permalink(2)); ?>" class="p-drawer__link">
+                                    <span class="p-drawer__link-text">お問い合わせ</span>
                                     <svg class="p-drawer__link-icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M4.6 6L0 1.4L1.4 0L7.4 6L1.4 12L0 10.6L4.6 6Z" fill="#424242" />
                                     </svg>
@@ -232,12 +224,9 @@
                                     <li><a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>">SERVICE<span class="nav-global-ins-detail">ーサービスー</span></a></li>
                                     <li><a href="<?php echo esc_url(get_post_type_archive_link('case')); ?>">CASE<span class="nav-global-ins-detail">ー症例ー</span></a></li>
                                     <li><a href="<?php echo esc_url(home_url('/concierge')); ?>">CONCIERGE<span class="nav-global-ins-detail">ーコンシェルジュー</span></a></li>
-                                    <!-- <li><a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>">VOICE<span class="nav-global-ins-detail">ーお客様の声ー</span></a></li> -->
                                     <li><a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>">CAMPAIGN<span class="nav-global-ins-detail">ーキャンペーンー</span></a></li>
                                     <li><a href="<?php echo esc_url(get_permalink(1503)); ?>">FLOW<span class="nav-global-ins-detail">ーご利用までの流れー</span></a></li>
                                     <li><a href="<?php echo esc_url(get_post_type_archive_link('clinic')); ?>">CLINIC<span class="nav-global-ins-detail">ークリニックー</span></a></li>
-                                    <!-- <li><a href="<?php echo esc_url(get_permalink(1808)); ?>">INTERVIEW<span class="nav-global-ins-detail">ーインタビューー</span></a></li> -->
-                                    <li><a href="<?php echo esc_url(get_permalink(17)); ?>">FAQ<span class="nav-global-ins-detail">ーよくあるご質問ー</span></a></li>
                                     <li><a href="<?php echo esc_url(get_permalink(2)); ?>">CONTACT<span class="nav-global-ins-detail">ーお問い合わせー</span></a></li>
                                 </ul>
 
@@ -270,12 +259,9 @@
                                         <li><a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>">SERVICE<span class="nav-global-ins-detail">ーサービスー</span></a></li>
                                         <li><a href="<?php echo esc_url(get_post_type_archive_link('case')); ?>">CASE<span class="nav-global-ins-detail">ー症例ー</span></a></li>
                                         <li><a href="<?php echo esc_url(home_url('/concierge')); ?>">CONCIERGE<span class="nav-global-ins-detail">ーコンシェルジュー</span></a></li>
-                                        <!-- <li><a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>">VOICE<span class="nav-global-ins-detail">ーお客様の声ー</span></a></li> -->
                                         <li><a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>">CAMPAIGN<span class="nav-global-ins-detail">ーキャンペーンー</span></a></li>
                                         <li><a href="<?php echo esc_url(get_permalink(1503)); ?>">FLOW<span class="nav-global-ins-detail">ーご利用までの流れー</span></a></li>
                                         <li><a href="<?php echo esc_url(get_post_type_archive_link('clinic')); ?>">CLINIC<span class="nav-global-ins-detail">ークリニックー</span></a></li>
-                                        <!-- <li><a href="<?php echo esc_url(get_permalink(1808)); ?>">INTERVIEW<span class="nav-global-ins-detail">ーインタビューー</span></a></li> -->
-                                        <li><a href="<?php echo esc_url(get_permalink(17)); ?>">FAQ<span class="nav-global-ins-detail">ーよくあるご質問ー</span></a></li>
                                         <li><a href="<?php echo esc_url(get_permalink(2)); ?>">CONTACT<span class="nav-global-ins-detail">ーお問い合わせー</span></a></li>
                                     </ul>
 
@@ -303,12 +289,9 @@
                                         <li><a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>">SERVICE<span class="nav-global-ins-detail">ーサービスー</span></a></li>
                                         <li><a href="<?php echo esc_url(get_post_type_archive_link('case')); ?>">CASE<span class="nav-global-ins-detail">ー症例ー</span></a></li>
                                         <li><a href="<?php echo esc_url(home_url('/concierge')); ?>">CONCIERGE<span class="nav-global-ins-detail">ーコンシェルジュー</span></a></li>
-                                        <!-- <li><a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>">VOICE<span class="nav-global-ins-detail">ーお客様の声ー</span></a></li> -->
                                         <li><a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>">CAMPAIGN<span class="nav-global-ins-detail">ーキャンペーンー</span></a></li>
                                         <li><a href="<?php echo esc_url(get_permalink(1503)); ?>">FLOW<span class="nav-global-ins-detail">ーご利用までの流れー</span></a></li>
                                         <li><a href="<?php echo esc_url(get_post_type_archive_link('clinic')); ?>">CLINIC<span class="nav-global-ins-detail">ークリニックー</span></a></li>
-                                        <!-- <li><a href="<?php echo esc_url(get_permalink(1808)); ?>">INTERVIEW<span class="nav-global-ins-detail">ーインタビューー</span></a></li> -->
-                                        <li><a href="<?php echo esc_url(get_permalink(17)); ?>">FAQ<span class="nav-global-ins-detail">ーよくあるご質問ー</span></a></li>
                                         <li><a href="<?php echo esc_url(get_permalink(2)); ?>">CONTACT<span class="nav-global-ins-detail">ーお問い合わせー</span></a></li>
                                     </ul>
 

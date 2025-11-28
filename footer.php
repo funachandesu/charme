@@ -75,48 +75,43 @@
     <div class="l-footer__nav">
       <ul class="l-footer__nav-list">
         <li class="l-footer__nav-item">
-          <a href="<?php echo esc_url(home_url('/news')); ?>" class="l-footer__nav-link">
-            <span class="l-footer__nav-link-text">お知らせ</span>
+          <a href="<?php echo esc_url(get_permalink(1912)); ?>" class="l-footer__nav-link">
+            <span class="l-footer__nav-link-text">CHARMEとは</span>
           </a>
         </li>
         <li class="l-footer__nav-item">
-          <a href="<?php echo esc_url(home_url('/about')); ?>" class="l-footer__nav-link">
-            <span class="l-footer__nav-link-text">美容コンシェルジュとは</span>
+          <a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>" class="l-footer__nav-link">
+            <span class="l-footer__nav-link-text">サービス</span>
           </a>
         </li>
         <li class="l-footer__nav-item">
-          <a href="<?php echo esc_url(home_url('/service')); ?>" class="l-footer__nav-link">
-            <span class="l-footer__nav-link-text">取り扱いサービス</span>
+          <a href="<?php echo esc_url(get_post_type_archive_link('case')); ?>" class="l-footer__nav-link">
+            <span class="l-footer__nav-link-text">症例</span>
           </a>
         </li>
         <li class="l-footer__nav-item">
-          <a href="<?php echo esc_url(home_url('/campaign')); ?>" class="l-footer__nav-link">
+          <a href="<?php echo esc_url(home_url('/concierge')); ?>" class="l-footer__nav-link">
+            <span class="l-footer__nav-link-text">コンシェルジュ</span>
+          </a>
+        </li>
+        <li class="l-footer__nav-item">
+          <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>" class="l-footer__nav-link">
             <span class="l-footer__nav-link-text">キャンペーン</span>
           </a>
         </li>
         <li class="l-footer__nav-item">
-          <a href="<?php echo esc_url(home_url('/flow')); ?>" class="l-footer__nav-link">
-            <span class="l-footer__nav-link-text">ご利用の流れ</span>
+          <a href="<?php echo esc_url(get_permalink(1503)); ?>" class="l-footer__nav-link">
+            <span class="l-footer__nav-link-text">ご利用までの流れ</span>
           </a>
         </li>
         <li class="l-footer__nav-item">
-          <a href="<?php echo esc_url(home_url('/clinic')); ?>" class="l-footer__nav-link">
-            <span class="l-footer__nav-link-text">提携クリニック一覧</span>
+          <a href="<?php echo esc_url(get_post_type_archive_link('clinic')); ?>" class="l-footer__nav-link">
+            <span class="l-footer__nav-link-text">クリニック</span>
           </a>
         </li>
         <li class="l-footer__nav-item">
-          <a href="<?php echo esc_url(home_url('/faq')); ?>" class="l-footer__nav-link">
-            <span class="l-footer__nav-link-text">よくあるご質問</span>
-          </a>
-        </li>
-        <li class="l-footer__nav-item">
-          <a href="<?php echo esc_url(home_url('/company')); ?>" class="l-footer__nav-link">
-            <span class="l-footer__nav-link-text">運営会社</span>
-          </a>
-        </li>
-        <li class="l-footer__nav-item">
-          <a href="<?php echo esc_url(home_url('/privacy')); ?>" class="l-footer__nav-link">
-            <span class="l-footer__nav-link-text">プライバシーポリシー</span>
+          <a href="<?php echo esc_url(get_permalink(2)); ?>" class="l-footer__nav-link">
+            <span class="l-footer__nav-link-text">お問い合わせ</span>
           </a>
         </li>
       </ul>
