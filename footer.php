@@ -100,11 +100,6 @@
           </a>
         </li>
         <li class="l-footer__nav-item">
-          <a href="<?php echo esc_url(home_url('/voice')); ?>" class="l-footer__nav-link">
-            <span class="l-footer__nav-link-text">ボイス</span>
-          </a>
-        </li>
-        <li class="l-footer__nav-item">
           <a href="<?php echo esc_url(home_url('/clinic')); ?>" class="l-footer__nav-link">
             <span class="l-footer__nav-link-text">提携クリニック一覧</span>
           </a>

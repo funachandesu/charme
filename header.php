@@ -143,14 +143,6 @@
                                 </a>
                             </li>
                             <li class="p-drawer__list-item">
-                                <a href="<?php echo esc_url(home_url('/voice')); ?>" class="p-drawer__link">
-                                    <span class="p-drawer__link-text">ボイス</span>
-                                    <svg class="p-drawer__link-icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4.6 6L0 1.4L1.4 0L7.4 6L1.4 12L0 10.6L4.6 6Z" fill="#424242" />
-                                    </svg>
-                                </a>
-                            </li>
-                            <li class="p-drawer__list-item">
                                 <a href="<?php echo esc_url(home_url('/clinic')); ?>" class="p-drawer__link">
                                     <span class="p-drawer__link-text">提携クリニック一覧</span>
                                     <svg class="p-drawer__link-icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -197,7 +189,7 @@
                                     <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_tiktok.webp" alt="TikTok" class="p-drawer__sns-icon" width="40" height="40" loading='lazy' />
                                 </a>
                             </div>
-                            <a class="p-drawer__sns-mail-btn u-pc">
+                            <a href="<?php echo esc_url(home_url('/privacy')); ?>" class="p-drawer__sns-mail-btn u-pc">
                                 <svg class="p-drawer__sns-mail-btn-icon" width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1.6155 14C1.15517 14 0.770833 13.8458 0.4625 13.5375C0.154167 13.2292 0 12.8448 0 12.3845V1.6155C0 1.15517 0.154167 0.770833 0.4625 0.4625C0.770833 0.154167 1.15517 0 1.6155 0H16.3845C16.8448 0 17.2292 0.154167 17.5375 0.4625C17.8458 0.770833 18 1.15517 18 1.6155V12.3845C18 12.8448 17.8458 13.2292 17.5375 13.5375C17.2292 13.8458 16.8448 14 16.3845 14H1.6155ZM9 7.1155L1 1.8845V12.3845C1 12.564 1.05767 12.7115 1.173 12.827C1.2885 12.9423 1.436 13 1.6155 13H16.3845C16.564 13 16.7115 12.9423 16.827 12.827C16.9423 12.7115 17 12.564 17 12.3845V1.8845L9 7.1155ZM9 6L16.6923 1H1.30775L9 6ZM1 1.8845V1V12.3845C1 12.564 1.05767 12.7115 1.173 12.827C1.2885 12.9423 1.436 13 1.6155 13H1V1.8845Z" fill="#FF4469" />
                                 </svg>
