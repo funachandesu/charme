@@ -1,4 +1,27 @@
 //  * ==========================================
+//  * 0. ヘッダースクロール時の背景色変更
+//  * ==========================================
+
+(function () {
+  const header = document.querySelector(".l-header");
+  if (!header) return;
+
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      header.classList.add("is-scrolled");
+    } else {
+      header.classList.remove("is-scrolled");
+    }
+  };
+
+  // 初期状態をチェック
+  handleScroll();
+
+  // スクロールイベント
+  window.addEventListener("scroll", handleScroll, { passive: true });
+})();
+
+//  * ==========================================
 //  * 1. 動的高さ調整機能
 //  * ==========================================
 
@@ -63,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", () => {
   // 共通要素とステート管理
   const state = {
-    headerEl: document.querySelector(".l-header__wrap"),
+    headerEl: document.querySelector(".l-header"),
     drawerIcon: document.querySelector(".p-drawer__icon"),
     drawer: document.querySelector(".p-drawer"),
     headerHeight: 0,

@@ -1,0 +1,8 @@
+/* ヘッダースクロール時の背景色 */
+.l-header {
+    transition: background-color 0.3s ease;
+}
+
+.is-scrolled {
+    background-color: #fff !important;
+}

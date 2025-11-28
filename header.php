@@ -72,23 +72,15 @@
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <header <?php if (is_front_page()): ?> class="l-header" <?php endif; ?>>
-        <?php $old_header = false; ?>
-        <?php if (is_front_page()): ?>
+    <?php if (is_front_page()): ?>
+        <!-- 新デザインヘッダー（トップページ用） -->
+        <header class="l-header">
             <div class="l-header__inner">
-                <?php if (is_front_page()): ?>
-                    <h1 class="l-header__logo-wrap">
-                        <a href="#top" class="l-header__logo-link">
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets_new/img/logo.webp'); ?>" alt="Charme Concierge" class="l-header__logo-img" width="160" height="43" />
-                        </a>
-                    </h1>
-                <?php else: ?>
-                    <div class="l-header__logo-wrap">
-                        <a href="<?php echo esc_url(home_url('/')); ?>" class="l-header__logo-link">
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets_new/img/logo.webp'); ?>" alt="Charme Concierge" class="l-header__logo-img" width="160" height="43" />
-                        </a>
-                    </div>
-                <?php endif; ?>
+                <h1 class="l-header__logo-wrap">
+                    <a href="#top" class="l-header__logo-link">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets_new/img/logo.webp'); ?>" alt="Charme Concierge" class="l-header__logo-img" width="160" height="43" />
+                    </a>
+                </h1>
                 <button class="p-drawer__icon" type="button" aria-label="メニューを開く">
                     <div class="p-drawer__icon-wrap">
                         <span class="p-drawer__icon-bar"></span>
@@ -181,7 +173,7 @@
                                     <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_tiktok.webp" alt="TikTok" class="p-drawer__sns-icon" width="40" height="40" loading='lazy' />
                                 </a>
                             </div>
-                            <a href="<?php echo esc_url(home_url('/privacy')); ?>" class="p-drawer__sns-mail-btn u-pc">
+                            <a href="<?php echo esc_url(get_permalink(2)); ?>" class="p-drawer__sns-mail-btn u-pc">
                                 <svg class="p-drawer__sns-mail-btn-icon" width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1.6155 14C1.15517 14 0.770833 13.8458 0.4625 13.5375C0.154167 13.2292 0 12.8448 0 12.3845V1.6155C0 1.15517 0.154167 0.770833 0.4625 0.4625C0.770833 0.154167 1.15517 0 1.6155 0H16.3845C16.8448 0 17.2292 0.154167 17.5375 0.4625C17.8458 0.770833 18 1.15517 18 1.6155V12.3845C18 12.8448 17.8458 13.2292 17.5375 13.5375C17.2292 13.8458 16.8448 14 16.3845 14H1.6155ZM9 7.1155L1 1.8845V12.3845C1 12.564 1.05767 12.7115 1.173 12.827C1.2885 12.9423 1.436 13 1.6155 13H16.3845C16.564 13 16.7115 12.9423 16.827 12.827C16.9423 12.7115 17 12.564 17 12.3845V1.8845L9 7.1155ZM9 6L16.6923 1H1.30775L9 6ZM1 1.8845V1V12.3845C1 12.564 1.05767 12.7115 1.173 12.827C1.2885 12.9423 1.436 13 1.6155 13H1V1.8845Z" fill="#FF4469" />
                                 </svg>
@@ -198,109 +190,70 @@
                     </div>
                 </div>
             </div>
-        <?php else: ?>
-            <?php if (!is_mobile()) : ?>
-                <div id="topsection"></div>
-                <div class="first-img">
-                    <p><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/first-banner.jpg" id="firstimgs" alt=""></p>
-                    <span>
-                        美容専門のコンシェルジュが、<br>
-                        提供する「最高の美」
-                    </span>
-                </div>
-                <div id="header">
-                    <div class="header-in">
-                        <h1 class="logo">
-                            <a href="<?php echo esc_url(home_url('/')); ?>">
-                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/logo.svg" alt="CHARME">
-                            </a>
-                        </h1>
-                        <div id="js-btn-nav-global"><span class="menu"></span></div>
-                        <nav class="nav-global">
-                            <div class="nav-global-in">
-                                <ul>
-                                    <li></li>
-                                    <li><a href="<?php echo esc_url(get_permalink(1912)); ?>">ABOUT<span class="nav-global-ins-detail">ーCHARMEとはー</span></a></li>
-                                    <li><a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>">SERVICE<span class="nav-global-ins-detail">ーサービスー</span></a></li>
-                                    <li><a href="<?php echo esc_url(get_post_type_archive_link('case')); ?>">CASE<span class="nav-global-ins-detail">ー症例ー</span></a></li>
-                                    <li><a href="<?php echo esc_url(home_url('/concierge')); ?>">CONCIERGE<span class="nav-global-ins-detail">ーコンシェルジュー</span></a></li>
-                                    <li><a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>">CAMPAIGN<span class="nav-global-ins-detail">ーキャンペーンー</span></a></li>
-                                    <li><a href="<?php echo esc_url(get_permalink(1503)); ?>">FLOW<span class="nav-global-ins-detail">ーご利用までの流れー</span></a></li>
-                                    <li><a href="<?php echo esc_url(get_post_type_archive_link('clinic')); ?>">CLINIC<span class="nav-global-ins-detail">ークリニックー</span></a></li>
-                                    <li><a href="<?php echo esc_url(get_permalink(2)); ?>">CONTACT<span class="nav-global-ins-detail">ーお問い合わせー</span></a></li>
-                                </ul>
-
-                            </div>
-                    </div>
-                </div>
-            <?php else : ?>
-                <?php if ((is_home() || is_front_page())) : ?>
-                    <div class="first-img">
-                        <p><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/visual_bg.jpg" id="firstimgs" alt=""></p>
-                        <span>
-                            美容専門のコンシェルジュが、<br>
-                            提供する「最高の美」
-                        </span>
-                    </div>
-                    <div class="headers">
-                        <div class="header-ins">
-                            <h1 class="logo"><a href="<?php echo esc_url(home_url('/')); ?>">
-                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/logo.svg" alt="CHARME">
-                                </a>
-                            </h1>
-                            <div id="js-btn-nav-globals">
-                                <span></span>
-                            </div>
-                            <nav class="nav-globals">
-                                <div class="nav-global-ins">
-                                    <ul>
-                                        <li></li>
-                                        <li><a href="<?php echo esc_url(get_permalink(1912)); ?>">ABOUT<span class="nav-global-ins-detail">ーCHARMEとはー</span></a></li>
-                                        <li><a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>">SERVICE<span class="nav-global-ins-detail">ーサービスー</span></a></li>
-                                        <li><a href="<?php echo esc_url(get_post_type_archive_link('case')); ?>">CASE<span class="nav-global-ins-detail">ー症例ー</span></a></li>
-                                        <li><a href="<?php echo esc_url(home_url('/concierge')); ?>">CONCIERGE<span class="nav-global-ins-detail">ーコンシェルジュー</span></a></li>
-                                        <li><a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>">CAMPAIGN<span class="nav-global-ins-detail">ーキャンペーンー</span></a></li>
-                                        <li><a href="<?php echo esc_url(get_permalink(1503)); ?>">FLOW<span class="nav-global-ins-detail">ーご利用までの流れー</span></a></li>
-                                        <li><a href="<?php echo esc_url(get_post_type_archive_link('clinic')); ?>">CLINIC<span class="nav-global-ins-detail">ークリニックー</span></a></li>
-                                        <li><a href="<?php echo esc_url(get_permalink(2)); ?>">CONTACT<span class="nav-global-ins-detail">ーお問い合わせー</span></a></li>
-                                    </ul>
-
-                                    <div class="list-sns">
-                                        <a href="https://www.instagram.com/concierge_charme/" target="_blank"><i class="ico ico-instagram-white"></i></a>
-                                        <a href="https://twitter.com/charme_bcs" target="_blank"><i class="ico ico-twitter-white"></i></a>
-                                    </div>
-                                </div>
-                            </nav>
+        </header>
+    <?php else: ?>
+        <!-- 旧デザインヘッダー（その他ページ用） -->
+        <?php if (!is_mobile()) : ?>
+            <div id="topsection"></div>
+            <div class="first-img">
+                <p><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/first-banner.jpg" id="firstimgs" alt=""></p>
+                <span>
+                    美容専門のコンシェルジュが、<br>
+                    提供する「最高の美」
+                </span>
+            </div>
+            <div id="header">
+                <div class="header-in">
+                    <h1 class="logo">
+                        <a href="<?php echo esc_url(home_url('/')); ?>">
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/logo.svg" alt="CHARME">
+                        </a>
+                    </h1>
+                    <div id="js-btn-nav-global"><span class="menu"></span></div>
+                    <nav class="nav-global">
+                        <div class="nav-global-in">
+                            <ul>
+                                <li></li>
+                                <li><a href="<?php echo esc_url(get_permalink(1912)); ?>">ABOUT<span class="nav-global-ins-detail">ーCHARMEとはー</span></a></li>
+                                <li><a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>">SERVICE<span class="nav-global-ins-detail">ーサービスー</span></a></li>
+                                <li><a href="<?php echo esc_url(get_post_type_archive_link('case')); ?>">CASE<span class="nav-global-ins-detail">ー症例ー</span></a></li>
+                                <li><a href="<?php echo esc_url(home_url('/concierge')); ?>">CONCIERGE<span class="nav-global-ins-detail">ーコンシェルジュー</span></a></li>
+                                <li><a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>">CAMPAIGN<span class="nav-global-ins-detail">ーキャンペーンー</span></a></li>
+                                <li><a href="<?php echo esc_url(get_permalink(1503)); ?>">FLOW<span class="nav-global-ins-detail">ーご利用までの流れー</span></a></li>
+                                <li><a href="<?php echo esc_url(get_post_type_archive_link('clinic')); ?>">CLINIC<span class="nav-global-ins-detail">ークリニックー</span></a></li>
+                                <li><a href="<?php echo esc_url(get_permalink(2)); ?>">CONTACT<span class="nav-global-ins-detail">ーお問い合わせー</span></a></li>
+                            </ul>
                         </div>
-                    </div>
-                <?php else : ?>
-                    <div id="header">
-                        <div class="header-in">
-                            <h1 class="logo"><a href="<?php echo esc_url(home_url('/')); ?>">
-                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/logo.svg" alt="CHARME">
-                                </a>
-                            </h1>
-                            <div id="js-btn-nav-global"><span></span></div>
-                            <nav class="nav-global">
-                                <div class="nav-global-in">
-                                    <ul>
-                                        <li></li>
-                                        <li><a href="<?php echo esc_url(get_permalink(1912)); ?>">ABOUT<span class="nav-global-ins-detail">ーCHARMEとはー</span></a></li>
-                                        <li><a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>">SERVICE<span class="nav-global-ins-detail">ーサービスー</span></a></li>
-                                        <li><a href="<?php echo esc_url(get_post_type_archive_link('case')); ?>">CASE<span class="nav-global-ins-detail">ー症例ー</span></a></li>
-                                        <li><a href="<?php echo esc_url(home_url('/concierge')); ?>">CONCIERGE<span class="nav-global-ins-detail">ーコンシェルジュー</span></a></li>
-                                        <li><a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>">CAMPAIGN<span class="nav-global-ins-detail">ーキャンペーンー</span></a></li>
-                                        <li><a href="<?php echo esc_url(get_permalink(1503)); ?>">FLOW<span class="nav-global-ins-detail">ーご利用までの流れー</span></a></li>
-                                        <li><a href="<?php echo esc_url(get_post_type_archive_link('clinic')); ?>">CLINIC<span class="nav-global-ins-detail">ークリニックー</span></a></li>
-                                        <li><a href="<?php echo esc_url(get_permalink(2)); ?>">CONTACT<span class="nav-global-ins-detail">ーお問い合わせー</span></a></li>
-                                    </ul>
-
-                                </div>
+                    </nav>
+                </div>
+            </div>
+        <?php else : ?>
+            <div id="header" class="sp-header">
+                <div class="header-in">
+                    <h1 class="logo">
+                        <a href="<?php echo esc_url(home_url('/')); ?>">
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/logo.svg" alt="CHARME">
+                        </a>
+                    </h1>
+                    <div id="js-btn-nav-global"><span class="menu"></span></div>
+                    <nav class="nav-global">
+                        <div class="nav-global-in">
+                            <ul>
+                                <li></li>
+                                <li><a href="<?php echo esc_url(get_permalink(1912)); ?>">ABOUT<span class="nav-global-ins-detail">ーCHARMEとはー</span></a></li>
+                                <li><a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>">SERVICE<span class="nav-global-ins-detail">ーサービスー</span></a></li>
+                                <li><a href="<?php echo esc_url(get_post_type_archive_link('case')); ?>">CASE<span class="nav-global-ins-detail">ー症例ー</span></a></li>
+                                <li><a href="<?php echo esc_url(home_url('/concierge')); ?>">CONCIERGE<span class="nav-global-ins-detail">ーコンシェルジュー</span></a></li>
+                                <li><a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>">CAMPAIGN<span class="nav-global-ins-detail">ーキャンペーンー</span></a></li>
+                                <li><a href="<?php echo esc_url(get_permalink(1503)); ?>">FLOW<span class="nav-global-ins-detail">ーご利用までの流れー</span></a></li>
+                                <li><a href="<?php echo esc_url(get_post_type_archive_link('clinic')); ?>">CLINIC<span class="nav-global-ins-detail">ークリニックー</span></a></li>
+                                <li><a href="<?php echo esc_url(get_permalink(2)); ?>">CONTACT<span class="nav-global-ins-detail">ーお問い合わせー</span></a></li>
+                            </ul>
                         </div>
-                    </div>
-                <?php endif; ?>
-            <?php endif ?>
+                    </nav>
+                </div>
+            </div>
         <?php endif; ?>
-    </header>
+    <?php endif; ?>
 
     <div id="<?php if (is_front_page()): ?><?php else: ?>main<?php endif; ?>">

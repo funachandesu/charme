@@ -710,14 +710,31 @@ function charme_enqueue_renewal_2025_styles()
     if (is_front_page()) {
         wp_enqueue_script('js-top', get_template_directory_uri() . '/assets_new/js/top.js', array(), filemtime(get_theme_file_path('/assets_new/js/top.js')), true);
     }
-    // 全ページで読み込み
-    wp_enqueue_style(
-        'charme-style-2025',
-        get_template_directory_uri() . '/css/style_2025.css',
-        array(), // 依存関係なし（既存CSSより後に読み込まれるため上書きできる）
-        filemtime(get_theme_file_path('/css/style_2025.css')), // キャッシュ対策にファイル更新時間をバージョンに設定
-        'all'
-    );
+
+    // トップページのみcommon.jsを読み込み（ドロワーメニュー等）
+    if (is_front_page()) {
+        wp_enqueue_script('js-gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js', array(), '3.12.2', true);
+        wp_enqueue_script('js-gsap-scrolltrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js', array('js-gsap'), '3.12.2', true);
+        wp_enqueue_script('js-common', get_template_directory_uri() . '/assets_new/js/common.js', array('js-gsap', 'js-gsap-scrolltrigger'), filemtime(get_theme_file_path('/assets_new/js/common.js')), true);
+
+        // トップページのみstyle_2025.cssを読み込み
+        wp_enqueue_style(
+            'charme-style-2025',
+            get_template_directory_uri() . '/css/style_2025.css',
+            array(),
+            filemtime(get_theme_file_path('/css/style_2025.css')),
+            'all'
+        );
+
+        // トップページのみstyle_nc.cssを読み込み
+        wp_enqueue_style(
+            'charme-style-nc',
+            get_template_directory_uri() . '/assets/css/style_nc.css',
+            array(),
+            filemtime(get_theme_file_path('/assets/css/style_nc.css')),
+            'all'
+        );
+    }
 }
 add_action('wp_enqueue_scripts', 'charme_enqueue_renewal_2025_styles');
 
