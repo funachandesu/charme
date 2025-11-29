@@ -37,6 +37,8 @@
 }
 
 .p-top-campaign__content {
+  position: relative;
+  z-index: 1;
 }
 
 .p-top-campaign__items {
