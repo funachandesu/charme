@@ -46,7 +46,7 @@
             <div class="p-top-campaign__head l-top-section__head">
                 <hgroup class="p-top-campaign__header c-section-ttl">
                     <p class="c-section-ttl__sub" lang='en'>Campaign</p>
-                    <h2 class="c-section-ttl__ja">11月限定のキャンペーン情報</h2>
+                    <h2 class="c-section-ttl__ja"><?php echo date('m'); ?>月限定のキャンペーン情報</h2>
                 </hgroup>
             </div>
             <div class="p-top-campaign__content l-top-section__content">
