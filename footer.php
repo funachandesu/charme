@@ -1,6 +1,6 @@
 <?php $sns = charme_get_sns_links(); ?>
-
-<?php if (is_front_page()): ?>
+<?php $newDesign = true; ?>
+<?php if ($newDesign || is_front_page()): ?>
   <!-- 新デザインフッター（トップページ用） -->
   <div class="p-float-cta" id="js-float-cta">
     <button class="p-float-cta__btn-close" id="js-float-cta-close"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/icon_float-cta-close.svg" alt="閉じる" class="p-float-cta__btn-close-icon" width="18" height="18" loading='lazy' /></button>
@@ -28,7 +28,7 @@
     <div class="l-footer__inner">
       <div class="l-footer__top">
         <div class="l-footer__logo-wrap">
-          <a href="#top" class="l-footer__logo">
+          <a href="<?php echo is_front_page() ? '#top' : esc_url(home_url('/')); ?>" class="l-footer__logo">
             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets_new/img/img_footer-logo.webp'); ?>" alt="Charme Concierge" class="l-footer__logo-img" width="260" height="69" />
           </a>
         </div>

@@ -699,6 +699,16 @@ add_action('wp_enqueue_scripts', 'charme_enqueue_campaign_assets');
  */
 function charme_enqueue_renewal_2025_styles()
 {
+
+    wp_enqueue_style(
+        'charme-header-footer-style-2025',
+        get_template_directory_uri() . '/css/style_header_footer_2025.css',
+        array(),
+        filemtime(get_theme_file_path('/css/style_header_footer_2025.css')),
+        'all'
+    );
+
+
     // splideが必要なヶ所のみ読み込む
     if (is_front_page()) {
         wp_enqueue_style('css-splide', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css');
@@ -735,15 +745,6 @@ function charme_enqueue_renewal_2025_styles()
             'all'
         );
     }
-
-    // トップページのみstyle_2025.cssを読み込み
-    wp_enqueue_style(
-        'charme-header-footer-style-2025',
-        get_template_directory_uri() . '/css/style_header_footer_2025.css',
-        array(),
-        filemtime(get_theme_file_path('/css/style_header_footer_2025.css')),
-        'all'
-    );
 }
 add_action('wp_enqueue_scripts', 'charme_enqueue_renewal_2025_styles');
 

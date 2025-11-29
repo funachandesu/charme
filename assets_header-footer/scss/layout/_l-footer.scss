@@ -4,6 +4,8 @@
   background-color: var(--color-white);
   padding-block: rm(120) rm(24);
   height: auto !important;
+  font-family: $ff-jp;
+  
   @include mq(sp) {
     padding-block: rm(80) rm(16);
   }

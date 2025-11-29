@@ -1,4 +1,5 @@
 @use "../global" as *;
+
 //ヘッダー ========================
 .l-header {
   position: fixed;
@@ -13,6 +14,8 @@
   @include mq(sp) {
     height: rm(75);
   }
+
+
 }
 .l-header__inner {
   max-width: 1360px;

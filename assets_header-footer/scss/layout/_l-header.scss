@@ -13,6 +13,23 @@
   @include mq(sp) {
     height: rm(75);
   }
+  transition: background-color 0.3s ease;
+  &.is-scrolled {
+    background-color: #fff;
+  }
+
+  button {
+    cursor: pointer;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: middle;
+    color: inherit;
+    background: transparent;
+    border-radius: 0;
+    text-align: inherit;
+    text-transform: inherit;
+  }
 }
 .l-header__inner {
   max-width: 1360px;
