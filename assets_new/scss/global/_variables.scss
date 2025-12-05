@@ -1,0 +1,44 @@
+//_variables.scss
+$ff: "Noto Sans JP", sans-serif; // bodyに指定するフォント
+$ff-jp: "Noto Sans JP", sans-serif; //日本語onlyのフォント
+$ff-en: "futura-pt", sans-serif; //英語onlyのフォント
+
+//===========================================
+//   レイアウト (単位は不要)
+//===========================================
+$pc-inner: 1200; // pc版inner幅
+$pc-sidePadding: 40; //pc版サイドのpadding
+$pc-inner-sum: calc($pc-inner + $pc-sidePadding * 2);
+$pc-narrow-inner: 960; //狭いinner幅
+$pc-narrow-inner-sum: calc($pc-narrow-inner + $pc-sidePadding * 2);
+$breakpoint: 768; // ブレイクポイント (pc版カンプとsp版カンプの境界)
+$breakpoint-header: 1200; // ヘッダーのブレイクポイント
+$sp-sidePadding: 16; //sp版サイドのpadding
+$pc-camp: 1440; // pc版のカンプサイズを入力
+$sp-camp: 375; // sp版のカンプサイズを入力
+$sp-inner: 600;
+$sp-inner-sum: calc($sp-inner + $sp-sidePadding * 2);
+
+$sm-breakpoint: 500; // small版ブレイクポイント
+
+//z-index
+$z-header: 105;
+$z-drawerIcon: 105;
+$z-drawer: 100;
+$z-float-cta: 103;
+$z-float-ctaSp: 106;
+
+//===========================================
+//   カラー
+//===========================================
+:root {
+  --color-text: #424242;
+  --color-white: #ffffff;
+  --color-black: #424242;
+  --color-light-pink: #ffe0e6;
+  --color-light-gray: #c9c9c9;
+  --color-pink: #ff4469;
+  --color-yellow: #ffe100;
+  --color-pink-grad: linear-gradient(90deg, #ff4e71 0%, #ff4469 49.52%, #f5395e 100%);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}

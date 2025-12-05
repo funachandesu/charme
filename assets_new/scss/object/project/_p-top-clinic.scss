@@ -1,0 +1,130 @@
+@use "../../global" as *;
+
+.p-top-clinic {
+  padding-top: rm(200);
+  padding-bottom: rm(120);
+  overflow: hidden;
+  @include mq(sp) {
+    padding-top: rm(116);
+    padding-bottom: rm(80);
+  }
+}
+
+.p-top-clinic__head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rm(32);
+}
+
+.p-top-clinic__head-img {
+  width: auto;
+  height: rm(92);
+  @include mq(sp) {
+    height: rm(62);
+  }
+  &.--right {
+    order: 3;
+  }
+}
+
+.p-top-clinic__header {
+}
+
+.p-top-clinic__content {
+}
+
+.p-top-clinic__splide {
+  @media (768px <= width < 1330px) {
+    max-width: rm(1100);
+    margin-inline: auto;
+  }
+}
+
+.p-top-clinic__track {
+  @include mq(sp) {
+    margin-inline: calc(50% - 50vw);
+    width: 100vw;
+  }
+}
+
+.p-top-clinic__list {
+}
+
+.p-top-clinic__slide {
+  width: rm(160);
+  height: rm(160);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.p-top-clinic__splide-slide-img {
+  width: rm(160);
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+.p-top-clinic__arrows {
+}
+
+.p-top-clinic__arrow {
+}
+
+.p-top-clinic__arrow--prev {
+}
+
+.p-top-clinic__arrow--next {
+}
+
+.p-top-clinic__btn {
+  margin-top: rm(96);
+
+  min-width: rm8(363);
+  @include mq(sp) {
+    margin-top: rm(72);
+    min-width: initial;
+  }
+}
+
+.p-top-clinic__arrows-container {
+  margin-inline: calc(50% - 50vw);
+  width: 100vw;
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  pointer-events: none;
+}
+
+.p-top-clinic__arrows {
+  position: relative;
+  max-width: rm(1440);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: auto;
+}
+
+.p-top-clinic__arrow {
+  opacity: 1;
+  pointer-events: auto;
+  background-color: transparent;
+  width: fit-content;
+  height: fit-content;
+  transition: opacity 0.3s ease;
+  position: initial !important;
+  translate: 0 !important;
+  transform: translateY(0%) !important;
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  svg {
+    width: rm(40);
+    height: rm(44);
+  }
+}

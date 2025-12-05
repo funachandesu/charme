@@ -1,0 +1,34 @@
+//Foundation
+@use "foundation/reset";
+@use "foundation/base";
+
+//Layout
+@use "layout/l-main";
+@use "layout/l-inner";
+@use "layout/l-top-section";
+@use "layout/l-under-main";
+@use "layout/l-footer";
+@use "layout/l-header";
+
+//Component
+@use "object/component/c-cta-btn";
+@use "object/component/c-section-ttl";
+
+//Project
+@use "object/project/p-drawer";
+@use "object/project/p-top-fv";
+@use "object/project/p-top-campaign";
+@use "object/project/p-top-about";
+@use "object/project/p-top-flow";
+@use "object/project/p-top-clinic";
+@use "object/project/p-top-case";
+@use "object/project/p-top-column";
+@use "object/project/p-top-sns";
+@use "object/project/p-top-line-sns";
+@use "object/project/p-float-cta";
+
+//utility
+@use "object/utility/u-disp";
+@use "object/utility/u-font";
+@use "object/utility/u-text";
+@use "object/utility/u-pointer";

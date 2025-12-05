@@ -657,7 +657,8 @@ require_once get_template_directory() . '/inc/campaign/rest.php';
  * Campaign Assets Enqueue
  * キャンペーン用CSS/JSの読み込み
  */
-function charme_enqueue_campaign_assets() {
+function charme_enqueue_campaign_assets()
+{
     // キャンペーンページでのみ読み込み
     if (is_post_type_archive('campaign') || is_singular('campaign')) {
         // CSS
@@ -691,3 +692,70 @@ function charme_enqueue_campaign_assets() {
     }
 }
 add_action('wp_enqueue_scripts', 'charme_enqueue_campaign_assets');
+
+/**
+ * 2025年リニューアル用CSSの読み込み
+ * header.phpのスタイルも含むため全ページで読み込む
+ */
+function charme_enqueue_renewal_2025_styles()
+{
+
+    wp_enqueue_style(
+        'charme-header-footer-style-2025',
+        get_template_directory_uri() . '/css/style_header_footer_2025.css',
+        array(),
+        filemtime(get_theme_file_path('/css/style_header_footer_2025.css')),
+        'all'
+    );
+
+
+    // splideが必要なヶ所のみ読み込む
+    if (is_front_page()) {
+        wp_enqueue_style('css-splide', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css');
+
+        wp_enqueue_script('js-splide', get_template_directory_uri() . '/assets_new/js/lib/splide.min.js', array(), '4.1.2', true);
+        wp_enqueue_script('js-splide-auto-scroll', get_template_directory_uri() . '/assets_new/js/lib/splide-extension-auto-scroll.min.js', array('js-splide'), '0.5.3', true);
+    }
+
+    if (is_front_page()) {
+        wp_enqueue_script('js-top', get_template_directory_uri() . '/assets_new/js/top.js', array(), filemtime(get_theme_file_path('/assets_new/js/top.js')), true);
+    }
+
+    // トップページのみcommon.jsを読み込み（ドロワーメニュー等）
+    if (is_front_page()) {
+        wp_enqueue_script('js-gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js', array(), '3.12.2', true);
+        wp_enqueue_script('js-gsap-scrolltrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js', array('js-gsap'), '3.12.2', true);
+        wp_enqueue_script('js-common', get_template_directory_uri() . '/assets_new/js/common.js', array('js-gsap', 'js-gsap-scrolltrigger'), filemtime(get_theme_file_path('/assets_new/js/common.js')), true);
+
+        // トップページのみstyle_2025.cssを読み込み
+        wp_enqueue_style(
+            'charme-style-2025',
+            get_template_directory_uri() . '/css/style_2025.css',
+            array(),
+            filemtime(get_theme_file_path('/css/style_2025.css')),
+            'all'
+        );
+
+        // トップページのみstyle_nc.cssを読み込み
+        wp_enqueue_style(
+            'charme-style-nc',
+            get_template_directory_uri() . '/assets/css/style_nc.css',
+            array(),
+            filemtime(get_theme_file_path('/assets/css/style_nc.css')),
+            'all'
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'charme_enqueue_renewal_2025_styles');
+
+// ================================
+// SNS URL（全ページ共通で利用可能）
+// ================================
+function charme_get_sns_links()
+{
+    return array(
+        'line'   => 'https://form.lmes.jp/landing-qr/2006662795-da8zjpjr?uLand=mLCQY0',
+        'inst'  => 'https://www.instagram.com/concierge_charme/',
+        'tiktok' => 'https://www.tiktok.com/@charme.concierge?_t=8mHq6qDaRKJ&_r=1',
+    );
+}

@@ -1,0 +1,433 @@
+@use "../../global" as *;
+// 線パターン
+.p-drawer__icon {
+  position: fixed;
+  z-index: $z-drawerIcon;
+  width: px(64);
+  height: px(64);
+  top: 12px;
+  right: 46px;
+  display: grid;
+  place-content: center;
+  @include mq(sp) {
+    width: rm(56);
+    height: rm(56);
+    top: rm(9);
+    right: rm(2);
+  }
+}
+
+.p-drawer__icon-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: px(28);
+  height: px(20);
+  @include mq(sp) {
+    width: rm(28);
+    height: rm(20);
+  }
+}
+
+.p-drawer__icon-bar {
+  width: 100%;
+  height: 2px;
+  background: var(--color-black);
+  transition: all 0.3s var(--ease-out-quint);
+  @include mq(sp) {
+    width: 100%;
+  }
+}
+
+//メニューが開いている時 ========
+.p-drawer__icon.js-show {
+  .p-drawer__icon-img {
+    &.--open {
+      opacity: 0;
+      visibility: hidden;
+    }
+    &.--close {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+//メニューが開いている時 ========
+.p-drawer__icon.js-show {
+  .p-drawer__icon-bar:nth-of-type(1) {
+    rotate: 45deg;
+    translate: 0 px(9);
+    @include mq(sp) {
+      translate: 0 rm(9);
+    }
+  }
+  .p-drawer__icon-bar:nth-of-type(2) {
+    display: none;
+  }
+  .p-drawer__icon-bar:nth-of-type(3) {
+    rotate: -45deg;
+    translate: 0 px(-9);
+    @include mq(sp) {
+      translate: 0 rm(-9);
+    }
+  }
+}
+
+.p-drawer__bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background: rgba(26, 39, 56, 0.4);
+  visibility: hidden;
+  transition: all 0.3s var(--ease-out-quint);
+}
+
+.p-drawer__bg:has(~ .js-show) {
+  opacity: 1;
+  visibility: visible;
+}
+
+.p-drawer__btn {
+  margin-inline: auto;
+  height: 44px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  background: var(--color-yellow-gradient);
+  color: var(--color-blue-dark);
+  display: grid;
+  place-content: center;
+  max-width: 160px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    opacity: 0;
+    inset: 0;
+    background: linear-gradient(90deg, #d8c221 0%, #d5a808 100%);
+    transition: opacity 0.3s var(--ease-out-quint);
+  }
+  @include mq(sp) {
+    @include font(16, 500, 16, 0);
+    height: rm(44);
+  }
+
+  transition: opacity 0.3s var(--ease-out-quint);
+  @media (any-hover: hover) {
+    &:hover {
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+}
+.p-drawer__btn-text {
+  position: relative;
+  z-index: 1;
+}
+//ドロワーメニュー
+.p-drawer {
+  position: fixed;
+  z-index: $z-drawer;
+  overflow-y: auto;
+  padding-block: px(131) px(64);
+  background: var(--color-light-pink);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  font-family: $ff-jp;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  @include mq(sp) {
+    padding-block: rm(112) rm(122);
+  }
+}
+
+.p-drawer__icon--bar {
+  transition: all 0.3s ease;
+}
+
+//ドロワーの出現の動きを指定
+.p-drawer {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+
+  &.js-show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+}
+
+.p-drawer__inner {
+  width: 100%;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: rm(39);
+  @include mq(sp) {
+    gap: rm(38);
+  }
+}
+
+.p-drawer__list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: rm8(620);
+  width: 100%;
+  height: rm8(454);
+  gap: rm(56) rm(110);
+  margin-inline: auto;
+  @include mq(sp) {
+    gap: rm(28);
+    height: auto;
+    flex-wrap: nowrap;
+  }
+}
+
+.p-drawer__list-item-details {
+  // アコーディオンのアクティブ状態
+  &.is-opened {
+    .p-drawer__list-plus {
+      &::after {
+        rotate: 90deg;
+      }
+    }
+
+    .p-drawer__sub-menu-wrap {
+      max-height: 1000px;
+    }
+  }
+}
+
+.p-drawer__link {
+  display: flex;
+  place-content: center;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 24px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 29px;
+  letter-spacing: 0.8px;
+  @include font(20, 700, 29, 0.8);
+  gap: rm8(24);
+  @include mq(sp) {
+    @include font(14, 700, 20, 0.56);
+  }
+  margin-inline: auto;
+  cursor: pointer;
+
+  transition: opacity 0.3s ease;
+}
+
+a.p-drawer__link {
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+.p-drawer__link-text {
+}
+
+.p-drawer__nav {
+  @include mq(sp) {
+    max-width: rm(207);
+    width: 100%;
+    margin-inline: auto;
+  }
+}
+
+.p-drawer__list-arrow {
+  width: rm(8);
+  height: auto;
+  flex-shrink: 0;
+}
+
+.p-drawer__list-plus {
+  width: rm(12);
+  height: rm(12);
+  flex-shrink: 0;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    background-color: #a19e9e;
+    transition: rotate 0.2s ease; // アニメーション追加
+  }
+
+  &::before {
+    width: 12px;
+    height: 2px;
+  }
+
+  &::after {
+    width: 2px;
+    height: 12px;
+  }
+}
+
+.p-drawer__link-icon {
+  width: 8px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.p-top-voice__thumbnail-splide-track {
+}
+
+.p-drawer__content {
+  margin-top: rm(64);
+}
+
+.p-drawer__sub-menu-wrap {
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+.p-drawer__sub-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.p-drawer__sub-menu-list-item {
+  // サブメニュー項目のスタイリング
+}
+
+.p-drawer__sub-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: px(4);
+  padding-inline: px(35);
+  border-bottom: 1px solid #fff;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s ease;
+
+  @include mq(sp) {
+    padding-block: rm(4);
+    padding-inline: rm(35);
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+.p-drawer__sub-list-text {
+  flex-basis: rm(300);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 25.2px;
+  @include mq(sp) {
+    @include font(14, 400, 25.2, 0);
+  }
+}
+
+.p-drawer__sub-list-arrow {
+  width: 6px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.p-drawer__btn-wrap {
+  max-width: rm8(1280);
+  padding-inline: rm8(40);
+  width: 100%;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  @include mq(sp) {
+    justify-content: center;
+  }
+}
+
+.p-drawer__sns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: rm(30);
+}
+
+.p-drawer__sns-items {
+  display: flex;
+  justify-content: center;
+  gap: rm(40);
+}
+
+.p-drawer__sns-item {
+  transition: opacity 0.3s var(--ease-out-quint);
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.p-drawer__sns-icon {
+  width: rm8(40);
+  height: rm8(40);
+  object-fit: cover;
+  object-position: center;
+}
+
+.p-drawer__sns-mail-btn {
+  --color-text: var(--color-pink);
+  --color-bg: var(--color-white);
+  border: 1px solid var(--color-text);
+  background-color: var(--color-bg);
+  border-radius: 4px;
+  padding-block: rm8(8);
+  padding-inline: rm8(8);
+  display: flex;
+  gap: rm8(8);
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s var(--ease-out-quint), background-color 0.3s var(--ease-out-quint), color 0.3s var(--ease-out-quint);
+  @media (any-hover: hover) {
+    &:hover {
+      --color-text: var(--color-white);
+      --color-bg: var(--color-pink);
+    }
+  }
+}
+
+.p-drawer__sns-mail-btn-text {
+  @include font(16, 400, 20, 0);
+  color: var(--color-text);
+  transition: border-color 0.3s var(--ease-out-quint), background-color 0.3s var(--ease-out-quint), color 0.3s var(--ease-out-quint);
+}
+
+.p-drawer__sns-mail-btn-icon {
+  width: rm8(24);
+  height: rm8(24);
+  path {
+    fill: var(--color-text);
+    transition: fill 0.3s var(--ease-out-quint);
+  }
+}
