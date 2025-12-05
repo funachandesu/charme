@@ -1,0 +1,27 @@
+@use "./variables" as *;
+
+// 要素単位指定 rem
+@function rm($arg) {
+	@return calc($arg / 16 * 1rem);
+}
+
+// 要素単位指定 rem8
+@function rm8($arg) {
+	@return max(calc($arg / 16 * 1rem),calc($arg * .8 * 1px));
+}
+@function rm-8($arg) {
+	@return min(calc($arg / 16 * 1rem),calc($arg * .8 * 1px));
+}
+
+@function px($arg) {
+	@return calc($arg  * 1px);
+}
+
+@function vw($arg) {
+	@return calc($arg / $pc-camp * 100vw);
+}
+
+@function vw-sp($arg) {
+	@return calc($arg / $sp-camp * 100vw);
+}
+

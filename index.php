@@ -1,1407 +1,780 @@
 <?php get_header(); ?>
+<?php $sns = charme_get_sns_links(); ?>
+<main>
+    <div class="p-top-fv">
+        <picture class="p-top-fv__bg-picture">
+            <source media="(max-width: 767.9px)" srcset="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_fv-sp.webp">
+            <img class="p-top-fv__bg-img" src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_fv.webp" alt="" width="1440" height="800" loading="lazy">
+        </picture>
 
-<!-- slide css -->
-<style type="text/css">
-    .clinic-slide .logo {
-        padding: 0 !important;
-    }
+        <div class="l-inner">
+            <div class="p-top-fv__content">
+                <div class="p-top-fv__textbox1">
+                    <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_fv-logo.webp" alt="シャルム" class="p-top-fv__logo-img" width="196" height="56" loading='lazy' />
+                    <span class="p-top-fv__catch --1">から</span><br class="u-sp"><span class="p-top-fv__catch --2">予約するだけで、</span>
+                </div>
+                <div class="p-top-fv__textbox2">
+                    <p class="p-top-fv__discount">大幅割引。</p>
+                </div>
+                <p class="p-top-fv__sentence u-pc">美容整形の相談から予約まで、コンシェルジュが無料でサポート。</p>
+                <p class="p-top-fv__vertical-textbox u-sp">
+                    <span class="p-top-fv__vertical-text --1">美容整形の相談から予約まで、</span>
+                    <span class="p-top-fv__vertical-text --2">コンシェルジュが無料でサポート。</span>
+                </p>
 
-    .clinic-slide .slick-track {
-        display: flex;
-        align-items: stretch;
-        justify-content: center;
-    }
-
-    .clinic-slide__item {
-        margin: 0 !important;
-        padding: 45px 15px !important;
-        box-sizing: border-box;
-    }
-
-    .clinic-slide__item__inner {
-        min-height: 200px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-        transition: scale 0.3s;
-        scale: 0.8;
-        padding: 10px;
-        border: 1px solid #937f65;
-        border-radius: 5px;
-    }
-
-    .slick-center .clinic-slide__item__inner {
-        scale: 1.3;
-    }
-
-
-    @media(max-width: 480px) {
-        .clinic-slide__item {
-            padding: 45px 5px !important;
-        }
-
-        .clinic-slide__item img {
-            max-width: 100%;
-        }
-
-        .clinic-slide__item__inner {
-            gap: 10px;
-            min-height: 100px;
-            padding: 5px;
-        }
-
-        .clinic-slide__item__inner span {
-            font-size: 10px;
-            line-height: 1.3;
-        }
-
-        .clinic-slide__item img.kusano {
-            max-width: 50%;
-        }
-
-        .clinic-slide .slick-track {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .clinic-slide__item.slick-center .clinic-slide__item__inner {
-            scale: 1.2;
-        }
-
-        .slick-slide[aria-hidden=true]:not([tabindex="-1"])+.slick-cloned[aria-hidden=true] .clinic-slide__item__inner {
-            scale: 1.2;
-        }
-    }
-</style>
-<!-- end slide css -->
-
-
-<?php if (is_mobile()) : ?>
-
-
-    <div class="fade">
-        <div class="nav-wrappers">
-            <div class="bgimg visual1">
+                <a href="<?php echo esc_url($sns['line']); ?>" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="c-cta-btn --line --grad p-top-fv__btn">
+                    <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/icon_line-cta.svg" alt="LINE" class="c-cta-btn__line-icon" width="40" height="40" loading='lazy' />
+                    <span class="c-cta-btn__text">LINEで割引情報をGET！</span>
+                    <svg class="c-cta-btn__arrow" width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.49964 3.00086L10.4996 12.0009L1.49964 21.0009L1.49964 3.00086Z" fill="white" />
+                    </svg>
+                </a>
             </div>
-            <div class="bgimg visual2"></div>
+        </div>
 
-            <div class="top-menu">
-                <div class="sec-topicss">
-                    <div class="tit-intros">
-                        TOPICS
-                    </div>
-                    <!-- サブクエリをセット -->
-                    <?php
-                    $args = array(
-                        'post_type' => 'news', // 投稿タイプ
-                        'posts_per_page' => 3, // 表示件数。 -1ならすべての投稿を取得
-                        'orderby' => 'date', // ソート
-                        'order' => 'DESC'
-                    );    // 降順(日付の場合、日付が新しい順)
-                    ?>
-                    <?php $loop = new WP_Query($args); ?>
+    </div>
+    <section class="p-top-campaign l-top-section" id="top-campaign">
+        <picture class="p-top-campaign__side-star-deco-picture">
+            <source media="(max-width: 767.9px)" srcset="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_side-star-deco-sp.webp">
+            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_side-star-deco.webp" alt="" class="p-top-campaign__side-star-deco --left" width="44" height="1077" loading='lazy' />
+        </picture>
+        <picture class="p-top-campaign__side-star-deco-picture">
+            <source media="(max-width: 767.9px)" srcset="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_side-star-deco-sp.webp">
+            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_side-star-deco.webp" alt="" class="p-top-campaign__side-star-deco --right" width="44" height="1077" loading='lazy' />
+        </picture>
+        <div class="l-inner">
+            <div class="p-top-campaign__head l-top-section__head">
+                <hgroup class="p-top-campaign__header c-section-ttl">
+                    <p class="c-section-ttl__sub" lang='en'>Campaign</p>
+                    <h2 class="c-section-ttl__ja"><?php echo date('m'); ?>月限定のキャンペーン情報</h2>
+                </hgroup>
+            </div>
+            <div class="p-top-campaign__content l-top-section__content">
+                <div class="p-top-campaign__items">
+                    <div class="p-top-campaign__splide js-top-campaign-carousel splide">
+                        <div class="p-top-campaign__track splide__track">
+                            <?php
+                            $today = date('Ymd'); // 今日の日付
 
-                    <?php if ($loop->have_posts()) : ?>
-                        <ul class="list-topicss">
-                            <?php while ($loop->have_posts()) : $loop->the_post(); ?>
-                                <li id="slidess">
-                                    <a class="news-img-sp" href="<?php esc_url(the_permalink()); ?>">
+                            $args = array(
+                                'post_type'      => 'campaign',
+                                'posts_per_page' => 3,
+                                'orderby'        => 'date',
+                                'order'          => 'DESC',
+                                'meta_query'     => array(
+                                    array(
+                                        'key'     => 'end_date',   // ACFの日付フィールド
+                                        'value'   => $today,
+                                        'compare' => '<=',
+                                        'type'    => 'NUMERIC'
+                                    )
+                                )
+                            );
+                            $query = new WP_Query($args);
+                            ?>
+
+                            <?php if ($query->have_posts()) : ?>
+                                <ul class="p-top-campaign__list splide__list">
+
+                                    <?php while ($query->have_posts()) : $query->the_post(); ?>
+
                                         <?php
-                                        if (has_post_thumbnail()) {
-                                            the_post_thumbnail();
-                                        } else {
+                                        $title    = get_field('title');
+                                        $label      = get_field('lead');
+                                        if (have_rows('price_block')):
+                                            while (have_rows('price_block')) : the_row();
+                                                $treatment = get_sub_field('treatment');
+                                                $price_before = get_sub_field('regular_price');
+                                                $price_after  = get_sub_field('campaign_price');
+                                            endwhile;
+                                        endif;
                                         ?>
-                                            <img class="placehoder" src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/logo.svg" alt="CHARME">
-                                        <?php }
-                                        ?></a>
-                                    <div class="times-sp"><time datetime="<?php esc_html(the_time('Y-m-d')); ?>"><?php esc_html(the_time('Y.m.d')); ?></time><span class="new">NEW</span></div>
-                                    <a class="news-img-sp3" href="<?php esc_url(the_permalink()); ?>"><?php esc_html(the_title()); ?></a>
-                                </li>
-                            <?php endwhile; ?>
-                        </ul>
 
-                        <?php endif; ?><?php wp_reset_postdata(); ?>
-                        <div class="more-btn">
-                            <a href="<?php echo esc_url(get_post_type_archive_link('news')); ?>">MORE</a>
-                        </div>
+                                        <li class="p-top-campaign__slide splide__slide">
+                                            <a href="<?php echo esc_url(get_permalink()); ?>" class="p-top-campaign__link">
 
-                </div>
+                                                <?php if (get_field('clinic_logo_override')): ?>
+                                                    <img src="<?php echo get_field('clinic_logo_override')['url']; ?>"
+                                                        alt="<?php the_title(); ?>"
+                                                        class="p-top-campaign__slide-img"
+                                                        width="362"
+                                                        height="136"
+                                                        loading="lazy" />
+                                                <?php else: ?>
+                                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets_new/img/img_dummy-campaign.webp"
+                                                        alt="<?php the_title(); ?>"
+                                                        class="p-top-campaign__slide-img"
+                                                        width="362"
+                                                        height="136"
+                                                        loading="lazy" />
+                                                <?php endif; ?>
 
+                                                <div class="p-top-campaign__slide-content">
 
-                <div class="nav-menu">
-                    <div><a href="#about"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/about_icon.png"
-                                alt=""><span>ABOUT</span></a></div>
-                    <div><a href="https://charme-beauty.jp/column/"><img
-                                src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/books.png"
-                                alt=""><span>COLUMN</span></a></div>
-                    <div><a href="#case"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/case_icon.png"
-                                alt=""><span>CASE</span></a></div>
-                    <div><a href="#campaign"><img
-                                src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/campaign_icon.png"
-                                alt=""><span>CAMPAIGN</span></a></div>
-                    <div><a href="#reason"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/reason_icon.png"
-                                alt=""><span>REASON</span></a></div>
-                    <div><a href="#flow"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/flow_icon.png"
-                                alt=""><span>FLOW</span></a></div>
-                    <div><a href="https://charme-beauty.jp/concierge/"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/voice_icon.png"
-                                alt=""><span>CONCIERGE</span></a></div>
-                    <div><a href="#sns"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/sns_icon.png"
-                                alt=""><span>SNS</span></a></div>
-                    <div><a href="#clinic"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/clinic_icon.png"
-                                alt=""><span>CLINIC</span></a></div>
-                </div>
-            </div>
-        </div>
-    </div>
+                                                    <?php if ($label): ?>
+                                                        <p class="p-top-campaign__slide-label">
+                                                            <span class="p-top-campaign__slide-label-text">
+                                                                <?php echo esc_html($label); ?>
+                                                            </span>
+                                                        </p>
+                                                    <?php endif; ?>
 
-    <!-- <section id="column">
-    <div class="container section">
-        <ul class="ul_column">
-        <div class="container inner">
-        <li class="left"> -->
-    <!-- <div class="right_image"> -->
-    <!-- <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/column_image.png" alt=""> -->
-    <!-- </div> -->
-    <!-- </li>
-            <li class="right">
-            <div class="sec-title">
+                                                    <p class="p-top-campaign__slide-ttl"><?php the_title(); ?></p>
 
-                <div class="right_column">
+                                                    <?php if ($treatment): ?>
+                                                        <p class="p-top-campaign__slide-info"><?php echo esc_html($treatment); ?></p>
+                                                    <?php endif; ?>
 
-                <h2 class="sp">COLUMN<span>コラム</span></h2>
-        <p>
-            お得な情報やCHARMEならではのお役立ち情報を配信中。
-        </p>
-                    <div class="about-item">
-        <div class="more-btn">
-                    <a href="https://charme-beauty.jp/column">MORE</a>
-                </div>
-                </div>
-        </div>
-                </div> </li>
+                                                    <div class="p-top-campaign__slide-price-wrap">
+                                                        <?php if ($price_before): ?>
+                                                            <p class="p-top-campaign__slide-price-before">
+                                                                <?php echo esc_html($price_before); ?>
+                                                            </p>
+                                                        <?php endif; ?>
 
+                                                        <?php if ($price_after): ?>
+                                                            <p class="p-top-campaign__slide-price-after">
+                                                                <?php echo esc_html($price_after); ?>
+                                                            </p>
+                                                        <?php endif; ?>
+                                                    </div>
 
-            </div></ul>
-        </div>
-    </section> -->
+                                                    <p class="p-top-campaign__slide-link-more">
+                                                        <span class="p-top-campaign__slide-link-more-text">詳しく見る</span>
+                                                        <svg class="p-top-campaign__slide-link-more-arrow" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M4.6 6L0 1.4L1.4 0L7.4 6L1.4 12L0 10.6L4.6 6Z" fill="#424242" />
+                                                        </svg>
+                                                    </p>
 
-    <section id="sns" data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom">
-        <h2 class="spc"><span class="bigLet snsLet">SNS</span><span class="smallLet">-公式SNSアカウント-</span>
-            <div class="hiddbox">
-                <div class="hiddenleft"></div>
-                <div class="hiddenright"></div>
-            </div>
-            <div class="box">
-                <div class="boxleft"></div>
-                <div class="boxright"></div>
-            </div>
-            <div class="line">
-                <div id="topleft"></div>
-                <div id="left"></div>
-                <div id="bottomleft"></div>
-                <div id="topright"></div>
-                <div id="right"></div>
-                <div id="bottomright"></div>
-            </div>
-        </h2>
-        <div class="copy">
-            シャルム公式SNSでは最新情報や、お得な情報を随時お届けしています。
-        </div>
-        <div class="sns-link">
-            <div class="sns-item">
-                <a href="https://www.instagram.com/concierge_charme/" target="_blank">
-                    <img class="insta" src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/insta_icon.png"
-                        alt="インスタグラム">
-                    <div>@concierge_charme</div>
-                </a>
-            </div>
-            <div class="sns-item">
-                <a href="https://www.tiktok.com/@charme.concierge?_t=8mHq6qDaRKJ&_r=1" target="_blank">
-                    <img class="twitter"
-                        src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/tiktok-icon.png" alt="インスタグラム">
-                    <div>@charme.concierge</div>
-                </a>
-            </div>
-        </div>
-    </section>
+                                                </div>
 
-    <section id="about" data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom">
+                                            </a>
+                                        </li>
 
-        <h2 class="spc scro"><span class="bigLet space1">ABOUT</span><span class="smallLet">- CHARMEとは - </span>
-            <div class="hiddbox">
-                <div class="hiddenleft"></div>
-                <div class="hiddenright"></div>
-            </div>
-            <div class="box">
-                <div class="boxleft"></div>
-                <div class="boxright"></div>
-            </div>
-            <div class="line">
-                <div id="topleft"></div>
-                <div id="left"></div>
-                <div id="bottomleft"></div>
-                <div id="topright"></div>
-                <div id="right"></div>
-                <div id="bottomright"></div>
-            </div>
-        </h2>
+                                    <?php endwhile; ?>
 
-        <p class="ptxt">
-            美容整形や医療脱毛、審美歯科などに通いたいけれど、クリニックやサロンの選び方がわからない。
-            そんなお悩みにお答えするのが、私たちCHARMEがご提案する美容コンシェルジュです。
-        </p>
-        <div class="about-item">
-            <div class="more-btn">
-                <a href="<?php echo esc_url(get_permalink(1912)); ?>">MORE</a>
-            </div>
-        </div>
-        </div>
-        <!-- <div class="about-wrapper">
-            <a class="readmore-btn" href="">
-                READ MORE
-            </a>
-            <div class="about-content">
-                <div>
-                    昨今の美容ブームにより、自分磨きや綺麗になることが当たり前になってきた時代の流れと共に、美容クリニックやサロン数は右肩上がりに増えてきています。
-                    膨大なクリニックの中から、ご自身で自分にちゃんと合ったクリニックを探すのはなかなか難しくなってきています。
-                    特に初めてクリニックをお選びになる方は不安がたくさんあるかと思います。
-                </div>
-                <div class="about-img">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/about.jpg" alt="美容コンシェルジュについて">
-                </div>
-                <div class="about-body">
-                    <div class="about-copy">あなたの「もっと美しくなりたい」を全力でお手伝いいたします</div>
-                    <p>
-                        CHARMEでは、そんなお客さまの悩みや願望、ご予算や通院に関するさまざまな要望に対し、
-                        お客さま一人ひとりに寄り添いしっかりと時間をかけてヒアリングをさせていただくことで、お客さまに合ったクリニックをご紹介させていただきます。
-                    </p>
-                    <p>
-                        CHARMEは、有名クリニックや実績・対応の良いクリニックと数多くご提携させていただいておりますのでご安心ください。
-                        お客さまの大切な身体を第一に考えたご提案をしっかりとさせていただきます。
-                    </p>
-                </div>
-            </div>
-        </div> -->
-        <!-- <div class="service-items">
-            <div class="service-item"><a href="<?php echo esc_url(get_permalink(38)); ?>">
-                    <h3 class="sp">美容整形</h3>
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/service1.jpg" alt="美容整形のサービス">
-                    <p>
-                        人気の埋没法やヒアルロン酸注入などのプチ整形や、切開系施術、タトゥー除去、渡韓による輪郭形成など様々なお取り扱いがございます。
-                    </p></a>
-            </div>
-            <div class="service-item"><a href="<?php echo esc_url(get_permalink(28)); ?>">
-                    <h3 class="sp">医療脱毛</h3>
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/service2.jpg" alt="医療脱毛のサービス">
-                    <p>
-                        自己処理による剃刀負けや乾燥、色素沈着、埋もれ毛などの肌負担を無くしていく為、
-                        毛穴が小さくなりお肌のトーンが明るくなるなど美肌効果がございます。<br>
-                        お顔ですとお化粧ノリが良くなる等のメリット多数です。
-                    </p></a>
-            </div>
-            <div class="service-item"><a href="<?php echo esc_url(get_permalink(39)); ?>">
-                    <h3 class="sp">メンズ総合</h3>
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/service3.jpg" alt="メンズ総合のサービス">
-                    <p>
-                        女性のみならず男性も積極的に美容を行う時代です。<br>
-                        美容整形はもちろん、 美肌治療、髭や全身の医療脱毛、審美歯科、AGA治療等…<br>
-                        気になる所はあるけどどうしたら良いかわらない方でも、コンシェルジュがお悩みに沿った美容治療をご案内させて頂きます。
-                    </p></a>
-            </div> -->
-        <!-- <div class="service-item"><div class="top-otherservice">
-                    <p>
-                        その他にもお客さまのニーズに合わせた多くの施術をご紹介することができます。
-                        また、海外クリニックとの提携もご用意していますので送迎・宿泊込みのプランも対応可能です。ご相談はすべて無料ですので、お気軽にご相談ください。
-                    </p>
-                    <div class="more-btn-other">
-                        <a href="<?php echo esc_url(get_permalink(40)); ?>">OTHER SERVICE</a>
-                    </div></div></div> -->
-        </div>
-    </section>
+                                </ul>
+                                <?php wp_reset_postdata(); ?>
 
-    <!-- <section id="service" data-aos="fade-up"
-          data-aos-anchor-placement="top-bottom">
-        <h2 class="spc"><span class="midLet">SERVICE</span><span class="smallLet">-サービス-</span>
-            <div class="hiddbox">
-                <div class="hiddenleft hidcolor"></div>
-                <div class="hiddenright hidcolor"></div>
-              </div>
-            <div class="box">
-                <div class="boxleft"></div>
-                <div class="boxright"></div>
-              </div>
-              <div class="line">
-                <div id="topleft"></div>
-                <div id="left"></div>
-                <div id="bottomleft"></div>
-                <div id="topright"></div>
-                <div id="right"></div>
-                <div id="bottomright"></div>
-              </div>
-        </h2>
-        <div class="service-items">
-            <div class="service-item"><a href="<?php echo esc_url(get_permalink(38)); ?>">
-                    <h3 class="sp">美容整形</h3>
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/service1.jpg" alt="美容整形のサービス">
-                    <p>
-                        人気の埋没法やヒアルロン酸注入などのプチ整形や、切開系施術、タトゥー除去、渡韓による輪郭形成など様々なお取り扱いがございます。
-                    </p></a>
-            </div>
-            <div class="service-item"><a href="<?php echo esc_url(get_permalink(28)); ?>">
-                    <h3 class="sp">医療脱毛</h3>
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/service2.jpg" alt="医療脱毛のサービス">
-                    <p>
-                        自己処理による剃刀負けや乾燥、色素沈着、埋もれ毛などの肌負担を無くしていく為、
-                        毛穴が小さくなりお肌のトーンが明るくなるなど美肌効果がございます。<br>
-                        お顔ですとお化粧ノリが良くなる等のメリット多数です。
-                    </p></a>
-            </div>
-            <div class="service-item"><a href="<?php echo esc_url(get_permalink(39)); ?>">
-                    <h3 class="sp">メンズ総合</h3>
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/service3.jpg" alt="メンズ総合のサービス">
-                    <p>
-                        女性のみならず男性も積極的に美容を行う時代です。<br>
-                        美容整形はもちろん、 美肌治療、髭や全身の医療脱毛、審美歯科、AGA治療等…<br>
-                        気になる所はあるけどどうしたら良いかわらない方でも、コンシェルジュがお悩みに沿った美容治療をご案内させて頂きます。
-                    </p></a>
-            </div>
-            <div class="service-item"><div class="top-otherservice">
-                    <p>
-                    その他にもお客さまのニーズに合わせた多くの施術をご紹介することができます。
-また、海外クリニックとの提携もご用意していますので送迎・宿泊込みのプランも対応可能です。ご相談はすべて無料ですので、お気軽にご相談ください。
-                    </p>
-                    <div class="more-btn-other">
-                    <a href="<?php echo esc_url(get_permalink(40)); ?>">OTHER SERVICE</a>
-                </div></div></div>
-        </div>
-    </section> -->
-
-    <section id="case" data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom">
-        <h2 class="spc"><span class="caseLet">CASE</span><span class="smallLet">-症例-</span>
-            <div class="hiddbox">
-                <div class="hiddenleft"></div>
-                <div class="hiddenright"></div>
-            </div>
-            <div class="casebox">
-                <div class="cboxleft"></div>
-                <div class="cboxright"></div>
-            </div>
-            <div class="caseline">
-                <div id="topcleft"></div>
-                <div id="cleft"></div>
-                <div id="bottomcleft"></div>
-                <div id="topcright"></div>
-                <div id="cright"></div>
-                <div id="bottomcright"></div>
-            </div>
-        </h2>
-        <!--<div class="case-items">
-            <div class="case-item">
-                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/case.jpg" alt="症例紹介">
-                <p>
-                    各クリニックの症例写真を数多く掲載しております。<br>
-                    気になる施術がある方はビフォーアフターを是非ご覧下さい。            </p>
-                <div class="more-btn">
-                    <a href="<?php echo esc_url(get_post_type_archive_link('case')); ?>">MORE</a>
-                </div>
-            </div>
-        </div>-->
-        <?php
-        $terms = get_terms(
-            array(
-                'taxonomy' => 'case_category',
-                'parent' => 0, // 親カテゴリのみを取得するために指定
-            )
-        );
-        if (!empty($terms) && !is_wp_error($terms)) {
-            echo '<ul class="casies">';
-            foreach ($terms as $term) {
-                $img = get_field('case_category-image', 'case_category_' . $term->term_id);
-                $link = str_replace('/case_category/', '/case/', get_term_link($term->term_id));
-        ?>
-                <li>
-                    <a href="<?php echo $link; ?>">
-                        <img src="<?php echo $img; ?>" alt="<?php echo $term->name; ?>" />
-                    </a>
-                </li>
-        <?php
-            }
-            echo "</ul>";
-        }
-        ?>
-    </section>
-
-    <section id="campaign" data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom">
-        <h2 class="spc"><span class="campLet">CAMPAIGN</span><span class="smallLet">-キャンペーン-</span>
-            <div class="camphiddbox">
-                <div class="camphiddenleft hidcolor"></div>
-                <div class="camphiddenright hidcolor"></div>
-            </div>
-            <div class="Campbox">
-                <div class="boxCampleft"></div>
-                <div class="boxCampright"></div>
-            </div>
-            <div class="line">
-                <div id="topleft"></div>
-                <div id="left"></div>
-                <div id="bottomCampleft"></div>
-                <div id="topCampright"></div>
-                <div id="Campright"></div>
-                <div id="bottomCampright"></div>
-            </div>
-        </h2>
-        <div class="campaign-items">
-            <!-- <div class="campaign-item">
-                <?php
-                $args = null;
-                $args = array(
-                    'post_type' => 'campaign',
-                    'showposts' => 1,
-                    'paged' => $paged,
-                );
-                ?>
-                <?php query_posts($args); ?>
-                <?php if (have_posts()) : ?>
-                    <ul>
-                        <?php while (have_posts()) : the_post(); ?>
-                            <?php if (get_post_meta($post->ID, 'campaign_display', true)): ?>
-                                <li>
-                                    <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>">
-                                        <div class="campaign_list_l">
-                                            <?php $attachment_id = CFS()->get('campaign_clinic_img', $post->ID); ?>
-                                            <?php echo wp_get_attachment_image($attachment_id, campaign_image_s); ?>
-                                        </div>
-                                        <p>
-                                            <?php echo CFS()->get('campaign_tittle'); ?>
-                                        </p>
-                                    </a>
-                                </li>
-                            <?php else: ?>
                             <?php endif; ?>
-                        <?php endwhile; ?>
-                    </ul>
-                <?php else : ?>
-                    <div class="borderBox">
-                        <p>キャンペーンは只今準備中です。</p>
+                        </div>
+                        <ul class="p-top-campaign__pagination splide__pagination"></ul>
                     </div>
-                <?php endif; ?>
-                <?php wp_reset_query(); ?>
-                <div class="more-btn">
-                    <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>">MORE</a>
                 </div>
-            </div> -->
+                <a href="<?php echo esc_url(home_url('/campaign')); ?>" class="c-cta-btn --center --border-pink p-top-campaign__btn">
+                    <span class="c-cta-btn__text">すべてのキャンペーンを見る</span>
+                    <svg class="c-cta-btn__arrow" width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.49964 3.00086L10.4996 12.0009L1.49964 21.0009L1.49964 3.00086Z" fill="white" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <svg class="l-top-section__deco-circle p-top-campaign__deco-circle u-pc" width="1440" height="136" viewBox="0 0 1440 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M720.5 0C1134 0 1442.5 136 1442.5 136H720.5H-1.5C-1.5 136 307 0 720.5 0Z" fill="#FFE0E6" />
+        </svg>
+        <svg class="l-top-section__deco-circle p-top-campaign__deco-circle u-sp" width="375" height="36" viewBox="0 0 375 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M187.5 0C294.884 0 375 35.3186 375 35.3186H187.5H0C0 35.3186 80.116 0 187.5 0Z" fill="#FFE0E6" />
+        </svg>
+
+    </section>
+    <section class="p-top-about l-top-section" id="top-about">
+        <div class="l-inner">
+            <div class="p-top-about__head l-top-section__head">
+                <hgroup class="p-top-about__header c-section-ttl">
+                    <p class="c-section-ttl__sub" lang="en">About</p>
+                    <h2 class="c-section-ttl__ja">シャルムとは？</h2>
+                </hgroup>
+            </div>
+            <div class="p-top-about__content l-top-section__content">
+                <div class="p-top-about__text-box">
+                    <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_about-face.webp" alt="" class="p-top-about__text-box-icon" width="126" height="127" loading='lazy' />
+                    <div class="p-top-about__text-box-body">
+                        <p class="p-top-about__text-box-sentence-wrap"><span class="p-top-about__text-box-sentence">シャルムは、美容整形、医療脱毛などに<br class="u-sp">不安を抱く方のための</span></p>
+                        <p class="p-top-about__text-box-sentence-wrap --gap-10"><span class="p-top-about__text-box-sentence --bg-yellow">無料</span><span class="p-top-about__text-box-sentence">の</span><span class="p-top-about__text-box-sentence --pink">“美容コンシェルジュサービス”</span><span class="p-top-about__text-box-sentence">です。</span></p>
+                        <p class="p-top-about__text-box-sentence-wrap"><span class="p-top-about__text-box-sentence">ご希望やお悩みをヒアリングし、</span></p>
+                        <p class="p-top-about__text-box-sentence-wrap"><span class="p-top-about__text-box-sentence">あなたに最適なクリニックを</span><span class="p-top-about__text-box-sentence --pink --padding">限定割引価格</span><span class="p-top-about__text-box-sentence">でご紹介します。</span></p>
+                        <p class="p-top-about__text-box-sentence-wrap"><span class="p-top-about__text-box-sentence --pink">LINEで気軽に相談</span><span class="p-top-about__text-box-sentence">するだけで、</span><span class="p-top-about__text-box-sentence --bg-yellow">予約代行</span><span class="p-top-about__text-box-sentence">や<br class="u-sp"></span><span class="p-top-about__text-box-sentence --bg-yellow">割引特典</span><span class="p-top-about__text-box-sentence">をご利用いただけます。</span></p>
+                    </div>
+                </div>
+                <div class="p-top-about__items">
+                    <div class="p-top-about__item">
+                        <div class="p-top-about__item-img-wrap">
+                            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_about-item1.webp" alt="" class="p-top-about__item-img" width="113" height="112" loading='lazy' />
+                            <svg class="p-top-about__item-no" width="112" height="25" viewBox="0 0 112 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.9 24.0539C38.456 24.0539 37.734 23.2052 37.734 21.5079C37.734 20.3932 38.038 18.9112 38.646 17.0619C38.874 16.3779 39.1527 15.6052 39.482 14.7439C39.8367 13.8572 40.2547 12.9072 40.736 11.8939C40.9893 11.3619 41.1793 10.9565 41.306 10.6779C41.458 10.3739 41.5847 10.0952 41.686 9.84187C41.8127 9.5632 41.952 9.20854 42.104 8.77787C42.2307 8.4232 42.3193 8.13187 42.37 7.90387C42.4207 7.65054 42.446 7.4352 42.446 7.25787C42.446 6.9792 42.3573 6.83987 42.18 6.83987C40.888 6.83987 38.5827 8.6512 35.264 12.2739C34.0987 13.5659 33.0093 14.8199 31.996 16.0359C30.9827 17.2519 30.0707 18.4552 29.26 19.6459L28.006 21.5459C27.9553 21.6725 27.8667 21.8119 27.74 21.9639C27.6387 22.1159 27.5247 22.2805 27.398 22.4579C27.322 22.4832 27.2207 22.4959 27.094 22.4959C26.334 22.4959 25.954 22.1919 25.954 21.5839C25.954 21.4319 25.992 21.3052 26.068 21.2039C26.0933 21.1532 26.22 20.9252 26.448 20.5199C26.676 20.0892 27.0307 19.3545 27.512 18.3159C30.0707 12.9705 31.35 9.1452 31.35 6.83987C31.35 5.77587 31.0207 5.24387 30.362 5.24387C29.298 5.24387 27.5247 6.5992 25.042 9.30987C23.598 10.9059 22.2173 12.5905 20.9 14.3639C19.608 16.1372 18.354 18.0372 17.138 20.0639L16.302 21.4699C15.8967 22.1285 15.5673 22.5465 15.314 22.7239C14.7313 22.7239 14.44 22.4452 14.44 21.8879C14.44 21.6852 14.4907 21.5332 14.592 21.4319C15.96 19.7599 17.4673 17.0745 19.114 13.3759C20.0007 11.3999 20.6593 9.68987 21.09 8.24587C21.546 6.77654 21.774 5.5732 21.774 4.63587C21.774 2.10254 20.3807 0.83587 17.594 0.83587C16.8593 0.83587 16.0487 0.924537 15.162 1.10187C14.2753 1.2792 13.3127 1.55787 12.274 1.93787C11.514 2.1912 10.8047 2.46987 10.146 2.77387C9.48732 3.07787 8.77799 3.4452 8.01799 3.87587C6.52332 4.68654 5.14266 5.5732 3.87599 6.53587C1.95065 8.0052 0.987988 9.23387 0.987988 10.2219C0.987988 11.6405 2.36866 12.3499 5.12999 12.3499C5.40866 12.3499 5.76332 12.3372 6.19399 12.3119C6.62466 12.2612 7.08066 12.1979 7.56199 12.1219C8.70199 11.9445 9.52532 11.8559 10.032 11.8559C10.2347 11.8559 10.336 11.9065 10.336 12.0079C10.336 12.1092 10.2727 12.1979 10.146 12.2739C9.28466 12.8819 7.85332 13.1859 5.85199 13.1859C4.35732 13.1859 3.11599 12.9832 2.12799 12.5779C0.709322 11.9952 -1.18241e-05 11.0959 -1.18241e-05 9.87987C-1.18241e-05 8.56254 0.949988 7.14387 2.84999 5.62387C3.50865 5.09187 4.20532 4.59787 4.93999 4.14187C5.67466 3.68587 6.51066 3.22987 7.44799 2.77387C8.20799 2.4192 8.92999 2.10254 9.61399 1.82387C10.298 1.5452 11.1087 1.26654 12.046 0.98787C13.1607 0.633203 14.212 0.37987 15.2 0.227871C16.2133 0.0758698 17.1507 -0.000130773 18.012 -0.000130773C21.7107 -0.000130773 23.56 1.40587 23.56 4.21787C23.56 6.47254 22.648 9.3732 20.824 12.9199C21.5587 12.0585 22.2933 11.1719 23.028 10.2599C23.788 9.32254 24.4973 8.47387 25.156 7.71387C26.22 6.5232 27.1827 5.63654 28.044 5.05387C28.9053 4.4712 29.6527 4.17987 30.286 4.17987C31.806 4.17987 32.566 5.31987 32.566 7.59987C32.566 9.6012 31.7933 12.4639 30.248 16.1879C31.1347 15.1999 32.0213 14.2372 32.908 13.2999C33.82 12.3625 34.77 11.4252 35.758 10.4879C38.5447 7.80254 40.546 6.26987 41.762 5.88987C42.066 5.78854 42.3447 5.73787 42.598 5.73787C43.3833 5.73787 43.776 6.24454 43.776 7.25787C43.776 8.06854 43.5227 9.09454 43.016 10.3359C42.5853 11.4252 42.18 12.4005 41.8 13.2619C41.4453 14.0979 41.0527 15.0479 40.622 16.1119C40.09 17.4292 39.6973 18.5819 39.444 19.5699C39.216 20.5325 39.102 21.3052 39.102 21.8879C39.102 22.7999 39.444 23.2559 40.128 23.2559C40.4827 23.2559 40.964 23.0405 41.572 22.6099C42.2053 22.1792 42.56 21.9639 42.636 21.9639C42.7373 21.9639 42.788 22.0272 42.788 22.1539C42.788 22.6605 42.446 23.1039 41.762 23.4839C41.0527 23.8639 40.432 24.0539 39.9 24.0539ZM48.5358 21.5459C47.6998 21.5459 46.9651 21.3052 46.3318 20.8239C45.6985 20.3425 45.3818 19.5319 45.3818 18.3919C45.3818 17.7079 45.5338 16.9732 45.8378 16.1879C46.1418 15.3772 46.5471 14.6172 47.0538 13.9079C47.5858 13.1985 48.1685 12.6159 48.8018 12.1599C49.4351 11.7039 50.0811 11.4759 50.7398 11.4759C50.9931 11.4759 51.2085 11.5645 51.3858 11.7419C51.5885 11.9192 51.6898 12.1852 51.6898 12.5399C51.6898 13.3252 51.0945 14.2752 49.9038 15.3899C49.4225 15.8459 48.9158 16.2512 48.3838 16.6059C47.8771 16.9605 47.4085 17.2139 46.9778 17.3659C46.8765 17.6952 46.8258 18.0752 46.8258 18.5059C46.8258 19.0885 46.9651 19.6205 47.2438 20.1019C47.5225 20.5832 47.9658 20.8239 48.5738 20.8239C49.3338 20.8239 50.0305 20.6085 50.6638 20.1779C51.2971 19.7472 51.8798 19.2279 52.4118 18.6199C52.9438 17.9865 53.4125 17.4039 53.8178 16.8719C53.9951 16.6185 54.1725 16.4919 54.3498 16.4919C54.4511 16.4919 54.5018 16.5425 54.5018 16.6439C54.5018 16.6945 54.4891 16.7579 54.4638 16.8339C54.4385 16.8845 54.4131 16.9352 54.3878 16.9859C53.9571 17.5939 53.4631 18.2525 52.9058 18.9619C52.3485 19.6712 51.7151 20.2792 51.0058 20.7859C50.2965 21.2925 49.4731 21.5459 48.5358 21.5459ZM47.2438 16.6059C47.9025 16.3272 48.5865 15.8332 49.2958 15.1239C50.1318 14.3132 50.5498 13.6039 50.5498 12.9959C50.5498 12.6919 50.3978 12.5399 50.0938 12.5399C49.6885 12.5399 49.1311 13.1225 48.4218 14.2879C47.7885 15.2505 47.3958 16.0232 47.2438 16.6059ZM59.6012 21.9259C58.7399 21.9259 58.1319 21.6979 57.7772 21.2419C57.4479 20.7859 57.2832 20.2032 57.2832 19.4939C57.2832 18.9112 57.3719 18.3032 57.5492 17.6699C57.7519 17.0112 57.9925 16.4032 58.2712 15.8459C58.5499 15.2885 58.7905 14.8452 58.9932 14.5159C58.9172 14.5412 58.8412 14.5665 58.7652 14.5919C58.6892 14.5919 58.6005 14.5919 58.4992 14.5919C58.1445 14.5919 57.7519 14.4652 57.3212 14.2119C56.8652 13.9079 56.6372 13.5912 56.6372 13.2619C56.4852 13.6165 56.2699 14.0219 55.9912 14.4779C55.7379 14.9339 55.4339 15.4279 55.0792 15.9599C54.1419 17.4292 53.5212 18.1639 53.2172 18.1639C53.1159 18.1639 53.0652 18.1132 53.0652 18.0119C53.0652 17.9105 53.1412 17.7585 53.2932 17.5559C53.7745 16.8972 54.2559 16.1372 54.7372 15.2759C55.2439 14.4145 55.7505 13.4519 56.2572 12.3879C56.2319 12.2612 56.2065 12.1345 56.1812 12.0079C56.1812 11.8812 56.1812 11.7292 56.1812 11.5519C56.1812 10.9692 56.2952 10.2979 56.5232 9.53787C56.8019 8.5752 57.1439 8.09387 57.5492 8.09387C57.8025 8.09387 58.0432 8.32187 58.2712 8.77787C58.3472 8.9552 58.4105 9.13254 58.4612 9.30987C58.5119 9.46187 58.5372 9.62654 58.5372 9.80387C58.5372 10.4119 58.0179 11.3365 56.9792 12.5779C57.2072 13.3632 57.6505 13.7559 58.3092 13.7559C58.7905 13.7559 59.2339 13.5152 59.6392 13.0339C60.0699 12.5272 60.3739 12.2739 60.5512 12.2739C60.7792 12.2739 60.9819 12.3625 61.1592 12.5399C61.3365 12.7172 61.4252 12.9452 61.4252 13.2239C61.4252 13.1985 61.2605 13.4265 60.9312 13.9079C60.6272 14.3892 60.2725 15.0605 59.8672 15.9219C59.4619 16.7832 59.1705 17.5179 58.9932 18.1259C58.8412 18.7339 58.7652 19.2785 58.7652 19.7599C58.7652 20.6465 59.1832 21.0899 60.0192 21.0899C60.8299 21.0899 61.8559 20.4692 63.0972 19.2279C63.5025 18.7972 63.9712 18.2525 64.5032 17.5939C65.1619 16.7832 65.4912 16.3779 65.4912 16.3779C65.5925 16.3779 65.6432 16.4539 65.6432 16.6059C65.6432 16.8085 65.5672 17.0239 65.4152 17.2519C65.0605 17.8092 64.6679 18.3665 64.2372 18.9239C63.8319 19.4559 63.4519 19.8865 63.0972 20.2159C61.9319 21.3559 60.7665 21.9259 59.6012 21.9259ZM68.3762 11.6279C67.7682 11.6279 67.4642 11.3239 67.4642 10.7159C67.4642 10.4119 67.5782 10.1459 67.8062 9.91787C68.0596 9.66454 68.3509 9.53787 68.6802 9.53787C69.2882 9.53787 69.5922 9.84187 69.5922 10.4499C69.5922 10.7539 69.4782 11.0199 69.2502 11.2479C68.9969 11.5012 68.7056 11.6279 68.3762 11.6279ZM66.1722 21.9639C64.7789 21.9639 64.0822 21.2165 64.0822 19.7219C64.0822 19.0125 64.3356 17.9739 64.8422 16.6059C65.0702 15.9725 65.2982 15.4405 65.5262 15.0099C65.7796 14.5539 66.0329 14.1359 66.2862 13.7559C66.4382 13.5279 66.6156 13.4139 66.8182 13.4139C67.0209 13.4139 67.2236 13.5152 67.4262 13.7179C67.5529 13.8445 67.6162 14.0092 67.6162 14.2119C67.6162 14.3892 67.5656 14.5665 67.4642 14.7439C66.9069 15.6052 66.4509 16.4792 66.0962 17.3659C65.7416 18.2272 65.5642 18.9999 65.5642 19.6839C65.5642 20.5959 65.8936 21.0519 66.5522 21.0519C66.9069 21.0519 67.3122 20.9632 67.7682 20.7859C68.2242 20.5832 68.6802 20.2792 69.1362 19.8739C69.4402 19.5952 69.7569 19.2785 70.0862 18.9239C70.4409 18.5692 70.7956 18.1512 71.1502 17.6699C71.8089 16.8592 72.1382 16.4539 72.1382 16.4539C72.2649 16.4539 72.3282 16.5552 72.3282 16.7579C72.3282 16.9605 72.2396 17.1632 72.0622 17.3659C69.7569 20.4312 67.7936 21.9639 66.1722 21.9639ZM73.9893 21.5079C73.2039 21.5079 72.6466 21.2419 72.3173 20.7099C71.9879 20.1779 71.8233 19.5192 71.8233 18.7339C71.8233 17.7712 71.9879 16.7705 72.3173 15.7319C72.6466 14.6679 73.0013 13.7939 73.3813 13.1099H73.1533C72.2666 13.1099 71.6713 13.0465 71.3673 12.9199C71.0886 12.7679 70.9493 12.5272 70.9493 12.1979C70.9493 12.0205 71.0886 11.9319 71.3673 11.9319L73.7993 12.0839C74.4326 10.8172 75.0659 9.6392 75.6993 8.54987C76.3579 7.46054 76.9026 6.70054 77.3333 6.26987C77.6879 5.9152 78.1819 5.73787 78.8153 5.73787C79.3726 5.73787 79.6513 5.85187 79.6513 6.07987C79.6513 6.13054 79.6386 6.16854 79.6133 6.19387L77.9793 8.13187C77.5993 8.58787 77.1813 9.17054 76.7253 9.87987C76.2693 10.5892 75.8133 11.3492 75.3573 12.1599C75.6359 12.1852 75.8893 12.1979 76.1173 12.1979C76.3706 12.1979 76.5859 12.1979 76.7633 12.1979C76.8646 12.1979 76.9786 12.1979 77.1053 12.1979C77.2319 12.1725 77.3839 12.1599 77.5613 12.1599H78.3593C78.6633 12.1599 78.8153 12.2359 78.8153 12.3879C78.8153 12.7679 77.5106 12.9959 74.9013 13.0719C74.6226 13.6039 74.3439 14.2245 74.0653 14.9339C73.7866 15.6179 73.5586 16.3019 73.3813 16.9859C73.2293 17.6699 73.1533 18.2905 73.1533 18.8479C73.1533 20.0132 73.6473 20.5959 74.6353 20.5959C75.4459 20.5959 76.3959 20.1019 77.4853 19.1139C77.9159 18.7085 78.2833 18.3032 78.5873 17.8979C78.9166 17.4672 79.2333 17.0365 79.5373 16.6059C79.6893 16.3779 79.8286 16.2639 79.9553 16.2639C80.0819 16.2639 80.1453 16.3399 80.1453 16.4919C80.1453 16.5932 80.1199 16.6945 80.0693 16.7959C80.0439 16.8719 80.0186 16.9352 79.9933 16.9859C79.6639 17.4165 79.2966 17.8852 78.8913 18.3919C78.5113 18.8985 78.0553 19.3925 77.5233 19.8739C76.2819 20.9632 75.1039 21.5079 73.9893 21.5079ZM88.6062 22.0399C87.8715 22.0399 87.1495 21.9259 86.4402 21.6979C85.7309 21.4699 85.1229 21.1532 84.6162 20.7479C83.5522 19.8359 83.0202 18.6579 83.0202 17.2139C83.0202 14.8325 84.0842 12.7299 86.2122 10.9059C87.3269 9.99387 88.8469 9.15787 90.7722 8.39787C91.7349 7.99254 92.6722 7.7012 93.5842 7.52387C94.5215 7.34654 95.3322 7.25787 96.0162 7.25787C96.6749 7.25787 97.0042 7.3212 97.0042 7.44787C97.0042 7.49854 96.9029 7.5492 96.7002 7.59987C96.3202 7.6252 95.7629 7.7392 95.0282 7.94187C94.3189 8.1192 93.5209 8.35987 92.6342 8.66387C91.7729 8.96787 90.9369 9.32254 90.1262 9.72787C89.3409 10.1332 88.6822 10.5639 88.1502 11.0199C87.1622 11.9319 86.3262 12.9959 85.6422 14.2119C84.8822 15.5292 84.5022 16.8085 84.5022 18.0499C84.5022 18.9112 84.8189 19.7219 85.4522 20.4819C86.0855 21.2165 87.1369 21.5839 88.6062 21.5839C90.0502 21.5839 91.4562 21.2292 92.8242 20.5199C94.1922 19.8105 95.6489 18.7592 97.1942 17.3659C97.6502 16.9352 98.0555 16.4919 98.4102 16.0359C98.7902 15.5545 99.0942 15.1239 99.3222 14.7439C99.6769 14.1612 99.9429 13.6165 100.12 13.1099C100.298 12.5779 100.386 12.0712 100.386 11.5899C100.386 10.7792 100.184 10.1712 99.7782 9.76587C99.3729 9.36054 98.6255 9.15787 97.5362 9.15787C94.6989 9.15787 92.1275 10.1585 89.8222 12.1599C89.8475 12.1345 89.8349 12.1472 89.7842 12.1979C89.7589 12.2232 89.7209 12.2359 89.6702 12.2359C89.5689 12.2359 89.5182 12.1852 89.5182 12.0839C89.5182 11.7292 90.2022 11.1719 91.5702 10.4119C93.5969 9.27187 95.5095 8.70187 97.3082 8.70187C98.7775 8.70187 99.9175 9.01854 100.728 9.65187C101.539 10.2852 101.944 11.1592 101.944 12.2739C101.944 14.1485 100.969 15.9979 99.0182 17.8219C98.3342 18.4552 97.5995 19.0252 96.8142 19.5319C96.0289 20.0385 95.1929 20.4945 94.3062 20.8999C93.3435 21.3305 92.3555 21.6219 91.3422 21.7739C90.3542 21.9512 89.4422 22.0399 88.6062 22.0399ZM102.977 22.3819C102.8 22.3819 102.711 22.3059 102.711 22.1539C102.711 22.0779 102.724 22.0145 102.749 21.9639C103.18 21.0519 103.611 20.0512 104.041 18.9619C104.472 17.8725 104.89 16.8719 105.295 15.9599C105.574 15.3772 105.865 14.7312 106.169 14.0219C106.499 13.2872 106.815 12.5525 107.119 11.8179C107.423 11.0832 107.664 10.4372 107.841 9.87987C107.791 9.87987 107.677 9.93054 107.499 10.0319C107.347 10.1332 107.221 10.2219 107.119 10.2979C106.942 10.4499 106.79 10.5259 106.663 10.5259C106.562 10.5259 106.511 10.4625 106.511 10.3359C106.511 10.2092 106.6 10.0572 106.777 9.87987L109.741 7.14387C109.767 7.11854 109.83 7.10587 109.931 7.10587C110.007 7.10587 110.121 7.1312 110.273 7.18187C110.451 7.2072 110.59 7.2452 110.691 7.29587C110.97 7.4732 111.135 7.5872 111.185 7.63787C111.261 7.68854 111.299 7.7392 111.299 7.78987L111.261 7.86587C110.932 8.29654 110.552 8.86654 110.121 9.57587C109.691 10.2852 109.171 11.1719 108.563 12.2359C107.854 13.5025 107.157 14.7312 106.473 15.9219C105.815 17.1125 105.207 18.3159 104.649 19.5319C104.472 19.9372 104.269 20.3299 104.041 20.7099C103.839 21.0899 103.598 21.6092 103.319 22.2679C103.294 22.3439 103.18 22.3819 102.977 22.3819Z" fill="#424242" />
+                            </svg>
+                        </div>
+                        <p class="p-top-about__item-text">無料で相談できる</p>
+                    </div>
+                    <div class="p-top-about__item">
+                        <div class="p-top-about__item-img-wrap">
+                            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_about-item2.webp" alt="" class="p-top-about__item-img" width="113" height="112" loading='lazy' />
+                            <svg class="p-top-about__item-no" width="117" height="25" viewBox="0 0 117 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.9 24.0539C38.456 24.0539 37.734 23.2052 37.734 21.5079C37.734 20.3932 38.038 18.9112 38.646 17.0619C38.874 16.3779 39.1527 15.6052 39.482 14.7439C39.8367 13.8572 40.2547 12.9072 40.736 11.8939C40.9893 11.3619 41.1793 10.9565 41.306 10.6779C41.458 10.3739 41.5847 10.0952 41.686 9.84187C41.8127 9.5632 41.952 9.20854 42.104 8.77787C42.2307 8.4232 42.3193 8.13187 42.37 7.90387C42.4207 7.65054 42.446 7.4352 42.446 7.25787C42.446 6.9792 42.3573 6.83987 42.18 6.83987C40.888 6.83987 38.5827 8.6512 35.264 12.2739C34.0987 13.5659 33.0093 14.8199 31.996 16.0359C30.9827 17.2519 30.0707 18.4552 29.26 19.6459L28.006 21.5459C27.9553 21.6725 27.8667 21.8119 27.74 21.9639C27.6387 22.1159 27.5247 22.2805 27.398 22.4579C27.322 22.4832 27.2207 22.4959 27.094 22.4959C26.334 22.4959 25.954 22.1919 25.954 21.5839C25.954 21.4319 25.992 21.3052 26.068 21.2039C26.0933 21.1532 26.22 20.9252 26.448 20.5199C26.676 20.0892 27.0307 19.3545 27.512 18.3159C30.0707 12.9705 31.35 9.1452 31.35 6.83987C31.35 5.77587 31.0207 5.24387 30.362 5.24387C29.298 5.24387 27.5247 6.5992 25.042 9.30987C23.598 10.9059 22.2173 12.5905 20.9 14.3639C19.608 16.1372 18.354 18.0372 17.138 20.0639L16.302 21.4699C15.8967 22.1285 15.5673 22.5465 15.314 22.7239C14.7313 22.7239 14.44 22.4452 14.44 21.8879C14.44 21.6852 14.4907 21.5332 14.592 21.4319C15.96 19.7599 17.4673 17.0745 19.114 13.3759C20.0007 11.3999 20.6593 9.68987 21.09 8.24587C21.546 6.77654 21.774 5.5732 21.774 4.63587C21.774 2.10254 20.3807 0.83587 17.594 0.83587C16.8593 0.83587 16.0487 0.924537 15.162 1.10187C14.2753 1.2792 13.3127 1.55787 12.274 1.93787C11.514 2.1912 10.8047 2.46987 10.146 2.77387C9.48732 3.07787 8.77799 3.4452 8.01799 3.87587C6.52332 4.68654 5.14266 5.5732 3.87599 6.53587C1.95065 8.0052 0.987988 9.23387 0.987988 10.2219C0.987988 11.6405 2.36866 12.3499 5.12999 12.3499C5.40866 12.3499 5.76332 12.3372 6.19399 12.3119C6.62466 12.2612 7.08066 12.1979 7.56199 12.1219C8.70199 11.9445 9.52532 11.8559 10.032 11.8559C10.2347 11.8559 10.336 11.9065 10.336 12.0079C10.336 12.1092 10.2727 12.1979 10.146 12.2739C9.28466 12.8819 7.85332 13.1859 5.85199 13.1859C4.35732 13.1859 3.11599 12.9832 2.12799 12.5779C0.709322 11.9952 -1.18241e-05 11.0959 -1.18241e-05 9.87987C-1.18241e-05 8.56254 0.949988 7.14387 2.84999 5.62387C3.50865 5.09187 4.20532 4.59787 4.93999 4.14187C5.67466 3.68587 6.51066 3.22987 7.44799 2.77387C8.20799 2.4192 8.92999 2.10254 9.61399 1.82387C10.298 1.5452 11.1087 1.26654 12.046 0.98787C13.1607 0.633203 14.212 0.37987 15.2 0.227871C16.2133 0.0758698 17.1507 -0.000130773 18.012 -0.000130773C21.7107 -0.000130773 23.56 1.40587 23.56 4.21787C23.56 6.47254 22.648 9.3732 20.824 12.9199C21.5587 12.0585 22.2933 11.1719 23.028 10.2599C23.788 9.32254 24.4973 8.47387 25.156 7.71387C26.22 6.5232 27.1827 5.63654 28.044 5.05387C28.9053 4.4712 29.6527 4.17987 30.286 4.17987C31.806 4.17987 32.566 5.31987 32.566 7.59987C32.566 9.6012 31.7933 12.4639 30.248 16.1879C31.1347 15.1999 32.0213 14.2372 32.908 13.2999C33.82 12.3625 34.77 11.4252 35.758 10.4879C38.5447 7.80254 40.546 6.26987 41.762 5.88987C42.066 5.78854 42.3447 5.73787 42.598 5.73787C43.3833 5.73787 43.776 6.24454 43.776 7.25787C43.776 8.06854 43.5227 9.09454 43.016 10.3359C42.5853 11.4252 42.18 12.4005 41.8 13.2619C41.4453 14.0979 41.0527 15.0479 40.622 16.1119C40.09 17.4292 39.6973 18.5819 39.444 19.5699C39.216 20.5325 39.102 21.3052 39.102 21.8879C39.102 22.7999 39.444 23.2559 40.128 23.2559C40.4827 23.2559 40.964 23.0405 41.572 22.6099C42.2053 22.1792 42.56 21.9639 42.636 21.9639C42.7373 21.9639 42.788 22.0272 42.788 22.1539C42.788 22.6605 42.446 23.1039 41.762 23.4839C41.0527 23.8639 40.432 24.0539 39.9 24.0539ZM48.5358 21.5459C47.6998 21.5459 46.9651 21.3052 46.3318 20.8239C45.6985 20.3425 45.3818 19.5319 45.3818 18.3919C45.3818 17.7079 45.5338 16.9732 45.8378 16.1879C46.1418 15.3772 46.5471 14.6172 47.0538 13.9079C47.5858 13.1985 48.1685 12.6159 48.8018 12.1599C49.4351 11.7039 50.0811 11.4759 50.7398 11.4759C50.9931 11.4759 51.2085 11.5645 51.3858 11.7419C51.5885 11.9192 51.6898 12.1852 51.6898 12.5399C51.6898 13.3252 51.0945 14.2752 49.9038 15.3899C49.4225 15.8459 48.9158 16.2512 48.3838 16.6059C47.8771 16.9605 47.4085 17.2139 46.9778 17.3659C46.8765 17.6952 46.8258 18.0752 46.8258 18.5059C46.8258 19.0885 46.9651 19.6205 47.2438 20.1019C47.5225 20.5832 47.9658 20.8239 48.5738 20.8239C49.3338 20.8239 50.0305 20.6085 50.6638 20.1779C51.2971 19.7472 51.8798 19.2279 52.4118 18.6199C52.9438 17.9865 53.4125 17.4039 53.8178 16.8719C53.9951 16.6185 54.1725 16.4919 54.3498 16.4919C54.4511 16.4919 54.5018 16.5425 54.5018 16.6439C54.5018 16.6945 54.4891 16.7579 54.4638 16.8339C54.4385 16.8845 54.4131 16.9352 54.3878 16.9859C53.9571 17.5939 53.4631 18.2525 52.9058 18.9619C52.3485 19.6712 51.7151 20.2792 51.0058 20.7859C50.2965 21.2925 49.4731 21.5459 48.5358 21.5459ZM47.2438 16.6059C47.9025 16.3272 48.5865 15.8332 49.2958 15.1239C50.1318 14.3132 50.5498 13.6039 50.5498 12.9959C50.5498 12.6919 50.3978 12.5399 50.0938 12.5399C49.6885 12.5399 49.1311 13.1225 48.4218 14.2879C47.7885 15.2505 47.3958 16.0232 47.2438 16.6059ZM59.6012 21.9259C58.7399 21.9259 58.1319 21.6979 57.7772 21.2419C57.4479 20.7859 57.2832 20.2032 57.2832 19.4939C57.2832 18.9112 57.3719 18.3032 57.5492 17.6699C57.7519 17.0112 57.9925 16.4032 58.2712 15.8459C58.5499 15.2885 58.7905 14.8452 58.9932 14.5159C58.9172 14.5412 58.8412 14.5665 58.7652 14.5919C58.6892 14.5919 58.6005 14.5919 58.4992 14.5919C58.1445 14.5919 57.7519 14.4652 57.3212 14.2119C56.8652 13.9079 56.6372 13.5912 56.6372 13.2619C56.4852 13.6165 56.2699 14.0219 55.9912 14.4779C55.7379 14.9339 55.4339 15.4279 55.0792 15.9599C54.1419 17.4292 53.5212 18.1639 53.2172 18.1639C53.1159 18.1639 53.0652 18.1132 53.0652 18.0119C53.0652 17.9105 53.1412 17.7585 53.2932 17.5559C53.7745 16.8972 54.2559 16.1372 54.7372 15.2759C55.2439 14.4145 55.7505 13.4519 56.2572 12.3879C56.2319 12.2612 56.2065 12.1345 56.1812 12.0079C56.1812 11.8812 56.1812 11.7292 56.1812 11.5519C56.1812 10.9692 56.2952 10.2979 56.5232 9.53787C56.8019 8.5752 57.1439 8.09387 57.5492 8.09387C57.8025 8.09387 58.0432 8.32187 58.2712 8.77787C58.3472 8.9552 58.4105 9.13254 58.4612 9.30987C58.5119 9.46187 58.5372 9.62654 58.5372 9.80387C58.5372 10.4119 58.0179 11.3365 56.9792 12.5779C57.2072 13.3632 57.6505 13.7559 58.3092 13.7559C58.7905 13.7559 59.2339 13.5152 59.6392 13.0339C60.0699 12.5272 60.3739 12.2739 60.5512 12.2739C60.7792 12.2739 60.9819 12.3625 61.1592 12.5399C61.3365 12.7172 61.4252 12.9452 61.4252 13.2239C61.4252 13.1985 61.2605 13.4265 60.9312 13.9079C60.6272 14.3892 60.2725 15.0605 59.8672 15.9219C59.4619 16.7832 59.1705 17.5179 58.9932 18.1259C58.8412 18.7339 58.7652 19.2785 58.7652 19.7599C58.7652 20.6465 59.1832 21.0899 60.0192 21.0899C60.8299 21.0899 61.8559 20.4692 63.0972 19.2279C63.5025 18.7972 63.9712 18.2525 64.5032 17.5939C65.1619 16.7832 65.4912 16.3779 65.4912 16.3779C65.5925 16.3779 65.6432 16.4539 65.6432 16.6059C65.6432 16.8085 65.5672 17.0239 65.4152 17.2519C65.0605 17.8092 64.6679 18.3665 64.2372 18.9239C63.8319 19.4559 63.4519 19.8865 63.0972 20.2159C61.9319 21.3559 60.7665 21.9259 59.6012 21.9259ZM68.3762 11.6279C67.7682 11.6279 67.4642 11.3239 67.4642 10.7159C67.4642 10.4119 67.5782 10.1459 67.8062 9.91787C68.0596 9.66454 68.3509 9.53787 68.6802 9.53787C69.2882 9.53787 69.5922 9.84187 69.5922 10.4499C69.5922 10.7539 69.4782 11.0199 69.2502 11.2479C68.9969 11.5012 68.7056 11.6279 68.3762 11.6279ZM66.1722 21.9639C64.7789 21.9639 64.0822 21.2165 64.0822 19.7219C64.0822 19.0125 64.3356 17.9739 64.8422 16.6059C65.0702 15.9725 65.2982 15.4405 65.5262 15.0099C65.7796 14.5539 66.0329 14.1359 66.2862 13.7559C66.4382 13.5279 66.6156 13.4139 66.8182 13.4139C67.0209 13.4139 67.2236 13.5152 67.4262 13.7179C67.5529 13.8445 67.6162 14.0092 67.6162 14.2119C67.6162 14.3892 67.5656 14.5665 67.4642 14.7439C66.9069 15.6052 66.4509 16.4792 66.0962 17.3659C65.7416 18.2272 65.5642 18.9999 65.5642 19.6839C65.5642 20.5959 65.8936 21.0519 66.5522 21.0519C66.9069 21.0519 67.3122 20.9632 67.7682 20.7859C68.2242 20.5832 68.6802 20.2792 69.1362 19.8739C69.4402 19.5952 69.7569 19.2785 70.0862 18.9239C70.4409 18.5692 70.7956 18.1512 71.1502 17.6699C71.8089 16.8592 72.1382 16.4539 72.1382 16.4539C72.2649 16.4539 72.3282 16.5552 72.3282 16.7579C72.3282 16.9605 72.2396 17.1632 72.0622 17.3659C69.7569 20.4312 67.7936 21.9639 66.1722 21.9639ZM73.9893 21.5079C73.2039 21.5079 72.6466 21.2419 72.3173 20.7099C71.9879 20.1779 71.8233 19.5192 71.8233 18.7339C71.8233 17.7712 71.9879 16.7705 72.3173 15.7319C72.6466 14.6679 73.0013 13.7939 73.3813 13.1099H73.1533C72.2666 13.1099 71.6713 13.0465 71.3673 12.9199C71.0886 12.7679 70.9493 12.5272 70.9493 12.1979C70.9493 12.0205 71.0886 11.9319 71.3673 11.9319L73.7993 12.0839C74.4326 10.8172 75.0659 9.6392 75.6993 8.54987C76.3579 7.46054 76.9026 6.70054 77.3333 6.26987C77.6879 5.9152 78.1819 5.73787 78.8153 5.73787C79.3726 5.73787 79.6513 5.85187 79.6513 6.07987C79.6513 6.13054 79.6386 6.16854 79.6133 6.19387L77.9793 8.13187C77.5993 8.58787 77.1813 9.17054 76.7253 9.87987C76.2693 10.5892 75.8133 11.3492 75.3573 12.1599C75.6359 12.1852 75.8893 12.1979 76.1173 12.1979C76.3706 12.1979 76.5859 12.1979 76.7633 12.1979C76.8646 12.1979 76.9786 12.1979 77.1053 12.1979C77.2319 12.1725 77.3839 12.1599 77.5613 12.1599H78.3593C78.6633 12.1599 78.8153 12.2359 78.8153 12.3879C78.8153 12.7679 77.5106 12.9959 74.9013 13.0719C74.6226 13.6039 74.3439 14.2245 74.0653 14.9339C73.7866 15.6179 73.5586 16.3019 73.3813 16.9859C73.2293 17.6699 73.1533 18.2905 73.1533 18.8479C73.1533 20.0132 73.6473 20.5959 74.6353 20.5959C75.4459 20.5959 76.3959 20.1019 77.4853 19.1139C77.9159 18.7085 78.2833 18.3032 78.5873 17.8979C78.9166 17.4672 79.2333 17.0365 79.5373 16.6059C79.6893 16.3779 79.8286 16.2639 79.9553 16.2639C80.0819 16.2639 80.1453 16.3399 80.1453 16.4919C80.1453 16.5932 80.1199 16.6945 80.0693 16.7959C80.0439 16.8719 80.0186 16.9352 79.9933 16.9859C79.6639 17.4165 79.2966 17.8852 78.8913 18.3919C78.5113 18.8985 78.0553 19.3925 77.5233 19.8739C76.2819 20.9632 75.1039 21.5079 73.9893 21.5079ZM88.6062 22.0399C87.8715 22.0399 87.1495 21.9259 86.4402 21.6979C85.7309 21.4699 85.1229 21.1532 84.6162 20.7479C83.5522 19.8359 83.0202 18.6579 83.0202 17.2139C83.0202 14.8325 84.0842 12.7299 86.2122 10.9059C87.3269 9.99387 88.8469 9.15787 90.7722 8.39787C91.7349 7.99254 92.6722 7.7012 93.5842 7.52387C94.5215 7.34654 95.3322 7.25787 96.0162 7.25787C96.6749 7.25787 97.0042 7.3212 97.0042 7.44787C97.0042 7.49854 96.9029 7.5492 96.7002 7.59987C96.3202 7.6252 95.7629 7.7392 95.0282 7.94187C94.3189 8.1192 93.5209 8.35987 92.6342 8.66387C91.7729 8.96787 90.9369 9.32254 90.1262 9.72787C89.3409 10.1332 88.6822 10.5639 88.1502 11.0199C87.1622 11.9319 86.3262 12.9959 85.6422 14.2119C84.8822 15.5292 84.5022 16.8085 84.5022 18.0499C84.5022 18.9112 84.8189 19.7219 85.4522 20.4819C86.0855 21.2165 87.1369 21.5839 88.6062 21.5839C90.0502 21.5839 91.4562 21.2292 92.8242 20.5199C94.1922 19.8105 95.6489 18.7592 97.1942 17.3659C97.6502 16.9352 98.0555 16.4919 98.4102 16.0359C98.7902 15.5545 99.0942 15.1239 99.3222 14.7439C99.6769 14.1612 99.9429 13.6165 100.12 13.1099C100.298 12.5779 100.386 12.0712 100.386 11.5899C100.386 10.7792 100.184 10.1712 99.7782 9.76587C99.3729 9.36054 98.6255 9.15787 97.5362 9.15787C94.6989 9.15787 92.1275 10.1585 89.8222 12.1599C89.8475 12.1345 89.8349 12.1472 89.7842 12.1979C89.7589 12.2232 89.7209 12.2359 89.6702 12.2359C89.5689 12.2359 89.5182 12.1852 89.5182 12.0839C89.5182 11.7292 90.2022 11.1719 91.5702 10.4119C93.5969 9.27187 95.5095 8.70187 97.3082 8.70187C98.7775 8.70187 99.9175 9.01854 100.728 9.65187C101.539 10.2852 101.944 11.1592 101.944 12.2739C101.944 14.1485 100.969 15.9979 99.0182 17.8219C98.3342 18.4552 97.5995 19.0252 96.8142 19.5319C96.0289 20.0385 95.1929 20.4945 94.3062 20.8999C93.3435 21.3305 92.3555 21.6219 91.3422 21.7739C90.3542 21.9512 89.4422 22.0399 88.6062 22.0399ZM101.989 21.5839C101.863 21.5839 101.749 21.4699 101.647 21.2419C101.546 21.0139 101.495 20.7859 101.495 20.5579C101.495 20.2792 102.078 19.9372 103.243 19.5319C103.598 19.4052 104.067 19.2025 104.649 18.9239C105.232 18.6452 105.802 18.3412 106.359 18.0119C107.195 17.5052 107.981 16.9479 108.715 16.3399C109.475 15.7319 110.362 14.9845 111.375 14.0979C113.883 11.8939 115.137 10.2092 115.137 9.04387C115.137 8.5372 115.061 8.18254 114.909 7.97987C114.757 7.7772 114.428 7.67587 113.921 7.67587C112.199 7.67587 109.995 9.32254 107.309 12.6159C107.233 12.7172 107.145 12.7679 107.043 12.7679C106.917 12.7679 106.853 12.6919 106.853 12.5399V12.4639C107.005 11.8052 107.322 11.1719 107.803 10.5639C108.285 9.93054 108.867 9.36054 109.551 8.85387C110.261 8.3472 110.983 7.95454 111.717 7.67587C112.477 7.37187 113.174 7.21987 113.807 7.21987C114.618 7.21987 115.264 7.40987 115.745 7.78987C116.227 8.16987 116.467 8.7272 116.467 9.46187C116.467 10.3992 116.087 11.3239 115.327 12.2359C115.074 12.5145 114.732 12.8565 114.301 13.2619C113.896 13.6419 113.478 14.0092 113.047 14.3639C113.022 14.3892 112.629 14.6299 111.869 15.0859C111.135 15.5165 110.172 16.1372 108.981 16.9479C106.929 18.3159 105.878 19.1265 105.827 19.3799C105.929 19.3799 106.22 19.3419 106.701 19.2659C107.183 19.1645 107.55 19.1139 107.803 19.1139C108.057 19.1139 108.272 19.1139 108.449 19.1139C108.627 19.0885 108.779 19.0759 108.905 19.0759C109.741 19.0759 110.489 19.1772 111.147 19.3799C111.831 19.5825 112.325 19.8105 112.629 20.0639C112.756 20.1905 112.819 20.2919 112.819 20.3679C112.819 20.4439 112.781 20.4819 112.705 20.4819C112.629 20.4819 112.541 20.4565 112.439 20.4059C111.958 20.1779 111.553 20.0385 111.223 19.9879C110.919 19.9119 110.565 19.8739 110.159 19.8739C109.045 19.8739 107.955 19.9625 106.891 20.1399C105.853 20.3172 104.839 20.5832 103.851 20.9379L101.989 21.5839Z" fill="#424242" />
+                            </svg>
+                        </div>
+                        <p class="p-top-about__item-text">紹介限定の割引特典</p>
+                    </div>
+                    <div class="p-top-about__item">
+                        <div class="p-top-about__item-img-wrap">
+                            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_about-item3.webp" alt="" class="p-top-about__item-img" width="113" height="112" loading='lazy' />
+                            <svg class="p-top-about__item-no" width="115" height="25" viewBox="0 0 115 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.9 24.0539C38.456 24.0539 37.734 23.2052 37.734 21.5079C37.734 20.3932 38.038 18.9112 38.646 17.0619C38.874 16.3779 39.1527 15.6052 39.482 14.7439C39.8367 13.8572 40.2547 12.9072 40.736 11.8939C40.9893 11.3619 41.1793 10.9565 41.306 10.6779C41.458 10.3739 41.5847 10.0952 41.686 9.84187C41.8127 9.5632 41.952 9.20854 42.104 8.77787C42.2307 8.4232 42.3193 8.13187 42.37 7.90387C42.4207 7.65054 42.446 7.4352 42.446 7.25787C42.446 6.9792 42.3573 6.83987 42.18 6.83987C40.888 6.83987 38.5827 8.6512 35.264 12.2739C34.0987 13.5659 33.0093 14.8199 31.996 16.0359C30.9827 17.2519 30.0707 18.4552 29.26 19.6459L28.006 21.5459C27.9553 21.6725 27.8667 21.8119 27.74 21.9639C27.6387 22.1159 27.5247 22.2805 27.398 22.4579C27.322 22.4832 27.2207 22.4959 27.094 22.4959C26.334 22.4959 25.954 22.1919 25.954 21.5839C25.954 21.4319 25.992 21.3052 26.068 21.2039C26.0933 21.1532 26.22 20.9252 26.448 20.5199C26.676 20.0892 27.0307 19.3545 27.512 18.3159C30.0707 12.9705 31.35 9.1452 31.35 6.83987C31.35 5.77587 31.0207 5.24387 30.362 5.24387C29.298 5.24387 27.5247 6.5992 25.042 9.30987C23.598 10.9059 22.2173 12.5905 20.9 14.3639C19.608 16.1372 18.354 18.0372 17.138 20.0639L16.302 21.4699C15.8967 22.1285 15.5673 22.5465 15.314 22.7239C14.7313 22.7239 14.44 22.4452 14.44 21.8879C14.44 21.6852 14.4907 21.5332 14.592 21.4319C15.96 19.7599 17.4673 17.0745 19.114 13.3759C20.0007 11.3999 20.6593 9.68987 21.09 8.24587C21.546 6.77654 21.774 5.5732 21.774 4.63587C21.774 2.10254 20.3807 0.83587 17.594 0.83587C16.8593 0.83587 16.0487 0.924537 15.162 1.10187C14.2753 1.2792 13.3127 1.55787 12.274 1.93787C11.514 2.1912 10.8047 2.46987 10.146 2.77387C9.48732 3.07787 8.77799 3.4452 8.01799 3.87587C6.52332 4.68654 5.14266 5.5732 3.87599 6.53587C1.95065 8.0052 0.987988 9.23387 0.987988 10.2219C0.987988 11.6405 2.36866 12.3499 5.12999 12.3499C5.40866 12.3499 5.76332 12.3372 6.19399 12.3119C6.62466 12.2612 7.08066 12.1979 7.56199 12.1219C8.70199 11.9445 9.52532 11.8559 10.032 11.8559C10.2347 11.8559 10.336 11.9065 10.336 12.0079C10.336 12.1092 10.2727 12.1979 10.146 12.2739C9.28466 12.8819 7.85332 13.1859 5.85199 13.1859C4.35732 13.1859 3.11599 12.9832 2.12799 12.5779C0.709322 11.9952 -1.18241e-05 11.0959 -1.18241e-05 9.87987C-1.18241e-05 8.56254 0.949988 7.14387 2.84999 5.62387C3.50865 5.09187 4.20532 4.59787 4.93999 4.14187C5.67466 3.68587 6.51066 3.22987 7.44799 2.77387C8.20799 2.4192 8.92999 2.10254 9.61399 1.82387C10.298 1.5452 11.1087 1.26654 12.046 0.98787C13.1607 0.633203 14.212 0.37987 15.2 0.227871C16.2133 0.0758698 17.1507 -0.000130773 18.012 -0.000130773C21.7107 -0.000130773 23.56 1.40587 23.56 4.21787C23.56 6.47254 22.648 9.3732 20.824 12.9199C21.5587 12.0585 22.2933 11.1719 23.028 10.2599C23.788 9.32254 24.4973 8.47387 25.156 7.71387C26.22 6.5232 27.1827 5.63654 28.044 5.05387C28.9053 4.4712 29.6527 4.17987 30.286 4.17987C31.806 4.17987 32.566 5.31987 32.566 7.59987C32.566 9.6012 31.7933 12.4639 30.248 16.1879C31.1347 15.1999 32.0213 14.2372 32.908 13.2999C33.82 12.3625 34.77 11.4252 35.758 10.4879C38.5447 7.80254 40.546 6.26987 41.762 5.88987C42.066 5.78854 42.3447 5.73787 42.598 5.73787C43.3833 5.73787 43.776 6.24454 43.776 7.25787C43.776 8.06854 43.5227 9.09454 43.016 10.3359C42.5853 11.4252 42.18 12.4005 41.8 13.2619C41.4453 14.0979 41.0527 15.0479 40.622 16.1119C40.09 17.4292 39.6973 18.5819 39.444 19.5699C39.216 20.5325 39.102 21.3052 39.102 21.8879C39.102 22.7999 39.444 23.2559 40.128 23.2559C40.4827 23.2559 40.964 23.0405 41.572 22.6099C42.2053 22.1792 42.56 21.9639 42.636 21.9639C42.7373 21.9639 42.788 22.0272 42.788 22.1539C42.788 22.6605 42.446 23.1039 41.762 23.4839C41.0527 23.8639 40.432 24.0539 39.9 24.0539ZM48.5358 21.5459C47.6998 21.5459 46.9651 21.3052 46.3318 20.8239C45.6985 20.3425 45.3818 19.5319 45.3818 18.3919C45.3818 17.7079 45.5338 16.9732 45.8378 16.1879C46.1418 15.3772 46.5471 14.6172 47.0538 13.9079C47.5858 13.1985 48.1685 12.6159 48.8018 12.1599C49.4351 11.7039 50.0811 11.4759 50.7398 11.4759C50.9931 11.4759 51.2085 11.5645 51.3858 11.7419C51.5885 11.9192 51.6898 12.1852 51.6898 12.5399C51.6898 13.3252 51.0945 14.2752 49.9038 15.3899C49.4225 15.8459 48.9158 16.2512 48.3838 16.6059C47.8771 16.9605 47.4085 17.2139 46.9778 17.3659C46.8765 17.6952 46.8258 18.0752 46.8258 18.5059C46.8258 19.0885 46.9651 19.6205 47.2438 20.1019C47.5225 20.5832 47.9658 20.8239 48.5738 20.8239C49.3338 20.8239 50.0305 20.6085 50.6638 20.1779C51.2971 19.7472 51.8798 19.2279 52.4118 18.6199C52.9438 17.9865 53.4125 17.4039 53.8178 16.8719C53.9951 16.6185 54.1725 16.4919 54.3498 16.4919C54.4511 16.4919 54.5018 16.5425 54.5018 16.6439C54.5018 16.6945 54.4891 16.7579 54.4638 16.8339C54.4385 16.8845 54.4131 16.9352 54.3878 16.9859C53.9571 17.5939 53.4631 18.2525 52.9058 18.9619C52.3485 19.6712 51.7151 20.2792 51.0058 20.7859C50.2965 21.2925 49.4731 21.5459 48.5358 21.5459ZM47.2438 16.6059C47.9025 16.3272 48.5865 15.8332 49.2958 15.1239C50.1318 14.3132 50.5498 13.6039 50.5498 12.9959C50.5498 12.6919 50.3978 12.5399 50.0938 12.5399C49.6885 12.5399 49.1311 13.1225 48.4218 14.2879C47.7885 15.2505 47.3958 16.0232 47.2438 16.6059ZM59.6012 21.9259C58.7399 21.9259 58.1319 21.6979 57.7772 21.2419C57.4479 20.7859 57.2832 20.2032 57.2832 19.4939C57.2832 18.9112 57.3719 18.3032 57.5492 17.6699C57.7519 17.0112 57.9925 16.4032 58.2712 15.8459C58.5499 15.2885 58.7905 14.8452 58.9932 14.5159C58.9172 14.5412 58.8412 14.5665 58.7652 14.5919C58.6892 14.5919 58.6005 14.5919 58.4992 14.5919C58.1445 14.5919 57.7519 14.4652 57.3212 14.2119C56.8652 13.9079 56.6372 13.5912 56.6372 13.2619C56.4852 13.6165 56.2699 14.0219 55.9912 14.4779C55.7379 14.9339 55.4339 15.4279 55.0792 15.9599C54.1419 17.4292 53.5212 18.1639 53.2172 18.1639C53.1159 18.1639 53.0652 18.1132 53.0652 18.0119C53.0652 17.9105 53.1412 17.7585 53.2932 17.5559C53.7745 16.8972 54.2559 16.1372 54.7372 15.2759C55.2439 14.4145 55.7505 13.4519 56.2572 12.3879C56.2319 12.2612 56.2065 12.1345 56.1812 12.0079C56.1812 11.8812 56.1812 11.7292 56.1812 11.5519C56.1812 10.9692 56.2952 10.2979 56.5232 9.53787C56.8019 8.5752 57.1439 8.09387 57.5492 8.09387C57.8025 8.09387 58.0432 8.32187 58.2712 8.77787C58.3472 8.9552 58.4105 9.13254 58.4612 9.30987C58.5119 9.46187 58.5372 9.62654 58.5372 9.80387C58.5372 10.4119 58.0179 11.3365 56.9792 12.5779C57.2072 13.3632 57.6505 13.7559 58.3092 13.7559C58.7905 13.7559 59.2339 13.5152 59.6392 13.0339C60.0699 12.5272 60.3739 12.2739 60.5512 12.2739C60.7792 12.2739 60.9819 12.3625 61.1592 12.5399C61.3365 12.7172 61.4252 12.9452 61.4252 13.2239C61.4252 13.1985 61.2605 13.4265 60.9312 13.9079C60.6272 14.3892 60.2725 15.0605 59.8672 15.9219C59.4619 16.7832 59.1705 17.5179 58.9932 18.1259C58.8412 18.7339 58.7652 19.2785 58.7652 19.7599C58.7652 20.6465 59.1832 21.0899 60.0192 21.0899C60.8299 21.0899 61.8559 20.4692 63.0972 19.2279C63.5025 18.7972 63.9712 18.2525 64.5032 17.5939C65.1619 16.7832 65.4912 16.3779 65.4912 16.3779C65.5925 16.3779 65.6432 16.4539 65.6432 16.6059C65.6432 16.8085 65.5672 17.0239 65.4152 17.2519C65.0605 17.8092 64.6679 18.3665 64.2372 18.9239C63.8319 19.4559 63.4519 19.8865 63.0972 20.2159C61.9319 21.3559 60.7665 21.9259 59.6012 21.9259ZM68.3762 11.6279C67.7682 11.6279 67.4642 11.3239 67.4642 10.7159C67.4642 10.4119 67.5782 10.1459 67.8062 9.91787C68.0596 9.66454 68.3509 9.53787 68.6802 9.53787C69.2882 9.53787 69.5922 9.84187 69.5922 10.4499C69.5922 10.7539 69.4782 11.0199 69.2502 11.2479C68.9969 11.5012 68.7056 11.6279 68.3762 11.6279ZM66.1722 21.9639C64.7789 21.9639 64.0822 21.2165 64.0822 19.7219C64.0822 19.0125 64.3356 17.9739 64.8422 16.6059C65.0702 15.9725 65.2982 15.4405 65.5262 15.0099C65.7796 14.5539 66.0329 14.1359 66.2862 13.7559C66.4382 13.5279 66.6156 13.4139 66.8182 13.4139C67.0209 13.4139 67.2236 13.5152 67.4262 13.7179C67.5529 13.8445 67.6162 14.0092 67.6162 14.2119C67.6162 14.3892 67.5656 14.5665 67.4642 14.7439C66.9069 15.6052 66.4509 16.4792 66.0962 17.3659C65.7416 18.2272 65.5642 18.9999 65.5642 19.6839C65.5642 20.5959 65.8936 21.0519 66.5522 21.0519C66.9069 21.0519 67.3122 20.9632 67.7682 20.7859C68.2242 20.5832 68.6802 20.2792 69.1362 19.8739C69.4402 19.5952 69.7569 19.2785 70.0862 18.9239C70.4409 18.5692 70.7956 18.1512 71.1502 17.6699C71.8089 16.8592 72.1382 16.4539 72.1382 16.4539C72.2649 16.4539 72.3282 16.5552 72.3282 16.7579C72.3282 16.9605 72.2396 17.1632 72.0622 17.3659C69.7569 20.4312 67.7936 21.9639 66.1722 21.9639ZM73.9893 21.5079C73.2039 21.5079 72.6466 21.2419 72.3173 20.7099C71.9879 20.1779 71.8233 19.5192 71.8233 18.7339C71.8233 17.7712 71.9879 16.7705 72.3173 15.7319C72.6466 14.6679 73.0013 13.7939 73.3813 13.1099H73.1533C72.2666 13.1099 71.6713 13.0465 71.3673 12.9199C71.0886 12.7679 70.9493 12.5272 70.9493 12.1979C70.9493 12.0205 71.0886 11.9319 71.3673 11.9319L73.7993 12.0839C74.4326 10.8172 75.0659 9.6392 75.6993 8.54987C76.3579 7.46054 76.9026 6.70054 77.3333 6.26987C77.6879 5.9152 78.1819 5.73787 78.8153 5.73787C79.3726 5.73787 79.6513 5.85187 79.6513 6.07987C79.6513 6.13054 79.6386 6.16854 79.6133 6.19387L77.9793 8.13187C77.5993 8.58787 77.1813 9.17054 76.7253 9.87987C76.2693 10.5892 75.8133 11.3492 75.3573 12.1599C75.6359 12.1852 75.8893 12.1979 76.1173 12.1979C76.3706 12.1979 76.5859 12.1979 76.7633 12.1979C76.8646 12.1979 76.9786 12.1979 77.1053 12.1979C77.2319 12.1725 77.3839 12.1599 77.5613 12.1599H78.3593C78.6633 12.1599 78.8153 12.2359 78.8153 12.3879C78.8153 12.7679 77.5106 12.9959 74.9013 13.0719C74.6226 13.6039 74.3439 14.2245 74.0653 14.9339C73.7866 15.6179 73.5586 16.3019 73.3813 16.9859C73.2293 17.6699 73.1533 18.2905 73.1533 18.8479C73.1533 20.0132 73.6473 20.5959 74.6353 20.5959C75.4459 20.5959 76.3959 20.1019 77.4853 19.1139C77.9159 18.7085 78.2833 18.3032 78.5873 17.8979C78.9166 17.4672 79.2333 17.0365 79.5373 16.6059C79.6893 16.3779 79.8286 16.2639 79.9553 16.2639C80.0819 16.2639 80.1453 16.3399 80.1453 16.4919C80.1453 16.5932 80.1199 16.6945 80.0693 16.7959C80.0439 16.8719 80.0186 16.9352 79.9933 16.9859C79.6639 17.4165 79.2966 17.8852 78.8913 18.3919C78.5113 18.8985 78.0553 19.3925 77.5233 19.8739C76.2819 20.9632 75.1039 21.5079 73.9893 21.5079ZM88.6062 22.0399C87.8715 22.0399 87.1495 21.9259 86.4402 21.6979C85.7309 21.4699 85.1229 21.1532 84.6162 20.7479C83.5522 19.8359 83.0202 18.6579 83.0202 17.2139C83.0202 14.8325 84.0842 12.7299 86.2122 10.9059C87.3269 9.99387 88.8469 9.15787 90.7722 8.39787C91.7349 7.99254 92.6722 7.7012 93.5842 7.52387C94.5215 7.34654 95.3322 7.25787 96.0162 7.25787C96.6749 7.25787 97.0042 7.3212 97.0042 7.44787C97.0042 7.49854 96.9029 7.5492 96.7002 7.59987C96.3202 7.6252 95.7629 7.7392 95.0282 7.94187C94.3189 8.1192 93.5209 8.35987 92.6342 8.66387C91.7729 8.96787 90.9369 9.32254 90.1262 9.72787C89.3409 10.1332 88.6822 10.5639 88.1502 11.0199C87.1622 11.9319 86.3262 12.9959 85.6422 14.2119C84.8822 15.5292 84.5022 16.8085 84.5022 18.0499C84.5022 18.9112 84.8189 19.7219 85.4522 20.4819C86.0855 21.2165 87.1369 21.5839 88.6062 21.5839C90.0502 21.5839 91.4562 21.2292 92.8242 20.5199C94.1922 19.8105 95.6489 18.7592 97.1942 17.3659C97.6502 16.9352 98.0555 16.4919 98.4102 16.0359C98.7902 15.5545 99.0942 15.1239 99.3222 14.7439C99.6769 14.1612 99.9429 13.6165 100.12 13.1099C100.298 12.5779 100.386 12.0712 100.386 11.5899C100.386 10.7792 100.184 10.1712 99.7782 9.76587C99.3729 9.36054 98.6255 9.15787 97.5362 9.15787C94.6989 9.15787 92.1275 10.1585 89.8222 12.1599C89.8475 12.1345 89.8349 12.1472 89.7842 12.1979C89.7589 12.2232 89.7209 12.2359 89.6702 12.2359C89.5689 12.2359 89.5182 12.1852 89.5182 12.0839C89.5182 11.7292 90.2022 11.1719 91.5702 10.4119C93.5969 9.27187 95.5095 8.70187 97.3082 8.70187C98.7775 8.70187 99.9175 9.01854 100.728 9.65187C101.539 10.2852 101.944 11.1592 101.944 12.2739C101.944 14.1485 100.969 15.9979 99.0182 17.8219C98.3342 18.4552 97.5995 19.0252 96.8142 19.5319C96.0289 20.0385 95.1929 20.4945 94.3062 20.8999C93.3435 21.3305 92.3555 21.6219 91.3422 21.7739C90.3542 21.9512 89.4422 22.0399 88.6062 22.0399ZM105.409 22.2299C103.509 22.2299 102.369 21.6092 101.989 20.3679C101.863 19.9372 101.787 19.6079 101.761 19.3799C101.711 19.1265 101.685 18.8732 101.685 18.6199C101.685 18.1892 101.799 17.9739 102.027 17.9739C102.103 17.9739 102.192 17.9992 102.293 18.0499C102.42 18.0752 102.483 18.1132 102.483 18.1639C102.483 20.4945 103.446 21.6599 105.371 21.6599C106.182 21.6599 106.904 21.5205 107.537 21.2419C108.196 20.9379 108.842 20.4692 109.475 19.8359C110.767 18.5439 111.413 17.0745 111.413 15.4279C111.413 14.6172 111.287 14.0092 111.033 13.6039C110.78 13.1985 110.286 12.9959 109.551 12.9959C109.425 12.9959 109.209 13.0465 108.905 13.1479C108.728 13.1985 108.589 13.2492 108.487 13.2999C108.411 13.3252 108.323 13.3379 108.221 13.3379C108.019 13.3379 107.917 13.2492 107.917 13.0719C107.917 12.6919 108.196 12.5019 108.753 12.5019C108.804 12.5019 108.855 12.5019 108.905 12.5019C108.956 12.5019 109.019 12.5145 109.095 12.5399H109.475C109.855 12.4892 110.185 12.3879 110.463 12.2359C110.767 12.0839 111.173 11.8052 111.679 11.3999C112.237 10.9692 112.629 10.5639 112.857 10.1839C113.085 9.80387 113.199 9.4872 113.199 9.23387C113.199 8.9552 113.098 8.73987 112.895 8.58787C112.693 8.43587 112.439 8.35987 112.135 8.35987H111.945C111.388 8.3852 110.97 8.44854 110.691 8.54987C110.438 8.6512 110.159 8.8032 109.855 9.00587C109.501 9.2592 109.298 9.4492 109.247 9.57587C109.197 9.70254 109.146 9.80387 109.095 9.87987C109.07 9.95587 109.007 9.99387 108.905 9.99387C108.703 9.99387 108.601 9.8672 108.601 9.61387C108.601 9.4872 108.665 9.36054 108.791 9.23387C108.994 9.0312 109.247 8.8032 109.551 8.54987C109.881 8.29654 110.248 8.0812 110.653 7.90387C111.084 7.72654 111.502 7.59987 111.907 7.52387C112.338 7.44787 112.705 7.40987 113.009 7.40987C113.44 7.40987 113.833 7.5492 114.187 7.82787C114.542 8.0812 114.719 8.4232 114.719 8.85387C114.719 9.43654 114.491 9.9812 114.035 10.4879C113.605 10.9945 113.06 11.4379 112.401 11.8179C111.768 12.1979 111.147 12.4892 110.539 12.6919C111.578 13.0972 112.237 13.6165 112.515 14.2499C112.819 14.8832 112.971 15.5292 112.971 16.1879C112.971 17.8092 112.135 19.2659 110.463 20.5579C109.678 21.1659 108.842 21.5965 107.955 21.8499C107.069 22.1032 106.22 22.2299 105.409 22.2299Z" fill="#424242" />
+                            </svg>
+                        </div>
+                        <p class="p-top-about__item-text">予約や日程調整も代行</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
-            <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>"> <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/campaign_bnr.jpg" alt="キャンペーンバナー"></a>
+
+    </section>
+    <section class="p-top-flow l-top-section" id="top-flow">
+        <svg class="l-top-section__deco-circle  --top u-pc" width="1440" height="136" viewBox="0 0 1440 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="1440" height="136" fill="#FF4469" />
+            <path d="M710.5 68.5C278 40.6784 123.5 97 0 136H1440V5C1311 57 1223.5 101.5 710.5 68.5Z" fill="#FFE0E6" />
+        </svg>
+        <svg class="l-top-section__deco-circle  --top u-sp" width="375" height="36" viewBox="0 0 375 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_2020_1198)">
+                <rect width="375" height="36" fill="#FF4469" />
+                <path d="M185.026 18.8382C72.3958 11.593 32.1615 26.2601 0 36.4163H375V2.30176C341.406 15.8434 318.62 27.432 185.026 18.8382Z" fill="#FFE0E6" />
+            </g>
+            <defs>
+                <clipPath id="clip0_2020_1198">
+                    <rect width="375" height="36" fill="white" />
+                </clipPath>
+            </defs>
+        </svg>
+        <div class="l-inner">
+            <div class="p-top-flow__head l-top-section__head">
+                <hgroup class="p-top-flow__header c-section-ttl">
+                    <p class="c-section-ttl__sub" lang="en">How To Use</p>
+                    <h2 class="c-section-ttl__ja">ご利用の流れ</h2>
+                </hgroup>
+            </div>
+            <div class="p-top-flow__content l-top-section__content">
+                <div class="p-top-flow__items">
+                    <div class="p-top-flow__item">
+                        <div class="p-top-flow__item-num" lang='en'>01</div>
+                        <picture class="p-top-flow__picture">
+                            <source media="(max-width: 767.9px)" srcset="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item1-sp.webp">
+                            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item1.webp" alt="" class="p-top-flow__item-img" width="236" height="256" loading='lazy' />
+                        </picture>
+                        <h3 class="p-top-flow__item-ttl">LINEを追加</h3>
+                    </div>
+                    <div class="p-top-flow__item">
+                        <div class="p-top-flow__item-num" lang='en'>02</div>
+                        <picture class="p-top-flow__picture">
+                            <source media="(max-width: 767.9px)" srcset="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item2-sp.webp">
+                            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item2.webp" alt="" class="p-top-flow__item-img" width="236" height="256" loading='lazy' />
+                        </picture>
+                        <h3 class="p-top-flow__item-ttl">オンライン面談を<br class="u-pc">予約</h3>
+                    </div>
+                    <div class="p-top-flow__item">
+                        <div class="p-top-flow__item-num" lang='en'>03</div>
+                        <picture class="p-top-flow__picture">
+                            <source media="(max-width: 767.9px)" srcset="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item3-sp.webp">
+                            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item3.webp" alt="" class="p-top-flow__item-img" width="236" height="256" loading='lazy' />
+                        </picture>
+                        <h3 class="p-top-flow__item-ttl">適切なクリニック<br class="u-pc">&施術を提案</h3>
+                    </div>
+                    <div class="p-top-flow__item">
+                        <div class="p-top-flow__item-num" lang='en'>04</div>
+                        <picture class="p-top-flow__picture">
+                            <source media="(max-width: 767.9px)" srcset="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item4-sp.webp">
+                            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item4.webp" alt="" class="p-top-flow__item-img" width="236" height="256" loading='lazy' />
+                        </picture>
+                        <h3 class="p-top-flow__item-ttl">割引付きで<br class="u-pc">予約代行</h3>
+                    </div>
+                </div>
+                <a href='<?php echo esc_url($sns['line']); ?>' class="c-cta-btn --grad --center --line p-top-flow__btn">
+                    <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/icon_line-cta.svg" alt="LINE" class="c-cta-btn__line-icon" width="40" height="40" loading='lazy' />
+                    <span class="c-cta-btn__text">LINEで相談する</span>
+                    <svg class="c-cta-btn__arrow" width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.49964 3.00086L10.4996 12.0009L1.49964 21.0009L1.49964 3.00086Z" fill="white" />
+                    </svg>
+                </a>
+            </div>
         </div>
 
     </section>
+    <section class="p-top-clinic l-top-section" id="top-clinic">
+        <svg class="l-top-section__deco-circle --top u-pc" width="1440" height="136" viewBox="0 0 1440 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="1440" height="136" fill="#FFE0E6" />
+            <path d="M710.5 68.5C278 40.6784 123.5 97 0 136H1440V5C1311 57 1223.5 101.5 710.5 68.5Z" fill="white" />
+        </svg>
+        <svg class="l-top-section__deco-circle --top u-sp" width="375" height="36" viewBox="0 0 375 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_184_1564)">
+                <rect width="375" height="36" fill="#FFE0E6" />
+                <path d="M185.026 18.8392C72.3958 11.594 32.1615 26.2611 0 36.4173H375V2.30273C341.406 15.8444 318.62 27.4329 185.026 18.8392Z" fill="white" />
+            </g>
+            <defs>
+                <clipPath id="clip0_184_1564">
+                    <rect width="375" height="36" fill="white" />
+                </clipPath>
+            </defs>
+        </svg>
+        <div class="l-inner">
+            <div class="p-top-clinic__head l-top-section__head">
+                <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_top-clinic-head-left.webp" alt="" class="p-top-clinic__head-img --left" width="76" height="92" loading='lazy' />
+                <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_top-clinic-head-right.webp" alt="" class="p-top-clinic__head-img --right" width="68" height="92" loading='lazy' />
+                <hgroup class="p-top-clinic__header c-section-ttl">
+                    <p class="c-section-ttl__sub" lang="en">clinic</p>
+                    <h2 class="c-section-ttl__ja">提携クリニック一覧</h2>
+                </hgroup>
+            </div>
+            <div class="p-top-clinic__content l-top-section__content">
+                <div class="p-top-clinic__splide js-top-clinic-carousel splide" role="group" aria-label="ギャラリースライド">
+                    <div class="p-top-clinic__track splide__track">
+                        <ul class="p-top-clinic__list splide__list">
+                            <?php
+                            // ---------------------------------------
+                            //  clinic投稿を取得（ACF pick_up が true のもののみ）
+                            // ---------------------------------------
+                            $args = array(
+                                'post_type'      => 'clinic',
+                                'posts_per_page' => -1,
+                                'orderby'        => 'date',
+                                'order'          => 'DESC',
+                                'meta_query'     => array(
+                                    array(
+                                        'key'     => 'pick_up', // ACF true/false
+                                        'value'   => '1',
+                                        'compare' => '=',
+                                    ),
+                                ),
+                            );
 
-    <section id="reason" data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom">
-        <h2 class="spc"><span class="bigLet">REASON</span><span class="smallLet reasmall">-シャルムが選ばれる理由-</span>
-            <div class="reahiddbox">
-                <div class="reahiddenleft"></div>
-                <div class="reahiddenright"></div>
-            </div>
-            <div class="reabox">
-                <div class="reaboxleft"></div>
-                <div class="reaboxright"></div>
-            </div>
-            <div class="line">
-                <div id="topleft"></div>
-                <div id="left"></div>
-                <div id="reabottomleft"></div>
-                <div id="reatopright"></div>
-                <div id="rearight"></div>
-                <div id="reabottomright"></div>
-            </div>
-        </h2>
-        <div class="copy">お客さまの大切な体を優先することがCHARMEコンシェルジュの役割</div>
-        <div class="accordion-menu">
-            <div class="accordion-item">
-                <div class="reason-title">
-                    <h3 class="sp">
-                        <div>
-                            <span class="roboto-small">#</span><span class="roboto-big">01</span>
-                        </div>
-                        <span class="noto">安心</span>
-                    </h3> <a class="readmore-btn-res1" href="">READ MORE</a>
-                    <p class="reason-body1">
-                        CHARMEでは、すべてのクリニックさまと綿密に面談し提携先を選定しております。<br>
-                        大切なお身体を任せる上でよりお客さまの目線でクリニックさまと提携する事で安心して術後までご利用いただいております。
-                    </p>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <div class="reason-title">
-                    <h3 class="sp">
-                        <div>
-                            <span class="roboto-small">#</span><span class="roboto-big">02</span>
-                        </div>
-                        <span class="noto">納得</span>
-                    </h3>
-                    <a class="readmore-btn-res2" href="">READ MORE</a>
+                            $clinic_query = new WP_Query($args);
+                            ?>
 
-                    <p class="reason-body2">
-                        CHARMEでは、お客さまがクリニックさまへカウンセリングにつく前に分からない事や不安な事を事前にヒアリングしております。
-                        クリニックさまとのカウンセリング時に納得していただけるよう努めてまいります。<br>
-                        また、カウンセリング時に聞けなかった事や聞きそびれてしまってもコンシェルジュが後からクリニックさまへ質問する事も可能です。
-                    </p>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <div class="reason-title">
-                    <h3 class="sp">
-                        <div>
-                            <span class="roboto-small">#</span><span class="roboto-big">03</span>
-                        </div>
-                        <span class="noto">情報</span>
-                    </h3>
-                    <a class="readmore-btn-res3" href="">READ MORE</a>
+                            <?php if ($clinic_query->have_posts()) : ?>
+                                <?php while ($clinic_query->have_posts()) : $clinic_query->the_post(); ?>
 
-                    <p class="reason-body3">
-                        CHARMEをご利用いただいたお客様へのアンケートやクリニックさまとの情報交換によりCHARMEとしてより深い情報が集まってきております。
-                        全てのお客さまへよりよいサービスの提供を致します。<br>
-                        また、症例写真も多数ご用意しておりますので、お客さまの選択肢も増えております。
-                    </p>
+                                    <?php
+                                    // ---------------------------------------
+                                    //  ACF：logo（返り値：画像URL）
+                                    // ---------------------------------------
+                                    $logo_url = get_field('logo'); // 直接URLが入ってくる
+                                    $img_alt = get_the_title();
+
+                                    // フォールバック画像
+                                    if (!$logo_url) {
+                                        $logo_url = esc_url(get_template_directory_uri() . '/assets_new/img/img_dummy-clinic.webp');
+                                    }
+                                    ?>
+
+                                    <li class="p-top-clinic__slide splide__slide">
+                                        <img class="p-top-clinic__splide-slide-img"
+                                            src="<?php echo esc_url($logo_url); ?>"
+                                            alt="<?php echo esc_attr($img_alt); ?>"
+                                            width="160" height="160"
+                                            loading="lazy" />
+                                    </li>
+
+                                <?php endwhile; ?>
+                            <?php endif; ?>
+
+                            <?php wp_reset_postdata(); ?>
+                        </ul>
+                    </div>
+
+
+                    <div class="p-top-clinic__arrows-container">
+                        <div class="p-top-clinic__arrows splide__arrows splide__arrows--ltr u-pc">
+                            <button class="p-top-clinic__arrow p-top-clinic__arrow--prev splide__arrow splide__arrow--prev" type="button">
+                                <svg width="40" height="44" viewBox="0 0 40 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="44" transform="matrix(-1 0 0 1 40 0)" fill="#C9C9C9" />
+                                    <path d="M15.8875 32L25.8875 22L15.8875 12L14.1125 13.775L22.3375 22L14.1125 30.225L15.8875 32Z" fill="white" />
+                                </svg>
+
+                            </button>
+                            <button class="p-top-clinic__arrow p-top-clinic__arrow--next splide__arrow splide__arrow--next" type="button">
+                                <svg width="40" height="44" viewBox="0 0 40 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="44" transform="matrix(-1 0 0 1 40 0)" fill="#C9C9C9" />
+                                    <path d="M15.8875 32L25.8875 22L15.8875 12L14.1125 13.775L22.3375 22L14.1125 30.225L15.8875 32Z" fill="white" />
+                                </svg>
+
+                            </button>
+                        </div>
+                    </div>
                 </div>
+                <a href='<?php echo esc_url(home_url('/clinic')); ?>' class="c-cta-btn --center --border-pink p-top-clinic__btn">
+                    <span class="c-cta-btn__text">すべてのクリニックを見る</span>
+                    <svg class="c-cta-btn__arrow" width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.49964 3.00086L10.4996 12.0009L1.49964 21.0009L1.49964 3.00086Z" fill="white" />
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
+    <section class="p-top-case l-top-section" id="top-case">
+        <svg class="l-top-section__deco-circle --top u-pc" width="1440" height="127" viewBox="0 0 1440 127" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_184_1247)">
+                <rect width="1440" height="127" fill="white" />
+                <mask id="path-1-inside-1_184_1247" fill="white">
+                    <path d="M720 0C803.445 0 874.646 49.4571 902.481 119H1440V156H912.756C914.233 165.13 915 174.48 915 184C915 285.62 827.696 368 720 368C612.304 368 525 285.62 525 184C525 174.48 525.767 165.13 527.244 156H0V119H537.519C565.354 49.4571 636.555 0 720 0Z" />
+                </mask>
+                <path d="M720 0C803.445 0 874.646 49.4571 902.481 119H1440V156H912.756C914.233 165.13 915 174.48 915 184C915 285.62 827.696 368 720 368C612.304 368 525 285.62 525 184C525 174.48 525.767 165.13 527.244 156H0V119H537.519C565.354 49.4571 636.555 0 720 0Z" fill="#FFFAFB" />
+                <path d="M902.481 119L901.553 119.372L901.805 120H902.481V119ZM1440 119H1441V118H1440V119ZM1440 156V157H1441V156H1440ZM912.756 156V155H911.581L911.769 156.16L912.756 156ZM527.244 156L528.231 156.16L528.419 155H527.244V156ZM0 156H-1V157H0V156ZM0 119V118H-1V119H0ZM537.519 119V120H538.195L538.447 119.372L537.519 119ZM720 0V1C803.05 1 873.874 50.2214 901.553 119.372L902.481 119L903.41 118.628C875.417 48.6928 803.839 -1 720 -1V0ZM902.481 119V120H1440V119V118H902.481V119ZM1440 119H1439V156H1440H1441V119H1440ZM1440 156V155H912.756V156V157H1440V156ZM912.756 156L911.769 156.16C913.237 165.237 914 174.534 914 184H915H916C916 174.427 915.229 165.023 913.743 155.84L912.756 156ZM915 184H914C914 285.014 827.199 367 720 367V368V369C828.192 369 916 286.227 916 184H915ZM720 368V367C612.801 367 526 285.014 526 184H525H524C524 286.227 611.808 369 720 369V368ZM525 184H526C526 174.534 526.763 165.237 528.231 156.16L527.244 156L526.257 155.84C524.771 165.023 524 174.427 524 184H525ZM527.244 156V155H0V156V157H527.244V156ZM0 156H1V119H0H-1V156H0ZM0 119V120H537.519V119V118H0V119ZM537.519 119L538.447 119.372C566.126 50.2214 636.95 1 720 1V0V-1C636.161 -1 564.583 48.6928 536.59 118.628L537.519 119Z" fill="#FFE0E6" mask="url(#path-1-inside-1_184_1247)" />
+            </g>
+            <defs>
+                <clipPath id="clip0_184_1247">
+                    <rect width="1440" height="127" fill="white" />
+                </clipPath>
+            </defs>
+        </svg>
+        <svg class="l-top-section__deco-circle --top u-sp" width="375" height="62" viewBox="0 0 375 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_184_1593)">
+                <rect width="375" height="62" fill="white" />
+                <mask id="path-1-inside-1_184_1593" fill="white">
+                    <path d="M187.5 0C229.164 0 264.715 24.6942 278.613 59.417H547V77.8916H283.745C284.483 82.4501 284.864 87.119 284.864 91.8721C284.864 142.612 241.273 183.744 187.5 183.744C133.727 183.744 90.1357 142.612 90.1357 91.8721C90.1358 87.119 90.5182 82.4502 91.2559 77.8916H-172V59.417H96.3867C110.285 24.6942 145.836 1.80896e-05 187.5 0Z" />
+                </mask>
+                <path d="M187.5 0C229.164 0 264.715 24.6942 278.613 59.417H547V77.8916H283.745C284.483 82.4501 284.864 87.119 284.864 91.8721C284.864 142.612 241.273 183.744 187.5 183.744C133.727 183.744 90.1357 142.612 90.1357 91.8721C90.1358 87.119 90.5182 82.4502 91.2559 77.8916H-172V59.417H96.3867C110.285 24.6942 145.836 1.80896e-05 187.5 0Z" fill="#FFFAFB" />
+                <path d="M187.5 0V-0.499306V0ZM278.613 59.417L278.15 59.6025L278.275 59.9163H278.613V59.417ZM547 59.417H547.499V58.9177H547V59.417ZM547 77.8916V78.3909H547.499V77.8916H547ZM283.745 77.8916V77.3923H283.159L283.252 77.9714L283.745 77.8916ZM284.864 91.8721H285.364H284.864ZM187.5 183.744V184.243V183.744ZM90.1357 91.8721H89.6364H90.1357ZM91.2559 77.8916L91.7487 77.9714L91.8424 77.3923H91.2559V77.8916ZM-172 77.8916H-172.499V78.3909H-172V77.8916ZM-172 59.417V58.9177H-172.499V59.417H-172ZM96.3867 59.417V59.9163H96.7247L96.8503 59.6025L96.3867 59.417ZM187.5 0V0.499306C228.967 0.499306 264.329 25.0758 278.15 59.6025L278.613 59.417L279.077 59.2314C265.1 24.3126 229.361 -0.499306 187.5 -0.499306V0ZM278.613 59.417V59.9163H547V59.417V58.9177H278.613V59.417ZM547 59.417H546.501V77.8916H547H547.499V59.417H547ZM547 77.8916V77.3923H283.745V77.8916V78.3909H547V77.8916ZM283.745 77.8916L283.252 77.9714C283.986 82.5036 284.365 87.1458 284.365 91.8721H284.864H285.364C285.364 87.0922 284.98 82.3967 284.238 77.8119L283.745 77.8916ZM284.864 91.8721H284.365C284.365 142.309 241.025 183.245 187.5 183.245V183.744V184.243C241.521 184.243 285.364 142.914 285.364 91.8721H284.864ZM187.5 183.744V183.245C133.975 183.245 90.635 142.309 90.635 91.8721H90.1357H89.6364C89.6364 142.914 133.479 184.243 187.5 184.243V183.744ZM90.1357 91.8721H90.635C90.6351 87.1458 91.0154 82.5037 91.7487 77.9714L91.2559 77.8916L90.763 77.8119C90.0211 82.3967 89.6364 87.0921 89.6364 91.8721H90.1357ZM91.2559 77.8916V77.3923H-172V77.8916V78.3909H91.2559V77.8916ZM-172 77.8916H-171.501V59.417H-172H-172.499V77.8916H-172ZM-172 59.417V59.9163H96.3867V59.417V58.9177H-172V59.417ZM96.3867 59.417L96.8503 59.6025C110.671 25.0758 146.033 0.499324 187.5 0.499306V0V-0.499306C145.639 -0.499287 109.9 24.3126 95.9232 59.2314L96.3867 59.417Z" fill="#FFE0E6" mask="url(#path-1-inside-1_184_1593)" />
+            </g>
+            <defs>
+                <clipPath id="clip0_184_1593">
+                    <rect width="375" height="62" fill="white" />
+                </clipPath>
+            </defs>
+        </svg>
 
-    <section id="flow" data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom">
-        <h2 class="spc"><span class="flowLet">FLOW</span><span class="smallLet">-ご利用までの流れ-</span>
-            <span class="hiddbox">
-                <span class="hiddenleft hidcolor"></span>
-                <span class="hiddenright hidcolor"></span>
-            </span>
-            <span class="box">
-                <span class="boxleft"></span>
-                <span class="boxright"></span>
-            </span>
-            <span class="line">
-                <span id="topleft"></span>
-                <span id="left"></span>
-                <span id="bottomleft"></span>
-                <span id="topright"></span>
-                <span id="right"></span>
-                <span id="bottomright"></span>
-            </span>
-        </h2>
-        <div class="copy">
-            CHARMEをご利用するにあたっての、お問合せから施術までの流れをご説明いたします。<br>
-            担当コンシェルジュがお客様に合ったクリニックのご提案をさせて頂きます。
-        </div>
-        <div class="more-btn">
-            <a href="<?php echo esc_url(get_permalink(1503)); ?>">MORE</a>
-        </div>
-    </section>
-    <?php
-    $args = null;
-    $args = array(
-        'posts_per_page' => 3,
-        'post_status' => 'publish',
-        'post_type' => 'voice',
-    );
-    $the_query = new WP_Query($args);
-    if ($the_query->have_posts()) :
-    ?>
-        <!-- <section id="voice" data-aos="fade-up"
-          data-aos-anchor-placement="top-bottom">
-            <h2 class="spc"><span class="midLet">VOICE&nbsp;</span><span class="smallLet">-お客様の声-</span>
-                <div class="hiddbox">
-                    <div class="hiddenleft"></div>
-                    <div class="hiddenright"></div>
-                  </div>
-                <div class="box">
-                    <div class="boxleft"></div>
-                    <div class="boxright"></div>
-                  </div>
-                  <div class="line">
-                    <div id="topleft"></div>
-                    <div id="left"></div>
-                    <div id="bottomleft"></div>
-                    <div id="topright"></div>
-                    <div id="right"></div>
-                    <div id="bottomright"></div>
-                  </div>
-            </h2>
-            <div class="copy">
-                CHARMEを実際にご利用頂いたインフルエンサーの方々のお声です。<br>
-                初めて美容医療を受けられた方は勿論既に経験のある方まで多数のお喜びの声を頂いております。    </div>
-            <ul class="top-list-voices">
-                <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                    <li>
-                            <div class="img"><img src="<?php echo CFS()->get('top_images'); ?>" alt=""></div>
-                            <div class="name"><?php echo CFS()->get('top_name'); ?></div>
-                        </li>
-                <?php endwhile; ?>
-            </ul>
-            <div class="more-btn">
-                <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>">MORE</a>
+        <div class="l-inner">
+            <div class="p-top-case__head l-top-section__head">
+                <hgroup class="p-top-case__header c-section-ttl">
+                    <p class="c-section-ttl__sub" lang="en">Case</p>
+                    <h2 class="c-section-ttl__ja">Before / After 症例集</h2>
+                </hgroup>
             </div>
-        </section> -->
-    <?php endif; ?>
+            <div class="p-top-case__content l-top-section__content">
+                <div class="p-top-case__splide js-top-case-carousel splide">
+                    <div class="p-top-case__track splide__track">
+                        <?php
+                        $args = array(
+                            'post_type'      => 'case',
+                            'posts_per_page' => 3,
+                            'orderby'        => 'date',
+                            'order'          => 'DESC',
+                            'meta_query'     => array(
+                                array(
+                                    'key'     => 'top_pick-up', // CFSチェックボックス
+                                    'value'   => '1',
+                                    'compare' => '=',
+                                ),
+                            ),
+                        );
+                        $case_query = new WP_Query($args);
+                        ?>
 
-    <!-- <section id="interview" data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom">
-        <h2 class="spc"><span class="interLet">SPECIAL<br>INTERVEIW</span>
-            <div class="interline">
-                <div id="topinterleft"></div>
-                <div id="interleft"></div>
-                <div id="bottominterleft"></div>
-                <div id="topinterright"></div>
-                <div id="interright"></div>
-                <div id="bottominterright"></div>
-            </div>
-        </h2>
-        <div class="interview-content">
-            <div>
-                <h3 class="sp">INTERVIEW</h3>
-                <div>
-                    <a href="<?php // echo esc_url(get_permalink(1808));
-                                ?>">
-                        Instagramフォロワー23.6万人<br>
-                        YouTubeチャンネル登録者数 13.2万人！！<br>
-                        総再生回数なんと2300万以上✨<br>
-                        可愛すぎると男女ともに大人気のサキ吉さんに美容クリニックでの美容医療ケアについてお伺いしました♡<br></a>
-                    <a href="<?php // echo esc_url(get_permalink(1808));
-                                ?>">
-                        <h3 class="sp">More...</h3>
+                        <?php if ($case_query->have_posts()) : ?>
+                            <ul class="p-top-case__list splide__list">
+
+                                <?php while ($case_query->have_posts()) : $case_query->the_post(); ?>
+
+                                    <?php
+                                    // ----------------------------------------------------
+                                    // 画像（CFS の case_image = 添付ファイルID）
+                                    // ----------------------------------------------------
+                                    $case_image_id = CFS()->get('case_image');
+
+                                    if (!empty($case_image_id)) {
+                                        $thumb_url = wp_get_attachment_image_url($case_image_id, 'medium_large');
+                                    } else {
+                                        // デフォルト画像
+                                        $thumb_url = get_template_directory_uri() . '/assets_new/img/img_top-case-item1.webp';
+                                    }
+
+                                    // ----------------------------------------------------
+                                    // タイトル（CFS の case_name）
+                                    // <br> をそのまま許可 & 改行として有効
+                                    // ----------------------------------------------------
+                                    $case_name_raw = CFS()->get('case_name');
+
+                                    // <br> を許可して安全に出力
+                                    $case_name = wp_kses(
+                                        $case_name_raw,
+                                        array(
+                                            'br' => array(), // <br> <br /> を許可
+                                        )
+                                    );
+
+                                    // ----------------------------------------------------
+                                    // クリニック名（CFS の case_clinic）
+                                    // ----------------------------------------------------
+                                    $case_clinic = CFS()->get('case_clinic');
+                                    ?>
+
+                                    <li class="p-top-case__slide splide__slide">
+
+                                        <img src="<?php echo esc_url($thumb_url); ?>"
+                                            alt="<?php echo esc_attr(strip_tags($case_name_raw)); ?>"
+                                            class="p-top-case__slide-img"
+                                            width="362"
+                                            height="241"
+                                            loading="lazy" />
+
+                                        <div class="p-top-case__slide-body">
+
+                                            <h3 class="p-top-case__slide-title">
+                                                <?php echo $case_name; ?>
+                                            </h3>
+
+                                            <p class="p-top-case__slide-sentence">
+                                                <?php echo esc_html($case_clinic); ?>
+                                            </p>
+
+                                        </div>
+                                    </li>
+
+                                <?php endwhile; ?>
+
+                            </ul>
+
+                            <?php wp_reset_postdata(); ?>
+
+                        <?php endif; ?>
+                    </div>
+
+
+
+                    <div class="p-top-case__arrows splide__arrows splide__arrows--ltr">
+                        <button class="p-top-case__arrow p-top-case__arrow--prev splide__arrow splide__arrow--prev" type="button">
+                            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="27.7939" cy="27.75" r="22.5" fill="#222222" stroke="#222222" stroke-width="4" />
+                                <path d="M28 41.9999L25.4975 39.5622L35.2625 29.7499H14V26.2499H35.2625L25.4975 16.4972L28 13.9999L42 27.9999L28 41.9999Z" fill="white" />
+                            </svg>
+                        </button>
+                        <button class="p-top-case__arrow p-top-case__arrow--next splide__arrow splide__arrow--next" type="button">
+                            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="27.7939" cy="27.75" r="22.5" fill="#222222" stroke="#222222" stroke-width="4" />
+                                <path d="M28 41.9999L25.4975 39.5622L35.2625 29.7499H14V26.2499H35.2625L25.4975 16.4972L28 13.9999L42 27.9999L28 41.9999Z" fill="white" />
+                            </svg>
+                        </button>
+                    </div>
+                    <ul class="p-top-case__pagination splide__pagination"></ul>
+                </div>
+                <div class="p-top-case__btn-wrap">
+                    <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_top-case-btn-deco.webp" alt="" class="p-top-case__btn-img" width="194" height="124" loading='lazy' />
+                    <a href='<?php echo esc_url(home_url('/case')); ?>' class="c-cta-btn --border-white --center p-top-case__btn">
+                        <span class="c-cta-btn__text">もっと見る</span>
+                        <svg class="c-cta-btn__arrow" width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.49964 3.00086L10.4996 12.0009L1.49964 21.0009L1.49964 3.00086Z" fill="white" />
+                        </svg>
                     </a>
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
+    <section class="p-top-column l-top-section" id="top-column">
+        <div class="l-inner">
+            <div class="p-top-column__head l-top-section__head">
+                <hgroup class="p-top-column__header c-section-ttl">
+                    <p class="c-section-ttl__sub" lang="en">Column</p>
+                    <h2 class="c-section-ttl__ja">シャルムマガジン</h2>
+                </hgroup>
+            </div>
+            <div class="p-top-column__content l-top-section__content">
+                <div class="p-top-column__splide js-top-column-carousel splide">
+                    <div class="p-top-column__track splide__track">
+                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_article-deco.webp" alt="" class="p-top-column__deco u-pc" width="142" height="157" loading='lazy' />
+                        <?php
+                        // =========================
+                        //  RSSフィードから記事を取得(外部サイト)
+                        // =========================
+                        include_once(ABSPATH . WPINC . '/feed.php');
 
-    <section id="clinic" data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom">
-        <h2 class="spc"><span class="bigLet">CLINIC&nbsp;</span><span class="smallLet">-クリニック-</span>
-            <div class="hiddbox">
-                <div class="hiddenleft hidcolor"></div>
-                <div class="hiddenright hidcolor"></div>
-            </div>
-            <div class="box">
-                <div class="boxleft"></div>
-                <div class="boxright"></div>
-            </div>
-            <div class="line">
-                <div id="topleft"></div>
-                <div id="left"></div>
-                <div id="bottomleft"></div>
-                <div id="topright"></div>
-                <div id="right"></div>
-                <div id="bottomright"></div>
-            </div>
-        </h2>
-        <div class="copy">
-            全国主要都市から韓国まで、公正な調査の上で厳選された数々の技術力の高いクリニック様とご提携させて頂いております。<br>
-            掲載クリニック様以外にも数多くのクリニック様とご提携しております。
-        </div>
-        <!-- <div class="clinic-list">
-            <img class="kusano" src="<?php // echo esc_url(get_template_directory_uri()); 
-                                        ?>/imgs/top/kusano_clinic.png"
-                 alt="くさのたろう clinic">
-            <img class="sherie" src="<?php // echo esc_url(get_template_directory_uri()); 
-                                        ?>/imgs/top/sherie_clinic.png"
-                 alt="SHERIE CLINIC">
-            <img class="shibuya" src="<?php // echo esc_url(get_template_directory_uri()); 
-                                        ?>/imgs/clinic/logo_shibuyanomori_2.png"
-                 alt="渋谷の森クリニック">
-            <img class="tkc" src="<?php // echo esc_url(get_template_directory_uri()); 
-                                    ?>/imgs/clinic/logo_tkc-biyou.png"
-                 alt="東京美容外科">
-                 <img class="omotesando" src="<?php // echo esc_url(get_template_directory_uri()); 
-                                                ?>/imgs/clinic/logo_omotesando-skin.jpg"
-                 alt="表参道スキンクリニック">
-            <img class="primo" src="<?php // echo esc_url(get_template_directory_uri()); 
-                                    ?>/imgs/clinic/logo_primo.jpg"
-                 alt="プリモ麻布十番クリニック">
-        </div> -->
+                        $feed_url = 'https://charme-beauty.jp/column/feed/';
+                        $feed = fetch_feed($feed_url);
 
+                        $items = array();
 
-        <div class="clinic-slide">
-            <div class="clinic-slide__item">
-                <a href="<?php echo esc_url(get_permalink(189)); ?>" class="clinic-slide__item__inner">
-                    <img class="kusano" src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/kusano_clinic.png" alt="くさのたろう clinic">
-                    <span>くさのたろう<br>clinic</span>
-                </a>
-            </div>
-            <div class="clinic-slide__item">
-                <a href="<?php echo esc_url(get_permalink(201)); ?>" class="clinic-slide__item__inner">
-                    <img class="sherie" src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/sherie_clinic.png" alt="SHERIE CLINIC">
-                    <span>SHERIE<br>CLINIC</span>
-                </a>
-            </div>
-            <div class="clinic-slide__item">
-                <a href="<?php echo esc_url(get_permalink(381)); ?>" class="clinic-slide__item__inner">
-                    <img class="shibuya" src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/clinic/logo_shibuyanomori_2.png" alt="渋谷の森クリニック">
-                    <span>渋谷の森<br>クリニック</span>
-                </a>
-            </div>
-            <div class="clinic-slide__item">
-                <a href="<?php echo esc_url(get_permalink(3335)); ?>" class="clinic-slide__item__inner">
-                    <img class="omotesando" src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/clinic/logo_bellefeel.svg" alt="Bellefeel クリニック">
-                    <span>Bellefeel<br>クリニック</span>
-                </a>
-            </div>
-            <div class="clinic-slide__item">
-                <a href="<?php echo esc_url(get_permalink(3112)); ?>" class="clinic-slide__item__inner">
-                    <img class="primo" src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/clinic/sk_logo.jpg" alt="SK新宿歌舞伎町美容外科">
-                    <span>SK新宿<br>歌舞伎町<br>美容外科</span>
-                </a>
-            </div>
-            <div class="clinic-slide__item">
-                <a href="<?php echo esc_url(get_permalink(220)); ?>" class="clinic-slide__item__inner">
-                    <img class="tkc" src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/clinic/logo_tkc-biyou.png" alt="東京美容外科">
-                    <span>東京<br>美容外科</span>
-                </a>
-            </div>
-        </div>
+                        if (!is_wp_error($feed)) {
+                            // 最大3件取得
+                            $maxitems = $feed->get_item_quantity(3);
+                            $feed_items = $feed->get_items(0, $maxitems);
 
+                            foreach ($feed_items as $item) {
+                                $title = $item->get_title();
+                                $link  = $item->get_link();
+                                $date  = $item->get_date('Y.m.d');
 
-        <div class="more-btn">
-            <a href="<?php echo esc_url(get_post_type_archive_link('clinic')); ?>">MORE</a>
+                                // サムネイル取得: URLからOGP画像を取得
+                                $thumbnail = '';
+
+                                if ($link) {
+                                    $thumbnail = get_ogp_image($link);
+                                }
+
+                                // fallback(ダミー画像)
+                                if (!$thumbnail) {
+                                    $thumbnail = esc_url(get_template_directory_uri()) . '/assets_new/img/img_article-dummy.webp';
+                                }
+
+                                $items[] = array(
+                                    'title' => $title,
+                                    'link'  => $link,
+                                    'date'  => $date,
+                                    'thumb' => $thumbnail,
+                                );
+                            }
+                        }
+
+                        /**
+                         * URLからOGP画像を取得する関数
+                         */
+                        function get_ogp_image($url)
+                        {
+                            // キャッシュキーを生成
+                            $cache_key = 'ogp_image_' . md5($url);
+                            $cached_image = get_transient($cache_key);
+
+                            // キャッシュがあれば返す(24時間有効)
+                            if ($cached_image !== false) {
+                                return $cached_image;
+                            }
+
+                            // URLからHTMLを取得
+                            $response = wp_remote_get($url, array(
+                                'timeout' => 10,
+                                'sslverify' => false
+                            ));
+
+                            if (is_wp_error($response)) {
+                                return '';
+                            }
+
+                            $html = wp_remote_retrieve_body($response);
+
+                            if (empty($html)) {
+                                return '';
+                            }
+
+                            $ogp_image = '';
+
+                            // og:imageを検索
+                            if (preg_match('/<meta\s+property=["\']og:image["\']\s+content=["\']([^"\']+)["\']/i', $html, $matches)) {
+                                $ogp_image = $matches[1];
+                            } elseif (preg_match('/<meta\s+content=["\']([^"\']+)["\']\s+property=["\']og:image["\']/i', $html, $matches)) {
+                                $ogp_image = $matches[1];
+                            }
+
+                            // 相対URLの場合は絶対URLに変換
+                            if ($ogp_image && !preg_match('/^https?:\/\//i', $ogp_image)) {
+                                $parsed_url = parse_url($url);
+                                $base_url = $parsed_url['scheme'] . '://' . $parsed_url['host'];
+
+                                if (strpos($ogp_image, '/') === 0) {
+                                    $ogp_image = $base_url . $ogp_image;
+                                } else {
+                                    $ogp_image = $base_url . '/' . $ogp_image;
+                                }
+                            }
+
+                            // キャッシュに保存(24時間)
+                            if ($ogp_image) {
+                                set_transient($cache_key, $ogp_image, DAY_IN_SECONDS);
+                            }
+
+                            return $ogp_image;
+                        }
+                        ?>
+
+                        <ul class="p-top-column__list splide__list">
+                            <?php foreach ($items as $item): ?>
+                                <li class="p-top-column__slide splide__slide">
+                                    <div class="p-top-column__article">
+                                        <a href="<?php echo esc_url($item['link']); ?>" class="p-top-column__article-link" target="_blank" rel="noopener noreferrer">
+                                            <h3 class="p-top-column__article-img-wrap">
+                                                <img src="<?php echo esc_url($item['thumb']); ?>"
+                                                    alt="<?php echo esc_attr($item['title']); ?>"
+                                                    class="p-top-column__article-img"
+                                                    width="362" height="362"
+                                                    loading="lazy" />
+                                            </h3>
+                                            <time datetime="<?php echo esc_attr(str_replace('.', '-', $item['date'])); ?>"
+                                                class="p-top-column__article-time">
+                                                <?php echo esc_html($item['date']); ?>
+                                            </time>
+                                        </a>
+                                    </div>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                    <div class="p-top-column__pagination-wrap">
+                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_article-deco.webp" alt="" class="p-top-column__deco u-sp" width="142" height="157" loading='lazy' />
+                        <ul class="p-top-column__pagination splide__pagination">
+                        </ul>
+                    </div>
+                </div>
+                <a href='https://charme-beauty.jp/column/' class="c-cta-btn --border-pink --center p-top-column__btn">
+                    <span class="c-cta-btn__text">すべての記事を見る</span>
+                    <svg class="c-cta-btn__arrow" width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.49964 3.00086L10.4996 12.0009L1.49964 21.0009L1.49964 3.00086Z" fill="white" />
+                    </svg>
+                </a>
+            </div>
         </div>
     </section>
-    </body>
-
-    </html>
-
-<?php else: ?>
-
-    <!-- Pc layout -->
-    <div class="fade">
-        <div class="nav-wrappers">
-            <div class="bgimg visual1"></div>
-            <div class="bgimg visual2"></div>
+    <section class="p-top-sns l-top-section" id="top-sns">
+        <div class="l-inner">
+            <div class="p-top-sns__head l-top-section__head">
+                <hgroup class="p-top-sns__header c-section-ttl">
+                    <p class="c-section-ttl__sub" lang="en">Sns</p>
+                    <h2 class="c-section-ttl__ja">公式SNSアカウント</h2>
+                </hgroup>
+            </div>
+            <div class="p-top-sns__content l-top-section__content">
+                <div class="p-top-sns__items">
+                    <a href='<?php echo esc_url($sns['inst']); ?>' target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="p-top-sns__item">
+                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_inst.webp" alt="Instagram" class="p-top-sns__item-img" width="64" height="64" loading='lazy' />
+                        <p class="p-top-sns__text" lang="en">@concierge_charme</p>
+                    </a>
+                    <a href='<?php echo esc_url($sns['tiktok']); ?>' target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="p-top-sns__item">
+                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_tiktok.webp" alt="TikTok" class="p-top-sns__item-img" width="64" height="64" loading='lazy' />
+                        <p class="p-top-sns__text" lang="en">@charme.concierge</p>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="des">美容専門のコンシェルジュが、<br>提供する「最高の美」</div>
-        <div id="social-links">
-            <a href="https://s.lmes.jp/landing-qr/2006662795-da8zjpjr?uLand=mLCQY0" target="_blank"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/line.png" alt="CHARME"></a>
-            <a href="<?php echo esc_url(get_permalink(2)); ?>" target="_blank"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/email.png" alt="CHARME"></a>
+    </section>
+    <div class="p-top-line-sns">
+        <svg class="l-top-section__deco-circle --top u-pc" width="1440" height="210" viewBox="0 0 1440 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M722 210C1135.5 210 1444 74 1444 74H722H0C0 74 308.5 210 722 210Z" fill="#FFE0E6" />
+            <rect width="1440" height="74" fill="#FFE0E6" />
+        </svg>
+
+        <svg class="l-top-section__deco-circle --top u-sp" xmlns="http://www.w3.org/2000/svg" width="375" height="36" viewBox="0 0 375 36" fill="none">
+            <path d="M187.5 35.3184C294.884 35.3184 375 -0.000198364 375 -0.000198364H187.5H0C0 -0.000198364 80.116 35.3184 187.5 35.3184Z" fill="#FFE0E6" />
+        </svg>
+        <div class="l-inner">
+            <div class="p-top-line-sns__block">
+                <div class="p-top-line-sns__body">
+                    <picture class="p-top-line-sns__balloon-img-picture">
+                        <source media="(max-width: 767.9px)" srcset="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_line-sns-balloon-sp.webp">
+                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_line-sns-balloon.webp" alt="" class="p-top-line-sns__balloon-img" width="432" height="84" loading='lazy' />
+                    </picture>
+                    <a href='<?php echo esc_url($sns['line']); ?>' class="c-cta-btn --grad --center --line p-top-line-sns__btn">
+                        <div class="p-top-line-sns__btn-container">
+                            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/icon_line-cta.svg" alt="LINE" class="c-cta-btn__line-icon" width="40" height="40" loading='lazy' />
+                            <span class="c-cta-btn__text">LINEで割引情報をGET！</span>
+                            <svg class="c-cta-btn__arrow u-pc" width="68" height="32" viewBox="0 0 68 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.99976 4L13.9998 16L1.99976 28L1.99976 4Z" fill="white" />
+                                <path d="M27.96 4L39.96 16L27.96 28L27.96 4Z" fill="white" />
+                                <path d="M53.0476 4L65.0476 16L53.0476 28L53.0476 4Z" fill="white" />
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+                <div class="p-top-line-sns__qr-block u-pc">
+                    <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_line-qr.webp" alt="" class="p-top-line-sns__qr-img" width="318" height="347" loading='lazy' />
+                </div>
+            </div>
         </div>
     </div>
-    <section id="sec-news" class="animate" data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom">
-        <div class="container section">
-            <div class="sec-title">
-                <h2 class="title-en">TOPICS&nbsp;<span class="title-ja"> - お知らせ - </span></h2>
 
-                <div class="box">
-                    <div class="boxleft"></div>
-                    <div class="boxright"></div>
-                </div>
-                <div class="hiddbox">
-                    <div class="hiddenleft"></div>
-                    <div class="hiddenright"></div>
-                </div>
-                <div class="line">
-                    <div id="topleft"></div>
-                    <div id="left"></div>
-                    <div id="bottomleft"></div>
-                    <div id="topright"></div>
-                    <div id="right"></div>
-                    <div id="bottomright"></div>
-                </div>
-            </div>
-            <?php
-            $args = array(
-                'posts_per_page' => 3,
-                'post_status' => 'publish',
-                'post_type' => 'news',
-            );
-            $the_query = new WP_Query($args);
-            if ($the_query->have_posts()) :
-            ?>
-                <ul class="news">
-                    <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                        <li>
-                            <a class="news-img" href="<?php esc_url(the_permalink()); ?>">
-                                <?php
-                                if (has_post_thumbnail()) {
-                                    the_post_thumbnail();
-                                } else {
-                                ?>
-                                    <img class="placehoder" src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/logo.svg" alt="CHARME">
-                                <?php }
-                                ?>
-                            </a>
-                            <div class="news-datetime">
-                                <time datetime="<?php esc_html(the_time('Y.m.d')); ?>"><?php esc_html(the_time('Y.m.d')); ?></time>
-                                <span>NEW</span>
-                            </div>
-                            <a class="news-title" href="<?php esc_url(the_permalink()); ?>"><?php esc_html(the_title()); ?></a>
-                            <a class="readmore" href="<?php echo esc_url(get_post_type_archive_link('news')); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/readmore.png" alt="read more"></a>
-                        </li>
-                    <?php endwhile; ?>
-                </ul>
-                <div class="news-btn"><a href="<?php echo esc_url(get_post_type_archive_link('news')); ?>">MORE TOPICS</a></div>
-            <?php
-            endif;
-            wp_reset_postdata();
-            ?>
-        </div>
-    </section>
-
-    <section id="column" class="animate" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-        <div class="container section">
-            <ul class="ul_column">
-                <div class="container inner">
-                    <li class="left">
-                        <div class="sec-title">
-                            <div class="tri_up">
-                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/column_tri_up.png" alt="tri">
-                            </div>
-                            <div class="left_column">
-                                <h2 class="title-en">COLUMN <span class="title-ja">-コラム-</span></h2>
-                                <div>お得な情報やCHARMEならではのお役立ち情報を配信中 。</div>
-                                <div class="btn_column"><a class="readmore" href="https://charme-beauty.jp/column"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/btn-readmore.png" alt="read more"></a></div>
-                            </div>
-                            <!-- <div class="tri_bottom">
-                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/column_tri_bottom.png" alt="tri">
-                </div> -->
-                        </div>
-                    </li>
-
-                    <li class="right">
-                        <div class="right_image">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/column_image.png" alt="">
-                        </div>
-                    </li>
-                </div>
-            </ul>
-        </div>
-    </section>
-
-
-    <section id="sec-sns" class="animate" data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom">
-        <div class="container section">
-            <div class="sec-title">
-                <h2 class="title-en">SNS&nbsp;<span class="title-ja">-公式SNSアカウント-</span></h2>
-
-                <div class="box">
-                    <div class="boxleft"></div>
-                    <div class="boxright"></div>
-                </div>
-                <div class="hiddbox">
-                    <div class="hiddenleft"></div>
-                    <div class="hiddenright"></div>
-                </div>
-                <div class="line">
-                    <div id="topleft"></div>
-                    <div id="left"></div>
-                    <div id="bottomleft"></div>
-                    <div id="topright"></div>
-                    <div id="right"></div>
-                    <div id="bottomright"></div>
-                </div>
-            </div>
-            <div class="sec-des">
-                CHARME公式SNSでは最新情報や、お得な情報を随時お届けしています。
-            </div>
-            <ul class="sns">
-                <li><a href="https://www.instagram.com/concierge_charme/" target="_blank"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/insta.png" alt="insta">@concierge_charme</a></li>
-                <li><a href="https://www.tiktok.com/@charme.concierge?_t=8mHq6qDaRKJ&_r=1" target="_blank"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/tiktok-icon.png" alt="twitter">@charme.concierge</a></li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="about" class="animate" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-        <div class="container section">
-            <div class="sec-title">
-                <h2 class="title-en">ABOUT&nbsp;<span class="title-ja title-about"> - CHARMEとは - </span></h2>
-                <div class="box">
-                    <div class="boxleft"></div>
-                    <div class="boxright"></div>
-                </div>
-                <div class="hiddbox ">
-                    <div class="hiddenleft hiddencolor"></div>
-                    <div class="hiddenright hiddencolor"></div>
-                </div>
-                <div class="line">
-                    <div id="topleft"></div>
-                    <div id="left"></div>
-                    <div id="bottomleft"></div>
-                    <div id="topright"></div>
-                    <div id="right"></div>
-                    <div id="bottomright"></div>
-                </div>
-            </div>
-            <div class="sec-des">
-                美容整形や医療脱毛、審美歯科などに通いたいけれど、クリニックやサロンの選び方がわからない。そんなお悩みにお答えするのが、私たちCHARMEがご提案する美容コンシェルジュです。
-                <div class="btn"><a class="readmore" href="<?php echo esc_url(get_permalink(1912)); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/btn-readmore.png" alt="read more"></a></div>
-            </div>
-        </div>
-        <!-- <ul class="services">
-                <li>
-                    <a href="<?php echo esc_url(get_permalink(38)); ?>">
-                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/s1.png" alt="" class="img-full"></a>
-                    <div class="title"><a href="<?php echo esc_url(get_permalink(38)); ?>">美容整形</a></div>
-                    <div class="des">人気の埋没法やヒアルロン酸注入などのプチ整形や切開系施術、豊胸、タトゥー除去、渡韓による輪郭形成など、様々なお取り扱いがございます。</div>
-                    <a class="readmore" href="<?php echo esc_url(get_permalink(38)); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/readmore.png" alt="read more"></a>
-                </li>
-                <li>
-                    <a href="<?php echo esc_url(get_permalink(40)); ?>">
-                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/s2.png" alt="" class="img-full"></a>
-                    <div class="title"><a href="<?php echo esc_url(get_permalink(40)); ?>">審美歯科</a></div>
-                    <div class="des">欧米では歯の美しさは美男美女の必須条件とされています。今注目を浴びて<br>いるホワイトニングやセラミック施術、マウスピースやワイヤーによる歯列矯正 等をご紹介。</div>
-                    <a class="readmore" href="<?php echo esc_url(get_permalink(40)); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/readmore.png" alt="read more"></a>
-                </li>
-                <li>
-                    <a href="<?php echo esc_url(get_permalink(28)); ?>">
-                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/s3.png" alt="" class="img-full"></a>
-                    <div class="title"><a href="<?php echo esc_url(get_permalink(28)); ?>">医療脱毛・アートメイク等</a></div>
-                    <div class="des">医療脱毛は長期的に持続する脱毛効果、医師による診察やアフターケアがあることがメリットです。アートメイクでは顔の黄金比を測りながらご自身に合った眉を１本１本丁寧に描いていきます。その他エステや小顔矯正もご案内可能です。</div>
-                    <a class="readmore"href="<?php echo esc_url(get_permalink(28)); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/readmore.png" alt="read more"></a>
-                </li>
-                <li>
-                    <a href="<?php echo esc_url(get_permalink(39)); ?>">
-                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/s4.png" alt="" class="img-full"></a>
-                    <div class="title"><a href="<?php echo esc_url(get_permalink(39)); ?>">メンズ医療</a></div>
-                    <div class="des">女性のみならず男性も積極的に美容を行う時代です。美容整形はもちろん、 ア ートメイク、美肌治療、医療脱毛、審美歯科、AGA治療等ご案内可能です。</div>
-                    <a class="readmore" href="<?php echo esc_url(get_permalink(39)); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/readmore.png" alt="read more"></a>
-                </li>
-
-            </ul> -->
-
-    </section>
-
-    <!-- <section id="sec-services" class="animate" data-aos="fade-up"
-          data-aos-anchor-placement="top-bottom">
-        <div class="container section">
-            <div class="sec-title">
-          <h2 class="title-en">SERVICE&nbsp;<span class="title-ja"> -サービス- </span></h2>
-           <div class="box">
-            <div class="boxleft"></div>
-            <div class="boxright"></div>
-          </div>
-          <div class="hiddbox">
-            <div class="hiddenleft"></div>
-            <div class="hiddenright"></div>
-          </div>
-          <div class="line">
-            <div id="topleft"></div>
-            <div id="left"></div>
-            <div id="bottomleft"></div>
-            <div id="topright"></div>
-            <div id="right"></div>
-            <div id="bottomright"></div>
-          </div>
-        </div>
-            <ul class="services">
-                <li>
-                    <a href="<?php echo esc_url(get_permalink(38)); ?>">
-                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/s1.png" alt="" class="img-full"></a>
-                    <div class="title"><a href="<?php echo esc_url(get_permalink(38)); ?>">美容整形</a></div>
-                    <div class="des">人気の埋没法やヒアルロン酸注入などのプチ整形や切開系施術、豊胸、タトゥー除去、渡韓による輪郭形成など、様々なお取り扱いがございます。</div>
-                    <a class="readmore" href="<?php echo esc_url(get_permalink(38)); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/readmore.png" alt="read more"></a>
-                </li>
-                <li>
-                    <a href="<?php echo esc_url(get_permalink(40)); ?>">
-                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/s2.png" alt="" class="img-full"></a>
-                    <div class="title"><a href="<?php echo esc_url(get_permalink(40)); ?>">審美歯科</a></div>
-                    <div class="des">欧米では歯の美しさは美男美女の必須条件とされています。今注目を浴びて<br>いるホワイトニングやセラミック施術、マウスピースやワイヤーによる歯列矯正 等をご紹介。</div>
-                    <a class="readmore" href="<?php echo esc_url(get_permalink(40)); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/readmore.png" alt="read more"></a>
-                </li>
-                <li>
-                    <a href="<?php echo esc_url(get_permalink(28)); ?>">
-                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/s3.png" alt="" class="img-full"></a>
-                    <div class="title"><a href="<?php echo esc_url(get_permalink(28)); ?>">医療脱毛・アートメイク等</a></div>
-                    <div class="des">医療脱毛は長期的に持続する脱毛効果、医師による診察やアフターケアがあることがメリットです。アートメイクでは顔の黄金比を測りながらご自身に合った眉を１本１本丁寧に描いていきます。その他エステや小顔矯正もご案内可能です。</div>
-                    <a class="readmore"href="<?php echo esc_url(get_permalink(28)); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/readmore.png" alt="read more"></a>
-                </li>
-                <li>
-                    <a href="<?php echo esc_url(get_permalink(39)); ?>">
-                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/s4.png" alt="" class="img-full"></a>
-                    <div class="title"><a href="<?php echo esc_url(get_permalink(39)); ?>">メンズ医療</a></div>
-                    <div class="des">女性のみならず男性も積極的に美容を行う時代です。美容整形はもちろん、 ア ートメイク、美肌治療、医療脱毛、審美歯科、AGA治療等ご案内可能です。</div>
-                    <a class="readmore" href="<?php echo esc_url(get_permalink(39)); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/readmore.png" alt="read more"></a>
-                </li>
-
-            </ul>
-        </div>
-    </section> -->
-    <section id="sec-case" class="animate" data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom">
-        <div class="section">
-            <div class="container section">
-
-                <div class="sec-title scroani">
-                    <h2 class="title-en title-case">CASE&nbsp;<span class="title-ja">-症例-</span></h2>
-
-                    <div class="casebox">
-                        <div class="caseboxleft"></div>
-                        <div class="caseboxright"></div>
-                    </div>
-                    <div class="casehiddbox">
-                        <div class="casehiddenleft hiddencolor"></div>
-                        <div class="casehiddenright hiddencolor"></div>
-                    </div>
-                    <div class="caseline">
-                        <div id="casetopleft"></div>
-                        <div id="caseleft"></div>
-                        <div id="casebottomleft"></div>
-                        <div id="casetopright"></div>
-                        <div id="caseright"></div>
-                        <div id="casebottomright"></div>
-                    </div>
-                </div>
-                <?php
-                $terms = get_terms(
-                    array(
-                        'taxonomy' => 'case_category',
-                        'parent' => 0, // 親カテゴリのみを取得するために指定
-                    )
-                );
-                if (!empty($terms) && !is_wp_error($terms)) {
-                    echo '<ul class="casies">';
-                    foreach ($terms as $term) {
-                        $img = get_field('case_category-image', 'case_category_' . $term->term_id);
-                        $link = str_replace('/case_category/', '/case/', get_term_link($term->term_id));
-                ?>
-                        <li>
-                            <a href="<?php echo $link; ?>">
-                                <img src="<?php echo $img; ?>" alt="<?php echo $term->name; ?>" />
-                            </a>
-                        </li>
-                <?php
-                    }
-                    echo "</ul>";
-                }
-                ?>
-
-
-            </div>
-
-
-        </div>
-    </section>
-    <section id="sec-campaign" class="animate" data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom">
-        <div class="section">
-            <div class="col-md-6">
-                <!-- <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/campaign.png" alt="read more"> -->
-                <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>"> <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/campaign_bnr.jpg" alt="キャンペーンバナー"></a>
-            </div>
-            <div class="col-md-6">
-                <div class="sec-content">
-                    <div class="sec-title scroani">
-                        <h2 class="title-en title-camp">CAMPAIGN&nbsp;<span class="title-ja title-campja">-キャンペーン-</span></h2>
-                        <div class="campbox">
-                            <div class="campboxleft"></div>
-                            <div class="campboxright"></div>
-                        </div>
-                        <div class="camphiddbox">
-                            <div class="camphiddenleft"></div>
-                            <div class="camphiddenright"></div>
-                        </div>
-                        <div class="campline">
-                            <div id="camptopleft"></div>
-                            <div id="campleft"></div>
-                            <div id="campbottomleft"></div>
-                            <div id="camptopright"></div>
-                            <div id="campright"></div>
-                            <div id="campbottomright"></div>
-                        </div>
-                    </div>
-
-                    <!-- <div class="des">お得なキャンペーンを随時更新中。</div>
-                    <div class="btn"><a class="readmore" href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/btn-readmore.png" alt="read more"></a></div> -->
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="reason" class="animate" data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom">
-        <div class="container section">
-            <div class="sec-title">
-                <h2 class="title-en">REASON&nbsp;<span class="title-ja">-シャルムが選ばれる理由-</span></h2>
-
-                <div class="box reabox">
-                    <div class="boxleft realeft"></div>
-                    <div class="boxright reaboxright"></div>
-                </div>
-                <div class="hiddbox">
-                    <div class="hiddenleft reahiddenleft"></div>
-                    <div class="hiddenright reahiddenright"></div>
-                </div>
-                <div class="line">
-                    <div id="topleft"></div>
-                    <div id="left"></div>
-                    <div id="bottomleft"></div>
-                    <div id="topright" class="reatopright"></div>
-                    <div id="right" class="rearight"></div>
-                    <div id="bottomright" class="reabottomright"></div>
-                </div>
-            </div>
-            <div class="sec-des">お客さまの大切な体を優先することがCHARMEコンシェルジュの役割</div>
-            <ul class="reason">
-                <li>
-                    <div class="img"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/reason1.png" alt="read more"></div>
-                    <h3 class="title"><span class="icon">#</span><span class="number">01</span>安心</h3>
-                    <div class="des">CHARMEでは、すべてのクリニックさまと綿密に面談し提携先を選定しております。<br>大切なお身体を任せる上でよりお客さまの目線でクリニックさまと提携する事で安心して術後までご利用いただいております。</div>
-                </li>
-                <li>
-                    <div class="img"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/reason2.png" alt="read more"></div>
-                    <h3 class="title"><span class="icon">#</span><span class="number">02</span>納得</h3>
-                    <div class="des">CHARMEでは、すべてのクリニックさまと綿密に面談し提携先を選定しております。<br>大切なお身体を任せる上でよりお客さまの目線でクリニックさまと提携する事で安心して術後までご利用いただいております。</div>
-                </li>
-                <li>
-                    <div class="img"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/reason3.png" alt="read more"></div>
-                    <h3 class="title"><span class="icon">#</span><span class="number">03</span>情報</h3>
-                    <div class="des">CHARMEでは、すべてのクリニックさまと綿密に面談し提携先を選定しております。<br>大切なお身体を任せる上でよりお客さまの目線でクリニックさまと提携する事で安心して術後までご利用いただいております。</div>
-                </li>
-
-            </ul>
-            <div class="readmore"><a href="<?php echo esc_url(get_permalink(17)); ?>">よくあるご質問はこちらから</a></a>
-            </div>
-    </section>
-    <section id="sec-flow" class="animate" data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom">
-        <div class="container section">
-            <div class="sec-title scroani">
-                <h2 class="title-en">FLOW&nbsp;<span class="title-ja">-ご利用までの流れ-</span></h2>
-                <div class="box">
-                    <div class="boxleft"></div>
-                    <div class="boxright"></div>
-                </div>
-                <div class="hiddbox">
-                    <div class="hiddenleft hiddencolor"></div>
-                    <div class="hiddenright hiddencolor"></div>
-                </div>
-                <div class="line">
-                    <div id="topleft"></div>
-                    <div id="left"></div>
-                    <div id="bottomleft"></div>
-                    <div id="topright"></div>
-                    <div id="right"></div>
-                    <div id="bottomright"></div>
-                </div>
-            </div>
-            <div class="sec-des">
-                CHARMEをご利用するにあたっての、お問い合わせから施術までの流れをご説明いたします。担当コンシェルジュがお客様に合ったクリニックの提案をさせていただきます。
-                <div class="btn"><a class="readmore" href="<?php echo esc_url(get_permalink(1503)); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/btn-readmore.png" alt="read more"></a></div>
-            </div>
-        </div>
-    </section>
-    <!-- <section id="sec-voice" class="animate" data-aos="fade-up"
-          data-aos-anchor-placement="top-bottom">
-        <div class="container section">
-		<div class="sec-title">
-              <h2 class="title-en">VOICE&nbsp;<span class="title-ja">-お客様の声-</span></h2>
-              <div class="box">
-                <div class="boxleft"></div>
-                <div class="boxright"></div>
-              </div>
-              <div class="hiddbox">
-                <div class="hiddenleft"></div>
-                <div class="hiddenright"></div>
-              </div>
-              <div class="line">
-                <div id="topleft"></div>
-                <div id="left"></div>
-                <div id="bottomleft"></div>
-                <div id="topright"></div>
-                <div id="right"></div>
-                <div id="bottomright"></div>
-              </div>
-            </div>
-            <div class="sec-des">
-                CHARMEを実際にご利用いただいたインフルエンサーの方々のお声です。<br>初めて美容医療を受けられた方は勿論、すでに経験のある方まで多数のお喜びの声を頂いております。
-            </div>
-            <?php
-            $args = array(
-                'posts_per_page' => 3,
-                'post_status' => 'publish',
-                'post_type' => 'voice',
-            );
-            $the_query = new WP_Query($args);
-            if ($the_query->have_posts()) :
-            ?>
-                <ul class="voices">
-                    <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                        <li>
-                                <div class="img">
-                                    <?php
-                                    if (has_post_thumbnail()) {
-                                        the_post_thumbnail();
-                                    } else {
-                                    ?>
-                                        <img src="<?php echo CFS()->get('top_images'); ?>" alt="">
-                                    <?php }
-                                    ?>
-                                </div>
-                                <div class="name"><?php echo CFS()->get('top_name'); ?></div>
-                            </li>
-                    <?php endwhile; ?>
-                </ul>
-                <?php
-            endif;
-            wp_reset_postdata();
-                ?>
-            <div class="readmore"><a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>">その他のお客様からの声はこちらから</a></div>
-        </div>
-    </section> -->
-
-    <!-- <section id="sec-interview" class="animate" data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom">
-        <div class="section">
-            <div class="col-md-6">
-                <div class="sec-content">
-                    <div class="sec-title scroani">
-                        <h2 class="title-en title-int">SPECIAL INTERVEIW&nbsp;<span class="title-ja">-インタビュー-</span></h2>
-
-                        <div class="intbox">
-                            <div class="intboxleft"></div>
-                            <div class="intboxright"></div>
-                        </div>
-                        <div class="inthiddbox">
-                            <div class="inthiddenleft"></div>
-                            <div class="inthiddenright"></div>
-                        </div>
-                        <div class="intline">
-                            <div id="inttopleft"></div>
-                            <div id="intleft"></div>
-                            <div id="intbottomleft"></div>
-                            <div id="inttopright"></div>
-                            <div id="intright"></div>
-                            <div id="intbottomright"></div>
-                        </div>
-                    </div>
-                    <div class="btn"><a class="readmore" href="<?php echo esc_url(get_permalink(1808)); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/btn-readmore.png" alt="read more"></a></div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/top/interview.png" alt="interview">
-            </div>
-
-        </div>
-    </section> -->
-
-    <section id="sec-clinic" class="animate" data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom">
-        <div class="container section">
-            <div class="sec-title">
-                <h2 class="title-en">CLINIC&nbsp;<span class="title-ja">-クリニック-</span></h2>
-                <div class="box">
-                    <div class="boxleft"></div>
-                    <div class="boxright"></div>
-                </div>
-                <div class="hiddbox">
-                    <div class="hiddenleft"></div>
-                    <div class="hiddenright"></div>
-                </div>
-                <div class="line">
-                    <div id="topleft"></div>
-                    <div id="left"></div>
-                    <div id="bottomleft"></div>
-                    <div id="topright"></div>
-                    <div id="right"></div>
-                    <div id="bottomright"></div>
-                </div>
-            </div>
-            <div class="sec-des">
-                全国主要都市から韓国まで、公正な調査の上で厳選された数々の技術力の高いクリニック様とご提携させていただいており ます。掲載クリニック様意外にも数多くのクリニック様とご提携しております。
-            </div>
-            <!-- <div class="list-clinic-logo-top">
-	<div class="first"><a href="<?php echo esc_url(get_permalink(189)); ?>"><div class="logo logo-kusano-taro"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/clinic/logo_kusano-taro.png" alt="くさのたろうクリニック"></div></a></div>
-			<div class="first"><a href="<?php echo esc_url(get_permalink(201)); ?>"><div class="logo logo-sherie"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/clinic/logo_sherieclinic.svg" alt="シェリークリニック"></div></a></div>
-            <div class="first"><a href="<?php echo esc_url(get_permalink(381)); ?>"><div class="logo logo-shibuya"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/clinic/logo_shibuyanomori_2.png" alt="渋谷の森クリニック"></div></a></div>
-            <div class="second"><a href="<?php echo esc_url(get_permalink(220)); ?>"><div class="logo logo-tkc"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/clinic/logo_tkc-biyou.png" alt="東京美容外科"></div></a></div>
-            <div class="second"><a href="<?php echo esc_url(get_permalink(239)); ?>"><div class="logo logo-omotesando"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/clinic/logo_omotesando-skin.jpg" alt="表参道スキンクリニック"></div></a></div>
-            <div class="second"><a href="<?php echo esc_url(get_permalink(238)); ?>"><div class="logo logo-primo"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/clinic/logo_primo.jpg" alt="プリモ麻布十番クリニック"></div></a></div>
-        </div> -->
-
-            <div class="list-clinic-logo-top clinic-slide">
-                <div class="first clinic-slide__item">
-                    <a href="<?php echo esc_url(get_permalink(189)); ?>" class="clinic-slide__item__inner">
-                        <div class="logo logo-kusano-taro">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/clinic/logo_kusano-taro.png" alt="くさのたろうクリニック">
-                        </div>
-                        <span>くさのたろう<br>クリニック</span>
-                    </a>
-                </div>
-                <div class="first clinic-slide__item">
-                    <a href="<?php echo esc_url(get_permalink(201)); ?>" class="clinic-slide__item__inner">
-                        <div class="logo logo-sherie">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/clinic/logo_sherieclinic.svg" alt="シェリークリニック">
-                        </div>
-                        <span>シェリー<br>クリニック</span>
-                    </a>
-                </div>
-                <div class="first clinic-slide__item">
-                    <a href="<?php echo esc_url(get_permalink(381)); ?>" class="clinic-slide__item__inner">
-                        <div class="logo logo-shibuya">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/clinic/logo_shibuyanomori_2.png" alt="渋谷の森クリニック">
-                        </div>
-                        <span>渋谷の森<br>クリニック</span>
-                    </a>
-                </div>
-                <div class="second clinic-slide__item">
-                    <a href="<?php echo esc_url(get_permalink(3335)); ?>" class="clinic-slide__item__inner">
-                        <div class="logo logo-omotesando">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/clinic/logo_bellefeel.svg" alt="Bellefeelクリニック">
-                        </div>
-                        <span>Bellefeel<br>クリニック</span>
-                    </a>
-                </div>
-                <div class="second clinic-slide__item">
-                    <a href="<?php echo esc_url(get_permalink(3112)); ?>" class="clinic-slide__item__inner">
-                        <div class="logo logo-primo">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/clinic/sk_logo.jpg" alt="SK新宿歌舞伎町美容外科・歯科">
-                        </div>
-                        <span>SK新宿<br>歌舞伎町<br>美容外科</span>
-                    </a>
-                </div>
-                <div class="second clinic-slide__item">
-                    <a href="<?php echo esc_url(get_permalink(220)); ?>" class="clinic-slide__item__inner">
-                        <div class="logo logo-tkc">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/clinic/logo_tkc-biyou.png" alt="東京美容外科">
-                        </div>
-                        <span>東京美容外科</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="readmore"><a href="<?php echo esc_url(get_post_type_archive_link('clinic')); ?>">その他の提携クリニックはこちらから</a></div>
-        </div>
-    </section>
-<?php endif; ?>
-
-<!-- End Pc layout -->
-
-
-<!-- slide js -->
-<!-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/slick.js"></script>
-<script type="text/javascript">
-    (function($) {
-        $('.clinic-slide').slick({
-            dots: false,
-            arrows: false,
-            infinite: true,
-            speed: 300,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            centerMode: true,
-            centerPadding: '0px',
-            // autoplay: true,
-            autoplaySpeed: 4000,
-        });
-    })(jQuery);
-</script>
-<!-- end slide js -->
-
+</main>
 <?php get_footer(); ?>
