@@ -711,6 +711,44 @@ function charme_enqueue_archive_case_assets()
 add_action('wp_enqueue_scripts', 'charme_enqueue_archive_case_assets');
 
 /**
+ * Search Case Assets Enqueue
+ * 症例検索ページ用CSS/JSの読み込み
+ */
+function charme_enqueue_search_case_assets()
+{
+    if (is_search() && isset($_GET['post_type']) && $_GET['post_type'] === 'case') {
+        // CSS
+        wp_enqueue_style(
+            'charme-search-case-style',
+            get_template_directory_uri() . '/assets/css/search_case.css',
+            array(),
+            filemtime(get_theme_file_path('/assets/css/search_case.css'))
+        );
+
+        // FancyBox CSS
+        wp_enqueue_style(
+            'fancybox-css',
+            'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css',
+            array(),
+            '5.0'
+        );
+
+        // FancyBox JS
+        wp_enqueue_script(
+            'fancybox-js',
+            'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js',
+            array(),
+            '5.0',
+            true
+        );
+
+        // FancyBox初期化
+        wp_add_inline_script('fancybox-js', 'Fancybox.bind("[data-fancybox]");');
+    }
+}
+add_action('wp_enqueue_scripts', 'charme_enqueue_search_case_assets');
+
+/**
  * 2025年リニューアル用CSSの読み込み
  * header.phpのスタイルも含むため全ページで読み込む
  */
