@@ -10,3 +10,8 @@ body {
 .l-footer__inner{
     width: auto !important;
 }
+
+/* トップページ以外でドロワーボタンを非表示 */
+body:not(.home) .p-drawer__btn-wrap {
+    display: none !important;
+}
