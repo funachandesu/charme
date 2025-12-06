@@ -67,12 +67,11 @@
         if (!empty($terms) && !is_wp_error($terms)) {
             echo '<ul class="casies">';
             foreach ($terms as $term) {
-                $img = get_field('case_category-image', 'case_category_' . $term->term_id);
                 $link = str_replace('/case_category/', '/case/', get_term_link($term->term_id));
         ?>
                 <li>
                     <a href="<?php echo $link; ?>">
-                        <img src="<?php echo $img; ?>" alt="<?php echo $term->name; ?>" />
+                        <span class="case-term-title"><?php echo esc_html($term->name); ?></span>
                     </a>
                 </li>
         <?php

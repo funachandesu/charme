@@ -1,0 +1,31 @@
+/* archive-case.php term title styles */
+.sec-case ul.casies li a {
+    display: block;
+    text-decoration: none;
+}
+
+.sec-case ul.casies li .case-term-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 150px;
+    background-color: #937f65;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.sec-case ul.casies li a:hover .case-term-title {
+    background-color: #7a6954;
+    opacity: 0.9;
+}
+
+@media screen and (max-width: 768px) {
+    .sec-case ul.casies li .case-term-title {
+        font-size: 14px;
+        height: 100px;
+    }
+}
