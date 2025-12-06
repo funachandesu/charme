@@ -10,7 +10,7 @@
         <div class="l-inner">
             <div class="p-top-fv__content">
                 <div class="p-top-fv__textbox1">
-                    <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_fv-logo.webp" alt="シャルム" class="p-top-fv__logo-img" width="196" height="56" loading='lazy' />
+                    <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/charme_new_logo_pink.png" alt="シャルム" class="p-top-fv__logo-img" loading='lazy' />
                     <span class="p-top-fv__catch --1">から</span><br class="u-sp"><span class="p-top-fv__catch --2">予約するだけで、</span>
                 </div>
                 <div class="p-top-fv__textbox2">
