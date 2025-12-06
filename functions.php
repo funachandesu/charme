@@ -754,11 +754,19 @@ add_action('wp_enqueue_scripts', 'charme_enqueue_search_case_assets');
  */
 function charme_enqueue_renewal_2025_styles()
 {
+    // 共通CSS（横スクロール防止など）
+    wp_enqueue_style(
+        'charme-common-style',
+        get_template_directory_uri() . '/assets/css/common.css',
+        array(),
+        filemtime(get_theme_file_path('/assets/css/common.css')),
+        'all'
+    );
 
     wp_enqueue_style(
         'charme-header-footer-style-2025',
         get_template_directory_uri() . '/css/style_header_footer_2025.css',
-        array(),
+        array('charme-common-style'),
         filemtime(get_theme_file_path('/css/style_header_footer_2025.css')),
         'all'
     );
