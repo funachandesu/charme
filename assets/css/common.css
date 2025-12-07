@@ -12,6 +12,6 @@ body {
 }
 
 /* トップページ以外でドロワーボタンを非表示 */
-body:not(.home) .p-drawer__btn-wrap {
+/* body:not(.home) .p-drawer__btn-wrap {
     display: none !important;
-}
+} */
