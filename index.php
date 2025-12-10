@@ -366,12 +366,15 @@
                                     }
                                     ?>
 
+                                    // TODO: 【コンカイさん対応依頼】クリニックページに遷移するように設定
                                     <li class="p-top-clinic__slide splide__slide">
                                         <img class="p-top-clinic__splide-slide-img"
                                             src="<?php echo esc_url($logo_url); ?>"
                                             alt="<?php echo esc_attr($img_alt); ?>"
                                             width="160" height="160"
                                             loading="lazy" />
+                                        // TODO: 【コンカイさん対応依頼】縦並びになる形でよしなに表示
+                                        <p><?php echo $img_alt;?></p>
                                     </li>
 
                                 <?php endwhile; ?>
@@ -506,7 +509,7 @@
                                     // ----------------------------------------------------
                                     $case_clinic = CFS()->get('case_clinic');
                                     ?>
-
+                                    // TODO: 【コンカイさん対応依頼】該当の症例カテゴリの一覧ページに遷移
                                     <li class="p-top-case__slide splide__slide">
 
                                         <img src="<?php echo esc_url($thumb_url); ?>"
