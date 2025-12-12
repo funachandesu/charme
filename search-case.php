@@ -6,400 +6,254 @@
 ?>
 <?php get_header(); ?>
 
-<section id="case-content" class="top-section">
-    <div class="container">
-        <div class="animate" data-aos="fade-up"
-            data-aos-anchor-placement="top-bottom">
+<?php
+$current_category_slug = isset($_GET['case_category']) ? sanitize_text_field($_GET['case_category']) : '';
+$current_clinic_slug = isset($_GET['case_clinic']) ? sanitize_text_field($_GET['case_clinic']) : '';
+$search_query = get_search_query();
 
-            <div class="sec-title scroani">
-                <h2 class="title-en title-case">CASE&nbsp;<span class="title-ja">-症例-</span></h2>
+// カテゴリのterm_idを取得
+$current_category_id = 0;
+$current_category_term = null;
+if (!empty($current_category_slug)) {
+    $current_category_term = get_term_by('slug', $current_category_slug, 'case_category');
+    if ($current_category_term && !is_wp_error($current_category_term)) {
+        $current_category_id = $current_category_term->term_id;
+    }
+}
 
-                <div class="casebox">
-                    <div class="caseboxleft"></div>
-                    <div class="caseboxright"></div>
-                </div>
-                <div class="casehiddbox">
-                    <div class="casehiddenleft hiddencolor"></div>
-                    <div class="casehiddenright hiddencolor"></div>
-                </div>
-                <div class="caseline">
-                    <div id="casetopleft"></div>
-                    <div id="caseleft"></div>
-                    <div id="casebottomleft"></div>
-                    <div id="casetopright"></div>
-                    <div id="caseright"></div>
-                    <div id="casebottomright"></div>
-                </div>
+// クリニックのterm_idを取得
+$current_clinic_id = 0;
+if (!empty($current_clinic_slug)) {
+    $current_clinic_term = get_term_by('slug', $current_clinic_slug, 'case_clinic');
+    if ($current_clinic_term && !is_wp_error($current_clinic_term)) {
+        $current_clinic_id = $current_clinic_term->term_id;
+    }
+}
 
-            </div>
-        </div>
+// 親カテゴリを取得
+$parent_term = null;
+if ($current_category_term && !is_wp_error($current_category_term)) {
+    $parent_term = ($current_category_term->parent === 0) ? $current_category_term : get_term($current_category_term->parent, 'case_category');
+}
+?>
+
+<section class="search-case-hero">
+    <div class="search-case-hero__inner">
+        <h1 class="search-case-hero__title">
+            <span class="search-case-hero__title-en">CASE</span>
+            <span class="search-case-hero__title-ja">症例一覧</span>
+        </h1>
+        <?php if ($parent_term): ?>
+            <p class="search-case-hero__category"><?php echo esc_html($parent_term->name); ?></p>
+        <?php endif; ?>
     </div>
 </section>
 
-
-<!-- <section id="case-content" class="top-section">
-    <div class="container">
-        <div class="sec-title">
-            <h2 class="title-en">CASE</h2>
-            <h3 class="title-ja">症例</h3>
-        </div>
-    </div>
-</section> -->
-
-<div class="back">
-    <div class="container">
-        <a href="<?php echo esc_url(get_post_type_archive_link('case')); ?>">
-            <img src="<?php echo get_template_directory_uri(); ?>/imgs/common/btn-back.png" alt="back">
+<div class="search-case-back">
+    <div class="search-case-back__inner">
+        <a href="<?php echo esc_url(get_post_type_archive_link('case')); ?>" class="search-case-back__link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>症例カテゴリに戻る</span>
         </a>
     </div>
 </div>
 
-<div class="sec-case-detail">
-    <?php
+<section class="search-case-filter">
+    <div class="search-case-filter__inner">
+        <form method="get" id="caseSearchForm" action="<?php echo esc_url(home_url('/')); ?>">
+            <input type="hidden" name="post_type" value="case">
 
-    $current_category = isset($_GET['case_category']) ? sanitize_text_field($_GET['case_category']) : '';
-    if (!empty($current_category)) {
-        $term = get_term_by('slug', $current_category, 'case_category');
-        if ($term && !is_wp_error($term)) {
-            if ($term->parent === 0) {
-            } else {
-                $term = get_term($term->parent);
-            }
-            $tax_id = $term->slug;
-            //echo   $tax_id;
-        }
-    }
-    ?>
-
-
-    <!--条件分岐 ターム-->
-    <?php if (is_tax('case_category', 'nose')): ?>
-        <!-- <div class="case-banner"><img src="https://charme-beauty.jp/wp-content/uploads/banner-nose.png" alt="" class="sec-case-detail-img"></div> -->
-        <!-- <div class="case-des">
-            <div class="container">顔の中心にある鼻は、顔全体の印象を大きく左右する大事なパーツのひとつになります。<br>
-                鼻を高くしたい、鼻の穴を小さくしたい、鷲鼻を治したいetc...。お客様のニーズに沿った施術をご案内させて頂きます。</div>
-        </div> -->
-    <?php elseif (is_tax('case_category', 'contour')): ?>
-        <!-- <div class="case-banner"><img src="https://charme-beauty.jp/wp-content/uploads/banner-contour.png" alt="" class="sec-case-detail-img"></div> -->
-        <!-- <div class="case-des">
-            <div class="container"> フェイスラインの中でも顎やエラなどは、ダイエットやメイクではすっきり整えることが難しい部分になります。<br>
-                エラをなくして小顔にしたい、輪郭をすっきりさせたいetc...。お客様のニーズに沿った施術をご案内させて頂きます。</div>
-        </div> -->
-    <?php elseif (is_tax('case_category', 'liposuction')): ?>
-        <!-- <div class="case-banner"><img src="https://charme-beauty.jp/wp-content/uploads/banner-liposuction.png" alt="" class="sec-case-detail-img"></div> -->
-        <!-- <div class="case-des">
-            <div class="container"> ダイエットしてもなかなか痩せない部分があります。理想的なボディバランスを手に入れるための効果的な施術になります。<br>
-                体の一部だけ痩せたい、短期間で痩せたい、自力で痩せられないetc...。お客様のニーズに沿った施術をご案内させて頂きます。</div>
-        </div> -->
-    <?php elseif (is_tax('case_category', 'skin')): ?>
-        <!-- <div class="case-banner"><img src="https://charme-beauty.jp/wp-content/uploads/banner-skin.png" alt="" class="sec-case-detail-img"></div> -->
-        <!-- <div class="case-des">
-            <div class="container"> 紫外線や乾燥などの外的要因や栄養の過不足やストレスなどでしわ・たるみ・毛穴が一度悪化してしまうとご自宅のケアだけでは改善が難しいため、的確な治療が必要になります。<br>
-                年々増えていくしわをなんとかしたい、白い肌を取り戻したいetc...。お客様のニーズに沿った施術をご案内させて頂きます。</div>
-        </div> -->
-    <?php elseif (is_tax('case_category', 'injection')): ?>
-        <!-- <div class="case-banner"><img src="https://charme-beauty.jp/wp-content/uploads/banner-injection.png" alt="" class="sec-case-detail-img"></div> -->
-        <!-- <div class="case-des">
-            <div class="container"> 肌弾力を高め、皮膚のたるみ、しわの補正を行う治療になります。<br>
-                手軽に若返りたい、プルンとした肌のハリを保ち続けたいetc...。お客様のニーズに沿った施術をご案内させて頂きます。</div>
-        </div> -->
-    <?php elseif (is_tax('case_category', 'aesthetic-dentistry')): ?>
-        <!-- <div class="case-banner"><img src="https://charme-beauty.jp/wp-content/uploads/banner-aesthetic-dentistry.png" alt="" class="sec-case-detail-img"></div> -->
-        <!-- <div class="case-des">
-            <div class="container">口元は対面する人に与える印象が大きい大切なパーツです。<br>
-                自分の雰囲気や理想に合わせて口元を整えたい、美しい歯を手に入れたいetc...。お客様のニーズに沿った施術をご案内させて頂きます。</div>
-        </div> -->
-    <?php elseif (is_tax('case_category', 'eye') || $tax_id == 'eye'): ?>
-        <!-- <div class="case-banner"><img src="https://charme-beauty.jp/wp-content/uploads/banner-eye.png" alt="" class="sec-case-detail-img"></div> -->
-        <!-- <div class="case-des">
-            <div class="container">目元の印象はお顔の中でも大きな割合を占めており、最も人気の施術となっております。 二重にしたい、目を大きくしたい、クマを取りたいetc…。お客様のニーズに沿った施術をご案内させて頂きます。</div>
-        </div> -->
-    <?php elseif (is_tax('case_category', 'bust')): ?>
-        <!-- <div class="case-banner"><img src="https://charme-beauty.jp/wp-content/uploads/banner-bust.png" alt="" class="sec-case-detail-img"></div> -->
-        <!-- <div class="case-des">
-            <div class="container"> 女性にとって重要な要素であるバスト。ふっくらとして美しい理想のバストを手に入れたいとバストのお悩みを抱えている女性は多くいらっしゃいます。<br>
-                胸を大きくしたい、胸にハリをもたせたい、胸の形を整えたいetc...。お客様のニーズに沿った施術をご案内させて頂きます。</div>
-        </div> -->
-    <?php elseif (is_tax('case_category', 'makeup')): ?>
-        <!-- <div class="case-banner"><img src="https://charme-beauty.jp/wp-content/uploads/banner-makeup.png" alt="" class="sec-case-detail-img"></div> -->
-        <!-- <div class="case-des">
-            <div class="container"> ファッションのひとつとして人気のアートメイク。メイクが苦手でも理想の眉、アイライン、リップが手に入ります。<br>
-                メイクを簡単にしたい、すっぴんでもきれいな眉毛を維持したいetc...。お客様のニーズに沿った施術をご案内させて頂きます。</div>
-        </div> -->
-    <?php elseif (is_tax('case_category', 'other')): ?>
-        <!-- <div class="case-banner"><img src="https://charme-beauty.jp/wp-content/uploads/banner-other.png" alt="" class="sec-case-detail-img"></div> -->
-        <!-- <div class="case-des">
-            <div class="container"> 女性特有のお悩みや他人には相談しにくい男性のお悩みなど、細かいご要望にもお答えいたします。</div>
-        </div> -->
-    <?php elseif (is_tax('case_clinic', 'kusanotaro')): ?>
-        <img src="<?php echo get_template_directory_uri(); ?>/imgs/logo/2.png" alt="" class="sec-case-detail-img">
-    <?php elseif (is_tax('case_clinic', 'sherieclinic')): ?>
-        <img src="<?php echo get_template_directory_uri(); ?>/imgs/clinic/logo_sherieclinic.svg" alt="" class="sec-case-detail-img">
-    <?php elseif (is_tax('case_clinic', 'labouche')): ?>
-        <img src="<?php echo get_template_directory_uri(); ?>/imgs/logo/3.png" alt="" class="sec-case-detail-img">
-    <?php elseif (is_tax('case_clinic', 'primo')): ?>
-        <img src="<?php echo get_template_directory_uri(); ?>/imgs/logo/4.jpeg" alt="" class="sec-case-detail-img">
-    <?php elseif (is_tax('case_clinic', 'glowclinic')): ?>
-        <img src="<?php echo get_template_directory_uri(); ?>/imgs/logo/5.jpeg" alt="" class="sec-case-detail-img">
-    <?php elseif (is_tax('case_clinic', 'athena')): ?>
-        <img src="<?php echo get_template_directory_uri(); ?>/imgs/logo/6.svg" alt="" class="sec-case-detail-img">
-    <?php elseif (is_tax('case_clinic', 'womclinic')): ?>
-        <img src="<?php echo get_template_directory_uri(); ?>/imgs/logo/7.jpeg" alt="" class="sec-case-detail-img">
-    <?php elseif (is_tax('case_clinic', 'kogaokagaku')): ?>
-        <img src="<?php echo get_template_directory_uri(); ?>/imgs/logo/8.jpeg" alt="" class="sec-case-detail-img">
-    <?php elseif (is_tax('case_clinic', 'idhospital2')): ?>
-        <img src="<?php echo get_template_directory_uri(); ?>/imgs/logo/9.jpeg" alt="" class="sec-case-detail-img">
-    <?php elseif (is_tax('case_clinic', 'shibuyamori')): ?>
-        <img src="<?php echo get_template_directory_uri(); ?>/imgs/logo/10.png" alt="" class="sec-case-detail-img">
-    <?php endif; ?>
-
-    <div class="sec-case-detail">
-        <div class="case_search_box">
-            <div class="container">
-                <?php
-                $post_case_category = $_GET['case_category'];
-                $post_case_clinic = $_GET['case_clinic'];
-                ?>
-                <style>
-                    .case_search {
-                        display: block;
-                    }
-
-                    .case_radio {
-                        padding: 0 1%;
-                        margin: 20px 0;
-                    }
-
-                    #toggle_label_cat,
-                    #toggle_label_clinic {}
-
-                    .accordion-label {
-                        cursor: pointer;
-                        font-weight: bold;
-                        background: #937f65;
-                        color: #FFF;
-                        padding: 20px 5px;
-                        font-size: 16px;
-                    }
-
-                    .accordion-label:before {
-                        content: "\f067";
-                        font-family: "Font Awesome 5 Free";
-                        display: inline-block;
-                        margin-left: 5px;
-                        transition: transform 0.3s ease;
-                    }
-
-                    .accordion-label.active:before {
-                        transform: rotate(135deg);
-                    }
-
-                    #case_category,
-                    #case_clinic {
-                        display: flex;
-                        flex-wrap: wrap;
-                    }
-
-                    .case_radio label {
-                        display: block;
-                        width: 50%;
-                        color: #424242;
-                        letter-spacing: 1.6px;
-                        line-height: 30px;
-                        font-weight: bold;
-                    }
-
-                    .case_search_kw {
-                        margin: 10px auto;
-                    }
-
-                    #case_category input[type="radio"],
-                    #case_clinic input[type="radio"] {
-                        accent-color: #937f65;
-                    }
-
-                    .sec-case-detail ul li span.case-info,
-                    .sec-case-detail ul li h3 {
-                        display: block;
-                        width: 100%;
-                        background-color: rgba(255, 255, 255, 0.7);
-                        margin: 0;
-                        color: #000;
-                    }
-
-                    .sec-case-detail ul li h3 {
-                        /*font-size: 12px;*/
-                    }
-                </style>
-
-
-                <form method="get" id="caseSearch" action="<?php echo home_url('/'); ?>">
-                    <div class="case_search">
-                        <div id="toggle_label_cat" class="accordion-label">カテゴリから探す</div>
-                        <div class="case_radio">
-                            <?php
-                            $parent_args = array(
-                                'taxonomy'       => 'case_category',
-                                'name'           => 'case_category',
-                                'depth'          => '1', // 子孫カテゴリまでの深さ
-                                'hide_empty'     => '1',
-                                'show_option_none' => '全て(' . $term->name . ')',
-                                'option_none_value' => $term->slug,
-                                'value_field'    => 'slug',
-                                'selected' => $post_case_category
-                            );
-
-                            // クエリパラメータが指定されている場合、親カテゴリの子カテゴリのみを表示
-                            if (!empty($current_category)) {
-                                $term = get_term_by('slug', $current_category, 'case_category');
-                                if ($term && !is_wp_error($term)) {
-                                    if ($term->parent === 0) {
-                                        $parent_args['child_of']            = $term->term_id;
-                                    } else {
-                                        $parent_category = get_term($term->parent, 'case_category');
-                                        $parent_args['child_of']            = $term->parent;
-                                    }
-                                }
-                            }
-
-                            ob_start();
-                            wp_dropdown_categories($parent_args);
-                            $dropdown = ob_get_clean();
-                            // ラジオボタンに変換
-                            $radio_buttons = str_replace(
-                                array('<select', '</select>'),
-                                array('<div', '</div>'),
-                                $dropdown
-                            );
-                            $radio_buttons = str_replace(
-                                array('<option', '</option>', 'selected'),
-                                array('<label><input type="radio" name="case_category"', '</label>', 'checked'),
-                                $radio_buttons
-                            );
-                            echo $radio_buttons;
-
+            <div class="search-case-filter__grid">
+                <!-- カテゴリ選択 -->
+                <div class="search-case-filter__group">
+                    <label class="search-case-filter__label">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        カテゴリ
+                    </label>
+                    <div class="search-case-filter__select-wrap">
+                        <?php
+                        if ($parent_term) {
+                            // 親タームの子タームのみを取得して表示
+                            $child_terms = get_terms(array(
+                                'taxonomy' => 'case_category',
+                                'parent' => $parent_term->term_id,
+                                'hide_empty' => 1,
+                            ));
                             ?>
-                            <!--/case_pulldown-->
-
-
-                        </div>
-                        <!-- <div id="toggle_label_clinic" class="accordion-label">クリニックから探す</div> -->
-                        <div class="case_radio">
+                            <select name="case_category" id="case_category_select" class="search-case-filter__select">
+                                <option value="<?php echo esc_attr($parent_term->slug); ?>">全て（<?php echo esc_html($parent_term->name); ?>）</option>
+                                <?php if (!empty($child_terms) && !is_wp_error($child_terms)): ?>
+                                    <?php foreach ($child_terms as $child_term): ?>
+                                        <option value="<?php echo esc_attr($child_term->slug); ?>" <?php selected($current_category_slug, $child_term->slug); ?>>
+                                            <?php echo esc_html($child_term->name); ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </select>
                             <?php
-                            $args = array(
-                                'taxonomy' => 'case_clinic',
-                                'name' => 'case_clinic',
-                                'depth' => '0',
-                                'hide_empty' => '1',
-                                'show_option_all' => 'クリニックから探す（全て）',
-                                'option_none_value' => 'クリニックから探す（全て）',
-                                'value_field' => 'slug',
-                                'selected' => $post_case_clinic
-                            );
-                            //wp_dropdown_categories($args);
-                            ob_start();
-                            wp_dropdown_categories($args);
-                            $dropdown = ob_get_clean();
-
-                            // ラジオボタンに変換
-                            $radio_buttons = str_replace(
-                                array('<select', '</select>'),
-                                array('<div', '</div>'),
-                                $dropdown
-                            );
-                            $radio_buttons = str_replace(
-                                array('<option', '</option>', 'selected'),
-                                array('<label><input type="radio" name="case_clinic"', '</label>', 'checked'),
-                                $radio_buttons
-                            );
-                            echo $radio_buttons;
-
+                        } else {
+                            // 親タームがない場合は親カテゴリのみ表示
+                            $parent_terms = get_terms(array(
+                                'taxonomy' => 'case_category',
+                                'parent' => 0,
+                                'hide_empty' => 1,
+                            ));
                             ?>
-                            <!--/case_pulldown-->
-                        </div>
-
-
-                        <div class="case_search_kw">
-                            <input type="search" class="searchfield" name="s" value="<?php echo get_search_query(); ?>" />
-                            <input type="hidden" name="post_type" value="case">
-                            <input type="submit" value="検索" accesskey="f" />
-                        </div>
-                        <!--/case_search-->
+                            <select name="case_category" id="case_category_select" class="search-case-filter__select">
+                                <option value="">全てのカテゴリ</option>
+                                <?php if (!empty($parent_terms) && !is_wp_error($parent_terms)): ?>
+                                    <?php foreach ($parent_terms as $term): ?>
+                                        <option value="<?php echo esc_attr($term->slug); ?>" <?php selected($current_category_slug, $term->slug); ?>>
+                                            <?php echo esc_html($term->name); ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </select>
+                            <?php
+                        }
+                        ?>
                     </div>
-                </form>
+                </div>
+
+                <!-- クリニック選択 -->
+                <div class="search-case-filter__group">
+                    <label class="search-case-filter__label">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 21V5C19 3.89543 18.1046 3 17 3H7C5.89543 3 5 3.89543 5 5V21M19 21H5M19 21H21M5 21H3M9 7H10M9 11H10M14 7H15M14 11H15M12 21V16H12V21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        クリニック
+                    </label>
+                    <div class="search-case-filter__select-wrap">
+                        <?php
+                        wp_dropdown_categories(array(
+                            'taxonomy' => 'case_clinic',
+                            'name' => 'case_clinic',
+                            'id' => 'case_clinic_select',
+                            'class' => 'search-case-filter__select',
+                            'hide_empty' => 1,
+                            'value_field' => 'slug',
+                            'selected' => $current_clinic_id,
+                            'show_option_all' => '全てのクリニック',
+                        ));
+                        ?>
+                    </div>
+                </div>
+
+                <!-- キーワード検索 -->
+                <div class="search-case-filter__group search-case-filter__group--keyword">
+                    <label class="search-case-filter__label">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        キーワード
+                    </label>
+                    <input type="search"
+                           name="s"
+                           class="search-case-filter__input"
+                           placeholder="施術名などで検索"
+                           value="<?php echo esc_attr($search_query); ?>">
+                </div>
+
+                <!-- 検索ボタン -->
+                <div class="search-case-filter__group search-case-filter__group--submit">
+                    <button type="submit" class="search-case-filter__submit">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        検索する
+                    </button>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
-    <div class="sec-in">
+</section>
+
+<section class="search-case-results">
+    <div class="search-case-results__inner">
         <?php if (have_posts()): ?>
-            <ul>
-                <?php while (have_posts()): the_post(); ?>
-                    <li>
-                        <?php $attachment_id = CFS()->get('case_image', $post->ID); ?>
-                        <?php $url = wp_get_attachment_image_url($attachment_id); ?>
-                        <a href="<?php echo $url ?>" data-src="#pop-<?php the_ID(); ?>" data-fancybox="group">
-                            <div style="background-image:url(<?php echo wp_get_attachment_image_url($attachment_id, 'case_image_s'); ?>);background-repeat:no-repeat;background-size:contain;background-position:center;aspect-ratio: 1/1;display: flex;flex-wrap: wrap;align-items: flex-end;align-content: flex-end;">
-
-                                <span class="case-info"><?php echo CFS()->get('case_clinic'); ?></span>
-                            </div>
-                            <h3 class="case-info"><?php echo CFS()->get('case_name'); ?></h3>
-                        </a>
-                    </li>
-                <?php endwhile; ?>
-            </ul>
             <?php
-            if (function_exists('wp_pagenavi')) {
-                wp_pagenavi();
-            }
+            global $wp_query;
+            $total_posts = $wp_query->found_posts;
             ?>
-            <?php wp_reset_query(); ?>
-            <?php /* ?>検索内容に該当するものがなかった場合<?php */ ?>
-        <?php else: ?>
-            <div class="library_s_box">
-                <p>一致する症例は見つかりませんでした。</p>
-                <!-- /#result-list -->
-            </div>
+            <p class="search-case-results__count">
+                <span class="search-case-results__count-num"><?php echo esc_html($total_posts); ?></span>件の症例が見つかりました
+            </p>
 
-        <?php endif; ?>
-
-        <div class="popup_content_Wrap">
-            <?php if (have_posts()): ?>
+            <ul class="search-case-results__grid">
                 <?php while (have_posts()): the_post(); ?>
-                    <?php $attachment_id = CFS()->get('case_image', $post->ID); ?>
-                    <div id="pop-<?php the_ID(); ?>" class="popup_box">
-                        <div class="popup_box_inner">
-                            <div class="popup_box_l">
-                                <?php echo wp_get_attachment_image($attachment_id, 'full'); ?>
+                    <?php
+                    $attachment_id = CFS()->get('case_image', $post->ID);
+                    $case_clinic = CFS()->get('case_clinic');
+                    $case_name = CFS()->get('case_name');
+                    $image_url = wp_get_attachment_image_url($attachment_id, 'case_image_s');
+                    $image_url_full = wp_get_attachment_image_url($attachment_id, 'full');
+                    ?>
+                    <li class="search-case-card">
+                        <a href="<?php echo esc_url($image_url_full); ?>"
+                           class="search-case-card__link"
+                           data-fancybox="case-gallery"
+                           data-src="#popup-<?php the_ID(); ?>">
+                            <div class="search-case-card__image-wrap">
+                                <?php if ($image_url): ?>
+                                    <img src="<?php echo esc_url($image_url); ?>"
+                                         alt="<?php echo esc_attr($case_name); ?>"
+                                         class="search-case-card__image"
+                                         loading="lazy">
+                                <?php else: ?>
+                                    <div class="search-case-card__no-image">No Image</div>
+                                <?php endif; ?>
                             </div>
-                            <div class="popup_box_r">
-                                <p style="color: #937F65;font-family: 'Futura Midium';font-size: 22px;margin-bottom: -5px !important;font-weight: 600;">
-                                    <?php echo CFS()->get('case_clinic', $dk_post->ID); ?>
-                                </p>
-                                <p style="color: #937f65;font-weight: 600;margin-bottom: -5px !important; padding-top: 10px;">
-                                    <?php echo CFS()->get('case_name', $dk_post->ID); ?>
-                                </p>
-                                <h3 style="margin-top: 0px;margin-bottom: 30px;">
-                                    <?php //echo CFS()->get('case_name');
-                                    ?>
-                                </h3>
-                                <div>
-                                    <dl>
-                                        <dd></dd>
-                                    </dl>
+                            <div class="search-case-card__content">
+                                <?php if ($case_clinic): ?>
+                                    <span class="search-case-card__clinic"><?php echo esc_html($case_clinic); ?></span>
+                                <?php endif; ?>
+                                <h3 class="search-case-card__title"><?php echo esc_html($case_name); ?></h3>
+                            </div>
+                        </a>
+
+                        <!-- ポップアップコンテンツ -->
+                        <div id="popup-<?php the_ID(); ?>" class="search-case-popup" style="display: none;">
+                            <div class="search-case-popup__inner">
+                                <div class="search-case-popup__image">
+                                    <?php if ($image_url_full): ?>
+                                        <img src="<?php echo esc_url($image_url_full); ?>"
+                                             alt="<?php echo esc_attr($case_name); ?>">
+                                    <?php endif; ?>
+                                </div>
+                                <div class="search-case-popup__content">
+                                    <?php if ($case_clinic): ?>
+                                        <p class="search-case-popup__clinic"><?php echo esc_html($case_clinic); ?></p>
+                                    <?php endif; ?>
+                                    <h3 class="search-case-popup__title"><?php echo esc_html($case_name); ?></h3>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </li>
                 <?php endwhile; ?>
-            <?php else : ?>
+            </ul>
+
+            <?php if (function_exists('wp_pagenavi')): ?>
+                <div class="search-case-results__pagination">
+                    <?php wp_pagenavi(); ?>
+                </div>
             <?php endif; ?>
+
             <?php wp_reset_query(); ?>
-
-        </div>
-
-
+        <?php else: ?>
+            <div class="search-case-results__empty">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="#ccc" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <p class="search-case-results__empty-text">一致する症例は見つかりませんでした。</p>
+                <p class="search-case-results__empty-hint">検索条件を変更してお試しください。</p>
+            </div>
+        <?php endif; ?>
     </div>
-</div>
+</section>
 
 <?php get_template_part('content', 'footer-contact'); ?>
 
