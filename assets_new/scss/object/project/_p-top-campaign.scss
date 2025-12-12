@@ -121,7 +121,7 @@
   padding-inline: rm8(16);
   padding-block: rm8(6);
   background-color: var(--color-light-gray);
-  border-radius: calc(infinity * 1px);
+  border-radius: 9999px;
   width: fit-content;
   @include mq(sp) {
     padding-inline: rm(12);

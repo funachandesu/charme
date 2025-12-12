@@ -189,9 +189,6 @@ if ($current_category_term && !is_wp_error($current_category_term)) {
                     $attachment_id = CFS()->get('case_image', $post->ID);
                     $case_clinic = CFS()->get('case_clinic');
                     $case_name = CFS()->get('case_name');
-                    $case_name1 = CFS()->get('case_name1');
-                    $case_price = CFS()->get('case_price');
-                    $case_risk = CFS()->get('case_risk');
                     $image_url = wp_get_attachment_image_url($attachment_id, 'case_image_s');
                     $image_url_full = wp_get_attachment_image_url($attachment_id, 'full');
                     ?>
@@ -228,28 +225,10 @@ if ($current_category_term && !is_wp_error($current_category_term)) {
                                     <?php endif; ?>
                                 </div>
                                 <div class="search-case-popup__content">
-                                    <?php if ($case_name1): ?>
-                                        <p class="search-case-popup__label"><?php echo esc_html($case_name1); ?></p>
-                                    <?php endif; ?>
                                     <?php if ($case_clinic): ?>
                                         <p class="search-case-popup__clinic"><?php echo esc_html($case_clinic); ?></p>
                                     <?php endif; ?>
                                     <h3 class="search-case-popup__title"><?php echo esc_html($case_name); ?></h3>
-
-                                    <dl class="search-case-popup__info">
-                                        <?php if ($case_price): ?>
-                                            <div class="search-case-popup__info-item">
-                                                <dt>料金</dt>
-                                                <dd><?php echo esc_html($case_price); ?></dd>
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($case_risk): ?>
-                                            <div class="search-case-popup__info-item">
-                                                <dt>リスク・副作用</dt>
-                                                <dd><?php echo esc_html($case_risk); ?></dd>
-                                            </div>
-                                        <?php endif; ?>
-                                    </dl>
                                 </div>
                             </div>
                         </div>

@@ -5,7 +5,12 @@
   padding-block: rm(120) rm(24);
   height: auto !important;
   font-family: $ff-jp;
-  
+
+  box-sizing: border-box;
+  * {
+    box-sizing: border-box;
+  }
+
   @include mq(sp) {
     padding-block: rm(80) rm(16);
   }

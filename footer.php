@@ -29,7 +29,7 @@
       <div class="l-footer__top">
         <div class="l-footer__logo-wrap">
           <a href="<?php echo is_front_page() ? '#top' : esc_url(home_url('/')); ?>" class="l-footer__logo">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets_new/img/img_footer-logo.webp'); ?>" alt="Charme Concierge" class="l-footer__logo-img" width="260" height="69" />
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/charme_new_logo_black.png'); ?>" alt="Charme Concierge" class="l-footer__logo-img" />
           </a>
         </div>
         <div class="l-footer__sns">

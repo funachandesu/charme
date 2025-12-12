@@ -79,7 +79,7 @@
             <div class="l-header__inner">
                 <h1 class="l-header__logo-wrap">
                     <a href="<?php echo is_front_page() ? '#top' : esc_url(home_url('/')); ?>" class="l-header__logo-link">
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets_new/img/logo.webp'); ?>" alt="Charme Concierge" class="l-header__logo-img" width="160" height="43" />
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/charme_new_logo_black.png'); ?>" alt="Charme Concierge" class="l-header__logo-img" />
                     </a>
                 </h1>
                 <button class="p-drawer__icon" type="button" aria-label="メニューを開く">
