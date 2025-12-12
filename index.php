@@ -366,15 +366,15 @@
                                     }
                                     ?>
 
-                                    // TODO: 【コンカイさん対応依頼】クリニックページに遷移するように設定
                                     <li class="p-top-clinic__slide splide__slide">
-                                        <img class="p-top-clinic__splide-slide-img"
-                                            src="<?php echo esc_url($logo_url); ?>"
-                                            alt="<?php echo esc_attr($img_alt); ?>"
-                                            width="160" height="160"
-                                            loading="lazy" />
-                                        // TODO: 【コンカイさん対応依頼】縦並びになる形でよしなに表示
-                                        <p><?php echo $img_alt;?></p>
+                                        <a class="p-top-clinic__slide-link" href="<?php the_permalink(); ?>">
+                                            <img class="p-top-clinic__splide-slide-img"
+                                                src="<?php echo esc_url($logo_url); ?>"
+                                                alt="<?php echo esc_attr($img_alt); ?>"
+                                                width="160" height="160"
+                                                loading="lazy" />
+                                            <p class="p-top-clinic__slide-ttl"><?php echo $img_alt; ?></p>
+                                        </a>
                                     </li>
 
                                 <?php endwhile; ?>
@@ -479,6 +479,23 @@
 
                                     <?php
                                     // ----------------------------------------------------
+                                    // タクソノミー（case_category）の一覧（ターム）URL
+                                    // 例）/case/eye
+                                    // ----------------------------------------------------
+                                    $term_link = '';
+
+                                    $terms = get_the_terms(get_the_ID(), 'case_category');
+                                    if (!is_wp_error($terms) && !empty($terms)) {
+                                        // ひとまず最初のタームを採用（必要なら選別ロジック追加）
+                                        $term_link = get_term_link($terms[0], 'case_category');
+                                    }
+
+                                    // タームが無い場合のフォールバック（必要に応じて変更）
+                                    if (empty($term_link) || is_wp_error($term_link)) {
+                                        $term_link = home_url('/case/'); // 例：case一覧へ
+                                    }
+
+                                    // ----------------------------------------------------
                                     // 画像（CFS の case_image = 添付ファイルID）
                                     // ----------------------------------------------------
                                     $case_image_id = CFS()->get('case_image');
@@ -486,53 +503,40 @@
                                     if (!empty($case_image_id)) {
                                         $thumb_url = wp_get_attachment_image_url($case_image_id, 'medium_large');
                                     } else {
-                                        // デフォルト画像
                                         $thumb_url = get_template_directory_uri() . '/assets_new/img/img_top-case-item1.webp';
                                     }
 
                                     // ----------------------------------------------------
-                                    // タイトル（CFS の case_name）
-                                    // <br> をそのまま許可 & 改行として有効
+                                    // タイトル（CFS の case_name） <br> 許可
                                     // ----------------------------------------------------
                                     $case_name_raw = CFS()->get('case_name');
-
-                                    // <br> を許可して安全に出力
-                                    $case_name = wp_kses(
-                                        $case_name_raw,
-                                        array(
-                                            'br' => array(), // <br> <br /> を許可
-                                        )
-                                    );
+                                    $case_name = wp_kses($case_name_raw, array('br' => array()));
 
                                     // ----------------------------------------------------
                                     // クリニック名（CFS の case_clinic）
                                     // ----------------------------------------------------
                                     $case_clinic = CFS()->get('case_clinic');
                                     ?>
-                                    // TODO: 【コンカイさん対応依頼】該当の症例カテゴリの一覧ページに遷移
+
                                     <li class="p-top-case__slide splide__slide">
+                                        <a class="p-top-case__slide-link" href="<?php echo esc_url($term_link); ?>">
+                                            <img
+                                                src="<?php echo esc_url($thumb_url); ?>"
+                                                alt="<?php echo esc_attr(strip_tags($case_name_raw)); ?>"
+                                                class="p-top-case__slide-img"
+                                                width="362"
+                                                height="241"
+                                                loading="lazy" />
 
-                                        <img src="<?php echo esc_url($thumb_url); ?>"
-                                            alt="<?php echo esc_attr(strip_tags($case_name_raw)); ?>"
-                                            class="p-top-case__slide-img"
-                                            width="362"
-                                            height="241"
-                                            loading="lazy" />
-
-                                        <div class="p-top-case__slide-body">
-
-                                            <h3 class="p-top-case__slide-title">
-                                                <?php echo $case_name; ?>
-                                            </h3>
-
-                                            <p class="p-top-case__slide-sentence">
-                                                <?php echo esc_html($case_clinic); ?>
-                                            </p>
-
-                                        </div>
+                                            <div class="p-top-case__slide-body">
+                                                <h3 class="p-top-case__slide-title"><?php echo $case_name; ?></h3>
+                                                <p class="p-top-case__slide-sentence"><?php echo esc_html($case_clinic); ?></p>
+                                            </div>
+                                        </a>
                                     </li>
 
                                 <?php endwhile; ?>
+
 
                             </ul>
 

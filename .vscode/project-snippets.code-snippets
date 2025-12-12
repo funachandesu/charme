@@ -1,0 +1,68 @@
+{
+  "scope": "html",
+  "snippets": {
+    "画像タグ生成": {
+      "prefix": "img-wp-new",
+      "body": [
+        "<img src=\"<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/$1\" alt=\"\" class=\"p-$2__img\" width=\"$3\" height=\"$4\" loading='lazy' />"
+      ],
+      "description": "PHPを使用して画像タグを生成するスニペット"
+    },
+    "セクションテンプレート": {
+      "prefix": "new-section",
+      "body": [
+        "<section class=\"p-$1 l-top-section\" id=\"$1\">",
+        "  <div class=\"l-inner\">",
+        "    <div class=\"p-$1__head l-top-section__head\">",
+        "      <hgroup class=\"p-$1__header c-section-ttl\">",
+        "        <p class=\"c-section-ttl__sub\" lang=\"en\"></p>",
+        "        <h2 class=\"c-section-ttl__ja\"></h2>",
+        "      </hgroup>",
+        "    </div>",
+        "    <div class=\"p-$1__content l-top-section__content\">",
+        "      $2",
+        "    </div>",
+        "  </div>",
+        "</section>"
+      ],
+      "description": "BEMとユーティリティクラスを使用したセクション構造のテンプレート"
+    },
+    "LINE CTAボタン": {
+      "prefix": "c-cta",
+      "body": [
+        "<a href=\"\" class=\"c-cta-btn --grad --center --line p-$1__btn\">",
+        "    <img src=\"<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/icon_line-cta.svg\" alt=\"LINE\" class=\"c-cta-btn__line-icon\" width=\"40\" height=\"40\" loading='lazy' />",
+        "    <span class=\"c-cta-btn__text\">LINEで割引情報をGET！</span>",
+        "    <svg class=\"c-cta-btn__arrow\" width=\"12\" height=\"24\" viewBox=\"0 0 12 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">",
+        "        <path d=\"M1.49964 3.00086L10.4996 12.0009L1.49964 21.0009L1.49964 3.00086Z\" fill=\"white\" />",
+        "    </svg>",
+        "</a>"
+      ],
+      "description": "LINEで割引情報を取得するためのCTAボタン"
+    },
+    "ピクチャー要素(WP)": {
+      "prefix": "pic-wp-new",
+      "body": [
+        "<picture class=\"p-$1__picture\">",
+        "  <source media=\"(max-width: 767.9px)\" srcset=\"<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/\">",
+        "  <img class=\"p-$1__img\" src=\"<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/\" alt=\"\"  width=\"$2\" height=\"$3\" loading=\"lazy\">",
+        "</picture>"
+      ],
+      "description": "レスポンシブ画像のためのピクチャー要素"
+    },
+    "SNSリンク(出力)": {
+      "prefix": "sns-link-echo",
+      "body": [
+        "href='<?php echo esc_url(\\$sns['${1|line,inst,tiktok|}']); ?>'"
+      ],
+      "description": "SNSリンク(出力)"
+    },
+    "SNSリンク(読み込み)": {
+      "prefix": "sns-link-get",
+      "body": [
+        "<?php \\$sns = charme_get_sns_links(); ?>"
+      ],
+      "description": "SNSリンク(読み込み)"
+    },
+  }
+}
