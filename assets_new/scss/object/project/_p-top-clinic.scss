@@ -61,7 +61,7 @@
 
 .p-top-clinic__slide-link{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   width: 100%;
@@ -70,7 +70,7 @@
 
 .p-top-clinic__splide-slide-img {
   width: rm(160);
-  height: auto;
+  height: rm(120);
   object-fit: cover;
   object-position: center;
 }
