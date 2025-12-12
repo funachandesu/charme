@@ -104,14 +104,6 @@
                                 </a>
                             </li>
                             <li class="p-drawer__list-item">
-                                <a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>" class="p-drawer__link">
-                                    <span class="p-drawer__link-text">サービス</span>
-                                    <svg class="p-drawer__link-icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4.6 6L0 1.4L1.4 0L7.4 6L1.4 12L0 10.6L4.6 6Z" fill="#424242" />
-                                    </svg>
-                                </a>
-                            </li>
-                            <li class="p-drawer__list-item">
                                 <a href="<?php echo esc_url(get_post_type_archive_link('case')); ?>" class="p-drawer__link">
                                     <span class="p-drawer__link-text">症例</span>
                                     <svg class="p-drawer__link-icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -449,7 +441,6 @@
                             <ul>
                                 <li></li>
                                 <li><a href="<?php echo esc_url(get_permalink(1912)); ?>">ABOUT<span class="nav-global-ins-detail">ーCHARMEとはー</span></a></li>
-                                <li><a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>">SERVICE<span class="nav-global-ins-detail">ーサービスー</span></a></li>
                                 <li><a href="<?php echo esc_url(get_post_type_archive_link('case')); ?>">CASE<span class="nav-global-ins-detail">ー症例ー</span></a></li>
                                 <li><a href="<?php echo esc_url(home_url('/concierge')); ?>">CONCIERGE<span class="nav-global-ins-detail">ーコンシェルジュー</span></a></li>
                                 <li><a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>">CAMPAIGN<span class="nav-global-ins-detail">ーキャンペーンー</span></a></li>
@@ -475,7 +466,6 @@
                             <ul>
                                 <li></li>
                                 <li><a href="<?php echo esc_url(get_permalink(1912)); ?>">ABOUT<span class="nav-global-ins-detail">ーCHARMEとはー</span></a></li>
-                                <li><a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>">SERVICE<span class="nav-global-ins-detail">ーサービスー</span></a></li>
                                 <li><a href="<?php echo esc_url(get_post_type_archive_link('case')); ?>">CASE<span class="nav-global-ins-detail">ー症例ー</span></a></li>
                                 <li><a href="<?php echo esc_url(home_url('/concierge')); ?>">CONCIERGE<span class="nav-global-ins-detail">ーコンシェルジュー</span></a></li>
                                 <li><a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>">CAMPAIGN<span class="nav-global-ins-detail">ーキャンペーンー</span></a></li>

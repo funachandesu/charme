@@ -74,11 +74,6 @@
             </a>
           </li>
           <li class="l-footer__nav-item">
-            <a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>" class="l-footer__nav-link">
-              <span class="l-footer__nav-link-text">サービス</span>
-            </a>
-          </li>
-          <li class="l-footer__nav-item">
             <a href="<?php echo esc_url(get_post_type_archive_link('case')); ?>" class="l-footer__nav-link">
               <span class="l-footer__nav-link-text">症例</span>
             </a>
