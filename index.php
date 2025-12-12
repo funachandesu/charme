@@ -289,7 +289,7 @@
                         <h3 class="p-top-flow__item-ttl">割引付きで<br class="u-pc">予約代行</h3>
                     </div>
                 </div>
-                <a href='<?php echo esc_url($sns['line']); ?>' class="c-cta-btn --grad --center --line p-top-flow__btn">
+                <a href='<?php echo esc_url($sns['line']); ?>' target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="c-cta-btn --grad --center --line p-top-flow__btn">
                     <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/icon_line-cta.svg" alt="LINE" class="c-cta-btn__line-icon" width="40" height="40" loading='lazy' />
                     <span class="c-cta-btn__text">LINEで相談する</span>
                     <svg class="c-cta-btn__arrow" width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -764,7 +764,7 @@
                         <source media="(max-width: 767.9px)" srcset="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_line-sns-balloon-sp.webp">
                         <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_line-sns-balloon.webp" alt="" class="p-top-line-sns__balloon-img" width="432" height="84" loading='lazy' />
                     </picture>
-                    <a href='<?php echo esc_url($sns['line']); ?>' class="c-cta-btn --grad --center --line p-top-line-sns__btn">
+                    <a href='<?php echo esc_url($sns['line']); ?>' target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="c-cta-btn --grad --center --line p-top-line-sns__btn">
                         <div class="p-top-line-sns__btn-container">
                             <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/icon_line-cta.svg" alt="LINE" class="c-cta-btn__line-icon" width="40" height="40" loading='lazy' />
                             <span class="c-cta-btn__text">LINEで割引情報をGET！</span>
