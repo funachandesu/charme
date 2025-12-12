@@ -270,7 +270,7 @@
                             <source media="(max-width: 767.9px)" srcset="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item2-sp.webp">
                             <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item2.webp" alt="" class="p-top-flow__item-img" width="236" height="256" loading='lazy' />
                         </picture>
-                        <h3 class="p-top-flow__item-ttl">オンライン面談を<br class="u-pc">予約</h3>
+                        <h3 class="p-top-flow__item-ttl">行きたいクリニックを<br class="u-pc">予約</h3>
                     </div>
                     <div class="p-top-flow__item">
                         <div class="p-top-flow__item-num" lang='en'>03</div>
@@ -278,7 +278,7 @@
                             <source media="(max-width: 767.9px)" srcset="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item3-sp.webp">
                             <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets_new/img/img_flow-item3.webp" alt="" class="p-top-flow__item-img" width="236" height="256" loading='lazy' />
                         </picture>
-                        <h3 class="p-top-flow__item-ttl">適切なクリニック<br class="u-pc">&施術を提案</h3>
+                        <h3 class="p-top-flow__item-ttl">お悩みの方は<br>適切なクリニック&施術を提案</h3>
                     </div>
                     <div class="p-top-flow__item">
                         <div class="p-top-flow__item-num" lang='en'>04</div>
