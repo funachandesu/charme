@@ -546,7 +546,7 @@ h2.title-en {
     font-size: 28px;
     line-height: 42px;
     letter-spacing: 5px;
-    color: #937f65;
+    color: #ff4469;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
@@ -566,7 +566,7 @@ h3.title-ja:before {
     right: calc(100% + 10px);
     height: 1px;
     width: 50vw;
-    background: #937f65;
+    background: #ff4469;
     top: 14px
 }
 
@@ -823,7 +823,7 @@ h3.title-ja:before {
     display : -webkit-flex;    /* Safari etc. */
     display : -ms-flexbox;     /* IE10        */
     flex-wrap: wrap;
-    border-bottom: 1px solid #937f65;
+    border-bottom: 1px solid #ff4469;
 }
 
 #main .list-clinic-logo .first{
@@ -2934,7 +2934,7 @@ ul.service-list-clinic li .left {
 }
 
 .sec-service ul.service-list-clinic li .left {
-    background: #937f65;
+    background: #ff4469;
     display: flex;
     align-items: center;
     justify-content: center
@@ -2964,7 +2964,7 @@ ul.service-list-clinic li .right {
 
 ul.service-list-clinic li .right .service-title {
     padding-right: 185px;
-    color: #937f65;
+    color: #ff4469;
     font-size: 16px;
     font-weight: 700;
     line-height: 25px;
@@ -3035,7 +3035,7 @@ ul.service-list-clinic li .right .service-info .tag {
 ul.service-list-clinic li .right .service-info .tag a {
     padding: 3px 10px;
     margin: 0 2px 0 2px ;
-    /* border: 1px solid #937f65; */
+    /* border: 1px solid #ff4469; */
     color: #000;
     font-size: 13px;
     background-color: rgba(174, 159, 140, 0.3);
@@ -3331,7 +3331,7 @@ ul.service-list-clinic li .right .service-info .tag a {
 #page-clinic .sec-clinic-detail .main h4 {
     margin: 0 0 24px 0;
     padding: 0 0 18px 0;
-    color: #937f65;
+    color: #ff4469;
     font-size: 18px;
     font-weight: bold;
     border-bottom: 1px solid #424242;
@@ -3371,7 +3371,7 @@ ul.service-list-clinic li .right .service-info .tag a {
 
 #page-clinic .sec-clinic-detail .main .sec-doctor h5 {
     margin: 0 0 8px 0;
-    color: #937f65;
+    color: #ff4469;
     font-size: 15px;
     font-weight: bold;
 }
@@ -3382,7 +3382,7 @@ ul.service-list-clinic li .right .service-info .tag a {
 
 #page-clinic .sec-clinic-detail .main .sec-campaign h5 {
     margin: 0 0 8px 0;
-    color: #937f65;
+    color: #ff4469;
     font-size: 15px;
     font-weight: bold;
 }
@@ -3403,7 +3403,7 @@ ul.service-list-clinic li .right .service-info .tag a {
     padding: 16px;
     width: 20%;
     background: #fdf8eb;
-    border: 1px dotted #937f65;
+    border: 1px dotted #ff4469;
     box-sizing: border-box;
     text-align: left;
 }
@@ -3411,7 +3411,7 @@ ul.service-list-clinic li .right .service-info .tag a {
 #page-clinic .sec-clinic-detail .main .sec-campaign .table td {
     padding: 16px;
     width: 80%;
-    border: 1px dotted #937f65;
+    border: 1px dotted #ff4469;
     box-sizing: border-box;
 }
 
@@ -3421,7 +3421,7 @@ ul.service-list-clinic li .right .service-info .tag a {
 
 #page-clinic .sec-clinic-detail .main .list-point li {
     margin: 30px auto;
-    color: #937f65;
+    color: #ff4469;
     font-size: 16px;
     font-weight: bold;
     list-style: none;
@@ -3480,21 +3480,21 @@ ul.service-list-clinic li .right .service-info .tag a {
 width: 50%;
 }
 .contact-clinic .contact-clinic-mail p {
-    color: #937f65;
+    color: #ff4469;
     font-family: "Noto Sans CJK JP Medium", sans-serif;
 }
 .contact-clinic .contact-clinic-detail {
     width: 50%;
     }
     .contact-clinic .contact-clinic-detail p {
-        color: #937f65;
+        color: #ff4469;
         font-family: "Noto Sans CJK JP Medium", sans-serif;
     }
     .contact-clinic .contact-btn {
     display: flex;
     float: left;
     margin: 10px auto;
-    border: 1px solid #937f65;
+    border: 1px solid #ff4469;
     background-color: #fff;
     width: 93%;
     height: 100px;
@@ -3507,7 +3507,7 @@ width: 50%;
     height: 100%;
     font-family: "Noto Sans CJK JP Bold", sans-serif;
     font-size: 1.8rem;
-    color: #937f65;
+    color: #ff4469;
     letter-spacing: 0.1em;
     text-decoration: none;
 }
@@ -4141,21 +4141,21 @@ width: 50%;
 width: 50%;
 }
 .contact-flow .contact-pc-line-flow p {
-    color: #937f65;
+    color: #ff4469;
     font-family: "Noto Sans CJK JP Medium", sans-serif;
 }
 .contact-flow .contact-pc-mail-flow {
     width: 50%;
     }
     .contact-flow .contact-pc-mail-flow p {
-        color: #937f65;
+        color: #ff4469;
         font-family: "Noto Sans CJK JP Medium", sans-serif;
     }
     .contact-flow .contact-btn {
     display: flex;
     float: left;
     margin: 10px auto;
-    border: 1px solid #937f65;
+    border: 1px solid #ff4469;
     background-color: #fff;
     width: 90.9%;
     height: 125px;
@@ -4167,7 +4167,7 @@ width: 50%;
     height: 100%;
     font-family: "Futura Midium", sans-serif;
     font-size: 2.8rem;
-    color: #937f65;
+    color: #ff4469;
     letter-spacing: 0.1em;
     text-decoration: none;
 }
@@ -4381,7 +4381,7 @@ width: 50%;
 #page-faq #main .sec-faq dt {
     position: relative;
     padding: 32px 40px 32px 80px;
-    border-top: 1px solid #937f65;
+    border-top: 1px solid #ff4469;
     line-height: 1.57;
     color: #424242;
     font-family: "Noto Sans CJK JP Medium", sans-serif;
@@ -4605,7 +4605,7 @@ width: 50%;
     top: 0;
     left: 0;
     font-family: 'Futura Midium', serif;
-    color: #937f65;
+    color: #ff4469;
     font-size: 30px;
 }
 
@@ -5267,7 +5267,7 @@ ul.news {
     width: 271px;
     max-width: 100%;
     height: 271px;
-    background: #937f65;
+    background: #ff4469;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -5298,9 +5298,9 @@ ul.news {
     font-size: 12px;
     line-height: 15px;
     letter-spacing: 1.6px;
-    color: #937f65;
+    color: #ff4469;
     padding: 10px 15px;
-    border: 1px solid #937f65;
+    border: 1px solid #ff4469;
   }
 
   .news-datetime span {
@@ -5308,7 +5308,7 @@ ul.news {
     font-size: 12px;
     line-height: 15px;
     letter-spacing: 1.6px;
-    color: #937f65;
+    color: #ff4469;
     margin-left: 10px;
     text-decoration: uppercase;
   }
@@ -5456,7 +5456,7 @@ ul.news {
 #page-company #main .sec-company dl {
     display: flex;
     flex-flow: row wrap;
-    border-bottom: 1px solid #937f65;
+    border-bottom: 1px solid #ff4469;
     letter-spacing: 0.08em;
     line-height: 1.86;
 }
@@ -5465,7 +5465,7 @@ ul.news {
     display: flex;
     padding: 32px 16px;
     width: 240px;
-    border-top: 1px solid #937f65;
+    border-top: 1px solid #ff4469;
     box-sizing: border-box;
     font-family: "Noto Sans CJK JP Medium", sans-serif;
     letter-spacing: 0.5rem;
@@ -5476,7 +5476,7 @@ ul.news {
     padding: 32px 16px;
     width: calc(100% - 240px);
     background: #fff;
-    border-top: 1px solid #937f65;
+    border-top: 1px solid #ff4469;
     box-sizing: border-box;
     font-family: "Noto Sans CJK JP Medium", sans-serif;
     letter-spacing: 0.4rem;
@@ -5566,8 +5566,8 @@ ul.news {
     font-size: 16px;
     font-weight: bold;
     letter-spacing: 0.08em;
-    border-bottom :1px solid #937f65;
-    color: #937f65;
+    border-bottom :1px solid #ff4469;
+    color: #ff4469;
     font-family: "Noto Sans CJK JP Medium", sans-serif;
 }
 
@@ -5858,7 +5858,7 @@ ul.news {
 
 .sec-case-detail ul {
     font-size: 0;
-    border-bottom: 1px solid #937f65;
+    border-bottom: 1px solid #ff4469;
 }
 
 .sec-case-detail ul li {
@@ -5901,7 +5901,7 @@ ul.news {
     margin-top: 15px;
     font-size: 1.4rem;
     color: #fff;
-    background: #937f65;
+    background: #ff4469;
     padding: 5px;
     line-height: 120%;
 }
@@ -6110,7 +6110,7 @@ ul.news {
     font-size: 1.4rem;
     font-weight: bold;
     width: 100%;
-    color: #937f65;
+    color: #ff4469;
     display: inline-block;
     font-family: "Futura Midium", sans-serif;
     margin-bottom: 10px;
@@ -6231,7 +6231,7 @@ ul.news {
 
     .sec-campaign ul li{
         margin-bottom: 40px;
-        border-bottom:1px solid #937f65;
+        border-bottom:1px solid #ff4469;
         width: 100%;
     }
 
@@ -6303,7 +6303,7 @@ ul.news {
     font-size: 1.4rem;
     font-family: "Noto Sans CJK JP Medium", sans-serif;
     padding: 6px 20px;
-    color: #937f65;
+    color: #ff4469;
     display: flex;
     margin-bottom: 15px;
     float: right;
@@ -6328,8 +6328,8 @@ ul.news {
 .sec-campaign-detail_r img {}
 
 .sec-campaign-detail_recommend dl dt {
-    border-top: 1px solid #937f65;
-    border-bottom: 1px solid #937f65;
+    border-top: 1px solid #ff4469;
+    border-bottom: 1px solid #ff4469;
     padding: 15px 10px;
     text-align: center;
     color: #64510d;
@@ -6509,8 +6509,8 @@ ul.news {
 #main .sec-form .area-agree {
     margin: 24px 0 0 0;
     padding: 32px;
-    border-top: 1px solid #937f65;
-    border-bottom: 1px solid #937f65;
+    border-top: 1px solid #ff4469;
+    border-bottom: 1px solid #ff4469;
     box-sizing: border-box;
 }
 
@@ -6657,7 +6657,7 @@ ul.news {
     text-align: center;
     font-size: 50px;
     letter-spacing: 0.8rem;
-    color: #937f65;
+    color: #ff4469;
     font-family: "Roboto thin italic", sans-serif;
 }
 #main .sec-form .send-image {
@@ -7005,7 +7005,7 @@ ul.news {
     text-decoration: none;
     border: none ! important;
     font-size: 20px;
-    color: #937f65;
+    color: #ff4469;
     font-family: "Futura Midium", sans-serif;
 }
 
@@ -7527,7 +7527,7 @@ h3.title-ja-about2{
 ------------------------------ */
 #line {
     overflow: hidden;
-    border-top: 1px solid #937f65;
+    border-top: 1px solid #ff4469;
     background-color: #ebe7e1;
     padding: 50px 0 70px;
     text-align: center;
@@ -7549,7 +7549,7 @@ h3.title-ja-about2{
 .contact-btn {
     display: block;
     margin: 45px auto 0;
-    border: 1px solid #937f65;
+    border: 1px solid #ff4469;
     background-color: #fff;
     width: 42.9%;
     height: 69px;
@@ -7562,7 +7562,7 @@ h3.title-ja-about2{
       height: 100%;
       font-family: "Futura Midium", sans-serif;
       font-size: 2.8rem;
-      color: #937f65;
+      color: #ff4469;
       letter-spacing: 0.1em;
       text-decoration: none;
 }
@@ -7651,7 +7651,7 @@ h3.title-ja-about2{
 /* Contact
 ------------------------------ */
 #contact {
-    border-top: 1px solid #937f65;
+    border-top: 1px solid #ff4469;
     background-color: #ebe7e1;
     padding: 50px 0 70px;
     text-align: center;
@@ -7662,7 +7662,7 @@ h3.title-ja-about2{
     font-weight: bold;
     font-size: 5.2rem;
     letter-spacing: 0.15em;
-    color: #937f65;
+    color: #ff4469;
 }
     #contact div {
         margin-top: 30px;
@@ -7762,21 +7762,21 @@ h3.title-ja-about2{
 width: 50%;
 }
 #contact-pc .contact .contact-pc-line p {
-    color: #937f65;
+    color: #ff4469;
     font-family: "Noto Sans CJK JP Medium", sans-serif;
 }
 #contact-pc .contact .contact-pc-mail {
     width: 50%;
     }
     #contact-pc .contact .contact-pc-mail p {
-        color: #937f65;
+        color: #ff4469;
         font-family: "Noto Sans CJK JP Medium", sans-serif;
     }
     #contact-pc .contact .contact-btn {
     display: flex;
     float: left;
     margin: 10px auto;
-    border: 1px solid #937f65;
+    border: 1px solid #ff4469;
     background-color: #fff;
     width: 80.9%;
     height: 100px;
@@ -7789,7 +7789,7 @@ width: 50%;
     height: 100%;
     font-family: "Futura Midium", sans-serif;
     font-size: 2.8rem;
-    color: #937f65;
+    color: #ff4469;
     letter-spacing: 0.1em;
     text-decoration: none;
 }
@@ -7798,7 +7798,7 @@ width: 50%;
         font-size: 35px;
         line-height: 42px;
         letter-spacing: 5px;
-        color: #937f65;
+        color: #ff4469;
         text-transform: uppercase;
         margin-bottom: 10px;
 }
@@ -7926,10 +7926,10 @@ width: 50%;
 }
 #footer-menu a {
       padding: 20px 0;
-      border: 1px solid #937f65;
+      border: 1px solid #ff4469;
       border-bottom: none;
       font-family: "Noto Sans CJK JP Regular";
-      color: #937f65;
+      color: #ff4469;
         font-size: 2.5rem;
     line-height: 1.8;
     letter-spacing: 0.134em;
@@ -8097,7 +8097,7 @@ width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #937f65;
+    background-color: #ff4469;
     height: 80px;
     text-align: center;
     font-family: "Futura Midium", sans-serif;

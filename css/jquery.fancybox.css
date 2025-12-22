@@ -802,7 +802,7 @@ body.compensate-for-scrollbar {
     margin: 20px 0;
     border-bottom: 1px solid #a17f26;
     font-weight: bold;
-    color:#937F65;
+    color:#ff4469;
     padding-bottom: 20px;
 }
 .popup_box_r dl {
@@ -814,7 +814,7 @@ body.compensate-for-scrollbar {
 .popup_box_r dl dt {
     margin-bottom: 5px;
     font-weight: bold;
-    color:#937F65;
+    color:#ff4469;
 }
 body .fancybox-close-small{
     border: none;
@@ -825,7 +825,7 @@ body .fancybox-close-small::after {
     right: 0;
     width: 20px;
     height: 20px;
-    color: #937F65;
+    color: #ff4469;
     font-weight: 300;
     border-radius: 0;
     box-sizing: border-box;

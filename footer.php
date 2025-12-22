@@ -274,8 +274,8 @@
               html_popup += '[image]';
               html_popup += '</div>';
               html_popup += '<div class="popup_box_r">';
-              html_popup += '<p style="color: #937F65;font-family: \'Futura Midium\';font-size: 22px;margin-bottom: 5px !important;font-weight: 600;">[case_name1]</p>';
-              html_popup += '<p style="color: #937f65;font-weight: 600;margin-bottom: -5px !important;">[case_clinic]</p>';
+              html_popup += '<p style="color: #ff4469;font-family: \'Futura Midium\';font-size: 22px;margin-bottom: 5px !important;font-weight: 600;">[case_name1]</p>';
+              html_popup += '<p style="color: #ff4469;font-weight: 600;margin-bottom: -5px !important;">[case_clinic]</p>';
               html_popup += '<h3 style="margin-top: 0px;margin-bottom: 30px;"></h3>';
               html_popup += '<div>';
               html_popup += '<dl><dt style="font-size:24px; color: #000; letter-spacing: 5px;">[case_name]</dt></dl>';

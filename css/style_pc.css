@@ -326,14 +326,14 @@ h2.title-en {
   font-size: 35px;
   line-height: 42px;
   letter-spacing: 5px;
-  color: #937f65;
+  color: #ff4469;
   text-transform: uppercase;
   margin-bottom: 70px !important;
 }
 
 .title-en .title-ja {
   font-weight: bold;
-  color: #937f65;
+  color: #ff4469;
   font-family: 'Noto Sans CJK JP Light';
   font-size: 17px;
   letter-spacing: 1px;
@@ -382,7 +382,7 @@ ul.news li .news-img {
   width: 357px;
   max-width: 100%;
   height: 371px;
-  background: #937f65;
+  background: #ff4469;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -414,9 +414,9 @@ ul.news li img.placehoder {
   font-size: 12px;
   line-height: 15px;
   letter-spacing: 1.6px;
-  color: #937f65;
+  color: #ff4469;
   padding: 10px 15px;
-  border: 1px solid #937f65;
+  border: 1px solid #ff4469;
 }
 
 .news-datetime span {
@@ -424,7 +424,7 @@ ul.news li img.placehoder {
   font-size: 12px;
   line-height: 15px;
   letter-spacing: 1.6px;
-  color: #937f65;
+  color: #ff4469;
   margin-left: 10px;
   /*text-decoration: uppercase;*/
 }
@@ -608,7 +608,7 @@ ul.news li a.news-title {
   font-family: 'Noto Sans CJK JP Bold';
   font-size: 17px;
   letter-spacing: 2.4px;
-  color: #937f65;
+  color: #ff4469;
 }
 
 #sec-services ul.services li .des,
@@ -715,7 +715,7 @@ ul.news li a.news-title {
 
 #reason .sec-des {
   font-family: 'Noto Sans CJK JP Medium';
-  color: #937f65;
+  color: #ff4469;
   line-height: 30px;
   letter-spacing: 2.4px;
   font-size: 17px;
@@ -744,7 +744,7 @@ ul.news li a.news-title {
   font-family: 'Noto Sans CJK JP Light';
   font-size: 20px;
   letter-spacing: 2.4px;
-  color: #937f65;
+  color: #ff4469;
   text-align: center;
   margin-bottom: 40px;
   font-weight: 400;
@@ -776,11 +776,11 @@ ul.news li a.news-title {
 
 #reason .readmore a {
   font-family: 'Noto Sans CJK JP Medium';
-  color: #937f65;
+  color: #ff4469;
   line-height: 30px;
   letter-spacing: 2.4px;
   font-size: 17px;
-  border-bottom: 1px solid #937f65;
+  border-bottom: 1px solid #ff4469;
   padding-bottom: 3px;
 }
 
@@ -816,7 +816,7 @@ ul.news li a.news-title {
 
 #sec-voice .sec-des {
   font-family: 'Noto Sans CJK JP Medium';
-  color: #937f65;
+  color: #ff4469;
   line-height: 30px;
   letter-spacing: 2.4px;
 }
@@ -859,11 +859,11 @@ ul.news li a.news-title {
 
 #sec-voice .readmore a {
   font-family: 'Noto Sans CJK JP Medium';
-  color: #937f65;
+  color: #ff4469;
   line-height: 30px;
   letter-spacing: 2.4px;
   font-size: 17px;
-  border-bottom: 1px solid #937f65;
+  border-bottom: 1px solid #ff4469;
   padding-bottom: 3px;
 }
 
@@ -913,12 +913,12 @@ ul.news li a.news-title {
   background-color: #ebe7e1;
 }
 #sec-sns .container {
-  /* border-bottom: 1px solid #937f65; */
+  /* border-bottom: 1px solid #ff4469; */
 }
 
 #sec-sns .sec-des {
   font-family: 'Noto Sans CJK JP Medium';
-  color: #937f65;
+  color: #ff4469;
   line-height: 30px;
   letter-spacing: 2.4px;
 }
@@ -934,7 +934,7 @@ ul.news li a.news-title {
   width: 534px;
   max-width: calc(50% - 15px);
   height: 130px;
-  border: 1px solid #937f65;
+  border: 1px solid #ff4469;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -955,12 +955,12 @@ ul.news li a.news-title {
 }
 
 #sec-sns .container {
-  /* border-bottom: 1px solid #937f65; */
+  /* border-bottom: 1px solid #ff4469; */
 }
 
 #sec-clinic .sec-des {
   font-family: 'Noto Sans CJK JP Medium';
-  color: #937f65;
+  color: #ff4469;
   line-height: 30px;
   letter-spacing: 2.4px;
 }
@@ -984,11 +984,11 @@ ul.news li a.news-title {
 
 #sec-clinic .readmore a {
   font-family: 'Noto Sans CJK JP Medium';
-  color: #937f65;
+  color: #ff4469;
   line-height: 30px;
   letter-spacing: 2.4px;
   font-size: 17px;
-  border-bottom: 1px solid #937f65;
+  border-bottom: 1px solid #ff4469;
   padding-bottom: 3px;
 }
 
@@ -1010,7 +1010,7 @@ body:not(.home) #sec-contact {
 
 #sec-contact ul.contact-us li h3 {
   font-family: 'Noto Sans CJK JP Medium';
-  color: #937f65;
+  color: #ff4469;
   line-height: 30px;
   letter-spacing: 2.4px;
   font-size: 17px;
@@ -1018,13 +1018,13 @@ body:not(.home) #sec-contact {
 
 #sec-contact ul.contact-us li a.box {
   height: 130px;
-  border: 1px solid #937f65;
+  border: 1px solid #ff4469;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 20px 0 35px;
   font-family: 'Futura Midium';
-  color: #937f65;
+  color: #ff4469;
   font-size: 40px;
   letter-spacing: 2px;
 }
@@ -1112,7 +1112,7 @@ body:not(.home) #sec-contact {
 .list-cases ul li {
   display: flex;
   flex-wrap: wrap;
-  border-top: 2px solid #937f65;
+  border-top: 2px solid #ff4469;
   padding: 40px 0 0;
   margin-top: 40px;
 }
@@ -1169,12 +1169,12 @@ body:not(.home) #sec-contact {
   font-size: 20px;
   line-height: 20px;
   letter-spacing: 1.6px;
-  color: #937f65;
+  color: #ff4469;
 }
 
 .list-cases ul li .case-right h4 {
   font-family: 'Noto Sans CJK JP Medium';
-  color: #937f65;
+  color: #ff4469;
   line-height: 20px;
   letter-spacing: 2.4px;
   font-size: 13px;
@@ -1307,11 +1307,11 @@ body:not(.home) #sec-contact {
     width: calc(100% - 580px);
     display: block;
     flex-direction: column;
-    border-top: 2px solid #937f65;
+    border-top: 2px solid #ff4469;
     padding-top: 80px;
   }
   .sec-service ul.service-list li .left {
-    background: #937f65;
+    background: #ff4469;
     display: block;
     align-items: center;
     justify-content: center;
@@ -1376,7 +1376,7 @@ ul.service-list li .left {
 }
 
 .sec-service ul.service-list li .left {
-  background: #937f65;
+  background: #ff4469;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1399,7 +1399,7 @@ ul.service-list li .right {
   width: calc(100% - 580px);
   display: flex;
   flex-direction: column;
-  border-top: 2px solid #937f65;
+  border-top: 2px solid #ff4469;
   padding-top: 80px;
 }
 
@@ -1409,7 +1409,7 @@ ul.service-list li .right .service-title {
 }
 
 ul.service-list li .right .service-title a {
-  color: #937f65;
+  color: #ff4469;
   position: relative;
   font-size: 16px;
   font-weight: 700;
@@ -1472,7 +1472,7 @@ ul.service-list li .right .service-info .tag {
 
 ul.service-list li .right .service-info .tag a {
   padding: 3px 10px;
-  /* border: 1px solid #937f65; */
+  /* border: 1px solid #ff4469; */
   color: #000;
   font-size: 13px;
   background-color: rgba(174, 159, 140, 0.3);
@@ -1507,7 +1507,7 @@ ul.service-list li .right .service-info .tag a {
     display: flex;
     flex-direction: column;
     /* border-top: none; */
-    border-top: 2px solid #937f65;
+    border-top: 2px solid #ff4469;
     padding-top: 80px;
   }
 }
@@ -1529,7 +1529,7 @@ ul.service-list li .right .service-info .tag a {
     display: block;
     flex-direction: column;
     border-top: none;
-    border-bottom: 1px solid #937f65;
+    border-bottom: 1px solid #ff4469;
     padding-top: 40px;
   }
   ul.service-list li .service-list-content .right .service-info .tag {
@@ -1591,7 +1591,7 @@ ul.service-list li .right .service-info .tag a {
 }
 
 .pickup {
-  background: #937f65;
+  background: #ff4469;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -1630,12 +1630,12 @@ ul.service-list li .right .service-info .tag a {
 }
 
 .clinic-slider ul.service-list li .left a.no-image {
-  background: #937f65;
+  background: #ff4469;
 }
 
 .clinic-slider ul.service-list li .left a.no-image img {
   height: auto;
-  background: #937f65;
+  background: #ff4469;
 }
 
 .clinic-slider ul.service-list li .right {
@@ -1659,7 +1659,7 @@ ul.service-list li .right .service-info .tag a {
 }
 
 .clinic-slider ul.service-list li .right .service-info .tag {
-  border-top: 2px solid #937f65;
+  border-top: 2px solid #ff4469;
   padding-top: 10px;
   margin-bottom: 20px;
   display: flex;
@@ -1676,7 +1676,7 @@ ul.service-list li .right .service-info .tag a {
 @media (max-width: 767px) {
   .pickup {
     background-color: transparent;
-    color: #937f65;
+    color: #ff4469;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 18px;
@@ -1691,7 +1691,7 @@ ul.service-list li .right .service-info .tag a {
   }
 
   .clinic-slider ul.service-list li .right .service-info .tag {
-    border-top: 1px solid #937f65;
+    border-top: 1px solid #ff4469;
   }
 
   .clinic-slider ul.service-list {
@@ -1805,7 +1805,7 @@ ul.service-list li .right .service-info .tag a {
   }
 
   ul.service-list li .right .service-title a {
-    color: #937f65;
+    color: #ff4469;
     position: relative;
     font-size: 16px;
     font-weight: 700;
@@ -1830,7 +1830,7 @@ ul.service-list li .right .service-info .tag a {
 
 .clinic-slider .swiper-button-next::after,
 .clinic-slider .swiper-button-prev::after {
-  color: #937f65;
+  color: #ff4469;
 }
 
 .clinic-slider .swiper-button-prev {
@@ -1851,13 +1851,13 @@ ul.service-list li .right .service-info .tag a {
 }
 
 #page-service-detail #page-clinic .sec-clinic-detail .main h4 {
-  color: #937f65;
-  border-bottom: 1px solid #937f65;
+  color: #ff4469;
+  border-bottom: 1px solid #ff4469;
   margin-bottom: 30px;
 }
 
 #page-service-detail #page-clinic .sec-clinic-detail .main .list-point li h5 {
-  color: #937f65;
+  color: #ff4469;
 }
 
 #page-service-detail
@@ -1867,7 +1867,7 @@ ul.service-list li .right .service-info .tag a {
   .content
   .service-title
   a {
-  color: #937f65;
+  color: #ff4469;
   position: relative;
   font-size: 20px;
   font-weight: 700;
@@ -1968,12 +1968,12 @@ ul.service-list li .right .service-info .tag a {
 
 #page-service-detail #page-clinic .sec-clinic-detail .btn-contact a {
   height: 130px;
-  border: 2px solid #937f65;
+  border: 2px solid #ff4469;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Futura Midium';
-  color: #937f65;
+  color: #ff4469;
   font-size: 20px;
   letter-spacing: 2px;
   width: 48%;
@@ -2135,7 +2135,7 @@ a.gotop.active {
 }
 
 #footer {
-  background: #937f65;
+  background: #ff4469;
   text-align: left;
   position: relative;
 }
@@ -2171,7 +2171,7 @@ ul.paging {
 }
 
 ul.paging li {
-  color: #937f65;
+  color: #ff4469;
   font-family: futura-pt, sans-serif;
   font-size: 18px;
   font-weight: 500;
@@ -2179,7 +2179,7 @@ ul.paging li {
 }
 
 ul.paging li a {
-  color: #937f65;
+  color: #ff4469;
   font-family: futura-pt, sans-serif;
   font-size: 18px;
   font-weight: 500;
@@ -2190,7 +2190,7 @@ ul.paging li a {
 }
 
 ul.paging li.current {
-  color: #937f65;
+  color: #ff4469;
 }
 
 ul.pagination {
@@ -2200,7 +2200,7 @@ ul.pagination {
 }
 
 ul.pagination li {
-  color: #937f65;
+  color: #ff4469;
   font-family: futura-pt, sans-serif;
   font-size: 18px;
   font-weight: 500;
@@ -2212,7 +2212,7 @@ ul.pagination li.pageNumbers {
 }
 
 ul.pagination li a {
-  color: #937f65;
+  color: #ff4469;
   font-family: futura-pt, sans-serif;
   font-size: 18px;
   font-weight: 500;
@@ -2233,7 +2233,7 @@ ul.pagination li a {
 }
 
 #paging a {
-  color: #937f65;
+  color: #ff4469;
   font-family: futura-pt, sans-serif;
   font-size: 18px;
   font-weight: 500;
@@ -2241,11 +2241,11 @@ ul.pagination li a {
 }
 
 #paging a.aktif {
-  color: #937f65;
+  color: #ff4469;
 }
 
 ul.pagination li.current {
-  color: #937f65;
+  color: #ff4469;
 }
 
 @media (min-width: 1200px) {

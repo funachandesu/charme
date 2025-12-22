@@ -42,7 +42,7 @@ h4 {
 h2 {
   font-size: 5.2rem;
   letter-spacing: 0.15em;
-  color: #937f65;
+  color: #ff4469;
 }
 h2 span {
   position: relative;
@@ -62,10 +62,10 @@ h2 span::before {
   left: -105px;
   width: 100px;
   height: 1px;
-  background-color: #937f65;
+  background-color: #ff4469;
 }
 h3 {
-  color: #937f65;
+  color: #ff4469;
   letter-spacing: 0.1em;
 }
 a,
@@ -83,7 +83,7 @@ img {
 }
 .more-btn a {
   font-family: 'Futura Midium', sans-serif;
-  color: #937f65;
+  color: #ff4469;
   text-decoration: underline;
 }
 .more-btn a::before {
@@ -105,7 +105,7 @@ img {
   right: -1%;
   width: 8.8%;
   height: 1px;
-  background-color: #937f65;
+  background-color: #ff4469;
 }
 @media (max-width: 700px) {
   body {
@@ -820,8 +820,8 @@ img {
 #about .about-wrapper {
   display: block;
   margin: 70px auto 0;
-  border-top: 1px solid #937f65;
-  border-bottom: 1px solid #937f65;
+  border-top: 1px solid #ff4469;
+  border-bottom: 1px solid #ff4469;
   width: 100%;
 }
 #about .about-wrapper a {
@@ -830,7 +830,7 @@ img {
   align-items: center;
   width: 100%;
   height: 89px;
-  color: #937f65;
+  color: #ff4469;
   font-family: 'Futura Midium', sans-serif;
   letter-spacing: 0.15em;
 }
@@ -1254,14 +1254,14 @@ img {
   margin-top: 65px;
   font-family: 'Noto Sans CJK JP Bold';
   font-size: 2.8rem;
-  color: #937f65;
+  color: #ff4469;
   letter-spacing: 0.24em;
 }
 .accordion-menu {
   margin-top: 60px;
 }
 .accordion-menu .accordion-item {
-  border-top: 1px solid #937f65;
+  border-top: 1px solid #ff4469;
 }
 .accordion-menu .accordion-item .reason-title {
   display: flex;
@@ -1289,7 +1289,7 @@ img {
   display: flex;
   align-items: center;
   font-family: 'Futura Midium', sans-serif;
-  color: #937f65;
+  color: #ff4469;
   margin-right: 65px;
 }
 .accordion-menu .accordion-item .reason-title a::after {
@@ -1306,7 +1306,7 @@ img {
   padding-bottom: 40px;
 }
 .accordion-menu:last-child {
-  border-bottom: 1px solid #937f65;
+  border-bottom: 1px solid #ff4469;
 }
 @media (max-width: 700px) {
   #reason {
@@ -1558,7 +1558,7 @@ img {
   margin: 0 auto;
   width: 183px;
   height: 183px;
-  background-color: #937f65;
+  background-color: #ff4469;
   border-radius: 50%;
   text-align: center;
   font-family: 'Futura Midium', sans-serif;
@@ -1994,7 +1994,7 @@ img {
 }
 #line {
   overflow: hidden;
-  border-top: 1px solid #937f65;
+  border-top: 1px solid #ff4469;
   background-color: #ebe7e1;
   padding: 50px 0 70px;
   text-align: center;
@@ -2009,7 +2009,7 @@ img {
 .contact-btn {
   display: block;
   margin: 45px auto 0;
-  border: 1px solid #937f65;
+  border: 1px solid #ff4469;
   background-color: #fff;
   width: 42.9%;
   height: 69px;
@@ -2022,7 +2022,7 @@ img {
   height: 100%;
   font-family: 'Futura Midium', sans-serif;
   font-size: 2.8rem;
-  color: #937f65;
+  color: #ff4469;
   letter-spacing: 0.1em;
 }
 @media (max-width: 700px) {
@@ -2101,7 +2101,7 @@ img {
   }
 }
 #contact {
-  border-top: 1px solid #937f65;
+  border-top: 1px solid #ff4469;
   background-color: #ebe7e1;
   padding: 50px 0 70px;
   text-align: center;
@@ -2158,10 +2158,10 @@ img {
 }
 #footer-menu a {
   padding: 20px 0;
-  border: 1px solid #937f65;
+  border: 1px solid #ff4469;
   border-bottom: none;
   font-family: 'Noto Sans CJK JP Regular';
-  color: #937f65;
+  color: #ff4469;
 }
 #footer-menu a:nth-child(2n + 1) {
   border-left: none;

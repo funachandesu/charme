@@ -218,10 +218,10 @@ if ($description) {
                                                 <?php echo wp_get_attachment_image($attachment_id, 'full'); ?>
                                             </div>
                                             <div class="popup_box_r">
-                                                <p style="color: #937F65;font-family: 'Futura Midium';font-size: 22px;margin-bottom: -5px !important;font-weight: 600;">
+                                                <p style="color: #ff4469;font-family: 'Futura Midium';font-size: 22px;margin-bottom: -5px !important;font-weight: 600;">
                                                     <?php echo CFS()->get('case_name1', $dk_post->ID); ?>
                                                 </p>
-                                                <p style="color: #937f65;font-weight: 600;margin-bottom: -5px !important;">
+                                                <p style="color: #ff4469;font-weight: 600;margin-bottom: -5px !important;">
                                                     <?php echo CFS()->get('case_clinic', $dk_post->ID); ?>
                                                 </p>
                                                 <h3 style="margin-top: 0px;margin-bottom: 30px;">

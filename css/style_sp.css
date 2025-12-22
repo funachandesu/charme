@@ -385,7 +385,7 @@ justify-content: space-between;
 	justify-content: center;
 	margin: 0 0 16px 0;
 	height: 288px;
-	color: #937f65;
+	color: #ff4469;
 	font-size: 20px;
 	background: #f9f4e8;
 	letter-spacing: 0.1em;
@@ -410,7 +410,7 @@ justify-content: space-between;
 }
 #main .tit-sec .en {
 	margin: 0 0 16px 0;
-	color: #937f65;
+	color: #ff4469;
 	font-family: 'Libre Baskerville', serif;
 	font-size: 34px;
 	letter-spacing: 0.05em;
@@ -486,14 +486,14 @@ justify-content: space-between;
 	width: 400px;
 	height: 80px;
 	background: #101010;
-	border-bottom: 4px solid #937f65;
+	border-bottom: 4px solid #ff4469;
 	color: #fff;
 	font-size: 18px;
 	letter-spacing: 0.05em;
 	text-decoration: none;
 }
 #main .sec-footer-contact .area-btn .btn-flex:hover {
-	background: #937f65;
+	background: #ff4469;
 }
 #main .sec-footer-contact .area-btn .btn-flex .ico-arrow-white {
 	position: absolute;
@@ -514,7 +514,7 @@ justify-content: space-between;
 		margin: 12px 10% 0 10%;
 		width: auto;
 		height: 48px;
-		border-bottom: 3px solid #937f65;
+		border-bottom: 3px solid #ff4469;
 		font-size: 14px;
 	}
 	#main .sec-footer-contact .area-btn .btn-flex:first-child {
@@ -793,7 +793,7 @@ justify-content: space-between;
 }
 #main .top-list-voice li a:hover img {
 	opacity: .8;
-	border: 1px solid #937f65;
+	border: 1px solid #ff4469;
 }
 #main .top-list-voice li .name {
 	line-height: 1.4;
@@ -841,7 +841,7 @@ justify-content: space-between;
 }
 #main .list-voice li a:hover img {
 	opacity: .8;
-	border: 1px solid #937f65;
+	border: 1px solid #ff4469;
 }
 #main .list-voice li .name {
 	line-height: 1.4;
@@ -1031,7 +1031,7 @@ justify-content: space-between;
 }
 #page-home #main .sec-reason .txt-reason-total .txt-reason {
 	margin: 0 0 32px 0;
-	color: #937f65;
+	color: #ff4469;
 	font-size: 28px;
 	line-height: 1.47;
     text-align: center;
@@ -1050,7 +1050,7 @@ justify-content: space-between;
 }
 #page-home #main .sec-reason .txt-reason-total ol li .num {
 	margin: 0 0 12px 0;
-	color: #937f65;
+	color: #ff4469;
 	font-family: 'Libre Baskerville', serif;
 	font-size: 24px;
 	letter-spacing: 0.05em;
@@ -1058,7 +1058,7 @@ justify-content: space-between;
 }
 #page-home #main .sec-reason .txt-reason-total ol li .title {
 	margin: 0 0 24px 0;
-	color: #937f65;
+	color: #ff4469;
 	font-size: 28px;
 	font-weight: bold;
 	letter-spacing: .2em;
@@ -1102,7 +1102,7 @@ justify-content: space-between;
 	}
 	#page-home #main .sec-reason .txt-reason-total ol li .num {
 		margin: 0 0 8px 0;
-		color: #937f65;
+		color: #ff4469;
 		font-family: 'Libre Baskerville', serif;
 		font-size: 16px;
 		letter-spacing: 0.05em;
@@ -1111,7 +1111,7 @@ justify-content: space-between;
 	#page-home #main .sec-reason .txt-reason-total ol li .title {
 		position: relative;
 		margin: 0 0 12px 0;
-		color: #937f65;
+		color: #ff4469;
 		font-size: 18px;
 		font-weight: bold;
 		letter-spacing: .2em;
@@ -1376,7 +1376,7 @@ justify-content: space-between;
 	justify-content: center;
 	height: 40px;
 	background: #101010;
-	border-left: 6px solid #937f65;
+	border-left: 6px solid #ff4469;
 	color: #c29f21;
 	font-size: 16px;
 	letter-spacing: 0.05em;
@@ -1397,7 +1397,7 @@ justify-content: space-between;
 	}
 	#page-home #main .sec-service ul li .title {
 		height: 32px;
-		border-left: 5px solid #937f65;
+		border-left: 5px solid #ff4469;
 		font-size: 13px;
 	}
 	#page-home #main .sec-service .txt-service {
@@ -1463,7 +1463,7 @@ justify-content: space-between;
     padding: 25px 16px 25px 16px;
     width: 100%;
     background: #fff;
-    border: 1px solid #937f65;
+    border: 1px solid #ff4469;
     box-sizing: border-box;
     margin: 10px 0;
 }
@@ -1488,7 +1488,7 @@ justify-content: space-between;
 	height: 0;
 	border-style: solid;
 	border-width: 104px 104px 0 0;
-	border-color: #937f65 transparent transparent transparent;
+	border-color: #ff4469 transparent transparent transparent;
 }
 #page-home #main .sec-flow .list-flow li .step {
 	position: absolute;
@@ -1529,15 +1529,15 @@ justify-content: space-between;
 	letter-spacing: 0.04em;
 }
 #page-home #main .sec-flow .list-flow li .txt a {
-	border: 1px solid #937f65;
-	color: #937f65;
+	border: 1px solid #ff4469;
+	color: #ff4469;
 	text-decoration: none;
 	padding: 5px 10px;
 	display: inline-block;
     margin: 5px 0;
 }
 #page-home #main .sec-flow .list-flow li .txt a:hover {
-	background: #937f65;
+	background: #ff4469;
 	color: #fff;
 }
 
@@ -1645,15 +1645,15 @@ justify-content: space-between;
 	justify-content: center;
 	width: 100%;
 	height: 48px;
-	border: 1px solid #937f65;
+	border: 1px solid #ff4469;
 	box-sizing: border-box;
-	color: #937f65;
+	color: #ff4469;
 	letter-spacing: 0.05em;
 	text-decoration: none;
 	font-size: 16px;
 }
 #page-home .sec-voice .btn-voice a:hover {
-	background: #937f65;
+	background: #ff4469;
 	color: #fff;
 }
 @media only screen and (max-width: 767px) {
@@ -1668,7 +1668,7 @@ justify-content: space-between;
 	}
 	#page-home .sec-voice .btn-voice a:hover {
 		background: inherit;
-		color: #937f65;
+		color: #ff4469;
 	}
 }
 
@@ -1721,15 +1721,15 @@ justify-content: space-between;
 	justify-content: center;
 	width: 100%;
 	height: 48px;
-	border: 1px solid #937f65;
+	border: 1px solid #ff4469;
 	box-sizing: border-box;
-	color: #937f65;
+	color: #ff4469;
 	letter-spacing: 0.05em;
 	text-decoration: none;
 	font-size: 16px;
 }
 #page-home .sec-news .btn-news a:hover {
-	background: #937f65;
+	background: #ff4469;
 	color: #fff;
 }
 @media only screen and (max-width: 767px) {
@@ -1744,7 +1744,7 @@ justify-content: space-between;
 	}
 	#page-home .sec-news .btn-news a:hover {
 		background: inherit;
-		color: #937f65;
+		color: #ff4469;
 	}
 }
 
@@ -1794,7 +1794,7 @@ justify-content: space-between;
 }
 #page-campaign-detail .content .table th {
 	padding: 20px;
-	border: 1px solid #937f65;
+	border: 1px solid #ff4469;
 	box-sizing: border-box;
 	line-height: 1.4;
 	vertical-align: middle;
@@ -1805,7 +1805,7 @@ justify-content: space-between;
 #page-campaign-detail .content .table td {
 	padding: 20px;
 	width: 70%;
-	border: 1px solid #937f65;
+	border: 1px solid #ff4469;
 	box-sizing: border-box;
 	line-height: 1.4;
 }
@@ -1876,7 +1876,7 @@ justify-content: space-between;
 	}
 	#page-campaign-detail .content .table {
 		margin: 24px 0 8px 0;
-		border-bottom: 1px solid #937f65;
+		border-bottom: 1px solid #ff4469;
 	}
 	#page-campaign-detail .content .table th {
 		display: block;
@@ -1989,14 +1989,14 @@ justify-content: space-between;
 	justify-content: center;
 	width: 100%;
 	height: 48px;
-	border: 1px solid #937f65;
+	border: 1px solid #ff4469;
 	box-sizing: border-box;
-	color: #937f65;
+	color: #ff4469;
 	letter-spacing: 0.05em;
 	text-decoration: none;
 }
 #page-clinic .list-clinic-one .btn-clinic a:hover {
-	background: #937f65;
+	background: #ff4469;
 	color: #fff;
 }
 #page-clinic .list-clinic-one .btn-clinic a .ico-external_link-gold {
@@ -2036,7 +2036,7 @@ justify-content: space-between;
 	}
 	#page-clinic .list-clinic-one .btn-clinic a:hover {
 		background: inherit;
-		color: #937f65;
+		color: #ff4469;
 	}
 	#page-clinic .list-clinic-one .btn-clinic a .ico-external_link-gold {
 		right: 8px;
@@ -2099,7 +2099,7 @@ justify-content: space-between;
 #page-clinic .sec-clinic-detail .main h4 {
     margin: 0 0 8px 0;
     padding: 0 0 8px 0;
-    color: #937f65;
+    color: #ff4469;
     font-size: 20px;
     font-weight: bold;
     border-bottom: 1px dotted #d3b54f;
@@ -2122,7 +2122,7 @@ justify-content: space-between;
 }
 #page-clinic .sec-clinic-detail .main .sec-doctor h5 {
 	margin: 0 0 8px 0;
-	color: #937f65;
+	color: #ff4469;
 	font-size: 15px;
 	font-weight: bold;
 }
@@ -2132,7 +2132,7 @@ justify-content: space-between;
 }
 #page-clinic .sec-clinic-detail .main .sec-campaign h5 {
 	margin: 0 0 8px 0;
-    color: #937f65;
+    color: #ff4469;
     font-size: 15px;
     font-weight: bold;
 }
@@ -2166,7 +2166,7 @@ justify-content: space-between;
 }
 #page-clinic .sec-clinic-detail .main .list-point li {
 	margin: 12px 0 0 0;
-    color: #937f65;
+    color: #ff4469;
     font-size: 16px;
     font-weight: bold;
 	list-style: decimal;
@@ -2257,8 +2257,8 @@ justify-content: space-between;
     justify-content: center;
     width: 100%;
     height: 48px;
-    background: #937f65;
-    border: 1px solid #937f65;
+    background: #ff4469;
+    border: 1px solid #ff4469;
     box-sizing: border-box;
     color: #fff;
     letter-spacing: 0.05em;
@@ -2268,7 +2268,7 @@ justify-content: space-between;
 }
 #page-clinic .sec-clinic-detail .btn-contact a:hover {
     background: #fff;
-    color: #937f65;
+    color: #ff4469;
 }
 @media only screen and (max-width: 767px) {
 	#page-clinic .sec-clinic-detail .header {
@@ -2425,7 +2425,7 @@ justify-content: space-between;
 	justify-content: center;
 	height: 40px;
 	background: #101010;
-	border-left: 6px solid #937f65;
+	border-left: 6px solid #ff4469;
 	color: #c29f21;
 	font-size: 16px;
 	letter-spacing: 0.05em;
@@ -2446,7 +2446,7 @@ justify-content: space-between;
 	}
 	#page-service #main .sec-service ul li .title {
 		height: 32px;
-		border-left: 5px solid #937f65;
+		border-left: 5px solid #ff4469;
 		font-size: 13px;
 	}
 	#page-service #main .sec-service .txt-service {
@@ -2484,7 +2484,7 @@ justify-content: space-between;
 	justify-content: center;
 	height: 40px;
 	background: #101010;
-	border-left: 6px solid #937f65;
+	border-left: 6px solid #ff4469;
 	color: #c29f21;
 	font-size: 16px;
 	letter-spacing: 0.05em;
@@ -2505,7 +2505,7 @@ justify-content: space-between;
 	}
 	.page-service .sec-service ul li .title {
 		height: 32px;
-		border-left: 5px solid #937f65;
+		border-left: 5px solid #ff4469;
 		font-size: 13px;
 	}
 	.page-service .sec-service .txt-service {
@@ -2534,7 +2534,7 @@ justify-content: space-between;
 }
 #page-service-detail .header h3 {
 	margin: 0 0 32px 0;
-	color: #937f65;
+	color: #ff4469;
 	font-size: 38px;
 }
 #page-service-detail .header h3 span {
@@ -2658,7 +2658,7 @@ justify-content: space-between;
     padding: 25px 16px 25px 16px;
     width: 100%;
     background: #fffef9;
-    border: 1px solid #937f65;
+    border: 1px solid #ff4469;
     box-sizing: border-box;
     margin: 10px 0 40px;
 }
@@ -2683,7 +2683,7 @@ justify-content: space-between;
 	height: 0;
 	border-style: solid;
 	border-width: 104px 104px 0 0;
-	border-color: #937f65 transparent transparent transparent;
+	border-color: #ff4469 transparent transparent transparent;
 }
 #page-flow #main .sec-flow .list-flow li .step {
 	position: absolute;
@@ -2724,15 +2724,15 @@ justify-content: space-between;
 	letter-spacing: 0.04em;
 }
 #page-flow #main .sec-flow .list-flow li .txt a {
-	border: 1px solid #937f65;
-	color: #937f65;
+	border: 1px solid #ff4469;
+	color: #ff4469;
 	text-decoration: none;
 	padding: 5px 10px;
 	display: inline-block;
     margin: 5px 0;
 }
 #page-flow #main .sec-flow .list-flow li .txt a:hover {
-	background: #937f65;
+	background: #ff4469;
 	color: #fff;
 }
 
@@ -2830,7 +2830,7 @@ justify-content: space-between;
 }
 .sec-faq-top-l a {
 	width: 450px;
-	border: 1px solid #937f65;
+	border: 1px solid #ff4469;
 	height: 210px;
 	display: flex;
 	align-items: center;
@@ -2854,14 +2854,14 @@ justify-content: space-between;
 	transition: all 0.2s;
 }
 .sec-faq-top-ttl div {
-	border-top: 1px solid #937f65;
-	border-bottom: 1px solid #937f65;
+	border-top: 1px solid #ff4469;
+	border-bottom: 1px solid #ff4469;
 	display: inline-block;
 	width: 250px;
 	padding: 12px 0;
 	margin-bottom: 10px;
 	font-size: 3.0rem;
-	color: #937f65;
+	color: #ff4469;
 	font-family: 'Libre Baskerville', serif;
 	letter-spacing: 0.8rem;
 }
@@ -2892,7 +2892,7 @@ justify-content: space-between;
 	top: 18px;
 	left: 32px;
 	font-family: 'Libre Baskerville', serif;
-	color: #937f65;
+	color: #ff4469;
 	font-size: 20px;
 }
 #page-faq #main .sec-faq dd {
@@ -2907,7 +2907,7 @@ justify-content: space-between;
 	top: 18px;
 	left: 34px;
 	font-family: 'Libre Baskerville', serif;
-	color: #937f65;
+	color: #ff4469;
 	font-size: 20px;
 }
 @media only screen and (max-width: 767px) {
@@ -2973,7 +2973,7 @@ justify-content: space-between;
 	position: relative;
 	margin: 40px 0 8px 0;
 	padding: 4px 0 8px 32px;
-	color: #937f65;
+	color: #ff4469;
 	font-size: 18px;
 	font-weight: bold;
 	border-bottom: 1px dotted #d3b54f;
@@ -2985,7 +2985,7 @@ justify-content: space-between;
 	top: 0;
 	left: 0;
 	font-family: 'Libre Baskerville', serif;
-	color: #937f65;
+	color: #ff4469;
 	font-size: 20px;
 }
 #page-voice #main .article-voice dd {
@@ -2999,7 +2999,7 @@ justify-content: space-between;
 	top: 0;
 	left: 0;
 	font-family: 'Libre Baskerville', serif;
-	color: #937f65;
+	color: #ff4469;
 	font-size: 20px;
 }
 #page-voice #main .article-voice .list-gallery {
@@ -3034,7 +3034,7 @@ justify-content: space-between;
 }
 #page-voice #main .article-voice .area-info .area-info-in .img img {
 	border-radius: 50%;
-	border: 1px solid #937f65;
+	border: 1px solid #ff4469;
 }
 #page-voice #main .article-voice .area-info .area-info-in .content {
 	margin: 0 0 0 auto;
@@ -3063,8 +3063,8 @@ justify-content: space-between;
 	justify-content: center;
 	width: 100%;
 	height: 48px;
-	background: #937f65;
-	border: 1px solid #937f65;
+	background: #ff4469;
+	border: 1px solid #ff4469;
 	box-sizing: border-box;
 	color: #fff;
 	letter-spacing: 0.05em;
@@ -3072,7 +3072,7 @@ justify-content: space-between;
 }
 #page-voice #main .article-voice .area-info .area-info-in .btn-contact a:hover {
 	background: #fff;
-	color: #937f65;
+	color: #ff4469;
 }
 
 @media only screen and (max-width: 767px) {
@@ -3131,7 +3131,7 @@ justify-content: space-between;
 	}
 	#page-voice #main .article-voice .area-info .area-info-in .btn-contact a:hover {
 		background: inherit;
-		color: #937f65;
+		color: #ff4469;
 	}
 
 }
@@ -3149,7 +3149,7 @@ justify-content: space-between;
 #page-news #main .article-news .header {
 	margin: 0 0 24px 0;
 	padding: 0 0 16px 0;
-	border-bottom: 1px solid #937f65;
+	border-bottom: 1px solid #ff4469;
 }
 #page-news #main .article-news .time {
 	display: block;
@@ -3157,7 +3157,7 @@ justify-content: space-between;
 	letter-spacing: 0.02em;
 }
 #page-news #main .article-news .tit-news {
-	color: #937f65;
+	color: #ff4469;
 	font-size: 24px;
 	font-weight: bold;
 	line-height: 1.6;
@@ -3186,14 +3186,14 @@ justify-content: space-between;
 	justify-content: center;
 	width: 100%;
 	height: 32px;
-	border: 1px solid #937f65;
+	border: 1px solid #ff4469;
 	box-sizing: border-box;
-	color: #937f65;
+	color: #ff4469;
 	letter-spacing: 0.05em;
 	text-decoration: none;
 }
 #page-news #main .post-navigation .nav-links a:hover {
-	background: #937f65;
+	background: #ff4469;
 	color: #fff;
 }
 @media only screen and (max-width: 767px) {
@@ -3368,7 +3368,7 @@ justify-content: space-between;
 }
 .sec-case-top-l a {
 	width: 450px;
-	border: 1px solid #937f65;
+	border: 1px solid #ff4469;
 	height: 210px;
 	display: flex;
 	align-items: center;
@@ -3392,14 +3392,14 @@ justify-content: space-between;
 	transition: all 0.2s;
 }
 .sec-case-top-ttl div {
-	border-top: 1px solid #937f65;
-	border-bottom: 1px solid #937f65;
+	border-top: 1px solid #ff4469;
+	border-bottom: 1px solid #ff4469;
 	display: inline-block;
 	width: 250px;
 	padding: 12px 0;
 	margin-bottom: 10px;
 	font-size: 3.0rem;
-	color: #937f65;
+	color: #ff4469;
 	font-family: 'Libre Baskerville', serif;
 	letter-spacing: 0.8rem;
 }
@@ -3443,15 +3443,15 @@ justify-content: space-between;
 	justify-content: center;
 	width: 100%;
 	height: 48px;
-	border: 1px solid #937f65;
+	border: 1px solid #ff4469;
 	box-sizing: border-box;
-	color: #937f65;
+	color: #ff4469;
 	letter-spacing: 0.05em;
 	text-decoration: none;
 	font-size: 16px;
 }
 .sec-case-detail .btn-case a:hover {
-	background: #937f65;
+	background: #ff4469;
 	color: #fff;
 }
 
@@ -3508,7 +3508,7 @@ justify-content: space-between;
 	}
 	.sec-case-detail .btn-case a:hover {
 		background: inherit;
-		color: #937f65;
+		color: #ff4469;
 	}
 }
 
@@ -3626,7 +3626,7 @@ justify-content: space-between;
 }
 .sec-campaign-top-r a {
 	width: 450px;
-	border: 1px solid #937f65;
+	border: 1px solid #ff4469;
 	height: 210px;
 	display: flex;
 	align-items: center;
@@ -3651,14 +3651,14 @@ justify-content: space-between;
 	transition: all 0.2s;
 }
 .sec-campaign-top-ttl div {
-	border-top: 1px solid #937f65;
-	border-bottom: 1px solid #937f65;
+	border-top: 1px solid #ff4469;
+	border-bottom: 1px solid #ff4469;
 	display: inline-block;
 	width: 320px;
 	padding: 12px 0;
 	margin-bottom: 10px;
 	font-size: 3.0rem;
-	color: #937f65;
+	color: #ff4469;
 	font-family: 'Libre Baskerville', serif;
 	letter-spacing: 0.8rem;
 }
@@ -3988,7 +3988,7 @@ justify-content: space-between;
 	height: 80px;
 	background: #101010;
 	border: none;
-	border-bottom: 4px solid #937f65;
+	border-bottom: 4px solid #ff4469;
 	color: #fff;
 	font-size: 18px;
 	letter-spacing: 0.05em;
@@ -4087,13 +4087,13 @@ justify-content: space-between;
 	width: 32px;
 	height: 32px;
 	margin: 0 8px;
-	border: 1px solid #937f65;
+	border: 1px solid #ff4469;
 	box-sizing: border-box;
 	text-decoration: none;
 }
 .wp-pagenavi .current,
 .wp-pagenavi a:hover {
-	background: #937f65;
+	background: #ff4469;
 	color: #fff;
 }
 
@@ -4272,7 +4272,7 @@ justify-content: space-between;
 		-webkit-box-flex: 1;
 		-ms-flex: 1;
 		flex: 1;
-		background: #937f65;
+		background: #ff4469;
 		border: 1px solid #ffffff;
 	}
 	.bottom-sticky-nav ul li a {
@@ -4558,7 +4558,7 @@ justify-content: space-between;
     font-size: 35px;
     line-height: 42px;
     letter-spacing: 1.6px;
-    color: #937F65;
+    color: #ff4469;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
@@ -4583,12 +4583,12 @@ list-cases ul li.hidden{
 display: none;	
 }
 #clinics ul.service-list li .left{width:100%;margin-bottom: 0;margin-top: 15px;}
-.sec-service ul.service-list li .left{background: #937F65;display: flex;align-items: center;justify-content: center;}
+.sec-service ul.service-list li .left{background: #ff4469;display: flex;align-items: center;justify-content: center;}
 ul.service-list li .left a{width:100%;display: flex;align-items: center;justify-content: center;}
 ul.service-list li .left a img{min-width:60%}
 ul.service-list li .right{width:100%;display:flex;flex-direction:column;padding-top: 15px;}
 ul.service-list li .right .service-title {position:relative;}
-ul.service-list li .right .service-title a{color:#937F65;position:relative;font-size: 16px;font-weight: bold;line-height:25px;}
+ul.service-list li .right .service-title a{color:#ff4469;position:relative;font-size: 16px;font-weight: bold;line-height:25px;}
 ul.service-list li .right .service-title a span.en{font-size: 20px;}
 ul.service-list li .right .service-title span.img{position:static;top:0;right:0;margin-top: 15px;display: block;}
 .sec-service ul.service-list li .right .service-title span.img img{max-width: 140px;width: 100%;min-width: 58px;height: auto;}
