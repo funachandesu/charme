@@ -236,9 +236,49 @@ if ($current_category_term && !is_wp_error($current_category_term)) {
                 <?php endwhile; ?>
             </ul>
 
-            <?php if (function_exists('wp_pagenavi')): ?>
+            <?php
+            $current_page = max(1, get_query_var('paged'));
+            $max_page = $wp_query->max_num_pages;
+
+            if ($max_page > 1):
+                $base_url = remove_query_arg('paged');
+            ?>
                 <div class="search-case-results__pagination">
-                    <?php wp_pagenavi(); ?>
+                    <!-- 最初へ -->
+                    <?php if ($current_page > 1): ?>
+                        <a href="<?php echo esc_url($base_url); ?>" class="search-case-pagination__btn">« 最初</a>
+                    <?php else: ?>
+                        <span class="search-case-pagination__btn is-disabled">« 最初</span>
+                    <?php endif; ?>
+
+                    <!-- ページ番号（現在ページと前後1ページ、最大3つ） -->
+                    <?php
+                    $start = max(1, $current_page - 1);
+                    $end = min($max_page, $current_page + 1);
+
+                    // 3つ表示するよう調整
+                    if ($end - $start < 2) {
+                        if ($start == 1) {
+                            $end = min($max_page, $start + 2);
+                        } else {
+                            $start = max(1, $end - 2);
+                        }
+                    }
+
+                    for ($i = $start; $i <= $end; $i++):
+                        if ($i == $current_page): ?>
+                            <span class="search-case-pagination__btn is-current"><?php echo $i; ?></span>
+                        <?php else: ?>
+                            <a href="<?php echo esc_url($i == 1 ? $base_url : add_query_arg('paged', $i, $base_url)); ?>" class="search-case-pagination__btn"><?php echo $i; ?></a>
+                        <?php endif;
+                    endfor; ?>
+
+                    <!-- 最後へ -->
+                    <?php if ($current_page < $max_page): ?>
+                        <a href="<?php echo esc_url(add_query_arg('paged', $max_page, $base_url)); ?>" class="search-case-pagination__btn">最後 »</a>
+                    <?php else: ?>
+                        <span class="search-case-pagination__btn is-disabled">最後 »</span>
+                    <?php endif; ?>
                 </div>
             <?php endif; ?>
 
