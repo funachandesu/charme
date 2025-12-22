@@ -822,3 +822,83 @@ function charme_get_sns_links()
         'tiktok' => 'https://www.tiktok.com/@charme.concierge?_t=8mHq6qDaRKJ&_r=1',
     );
 }
+
+// ================================
+// 症例検索のカスタマイズ
+// CFSカスタムフィールドとタクソノミーも検索対象に含める
+// ================================
+
+/**
+ * 症例検索用のJOINを追加
+ */
+function charme_case_search_join($join, $query)
+{
+    global $wpdb;
+
+    if (!is_admin() && $query->is_main_query() && $query->is_search()) {
+        $post_type = isset($_GET['post_type']) ? $_GET['post_type'] : '';
+        if ($post_type === 'case' && !empty(get_search_query())) {
+            // postmetaテーブルをJOIN
+            $join .= " LEFT JOIN {$wpdb->postmeta} AS cfs_meta ON ({$wpdb->posts}.ID = cfs_meta.post_id) ";
+            // term_relationshipsとterm_taxonomyをJOIN
+            $join .= " LEFT JOIN {$wpdb->term_relationships} AS tr ON ({$wpdb->posts}.ID = tr.object_id) ";
+            $join .= " LEFT JOIN {$wpdb->term_taxonomy} AS tt ON (tr.term_taxonomy_id = tt.term_taxonomy_id) ";
+            $join .= " LEFT JOIN {$wpdb->terms} AS t ON (tt.term_id = t.term_id) ";
+        }
+    }
+
+    return $join;
+}
+add_filter('posts_join', 'charme_case_search_join', 10, 2);
+
+/**
+ * 症例検索用のWHERE句を拡張
+ */
+function charme_case_search_modify($search, $query)
+{
+    global $wpdb;
+
+    if (!is_admin() && $query->is_main_query() && $query->is_search()) {
+        $post_type = isset($_GET['post_type']) ? $_GET['post_type'] : '';
+        if ($post_type === 'case') {
+            $search_term = get_search_query();
+            if (!empty($search_term)) {
+                $like = '%' . $wpdb->esc_like($search_term) . '%';
+
+                // CFSフィールドとタクソノミーも検索対象に含める
+                $search = $wpdb->prepare(
+                    " AND (
+                        ({$wpdb->posts}.post_title LIKE %s)
+                        OR ({$wpdb->posts}.post_content LIKE %s)
+                        OR ({$wpdb->posts}.post_excerpt LIKE %s)
+                        OR (cfs_meta.meta_value LIKE %s)
+                        OR (t.name LIKE %s)
+                    ) ",
+                    $like,
+                    $like,
+                    $like,
+                    $like,
+                    $like
+                );
+            }
+        }
+    }
+
+    return $search;
+}
+add_filter('posts_search', 'charme_case_search_modify', 10, 2);
+
+/**
+ * 重複を除去
+ */
+function charme_case_search_distinct($distinct, $query)
+{
+    if (!is_admin() && $query->is_main_query() && $query->is_search()) {
+        $post_type = isset($_GET['post_type']) ? $_GET['post_type'] : '';
+        if ($post_type === 'case' && !empty(get_search_query())) {
+            return 'DISTINCT';
+        }
+    }
+    return $distinct;
+}
+add_filter('posts_distinct', 'charme_case_search_distinct', 10, 2);
