@@ -211,7 +211,7 @@ if ($current_category_term && !is_wp_error($current_category_term)) {
                                 <?php if ($case_clinic): ?>
                                     <span class="search-case-card__clinic"><?php echo esc_html($case_clinic); ?></span>
                                 <?php endif; ?>
-                                <h3 class="search-case-card__title"><?php echo esc_html($case_name); ?></h3>
+                                <h3 class="search-case-card__title"><?php echo wp_kses($case_name, array('br' => array())); ?></h3>
                             </div>
                         </a>
 
@@ -228,7 +228,7 @@ if ($current_category_term && !is_wp_error($current_category_term)) {
                                     <?php if ($case_clinic): ?>
                                         <p class="search-case-popup__clinic"><?php echo esc_html($case_clinic); ?></p>
                                     <?php endif; ?>
-                                    <h3 class="search-case-popup__title"><?php echo esc_html($case_name); ?></h3>
+                                    <h3 class="search-case-popup__title"><?php echo wp_kses($case_name, array('br' => array())); ?></h3>
                                 </div>
                             </div>
                         </div>
