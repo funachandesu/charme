@@ -105,32 +105,6 @@ usort($campaigns, function ($a, $b) {
 });
 ?>
 
-<section id="case-content" class="top-section">
-    <div class="container">
-        <div class="animate" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-            <div class="sec-title scroani">
-                <h2 class="title-en title-camp">CAMPAIGN&nbsp;<span class="title-ja title-campja">-キャンペーン-</span></h2>
-                <div class="campbox">
-                    <div class="campboxleft"></div>
-                    <div class="campboxright"></div>
-                </div>
-                <div class="camphiddbox">
-                    <div class="camphiddenleft"></div>
-                    <div class="camphiddenright"></div>
-                </div>
-                <div class="campline">
-                    <div id="camptopleft"></div>
-                    <div id="campleft"></div>
-                    <div id="campbottomleft"></div>
-                    <div id="camptopright"></div>
-                    <div id="campright"></div>
-                    <div id="campbottomright"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <div class="back">
     <div class="container">
         <a href="<?php echo esc_url(home_url('/')); ?>">

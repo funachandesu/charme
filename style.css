@@ -600,7 +600,7 @@ h3.title-ja:before {
 }
 
 #main .top-section {
-    background: #ebe7e1;
+    background: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
     padding: 80px 0 25px 80px;
     overflow: hidden;
 }
@@ -3632,7 +3632,7 @@ ul.service-list-clinic li .service-list-clinic-content .left {
 }
 
 .sec-doctor {
-    background-color: #ebe7e1;
+    background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
 }
 
 .doctor-clinic {
@@ -4372,11 +4372,11 @@ ul.service-list-clinic li .service-list-clinic-content .left {
 ------------------------------------------*/
 
 #page-flow #main .sec-flow {
-    background-color: #ebe7e1;
+    background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
 }
 
 .back-flow {
-    background-color: #ebe7e1;
+    background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
     padding: 0 0 60px 0;
 }
 
@@ -4540,7 +4540,7 @@ ul.service-list-clinic li .service-list-clinic-content .left {
 @media only screen and (max-width: 767px) {
 
     .back-flow {
-        background-color: #ebe7e1;
+        background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
         padding: 0 0 20px 30px;
     }
 
@@ -4970,7 +4970,7 @@ ul.service-list-clinic li .service-list-clinic-content .left {
 #page-voice #main .article-voice dd {
     line-height: 1.57;
     font-size: 2rem;
-    background-color: #ebe7e1;
+    background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
     border-radius: 10px;
     padding: 10px 15px;
     position: relative;
@@ -6894,7 +6894,7 @@ ul.news li a.news-title {
 #main .sec-form dd select {
     padding: 8px;
     border: 1px solid #b6b6b4;
-    background-color: #ebe7e1;
+    background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
 }
 
 #main .sec-form dt span[class^='required'] {
@@ -6945,7 +6945,7 @@ ul.news li a.news-title {
 #main .sec-form .box-input {
     padding: 8px;
     border: 1px solid #b6b6b4;
-    background-color: #ebe7e1;
+    background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
     box-sizing: border-box;
 }
 
@@ -7015,7 +7015,7 @@ ul.news li a.news-title {
     top: 50%;
     border: 1px solid;
     border-color: #b6b6b4;
-    background-color: #ebe7e1;
+    background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
 }
 
 /* チェックが入った時のレ点 */
@@ -7078,7 +7078,7 @@ ul.news li a.news-title {
     margin: 0 24px;
     width: 400px;
     height: 80px;
-    background: #ebe7e1;
+    background: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
     border: 1px solid #b6b6b4;
     ;
     color: #424242;
@@ -7112,7 +7112,7 @@ ul.news li a.news-title {
     margin: 0 24px;
     width: 400px;
     height: 80px;
-    background: #ebe7e1;
+    background: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
     border: 1px solid #b6b6b4;
     letter-spacing: 0.4em;
     color: #424242;
@@ -8074,7 +8074,7 @@ h3.title-ja-about2 {
 #line {
     overflow: hidden;
     border-top: 1px solid #ff4469;
-    background-color: #ebe7e1;
+    background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
     padding: 50px 0 70px;
     text-align: center;
 }
@@ -8219,7 +8219,7 @@ h3.title-ja-about2 {
 ------------------------------ */
 #contact {
     border-top: 1px solid #ff4469;
-    background-color: #ebe7e1;
+    background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
     padding: 50px 0 70px;
     text-align: center;
     overflow: hidden;
@@ -8324,7 +8324,7 @@ h3.title-ja-about2 {
 
 #contact-pc {
     overflow: hidden;
-    background-color: #ebe7e1;
+    background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
     padding: 80px 80px 25px 80px;
     text-align: left;
 }
@@ -8537,7 +8537,7 @@ h3.title-ja-about2 {
 #footer-menu {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: #ebe7e1;
+    background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
     overflow: hidden;
 }
 
@@ -8656,7 +8656,7 @@ h3.title-ja-about2 {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-color: #ebe7e1;
+    background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
 }
 
 .fixed-icon div:nth-child(2) {

@@ -7,34 +7,6 @@
 
 <?php get_header(); ?>
 
-<section id="case-content" class="top-section">
-	<div class="container">
-		<div class="animate" data-aos="fade-up"
-			data-aos-anchor-placement="top-bottom">
-
-			<div class="sec-title scroani">
-				<h2 class="title-en title-camp">Concierge</h2>
-
-				<div class="campbox">
-					<div class="campboxleft"></div>
-					<div class="campboxright"></div>
-				</div>
-				<div class="camphiddbox">
-					<div class="camphiddenleft"></div>
-					<div class="camphiddenright"></div>
-				</div>
-				<div class="campline">
-					<div id="camptopleft"></div>
-					<div id="campleft"></div>
-					<div id="campbottomleft"></div>
-					<div id="camptopright"></div>
-					<div id="campright"></div>
-					<div id="campbottomright"></div>
-				</div>
-			</div>
-		</div>
-</section>
-
 <div class="back back--subtle">
 	<div class="container">
 		<a class="back__link" href="<?php echo esc_url(home_url('/')); ?>">
@@ -116,17 +88,17 @@ CHARMEのコンシェルジュ達は、自分の大事な家族や親友にも�
 <?php get_footer(); ?>
 
 <style>
-	/* ===== ラグジュアリー・プレミアムスタイル ===== */
+	/* ===== ピンク・プレミアムスタイル ===== */
 	:root {
-		--c-bg: linear-gradient(145deg, #f9f6f0, #f2ede4);
+		--c-bg: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
 		--c-card: #ffffff;
 		--c-text: #1a1a1a;
 		--c-muted: #4a4a4a;
-		--c-gold: #d4af37;
-		--c-gold-light: #f4e4a6;
-		--c-gold-deep: #b8941f;
-		--c-bronze: #cd7f32;
-		--c-platinum: #e5e4e2;
+		--c-pink: #ff4469;
+		--c-pink-light: #ffb3c1;
+		--c-pink-deep: #e6335d;
+		--c-rose: #ff6b8a;
+		--c-blush: #fff0f3;
 		--shadow-luxury: 0 20px 60px rgba(0, 0, 0, .15);
 		--shadow-xl: 0 15px 45px rgba(0, 0, 0, .12);
 		--shadow-md: 0 8px 25px rgba(0, 0, 0, .08);
@@ -149,14 +121,14 @@ CHARMEのコンシェルジュ達は、自分の大事な家族や親友にも�
 		right: 0;
 		bottom: 0;
 		background:
-			radial-gradient(circle at 20% 80%, rgba(212, 175, 55, .08) 0%, transparent 50%),
-			radial-gradient(circle at 80% 20%, rgba(205, 127, 50, .06) 0%, transparent 50%),
-			radial-gradient(circle at 40% 40%, rgba(229, 228, 226, .04) 0%, transparent 50%);
+			radial-gradient(circle at 20% 80%, rgba(255, 68, 105, .08) 0%, transparent 50%),
+			radial-gradient(circle at 80% 20%, rgba(255, 107, 138, .06) 0%, transparent 50%),
+			radial-gradient(circle at 40% 40%, rgba(255, 224, 230, .04) 0%, transparent 50%);
 		pointer-events: none;
 	}
 
 	.concierge-hero {
-		background: linear-gradient(180deg, rgba(191, 162, 106, .08), rgba(191, 162, 106, 0));
+		background: linear-gradient(180deg, rgba(255, 68, 105, .08), rgba(255, 68, 105, 0));
 		padding-bottom: 24px;
 		margin-bottom: 8px;
 	}
@@ -174,7 +146,7 @@ CHARMEのコンシェルジュ達は、自分の大事な家族や親友にも�
 		width: 120px;
 		height: 2px;
 		margin: 14px auto 0;
-		background: linear-gradient(90deg, transparent, var(--c-gold), transparent);
+		background: linear-gradient(90deg, transparent, var(--c-pink), transparent);
 		border-radius: 2px;
 	}
 
@@ -195,7 +167,7 @@ CHARMEのコンシェルジュ達は、自分の大事な家族や親友にも�
 	}
 
 	.back__link:hover {
-		color: var(--c-gold-deep);
+		color: var(--c-pink-deep);
 	}
 
 	/* プレミアムリスト */
@@ -232,7 +204,7 @@ CHARMEのコンシェルジュ達は、自分の大事な家族や親友にも�
 		position: absolute;
 		inset: 0;
 		padding: 2px;
-		background: linear-gradient(135deg, var(--c-gold), var(--c-bronze), var(--c-gold-light));
+		background: linear-gradient(135deg, var(--c-pink), var(--c-rose), var(--c-pink-light));
 		border-radius: 28px;
 		mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
 		-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -248,11 +220,11 @@ CHARMEのコンシェルジュ達は、自分の大事な家族や親友にも�
 		right: 0;
 		height: 100%;
 		background: linear-gradient(135deg,
-				rgba(212, 175, 55, .03) 0%,
+				rgba(255, 68, 105, .03) 0%,
 				transparent 25%,
-				rgba(205, 127, 50, .02) 50%,
+				rgba(255, 107, 138, .02) 50%,
 				transparent 75%,
-				rgba(244, 228, 166, .04) 100%);
+				rgba(255, 224, 230, .04) 100%);
 		pointer-events: none;
 		border-radius: 28px;
 	}
@@ -283,7 +255,7 @@ CHARMEのコンシェルジュ達は、自分の大事な家族や親友にも�
 		position: absolute;
 		inset: 0;
 		padding: 3px;
-		background: linear-gradient(135deg, var(--c-gold), var(--c-platinum), var(--c-bronze));
+		background: linear-gradient(135deg, var(--c-pink), var(--c-blush), var(--c-rose));
 		border-radius: 20px;
 		mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
 		-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -295,7 +267,7 @@ CHARMEのコンシェルジュ達は、自分の大事な家族や親友にも�
 		content: "";
 		position: absolute;
 		inset: 8px;
-		background: linear-gradient(45deg, rgba(212, 175, 55, .08), transparent 30%, rgba(229, 228, 226, .06));
+		background: linear-gradient(45deg, rgba(255, 68, 105, .08), transparent 30%, rgba(255, 224, 230, .06));
 		border-radius: 16px;
 		pointer-events: none;
 	}
@@ -316,7 +288,7 @@ CHARMEのコンシェルジュ達は、自分の大事な家族や親友にも�
 	.concierge-role {
 		display: inline-flex;
 		align-items: center;
-		background: linear-gradient(135deg, var(--c-gold), var(--c-bronze));
+		background: linear-gradient(135deg, var(--c-pink), var(--c-rose));
 		color: #ffffff;
 		font-size: 10px;
 		font-weight: 700;
@@ -324,7 +296,7 @@ CHARMEのコンシェルジュ達は、自分の大事な家族や親友にも�
 		padding: 6px 16px;
 		border-radius: 25px;
 		margin-left: 16px;
-		box-shadow: 0 4px 15px rgba(212, 175, 55, .4), var(--shadow-inner);
+		box-shadow: 0 4px 15px rgba(255, 68, 105, .4), var(--shadow-inner);
 		text-transform: uppercase;
 		vertical-align: middle;
 		border: 2px solid rgba(255, 255, 255, .3);
@@ -395,9 +367,9 @@ CHARMEのコンシェルジュ達は、自分の大事な家族や親友にも�
 		transform: translateY(-50%);
 		width: 18px;
 		height: 3px;
-		background: linear-gradient(135deg, var(--c-gold), var(--c-bronze));
+		background: linear-gradient(135deg, var(--c-pink), var(--c-rose));
 		border-radius: 3px;
-		box-shadow: 0 2px 8px rgba(212, 175, 55, .3);
+		box-shadow: 0 2px 8px rgba(255, 68, 105, .3);
 	}
 
 	.concierge-name::after {
@@ -407,7 +379,7 @@ CHARMEのコンシェルジュ達は、自分の大事な家族や親友にも�
 		left: 0;
 		width: 60px;
 		height: 2px;
-		background: linear-gradient(90deg, var(--c-gold), transparent);
+		background: linear-gradient(90deg, var(--c-pink), transparent);
 		border-radius: 2px;
 	}
 
@@ -419,7 +391,7 @@ CHARMEのコンシェルジュ達は、自分の大事な家族や親友にも�
 		background: rgba(255, 255, 255, .4);
 		padding: 25px;
 		border-radius: 18px;
-		border: 1px solid rgba(212, 175, 55, .1);
+		border: 1px solid rgba(255, 68, 105, .1);
 		box-shadow: var(--shadow-md);
 		position: relative;
 		backdrop-filter: blur(10px);
@@ -432,7 +404,7 @@ CHARMEのコンシェルジュ達は、自分の大事な家族や親友にも�
 		left: 0;
 		right: 0;
 		height: 1px;
-		background: linear-gradient(90deg, transparent, var(--c-gold-light), transparent);
+		background: linear-gradient(90deg, transparent, var(--c-pink-light), transparent);
 	}
 
 	.concierge-bio p {
@@ -455,8 +427,8 @@ CHARMEのコンシェルジュ達は、自分の大事な家族や親友にも�
 			transform: translateY(-8px) scale(1.02);
 			box-shadow:
 				0 25px 80px rgba(0, 0, 0, .2),
-				0 10px 40px rgba(212, 175, 55, .15);
-			background: linear-gradient(145deg, #ffffff, #fefdfb);
+				0 10px 40px rgba(255, 68, 105, .15);
+			background: linear-gradient(145deg, #ffffff, #fff8f9);
 		}
 
 		.concierge-media__frame {
@@ -467,7 +439,7 @@ CHARMEのコンシェルジュ達は、自分の大事な家族や親友にも�
 			transform: translateY(-3px) rotate(1deg);
 			box-shadow:
 				var(--shadow-luxury),
-				0 8px 25px rgba(212, 175, 55, .2);
+				0 8px 25px rgba(255, 68, 105, .2);
 		}
 
 		.concierge-role {
@@ -477,7 +449,7 @@ CHARMEのコンシェルジュ達は、自分の大事な家族や親友にも�
 		.concierge-card:hover .concierge-role {
 			transform: scale(1.05);
 			box-shadow:
-				0 6px 20px rgba(212, 175, 55, .5),
+				0 6px 20px rgba(255, 68, 105, .5),
 				var(--shadow-inner);
 		}
 	}

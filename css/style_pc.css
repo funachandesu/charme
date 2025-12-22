@@ -513,7 +513,7 @@ ul.news li a.news-title {
   width: 50%;
   height: 100%;
   display: flex;
-  background: #ebe7e1;
+  background: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   flex-flow: column;
 }
 
@@ -550,7 +550,7 @@ ul.news li a.news-title {
 }
 
 #column .section .inner {
-  /* background: #ebe7e1; */
+  /* background: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%); */
   display: flex;
   align-items: center;
   width: 100%;
@@ -628,7 +628,7 @@ ul.news li a.news-title {
 }
 
 #main #sec-case {
-  background: #ebe7e1;
+  background: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   padding: 0 0 0 15px;
 }
 
@@ -672,7 +672,7 @@ ul.news li a.news-title {
 }
 
 #main #sec-campaign {
-  background: #ebe7e1;
+  background: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   padding: 0;
   overflow: hidden;
 }
@@ -785,11 +785,11 @@ ul.news li a.news-title {
 }
 
 #sec-flow {
-  background: #ebe7e1;
+  background: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
 }
 
 #sec-flow .section {
-  background: #ebe7e1;
+  background: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   display: flex;
   align-items: center;
   padding: 180px 0 110px;
@@ -868,7 +868,7 @@ ul.news li a.news-title {
 }
 
 #main #sec-interview {
-  background: #ebe7e1;
+  background: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   padding: 0 0 0 15px;
 }
 
@@ -910,7 +910,7 @@ ul.news li a.news-title {
 }
 
 #sec-sns {
-  background-color: #ebe7e1;
+  background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
 }
 #sec-sns .container {
   /* border-bottom: 1px solid #ff4469; */
@@ -993,7 +993,7 @@ ul.news li a.news-title {
 }
 
 body:not(.home) #sec-contact {
-  background: #ebe7e1;
+  background: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
 }
 
 #sec-contact ul.contact-us {
@@ -1030,7 +1030,7 @@ body:not(.home) #sec-contact {
 }
 
 #main .top-section {
-  background: #ebe7e1;
+  background: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   padding: 80px 0 25px 80px;
   overflow: hidden;
 }
@@ -1587,7 +1587,7 @@ ul.service-list li .right .service-info .tag a {
 }
 
 .top {
-  background: #ebe7e1;
+  background: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
 }
 
 .pickup {
@@ -1954,7 +1954,7 @@ ul.service-list li .right .service-info .tag a {
 }
 
 #page-service-detail .sec-doctor {
-  background: #ebe7e1;
+  background: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   margin: 70px 0 !important;
   padding: 60px 0;
 }
@@ -2603,7 +2603,7 @@ ul.fmenu li a {
   animation-fill-mode: forwards;
 }
 .hiddencolor {
-  background-color: #ebe7e1 !important;
+  background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%) !important;
 }
 @keyframes hiddenleftmove {
   0% {
@@ -2808,7 +2808,7 @@ ul.fmenu li a {
   position: relative;
 }
 .sec-title.scroani .camphiddenleft {
-  background-color: #ebe7e1;
+  background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   position: absolute;
   left: -13px;
   top: -40px;
@@ -2820,7 +2820,7 @@ ul.fmenu li a {
   animation-fill-mode: forwards;
 }
 .sec-title.scroani .camphiddenright {
-  background-color: #ebe7e1;
+  background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   position: absolute;
   left: 360px;
   top: -40px;
@@ -3025,7 +3025,7 @@ ul.fmenu li a {
   position: relative;
 }
 .sec-title.scroani .inthiddenleft {
-  background-color: #ebe7e1;
+  background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   position: absolute;
   left: -50px;
   top: -40px;
@@ -3036,7 +3036,7 @@ ul.fmenu li a {
   animation-fill-mode: forwards;
 }
 .sec-title.scroani .inthiddenright {
-  background-color: #ebe7e1;
+  background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   position: absolute;
   left: 513px;
   top: -40px;

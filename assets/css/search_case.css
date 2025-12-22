@@ -22,7 +22,7 @@
    Hero Section
    -------------------------------------------------------------------------- */
 .search-case-hero {
-    background: linear-gradient(135deg, #f5f2ef 0%, #ebe7e1 100%);
+    background: linear-gradient(135deg, #f5f2ef 0%, linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%) 100%);
     padding: 80px 20px;
     text-align: center;
 }

@@ -6,45 +6,6 @@
 ?>
 <?php get_header(); ?>
 
-<!-- <section id="case-content" class="top-section">
-        <div class="container">
-            <div class="sec-title">
-                <h2 class="title-en">FLOW</h2>
-                <h3 class="title-ja">ご利用までの流れ</h3>
-            </div>
-        </div>
-    </section> -->
-
-<section id="case-content" class="top-section">
-    <div class="container">
-        <div class="animate" data-aos="fade-up"
-            data-aos-anchor-placement="top-bottom">
-
-            <div class="sec-title scroani">
-                <h2 class="title-en title-case">FLOW&nbsp;<span class="title-ja">-よくあるご質問-</span></h2>
-
-                <div class="box">
-                    <div class="boxleft"></div>
-                    <div class="boxright"></div>
-                </div>
-                <div class="casehiddbox">
-                    <div class="casehiddenleft hiddencolor"></div>
-                    <div class="casehiddenright hiddencolor"></div>
-                </div>
-                <div class="line">
-                    <div id="topleft"></div>
-                    <div id="left"></div>
-                    <div id="bottomleft"></div>
-                    <div id="topright"></div>
-                    <div id="right"></div>
-                    <div id="bottomright"></div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
-
 <div class="back-flow">
     <div class="container">
         <a href="<?php echo esc_url(home_url('/')); ?>">

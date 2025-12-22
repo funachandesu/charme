@@ -1,33 +1,5 @@
 <?php get_header(); ?>
 
-<section id="case-content" class="top-section">
-	<div class="container">
-		<div class="animate" data-aos="fade-up"
-			data-aos-anchor-placement="top-bottom">
-
-			<div class="sec-title scroani">
-				<h2 class="title-en">CLINIC&nbsp;<span class="title-ja">-クリニック-</span></h2>
-				<div class="box">
-					<div class="boxleft"></div>
-					<div class="boxright"></div>
-				</div>
-				<div class="casehiddbox">
-					<div class="casehiddenleft hiddencolor"></div>
-					<div class="casehiddenright hiddencolor"></div>
-				</div>
-				<div class="line">
-					<div id="topleft"></div>
-					<div id="left"></div>
-					<div id="bottomleft"></div>
-					<div id="topright"></div>
-					<div id="right"></div>
-					<div id="bottomright"></div>
-
-				</div>
-			</div>
-		</div>
-</section>
-
 <div class="back">
 	<div class="container"><a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/btn-back.png" alt="back"></a></div>
 </div>

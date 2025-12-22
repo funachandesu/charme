@@ -576,7 +576,7 @@ img {
   display: flex;
   background-color: rgba(0, 0, 0, 0.8);
   padding: 50px 6.67% 55px;
-  color: #ebe7e1;
+  color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
 }
 .topics .topics_title {
   font-family: 'Futura Midium', sans-serif;
@@ -590,7 +590,7 @@ img {
   margin-left: 30px;
 }
 .topics .topics_body .date_badge {
-  border: 1px solid #ebe7e1;
+  border: 1px solid linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   padding: 5px 25px;
 }
 .topics .topics_body .new {
@@ -606,7 +606,7 @@ img {
   padding: 0 4.37%;
 }
 .topics .more-btn a {
-  color: #ebe7e1;
+  color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
 }
 .topics .more-btn a::before {
   background-image: url(../images/right_arrow_white.png);
@@ -614,7 +614,7 @@ img {
 }
 .topics .more-btn a::after {
   right: -8.7%;
-  background-color: #ebe7e1;
+  background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
 }
 .nav-menu {
   display: grid;
@@ -809,7 +809,7 @@ img {
   }
 }
 #about {
-  background-color: #ebe7e1;
+  background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   padding: 125px 6.67% 77px;
   overflow: hidden;
 }
@@ -1099,7 +1099,7 @@ img {
   }
 }
 #case {
-  background-color: #ebe7e1;
+  background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   padding: 125px 0 130px;
   overflow: hidden;
 }
@@ -1246,7 +1246,7 @@ img {
   }
 }
 #reason {
-  background-color: #ebe7e1;
+  background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   padding: 125px 6.67% 150px;
   overflow: hidden;
 }
@@ -1530,7 +1530,7 @@ img {
   }
 }
 #voice {
-  background-color: #ebe7e1;
+  background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   padding: 125px 6.67% 130px;
   overflow: hidden;
 }
@@ -1651,7 +1651,7 @@ img {
   }
 }
 #interview {
-  background-color: #ebe7e1;
+  background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   overflow: hidden;
 }
 #interview h2 {
@@ -1775,7 +1775,7 @@ img {
   }
 }
 #sns {
-  background-color: #ebe7e1;
+  background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   padding: 125px 6.67% 130px;
   overflow: hidden;
 }
@@ -1995,7 +1995,7 @@ img {
 #line {
   overflow: hidden;
   border-top: 1px solid #ff4469;
-  background-color: #ebe7e1;
+  background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   padding: 50px 0 70px;
   text-align: center;
 }
@@ -2102,7 +2102,7 @@ img {
 }
 #contact {
   border-top: 1px solid #ff4469;
-  background-color: #ebe7e1;
+  background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   padding: 50px 0 70px;
   text-align: center;
   overflow: hidden;
@@ -2153,7 +2153,7 @@ img {
 #footer-menu {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background-color: #ebe7e1;
+  background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   overflow: hidden;
 }
 #footer-menu a {
@@ -2238,7 +2238,7 @@ img {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background-color: #ebe7e1;
+  background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
 }
 .fixed-icon div:nth-child(2) {
   margin-left: 20px;

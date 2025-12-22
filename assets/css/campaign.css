@@ -8,7 +8,7 @@
    ================================== */
 :root {
   --ch-color-primary: #ff4469;
-  --ch-color-secondary: #ebe7e1;
+  --ch-color-secondary: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   --ch-color-accent: #d4a574;
   --ch-color-text: #424242;
   --ch-color-white: #ffffff;

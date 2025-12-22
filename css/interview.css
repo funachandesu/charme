@@ -102,7 +102,7 @@
 
 .answer {
   font-size: 2rem;
-  background-color: #ebe7e1;
+  background-color: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
   border-radius: 10px;
   width: 81%;
   padding: 10px 15px;
@@ -213,7 +213,7 @@
 
 #profile {
   padding: 135px 45px !important;
-  background: #ebe7e1;
+  background: linear-gradient(180deg, #ffe0e6 0%, var(--accent-pink, #ff4469) 100%);
 }
 
 .profile-name {
