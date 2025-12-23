@@ -9,7 +9,51 @@ $terms = get_terms([
 	'taxonomy' => 'clinic_caategory',
 	'hide_empty' => false,
 ]);
+
+// 検索条件を取得
+$is_search = !empty($_GET['clinic_keyword']) || !empty($_GET['search_case_category']) || !empty($_GET['search_clinic_area']);
+$search_keyword = isset($_GET['clinic_keyword']) ? sanitize_text_field($_GET['clinic_keyword']) : '';
+$search_case_category = isset($_GET['search_case_category']) ? sanitize_text_field($_GET['search_case_category']) : '';
+$search_clinic_area = isset($_GET['search_clinic_area']) ? sanitize_text_field($_GET['search_clinic_area']) : '';
 ?>
+
+<?php if ($is_search): ?>
+<!-- 検索結果ヘッダー -->
+<section class="sec-clinic-search-result">
+	<div class="sec-in">
+		<div class="clinic-search-result-header">
+			<h2 class="clinic-search-result-title">検索結果</h2>
+			<div class="clinic-search-result-conditions">
+				<?php if ($search_keyword): ?>
+					<span class="clinic-search-result-tag">キーワード: <?php echo esc_html($search_keyword); ?></span>
+				<?php endif; ?>
+				<?php if ($search_case_category): ?>
+					<?php
+					$cat_ids = array_map('intval', explode(',', $search_case_category));
+					foreach ($cat_ids as $cat_id):
+						$term = get_term($cat_id, 'case_category');
+						if ($term && !is_wp_error($term)):
+					?>
+						<span class="clinic-search-result-tag"><?php echo esc_html($term->name); ?></span>
+					<?php endif; endforeach; ?>
+				<?php endif; ?>
+				<?php if ($search_clinic_area): ?>
+					<?php
+					$area_ids = array_map('intval', explode(',', $search_clinic_area));
+					foreach ($area_ids as $area_id):
+						$term = get_term($area_id, 'clinic_area');
+						if ($term && !is_wp_error($term)):
+					?>
+						<span class="clinic-search-result-tag"><?php echo esc_html($term->name); ?></span>
+					<?php endif; endforeach; ?>
+				<?php endif; ?>
+			</div>
+			<a href="<?php echo esc_url(get_post_type_archive_link('clinic')); ?>" class="clinic-search-result-clear">条件をクリア</a>
+		</div>
+	</div>
+</section>
+<?php endif; ?>
+
 <section class="sec-clinic" id="a-clinic">
 	<div class="sec-in">
 		<div class="clinic-category-btns" style="text-align:center; margin:30px 0;">
@@ -32,14 +76,46 @@ $terms = get_terms([
 				<?php
 				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-				$clinics_query = new WP_Query([
+				// クエリ引数を構築
+				$query_args = [
 					'post_type'      => 'clinic',
 					'posts_per_page' => 5,
 					'post_status'    => 'publish',
 					'orderby'        => 'date',
 					'order'          => 'DESC',
 					'paged'          => $paged,
-				]);
+				];
+
+				// フリーワード検索
+				if (!empty($search_keyword)) {
+					$query_args['s'] = $search_keyword;
+				}
+
+				// 部位（case_category）からの検索
+				if (!empty($search_case_category)) {
+					$case_category_ids = array_map('intval', explode(',', $search_case_category));
+					$clinic_ids = charme_get_clinics_by_case_category($case_category_ids);
+					if (!empty($clinic_ids)) {
+						$query_args['post__in'] = $clinic_ids;
+					} else {
+						$query_args['post__in'] = array(0);
+					}
+				}
+
+				// エリアからの検索
+				if (!empty($search_clinic_area)) {
+					$area_ids = array_map('intval', explode(',', $search_clinic_area));
+					$query_args['tax_query'] = array(
+						array(
+							'taxonomy' => 'clinic_area',
+							'field' => 'term_id',
+							'terms' => $area_ids,
+							'operator' => 'IN',
+						),
+					);
+				}
+
+				$clinics_query = new WP_Query($query_args);
 				?>
 
 				<ul id="listPage" class="service-list">

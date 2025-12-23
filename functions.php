@@ -902,3 +902,155 @@ function charme_case_search_distinct($distinct, $query)
     return $distinct;
 }
 add_filter('posts_distinct', 'charme_case_search_distinct', 10, 2);
+
+/**
+ * クリニック検索エンジン
+ * archive-clinic.phpでの検索クエリを処理
+ */
+function charme_clinic_search_query($query)
+{
+    if (is_admin() || !$query->is_main_query()) {
+        return;
+    }
+
+    // archive-clinic.phpでの検索処理
+    if (is_post_type_archive('clinic')) {
+        $meta_query = array('relation' => 'AND');
+        $tax_query = array('relation' => 'AND');
+        $has_meta_query = false;
+        $has_tax_query = false;
+
+        // フリーワード検索
+        if (!empty($_GET['clinic_keyword'])) {
+            $keyword = sanitize_text_field($_GET['clinic_keyword']);
+            $query->set('s', $keyword);
+        }
+
+        // 部位（case_category）からの検索
+        // charme_discount_menusのmenu_case_categoryに該当するクリニックを取得
+        if (!empty($_GET['search_case_category'])) {
+            $case_category_ids = array_map('intval', explode(',', sanitize_text_field($_GET['search_case_category'])));
+
+            // menu_case_categoryフィールドで検索するため、カスタムクエリが必要
+            // ACF Repeaterのサブフィールドを検索
+            global $wpdb;
+
+            // case_categoryに該当するクリニックIDを取得
+            $clinic_ids = charme_get_clinics_by_case_category($case_category_ids);
+
+            if (!empty($clinic_ids)) {
+                $query->set('post__in', $clinic_ids);
+            } else {
+                // 該当なしの場合は結果を0にする
+                $query->set('post__in', array(0));
+            }
+        }
+
+        // エリアからの検索
+        if (!empty($_GET['search_clinic_area'])) {
+            $area_ids = array_map('intval', explode(',', sanitize_text_field($_GET['search_clinic_area'])));
+            $tax_query[] = array(
+                'taxonomy' => 'clinic_area',
+                'field' => 'term_id',
+                'terms' => $area_ids,
+                'operator' => 'IN',
+            );
+            $has_tax_query = true;
+        }
+
+        if ($has_tax_query) {
+            $query->set('tax_query', $tax_query);
+        }
+    }
+}
+add_action('pre_get_posts', 'charme_clinic_search_query');
+
+/**
+ * case_categoryに該当するクリニックIDを取得
+ * charme_discount_menusリピーターのmenu_case_categoryフィールドを検索
+ */
+function charme_get_clinics_by_case_category($category_ids)
+{
+    $clinic_ids = array();
+
+    // 検索対象のカテゴリIDを整数に変換
+    $category_ids = array_map('intval', $category_ids);
+
+    // 親カテゴリが選択された場合、子カテゴリも検索対象に含める
+    $expanded_category_ids = array();
+    foreach ($category_ids as $cat_id) {
+        $expanded_category_ids[] = $cat_id;
+        $children = get_term_children($cat_id, 'case_category');
+        if (!is_wp_error($children) && !empty($children)) {
+            $expanded_category_ids = array_merge($expanded_category_ids, $children);
+        }
+    }
+    $category_ids = array_unique(array_map('intval', $expanded_category_ids));
+
+    // 全クリニックを取得
+    $clinics = get_posts(array(
+        'post_type' => 'clinic',
+        'posts_per_page' => -1,
+        'post_status' => 'publish',
+        'fields' => 'ids',
+    ));
+
+    foreach ($clinics as $clinic_id) {
+        $matched = false;
+
+        if (have_rows('charme_discount_menus', $clinic_id)) {
+            while (have_rows('charme_discount_menus', $clinic_id)) {
+                the_row();
+                $menu_categories = get_sub_field('menu_case_category');
+
+                if (!empty($menu_categories)) {
+                    // 配列でない場合は配列に変換
+                    if (!is_array($menu_categories)) {
+                        $menu_categories = array($menu_categories);
+                    }
+
+                    foreach ($menu_categories as $cat) {
+                        // オブジェクトの場合はterm_idを取得、それ以外は直接値を使用
+                        if (is_object($cat)) {
+                            $cat_id = intval($cat->term_id);
+                        } elseif (is_array($cat) && isset($cat['term_id'])) {
+                            $cat_id = intval($cat['term_id']);
+                        } else {
+                            $cat_id = intval($cat);
+                        }
+
+                        if (in_array($cat_id, $category_ids, true)) {
+                            $clinic_ids[] = $clinic_id;
+                            $matched = true;
+                            break 2; // このクリニックは既にマッチしたので次へ
+                        }
+                    }
+                }
+            }
+        }
+
+        // have_rowsのポインタをリセット
+        if (!$matched) {
+            reset_rows();
+        }
+    }
+
+    return array_unique($clinic_ids);
+}
+
+/**
+ * クリニック検索エンジン用JS読み込み
+ */
+function charme_enqueue_clinic_search_scripts()
+{
+    if (is_front_page() || is_home()) {
+        wp_enqueue_script(
+            'charme-clinic-search',
+            get_template_directory_uri() . '/js/clinic-search.js',
+            array(),
+            filemtime(get_theme_file_path('/js/clinic-search.js')),
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'charme_enqueue_clinic_search_scripts');
