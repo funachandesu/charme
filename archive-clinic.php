@@ -160,9 +160,7 @@ $terms = get_terms([
 											</a>
 										<?php endif; ?>
 
-										<a class="readmore" href="<?php the_permalink(); ?>">
-											<img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/readmore.png" alt="read more">
-										</a>
+										<a class="readmore-btn" href="<?php the_permalink(); ?>">READ MORE</a>
 									</div>
 								</div>
 							</li>

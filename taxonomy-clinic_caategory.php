@@ -161,9 +161,7 @@ $current_term = get_queried_object();
                                             </div>
                                           </a>
                                         <?php endif; ?>
-                                        <a class="readmore" href="<?php echo esc_url(get_permalink($clinic_id)); ?>">
-                                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/readmore.png" alt="read more">
-                                        </a>
+                                        <a class="readmore-btn" href="<?php echo esc_url(get_permalink($clinic_id)); ?>">READ MORE</a>
                                     </div>
                                 </div>
                             </li>
