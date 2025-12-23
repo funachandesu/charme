@@ -164,17 +164,37 @@
             <div class="p-search-modal__body">
                 <div class="p-search-modal__list">
                     <?php
-                    $clinic_areas = get_terms([
+                    $parent_areas = get_terms([
                         'taxonomy' => 'clinic_area',
                         'hide_empty' => false,
+                        'parent' => 0,
                     ]);
-                    if (!empty($clinic_areas) && !is_wp_error($clinic_areas)):
-                        foreach ($clinic_areas as $area):
+                    if (!empty($parent_areas) && !is_wp_error($parent_areas)):
+                        foreach ($parent_areas as $parent_area):
                     ?>
-                        <label class="p-search-modal__checkbox-label">
-                            <input type="checkbox" class="p-search-modal__checkbox" name="clinic_area[]" value="<?php echo esc_attr($area->term_id); ?>" data-name="<?php echo esc_attr($area->name); ?>">
-                            <span class="p-search-modal__checkbox-text"><?php echo esc_html($area->name); ?></span>
-                        </label>
+                        <div class="p-search-modal__category-group">
+                            <label class="p-search-modal__checkbox-label">
+                                <input type="checkbox" class="p-search-modal__checkbox" name="clinic_area[]" value="<?php echo esc_attr($parent_area->term_id); ?>" data-name="<?php echo esc_attr($parent_area->name); ?>">
+                                <span class="p-search-modal__checkbox-text"><?php echo esc_html($parent_area->name); ?></span>
+                            </label>
+                            <?php
+                            $child_areas = get_terms([
+                                'taxonomy' => 'clinic_area',
+                                'hide_empty' => false,
+                                'parent' => $parent_area->term_id,
+                            ]);
+                            if (!empty($child_areas) && !is_wp_error($child_areas)):
+                            ?>
+                                <div class="p-search-modal__children">
+                                    <?php foreach ($child_areas as $child_area): ?>
+                                        <label class="p-search-modal__checkbox-label --child">
+                                            <input type="checkbox" class="p-search-modal__checkbox" name="clinic_area[]" value="<?php echo esc_attr($child_area->term_id); ?>" data-name="<?php echo esc_attr($child_area->name); ?>">
+                                            <span class="p-search-modal__checkbox-text"><?php echo esc_html($child_area->name); ?></span>
+                                        </label>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
                     <?php
                         endforeach;
                     endif;

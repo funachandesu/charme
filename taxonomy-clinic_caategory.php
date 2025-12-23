@@ -50,16 +50,6 @@ $terms = get_terms([
 ]);
 $current_term = get_queried_object();
 ?>
-<section class="sec-clinic" id="a-clinic">
-    <div class="sec-in">
-        <div class="clinic-category-btns" style="text-align:center; margin:30px 0;">
-            <?php foreach ($terms as $term): ?>
-                <a class="clinic-category-btn" href="<?php echo esc_url(get_term_link($term)); ?>"><?php echo esc_html($term->name); ?></a>
-            <?php endforeach; ?>
-            <a class="clinic-category-btn" href="<?php echo esc_url(get_post_type_archive_link('clinic')); ?>">すべて</a>
-        </div>
-    </div>
-</section>
 
 <section class="sec-clinic" id="a-clinic">
     <div class="sec-in">

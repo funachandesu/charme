@@ -24,6 +24,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/style.css?20240617">
         <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/ress.min.css">
         <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/style.min.css">
+        <link rel="stylesheet" href="<?php echo esc_url(get_stylesheet_uri()); ?>">
     <?php else : ?>
         <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/style_pc.css?20240617">
         <link rel="stylesheet" href="<?php echo esc_url(get_stylesheet_uri()); ?>">

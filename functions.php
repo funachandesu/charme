@@ -1043,7 +1043,7 @@ function charme_get_clinics_by_case_category($category_ids)
  */
 function charme_enqueue_clinic_search_scripts()
 {
-    if (is_front_page() || is_home()) {
+    if (is_front_page() || is_home() || is_post_type_archive('clinic') || is_tax('clinic_area') || is_tax('clinic_caategory')) {
         wp_enqueue_script(
             'charme-clinic-search',
             get_template_directory_uri() . '/js/clinic-search.js',

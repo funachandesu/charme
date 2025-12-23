@@ -15,14 +15,256 @@ $is_search = !empty($_GET['clinic_keyword']) || !empty($_GET['search_case_catego
 $search_keyword = isset($_GET['clinic_keyword']) ? sanitize_text_field($_GET['clinic_keyword']) : '';
 $search_case_category = isset($_GET['search_case_category']) ? sanitize_text_field($_GET['search_case_category']) : '';
 $search_clinic_area = isset($_GET['search_clinic_area']) ? sanitize_text_field($_GET['search_clinic_area']) : '';
+
+// 検索結果件数を事前に取得
+$count_query_args = [
+	'post_type'      => 'clinic',
+	'posts_per_page' => -1,
+	'post_status'    => 'publish',
+	'fields'         => 'ids',
+];
+if (!empty($search_keyword)) {
+	$count_query_args['s'] = $search_keyword;
+}
+if (!empty($search_case_category)) {
+	$case_category_ids_for_count = array_map('intval', explode(',', $search_case_category));
+	$clinic_ids_for_count = charme_get_clinics_by_case_category($case_category_ids_for_count);
+	if (!empty($clinic_ids_for_count)) {
+		$count_query_args['post__in'] = $clinic_ids_for_count;
+	} else {
+		$count_query_args['post__in'] = array(0);
+	}
+}
+if (!empty($search_clinic_area)) {
+	$area_ids_for_count = array_map('intval', explode(',', $search_clinic_area));
+	$count_query_args['tax_query'] = array(
+		array(
+			'taxonomy' => 'clinic_area',
+			'field' => 'term_id',
+			'terms' => $area_ids_for_count,
+			'operator' => 'IN',
+		),
+	);
+}
+$count_query = new WP_Query($count_query_args);
+$search_result_count = $count_query->found_posts;
+wp_reset_postdata();
 ?>
+
+<!-- クリニック検索ボックス（archive-clinic.php用） -->
+<section class="p-clinic-search p-clinic-search--archive" id="clinic-search">
+	<div class="l-inner p-0">
+		<div class="p-clinic-search__content">
+			<h2 class="p-clinic-search__title">クリニックを探す</h2>
+
+			<!-- フリーワード検索 -->
+			<form class="p-clinic-search__form" action="<?php echo esc_url(get_post_type_archive_link('clinic')); ?>" method="get">
+				<div class="p-clinic-search__input-wrap">
+					<input type="text" name="clinic_keyword" class="p-clinic-search__input" placeholder="クリニック名・キーワードで検索" value="<?php echo esc_attr($search_keyword); ?>">
+					<button type="submit" class="p-clinic-search__submit-btn">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+					</button>
+				</div>
+				<!-- 隠しフィールド（モーダルで選択した値を保持） -->
+				<input type="hidden" name="search_case_category" id="search_case_category" value="<?php echo esc_attr($search_case_category); ?>">
+				<input type="hidden" name="search_clinic_area" id="search_clinic_area" value="<?php echo esc_attr($search_clinic_area); ?>">
+			</form>
+
+			<!-- 検索ボタン（3つ横並び） -->
+			<div class="p-clinic-search__buttons">
+				<button type="button" class="p-clinic-search__btn" data-modal="modal-case-category">
+					<span class="p-clinic-search__btn-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+					</span>
+					<span class="p-clinic-search__btn-text">部位から探す</span>
+				</button>
+				<button type="button" class="p-clinic-search__btn" data-modal="modal-clinic-area">
+					<span class="p-clinic-search__btn-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+					</span>
+					<span class="p-clinic-search__btn-text">エリアから探す</span>
+				</button>
+				<button type="button" class="p-clinic-search__btn" data-modal="modal-clinic-list">
+					<span class="p-clinic-search__btn-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+					</span>
+					<span class="p-clinic-search__btn-text">クリニックから探す</span>
+				</button>
+			</div>
+
+			<!-- 選択中の条件表示 -->
+			<div class="p-clinic-search__selected" id="selected-conditions" style="display:none;">
+				<span class="p-clinic-search__selected-label">選択中：</span>
+				<div class="p-clinic-search__selected-tags" id="selected-tags"></div>
+				<button type="button" class="p-clinic-search__clear-btn" id="clear-conditions">クリア</button>
+			</div>
+
+			<!-- 検索実行ボタン -->
+			<button type="button" class="p-clinic-search__search-btn" id="execute-search" style="display:none;">
+				この条件で検索する
+			</button>
+		</div>
+	</div>
+</section>
+
+<!-- モーダル：部位から探す -->
+<div class="p-search-modal" id="modal-case-category">
+	<div class="p-search-modal__overlay"></div>
+	<div class="p-search-modal__content">
+		<div class="p-search-modal__header">
+			<h3 class="p-search-modal__title">部位から探す</h3>
+			<button type="button" class="p-search-modal__close">&times;</button>
+		</div>
+		<div class="p-search-modal__body">
+			<div class="p-search-modal__list">
+				<?php
+				$case_categories = get_terms([
+					'taxonomy' => 'case_category',
+					'hide_empty' => false,
+					'parent' => 0,
+				]);
+				$selected_case_cats = !empty($search_case_category) ? array_map('intval', explode(',', $search_case_category)) : [];
+				if (!empty($case_categories) && !is_wp_error($case_categories)):
+					foreach ($case_categories as $parent_cat):
+						$is_parent_checked = in_array($parent_cat->term_id, $selected_case_cats);
+				?>
+					<div class="p-search-modal__category-group">
+						<label class="p-search-modal__checkbox-label<?php echo $is_parent_checked ? ' is-checked' : ''; ?>">
+							<input type="checkbox" class="p-search-modal__checkbox" name="case_category[]" value="<?php echo esc_attr($parent_cat->term_id); ?>" data-name="<?php echo esc_attr($parent_cat->name); ?>"<?php echo $is_parent_checked ? ' checked' : ''; ?>>
+							<span class="p-search-modal__checkbox-text"><?php echo esc_html($parent_cat->name); ?></span>
+						</label>
+						<?php
+						$child_cats = get_terms([
+							'taxonomy' => 'case_category',
+							'hide_empty' => false,
+							'parent' => $parent_cat->term_id,
+						]);
+						if (!empty($child_cats) && !is_wp_error($child_cats)):
+						?>
+							<div class="p-search-modal__children">
+								<?php foreach ($child_cats as $child_cat):
+									$is_child_checked = in_array($child_cat->term_id, $selected_case_cats);
+								?>
+									<label class="p-search-modal__checkbox-label --child<?php echo $is_child_checked ? ' is-checked' : ''; ?>">
+										<input type="checkbox" class="p-search-modal__checkbox" name="case_category[]" value="<?php echo esc_attr($child_cat->term_id); ?>" data-name="<?php echo esc_attr($child_cat->name); ?>"<?php echo $is_child_checked ? ' checked' : ''; ?>>
+										<span class="p-search-modal__checkbox-text"><?php echo esc_html($child_cat->name); ?></span>
+									</label>
+								<?php endforeach; ?>
+							</div>
+						<?php endif; ?>
+					</div>
+				<?php
+					endforeach;
+				endif;
+				?>
+			</div>
+		</div>
+		<div class="p-search-modal__footer">
+			<button type="button" class="p-search-modal__apply-btn">選択する</button>
+		</div>
+	</div>
+</div>
+
+<!-- モーダル：エリアから探す -->
+<div class="p-search-modal" id="modal-clinic-area">
+	<div class="p-search-modal__overlay"></div>
+	<div class="p-search-modal__content">
+		<div class="p-search-modal__header">
+			<h3 class="p-search-modal__title">エリアから探す</h3>
+			<button type="button" class="p-search-modal__close">&times;</button>
+		</div>
+		<div class="p-search-modal__body">
+			<div class="p-search-modal__list">
+				<?php
+				$parent_areas = get_terms([
+					'taxonomy' => 'clinic_area',
+					'hide_empty' => false,
+					'parent' => 0,
+				]);
+				$selected_areas = !empty($search_clinic_area) ? array_map('intval', explode(',', $search_clinic_area)) : [];
+				if (!empty($parent_areas) && !is_wp_error($parent_areas)):
+					foreach ($parent_areas as $parent_area):
+						$is_parent_checked = in_array($parent_area->term_id, $selected_areas);
+				?>
+					<div class="p-search-modal__category-group">
+						<label class="p-search-modal__checkbox-label<?php echo $is_parent_checked ? ' is-checked' : ''; ?>">
+							<input type="checkbox" class="p-search-modal__checkbox" name="clinic_area[]" value="<?php echo esc_attr($parent_area->term_id); ?>" data-name="<?php echo esc_attr($parent_area->name); ?>"<?php echo $is_parent_checked ? ' checked' : ''; ?>>
+							<span class="p-search-modal__checkbox-text"><?php echo esc_html($parent_area->name); ?></span>
+						</label>
+						<?php
+						$child_areas = get_terms([
+							'taxonomy' => 'clinic_area',
+							'hide_empty' => false,
+							'parent' => $parent_area->term_id,
+						]);
+						if (!empty($child_areas) && !is_wp_error($child_areas)):
+						?>
+							<div class="p-search-modal__children">
+								<?php foreach ($child_areas as $child_area):
+									$is_child_checked = in_array($child_area->term_id, $selected_areas);
+								?>
+									<label class="p-search-modal__checkbox-label --child<?php echo $is_child_checked ? ' is-checked' : ''; ?>">
+										<input type="checkbox" class="p-search-modal__checkbox" name="clinic_area[]" value="<?php echo esc_attr($child_area->term_id); ?>" data-name="<?php echo esc_attr($child_area->name); ?>"<?php echo $is_child_checked ? ' checked' : ''; ?>>
+										<span class="p-search-modal__checkbox-text"><?php echo esc_html($child_area->name); ?></span>
+									</label>
+								<?php endforeach; ?>
+							</div>
+						<?php endif; ?>
+					</div>
+				<?php
+					endforeach;
+				endif;
+				?>
+			</div>
+		</div>
+		<div class="p-search-modal__footer">
+			<button type="button" class="p-search-modal__apply-btn">選択する</button>
+		</div>
+	</div>
+</div>
+
+<!-- モーダル：クリニックから探す -->
+<div class="p-search-modal" id="modal-clinic-list">
+	<div class="p-search-modal__overlay"></div>
+	<div class="p-search-modal__content">
+		<div class="p-search-modal__header">
+			<h3 class="p-search-modal__title">クリニックから探す</h3>
+			<button type="button" class="p-search-modal__close">&times;</button>
+		</div>
+		<div class="p-search-modal__body">
+			<div class="p-search-modal__search-box">
+				<input type="text" class="p-search-modal__filter-input" id="clinic-filter-input" placeholder="クリニック名で絞り込み">
+			</div>
+			<div class="p-search-modal__list p-search-modal__clinic-list">
+				<?php
+				$clinics = get_posts([
+					'post_type' => 'clinic',
+					'posts_per_page' => -1,
+					'orderby' => 'title',
+					'order' => 'ASC',
+					'post_status' => 'publish',
+				]);
+				if (!empty($clinics)):
+					foreach ($clinics as $clinic):
+				?>
+					<a href="<?php echo esc_url(get_permalink($clinic->ID)); ?>" class="p-search-modal__clinic-item" data-name="<?php echo esc_attr($clinic->post_title); ?>">
+						<?php echo esc_html($clinic->post_title); ?>
+					</a>
+				<?php
+					endforeach;
+				endif;
+				?>
+			</div>
+		</div>
+	</div>
+</div>
 
 <?php if ($is_search): ?>
 <!-- 検索結果ヘッダー -->
 <section class="sec-clinic-search-result">
 	<div class="sec-in">
 		<div class="clinic-search-result-header">
-			<h2 class="clinic-search-result-title">検索結果</h2>
+			<h2 class="clinic-search-result-title">検索結果 <span class="clinic-search-result-count"><?php echo esc_html($search_result_count); ?>件</span></h2>
 			<div class="clinic-search-result-conditions">
 				<?php if ($search_keyword): ?>
 					<span class="clinic-search-result-tag">キーワード: <?php echo esc_html($search_keyword); ?></span>
@@ -53,17 +295,6 @@ $search_clinic_area = isset($_GET['search_clinic_area']) ? sanitize_text_field($
 	</div>
 </section>
 <?php endif; ?>
-
-<section class="sec-clinic" id="a-clinic">
-	<div class="sec-in">
-		<div class="clinic-category-btns" style="text-align:center; margin:30px 0;">
-			<?php foreach ($terms as $term): ?>
-				<a class="clinic-category-btn" href="<?php echo esc_url(get_term_link($term)); ?>"><?php echo esc_html($term->name); ?></a>
-			<?php endforeach; ?>
-			<a class="clinic-category-btn" href="<?php echo esc_url(get_post_type_archive_link('clinic')); ?>">すべて</a>
-		</div>
-	</div>
-</section>
 
 
 <section class="sec-clinic" id="a-clinic">
