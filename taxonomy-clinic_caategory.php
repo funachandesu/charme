@@ -104,7 +104,7 @@ $current_term = get_queried_object();
                                                 </a>
                                             </h3>
                                             <span class="img">
-                                                <a target="_blank" href="<?php echo esc_url($website); ?>">
+                                                <a target="_blank" href="<?php the_permalink(); ?>">
                                                     <?php if (!empty($logo)): ?>
                                                         <img src="<?php echo esc_url($logo); ?>" alt="" class="img-full">
                                                     <?php else: ?>

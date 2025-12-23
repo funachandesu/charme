@@ -61,7 +61,7 @@ $terms = get_terms([
 											<div class="archive-gallery-scroll">
 												<?php foreach ($gallery as $image_url): ?>
 													<div class="archive-gallery-item">
-														<a href="<?php the_permalink(); ?>" target="_blank" rel="noopener noreferrer">
+														<a href="<?php the_permalink(); ?>">
 															<img src="<?php echo esc_url($image_url); ?>" alt="" />
 														</a>
 													</div>
@@ -72,7 +72,7 @@ $terms = get_terms([
 										<section class="archive-sec-galley">
 											<div class="archive-gallery-scroll">
 												<div class="archive-gallery-item">
-													<a href="<?php the_permalink(); ?>" target="_blank" rel="noopener noreferrer">
+													<a href="<?php the_permalink(); ?>">
 														<img src="https://charme-beauty.jp/wp-content/uploads/charme_blank.jpg" alt="" />
 													</a>
 												</div>
@@ -88,7 +88,7 @@ $terms = get_terms([
 												</a>
 											</h3>
 											<span class="img">
-												<a target="_blank" href="<?php echo esc_url($website); ?>">
+												<a target="_blank" href="<?php the_permalink(); ?>">
 													<?php if (!empty($logo)): ?>
 														<img src="<?php echo esc_url($logo); ?>" alt="" class="img-full">
 													<?php else: ?>
