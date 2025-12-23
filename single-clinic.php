@@ -111,6 +111,37 @@
         </ul>
       </div><!-- /.header -->
 
+              <!-- シャルム限定割引メニュー -->
+              <?php if (have_rows('charme_discount_menus')): ?>
+          <section class="sec-discount-menu">
+            <h4>シャルム限定割引メニュー</h4>
+            <div class="discount-menu-list">
+              <?php while (have_rows('charme_discount_menus')): the_row();
+                $menu_name = get_sub_field('menu_name');
+                $price_before = get_sub_field('price_before');
+                $price_after = get_sub_field('price_after');
+                $menu_description = get_sub_field('menu_description');
+              ?>
+                <div class="discount-menu-item">
+                  <div class="discount-menu-header">
+                    <h5 class="discount-menu-name"><?php echo esc_html($menu_name); ?></h5>
+                    <div class="discount-menu-price">
+                      <?php if ($price_before): ?>
+                        <span class="price-before"><?php echo esc_html($price_before); ?>円</span>
+                        <span class="price-arrow">→</span>
+                      <?php endif; ?>
+                      <span class="price-after"><?php echo esc_html($price_after); ?>円</span>
+                    </div>
+                  </div>
+                  <?php if ($menu_description): ?>
+                    <p class="discount-menu-description"><?php echo nl2br(esc_html($menu_description)); ?></p>
+                  <?php endif; ?>
+                </div>
+              <?php endwhile; ?>
+            </div>
+          </section>
+        <?php endif; ?>
+
       <div class="main">
         <!-- 院長紹介 -->
         <?php if (get_field('doctor_name')): ?>

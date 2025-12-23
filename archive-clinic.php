@@ -128,6 +128,38 @@ $terms = get_terms([
 											<?php } ?>
 										</div>
 
+										<!-- シャルム限定割引メニュー（一覧表示用） -->
+										<?php if (have_rows('charme_discount_menus', $clinic_id)): ?>
+											<a href="<?php the_permalink(); ?>" class="discount-menu-preview-link">
+												<div class="discount-menu-preview">
+													<span class="discount-menu-badge">シャルム限定割引あり</span>
+													<ul class="discount-menu-list-preview">
+														<?php
+														$menu_count = 0;
+														while (have_rows('charme_discount_menus', $clinic_id)): the_row();
+															if ($menu_count >= 3) break;
+															$menu_name = get_sub_field('menu_name');
+															$price_before = get_sub_field('price_before');
+															$price_after = get_sub_field('price_after');
+														?>
+															<li>
+																<span class="menu-name"><?php echo esc_html($menu_name); ?></span>
+																<span class="menu-price">
+																	<?php if ($price_before): ?>
+																		<span class="price-before"><?php echo esc_html($price_before); ?>円</span>→
+																	<?php endif; ?>
+																	<span class="price-after"><?php echo esc_html($price_after); ?>円</span>
+																</span>
+															</li>
+														<?php
+															$menu_count++;
+														endwhile;
+														?>
+													</ul>
+												</div>
+											</a>
+										<?php endif; ?>
+
 										<a class="readmore" href="<?php the_permalink(); ?>">
 											<img src="<?php echo esc_url(get_template_directory_uri()); ?>/imgs/common/readmore.png" alt="read more">
 										</a>

@@ -1,0 +1,160 @@
+[
+    {
+        "key": "group_charme_discount_menu",
+        "title": "シャルム限定割引メニュー",
+        "fields": [
+            {
+                "key": "field_charme_discount_menus",
+                "label": "シャルム限定割引メニュー",
+                "name": "charme_discount_menus",
+                "aria-label": "",
+                "type": "repeater",
+                "instructions": "シャルム限定の割引メニューを追加してください",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "pagination": 0,
+                "min": 0,
+                "max": 0,
+                "collapsed": "field_menu_name",
+                "button_label": "メニューを追加",
+                "rows_per_page": 20,
+                "sub_fields": [
+                    {
+                        "key": "field_menu_name",
+                        "label": "メニュー名",
+                        "name": "menu_name",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "100",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "例：二重埋没法",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_charme_discount_menus"
+                    },
+                    {
+                        "key": "field_price_before",
+                        "label": "割引前料金",
+                        "name": "price_before",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "円は自動で表示されます",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "例：100,000",
+                        "prepend": "",
+                        "append": "円",
+                        "parent_repeater": "field_charme_discount_menus"
+                    },
+                    {
+                        "key": "field_price_after",
+                        "label": "割引後料金",
+                        "name": "price_after",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "円は自動で表示されます",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "例：80,000",
+                        "prepend": "",
+                        "append": "円",
+                        "parent_repeater": "field_charme_discount_menus"
+                    },
+                    {
+                        "key": "field_menu_case_category",
+                        "label": "症例カテゴリ",
+                        "name": "menu_case_category",
+                        "aria-label": "",
+                        "type": "taxonomy",
+                        "instructions": "このメニューに関連する症例カテゴリを選択（親カテゴリ・子カテゴリ両方選択可）",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "100",
+                            "class": "",
+                            "id": ""
+                        },
+                        "taxonomy": "case_category",
+                        "add_term": 0,
+                        "save_terms": 0,
+                        "load_terms": 0,
+                        "return_format": "object",
+                        "field_type": "checkbox",
+                        "allow_null": 1,
+                        "bidirectional": 0,
+                        "multiple": 0,
+                        "bidirectional_target": [],
+                        "parent_repeater": "field_charme_discount_menus"
+                    },
+                    {
+                        "key": "field_menu_description",
+                        "label": "詳細説明",
+                        "name": "menu_description",
+                        "aria-label": "",
+                        "type": "textarea",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "100",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "rows": 3,
+                        "placeholder": "メニューの詳細説明を入力してください",
+                        "new_lines": "br",
+                        "parent_repeater": "field_charme_discount_menus"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "clinic"
+                }
+            ]
+        ],
+        "menu_order": 10,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "シャルム限定の割引メニューを管理するためのフィールドグループ",
+        "show_in_rest": 0
+    }
+]
