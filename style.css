@@ -9268,6 +9268,7 @@ h3.title-ja-about2 {
 
 .p-clinic-search__input {
     flex: 1;
+    min-width: 0;
     padding: 14px 20px;
     border: none;
     font-size: 15px;
@@ -9288,6 +9289,7 @@ h3.title-ja-about2 {
     align-items: center;
     justify-content: center;
     transition: background 0.3s;
+    flex-shrink: 0;
 }
 
 .p-clinic-search__submit-btn:hover {
