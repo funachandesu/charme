@@ -1054,3 +1054,84 @@ function charme_enqueue_clinic_search_scripts()
     }
 }
 add_action('wp_enqueue_scripts', 'charme_enqueue_clinic_search_scripts');
+
+/**
+ * クリニック検索でカスタムフィールドとタクソノミーも検索対象に含める
+ */
+function charme_clinic_extended_search($search, $query)
+{
+    global $wpdb;
+
+    if (is_admin() || !$query->is_main_query()) {
+        return $search;
+    }
+
+    // クリニックアーカイブでのフリーワード検索のみ対象
+    if (!is_post_type_archive('clinic') || empty($_GET['clinic_keyword'])) {
+        return $search;
+    }
+
+    $keyword = sanitize_text_field($_GET['clinic_keyword']);
+    if (empty($keyword)) {
+        return $search;
+    }
+
+    $like = '%' . $wpdb->esc_like($keyword) . '%';
+
+    // 検索対象のカスタムフィールド
+    $meta_keys = array(
+        'address',      // 住所
+        'access',       // アクセス
+        'tel',          // 電話番号
+        'hours',        // 営業時間
+        'holiday',      // 休日
+        'doctor_name',  // 医師名
+        'doctor_info',  // 医師情報
+        'features_text', // 特徴テキスト
+    );
+
+    // カスタムフィールドを検索するサブクエリを構築
+    $meta_key_placeholders = implode(',', array_fill(0, count($meta_keys), '%s'));
+    $meta_query_params = array_merge($meta_keys, array($like));
+
+    $meta_search_sql = $wpdb->prepare(
+        "SELECT DISTINCT post_id FROM {$wpdb->postmeta}
+         WHERE meta_key IN ({$meta_key_placeholders})
+         AND meta_value LIKE %s",
+        ...$meta_query_params
+    );
+
+    // ACFリピーターフィールド（charme_discount_menus）内のmenu_titleも検索
+    $repeater_search_sql = $wpdb->prepare(
+        "SELECT DISTINCT post_id FROM {$wpdb->postmeta}
+         WHERE meta_key LIKE %s
+         AND meta_value LIKE %s",
+        $wpdb->esc_like('charme_discount_menus_') . '%' . $wpdb->esc_like('_menu_title'),
+        $like
+    );
+
+    // タクソノミー（clinic_area, clinic_caategory）を検索するサブクエリ
+    $taxonomy_search_sql = $wpdb->prepare(
+        "SELECT DISTINCT tr.object_id FROM {$wpdb->term_relationships} tr
+         INNER JOIN {$wpdb->term_taxonomy} tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
+         INNER JOIN {$wpdb->terms} t ON tt.term_id = t.term_id
+         WHERE tt.taxonomy IN ('clinic_area', 'clinic_caategory')
+         AND (t.name LIKE %s OR t.slug LIKE %s)",
+        $like,
+        $like
+    );
+
+    // 元の検索条件に追加
+    // WordPress標準の検索（タイトル・本文）に加えて、カスタムフィールドとタクソノミーも検索
+    $extended_search = " AND (
+        {$wpdb->posts}.ID IN ({$meta_search_sql})
+        OR {$wpdb->posts}.ID IN ({$repeater_search_sql})
+        OR {$wpdb->posts}.ID IN ({$taxonomy_search_sql})
+        OR (({$wpdb->posts}.post_title LIKE %s) OR ({$wpdb->posts}.post_content LIKE %s))
+    )";
+
+    $search = $wpdb->prepare($extended_search, $like, $like);
+
+    return $search;
+}
+add_filter('posts_search', 'charme_clinic_extended_search', 10, 2);
