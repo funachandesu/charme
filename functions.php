@@ -920,11 +920,22 @@ function charme_clinic_search_query($query)
         $has_meta_query = false;
         $has_tax_query = false;
 
-        // フリーワード検索
+        // フリーワード検索（カスタムフィールド・タクソノミーも含む）
         if (!empty($_GET['clinic_keyword'])) {
             $keyword = sanitize_text_field($_GET['clinic_keyword']);
-            $query->set('s', $keyword);
+            $keyword_clinic_ids = charme_get_clinics_by_keyword($keyword);
+
+            // 標準の検索パラメータを無効化（post__inで制御するため）
+            $query->set('s', '');
+
+            if (!empty($keyword_clinic_ids)) {
+                $query->set('post__in', $keyword_clinic_ids);
+                echo '<!-- PRE_GET_POSTS SET: ' . implode(',', $keyword_clinic_ids) . ' -->';
+            } else {
+                $query->set('post__in', array(0));
+            }
         }
+        echo '<!-- PRE_GET_POSTS EXECUTED for clinic archive -->';
 
         // 部位（case_category）からの検索
         // charme_discount_menusのmenu_case_categoryに該当するクリニックを取得
@@ -1056,82 +1067,111 @@ function charme_enqueue_clinic_search_scripts()
 add_action('wp_enqueue_scripts', 'charme_enqueue_clinic_search_scripts');
 
 /**
- * クリニック検索でカスタムフィールドとタクソノミーも検索対象に含める
+ * キーワードでクリニックを検索（タイトル、本文、カスタムフィールド、タクソノミー）
  */
-function charme_clinic_extended_search($search, $query)
+function charme_get_clinics_by_keyword($keyword)
 {
     global $wpdb;
 
-    if (is_admin() || !$query->is_main_query()) {
-        return $search;
-    }
-
-    // クリニックアーカイブでのフリーワード検索のみ対象
-    if (!is_post_type_archive('clinic') || empty($_GET['clinic_keyword'])) {
-        return $search;
-    }
-
-    $keyword = sanitize_text_field($_GET['clinic_keyword']);
-    if (empty($keyword)) {
-        return $search;
-    }
-
     $like = '%' . $wpdb->esc_like($keyword) . '%';
+    $clinic_ids = array();
+    $debug = array();
 
-    // 検索対象のカスタムフィールド
+    // 1. タイトル・本文で検索
+    $title_content_ids = $wpdb->get_col($wpdb->prepare(
+        "SELECT DISTINCT ID FROM {$wpdb->posts}
+         WHERE post_type = 'clinic'
+         AND post_status = 'publish'
+         AND (post_title LIKE %s OR post_content LIKE %s)",
+        $like,
+        $like
+    ));
+    $debug['title_content'] = $title_content_ids;
+    $clinic_ids = array_merge($clinic_ids, $title_content_ids);
+
+    // 2. カスタムフィールドで検索
     $meta_keys = array(
-        'address',      // 住所
-        'access',       // アクセス
-        'tel',          // 電話番号
-        'hours',        // 営業時間
-        'holiday',      // 休日
-        'doctor_name',  // 医師名
-        'doctor_info',  // 医師情報
-        'features_text', // 特徴テキスト
+        'address',
+        'access',
+        'tel',
+        'hours',
+        'holiday',
+        'doctor_name',
+        'doctor_info',
+        'features_text',
     );
 
-    // カスタムフィールドを検索するサブクエリを構築
     $meta_key_placeholders = implode(',', array_fill(0, count($meta_keys), '%s'));
     $meta_query_params = array_merge($meta_keys, array($like));
 
-    $meta_search_sql = $wpdb->prepare(
-        "SELECT DISTINCT post_id FROM {$wpdb->postmeta}
-         WHERE meta_key IN ({$meta_key_placeholders})
-         AND meta_value LIKE %s",
+    $meta_ids = $wpdb->get_col($wpdb->prepare(
+        "SELECT DISTINCT pm.post_id FROM {$wpdb->postmeta} pm
+         INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
+         WHERE p.post_type = 'clinic'
+         AND p.post_status = 'publish'
+         AND pm.meta_key IN ({$meta_key_placeholders})
+         AND pm.meta_value LIKE %s",
         ...$meta_query_params
-    );
+    ));
+    $clinic_ids = array_merge($clinic_ids, $meta_ids);
 
-    // ACFリピーターフィールド（charme_discount_menus）内のmenu_titleも検索
-    $repeater_search_sql = $wpdb->prepare(
-        "SELECT DISTINCT post_id FROM {$wpdb->postmeta}
-         WHERE meta_key LIKE %s
-         AND meta_value LIKE %s",
-        $wpdb->esc_like('charme_discount_menus_') . '%' . $wpdb->esc_like('_menu_title'),
+    // 3. ACFリピーターフィールド（menu_title）で検索
+    $repeater_ids = $wpdb->get_col($wpdb->prepare(
+        "SELECT DISTINCT pm.post_id FROM {$wpdb->postmeta} pm
+         INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
+         WHERE p.post_type = 'clinic'
+         AND p.post_status = 'publish'
+         AND pm.meta_key LIKE %s
+         AND pm.meta_value LIKE %s",
+        'charme_discount_menus_%_menu_title',
         $like
-    );
+    ));
+    $clinic_ids = array_merge($clinic_ids, $repeater_ids);
 
-    // タクソノミー（clinic_area, clinic_caategory）を検索するサブクエリ
-    $taxonomy_search_sql = $wpdb->prepare(
-        "SELECT DISTINCT tr.object_id FROM {$wpdb->term_relationships} tr
-         INNER JOIN {$wpdb->term_taxonomy} tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
-         INNER JOIN {$wpdb->terms} t ON tt.term_id = t.term_id
-         WHERE tt.taxonomy IN ('clinic_area', 'clinic_caategory')
-         AND (t.name LIKE %s OR t.slug LIKE %s)",
-        $like,
-        $like
-    );
+    // 4. タクソノミー（clinic_area, clinic_caategory）で検索
+    $taxonomies = array('clinic_area', 'clinic_caategory');
+    $matching_term_ids = array();
 
-    // 元の検索条件に追加
-    // WordPress標準の検索（タイトル・本文）に加えて、カスタムフィールドとタクソノミーも検索
-    $extended_search = " AND (
-        {$wpdb->posts}.ID IN ({$meta_search_sql})
-        OR {$wpdb->posts}.ID IN ({$repeater_search_sql})
-        OR {$wpdb->posts}.ID IN ({$taxonomy_search_sql})
-        OR (({$wpdb->posts}.post_title LIKE %s) OR ({$wpdb->posts}.post_content LIKE %s))
-    )";
+    foreach ($taxonomies as $taxonomy) {
+        $terms = get_terms(array(
+            'taxonomy' => $taxonomy,
+            'hide_empty' => false,
+            'name__like' => $keyword,
+        ));
 
-    $search = $wpdb->prepare($extended_search, $like, $like);
+        if (!is_wp_error($terms) && !empty($terms)) {
+            foreach ($terms as $term) {
+                $matching_term_ids[] = $term->term_id;
+                $children = get_term_children($term->term_id, $taxonomy);
+                if (!is_wp_error($children) && !empty($children)) {
+                    $matching_term_ids = array_merge($matching_term_ids, $children);
+                }
+            }
+        }
+    }
 
-    return $search;
+    if (!empty($matching_term_ids)) {
+        $matching_term_ids = array_unique(array_map('intval', $matching_term_ids));
+        $term_ids_str = implode(',', $matching_term_ids);
+
+        $taxonomy_ids = $wpdb->get_col(
+            "SELECT DISTINCT tr.object_id FROM {$wpdb->term_relationships} tr
+             INNER JOIN {$wpdb->posts} p ON tr.object_id = p.ID
+             INNER JOIN {$wpdb->term_taxonomy} tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
+             WHERE p.post_type = 'clinic'
+             AND p.post_status = 'publish'
+             AND tt.term_id IN ({$term_ids_str})"
+        );
+        $debug['taxonomy'] = $taxonomy_ids;
+        $debug['matching_terms'] = $matching_term_ids;
+        $clinic_ids = array_merge($clinic_ids, $taxonomy_ids);
+    }
+
+    $final_ids = array_unique(array_map('intval', $clinic_ids));
+    $debug['final'] = $final_ids;
+
+    // デバッグ出力（HTMLコメントで）
+    echo '<!-- KEYWORD SEARCH DEBUG: ' . esc_html(print_r($debug, true)) . ' -->';
+
+    return $final_ids;
 }
-add_filter('posts_search', 'charme_clinic_extended_search', 10, 2);

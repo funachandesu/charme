@@ -24,7 +24,12 @@ $count_query_args = [
 	'fields'         => 'ids',
 ];
 if (!empty($search_keyword)) {
-	$count_query_args['s'] = $search_keyword;
+	$keyword_clinic_ids_for_count = charme_get_clinics_by_keyword($search_keyword);
+	if (!empty($keyword_clinic_ids_for_count)) {
+		$count_query_args['post__in'] = $keyword_clinic_ids_for_count;
+	} else {
+		$count_query_args['post__in'] = array(0);
+	}
 }
 if (!empty($search_case_category)) {
 	$case_category_ids_for_count = array_map('intval', explode(',', $search_case_category));
@@ -317,9 +322,14 @@ wp_reset_postdata();
 					'paged'          => $paged,
 				];
 
-				// フリーワード検索
+				// フリーワード検索（カスタムフィールド・タクソノミーも含む）
 				if (!empty($search_keyword)) {
-					$query_args['s'] = $search_keyword;
+					$keyword_clinic_ids = charme_get_clinics_by_keyword($search_keyword);
+					if (!empty($keyword_clinic_ids)) {
+						$query_args['post__in'] = $keyword_clinic_ids;
+					} else {
+						$query_args['post__in'] = array(0);
+					}
 				}
 
 				// 部位（case_category）からの検索
